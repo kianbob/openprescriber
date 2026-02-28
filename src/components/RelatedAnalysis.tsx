@@ -17,6 +17,8 @@ const articles = [
   { href: '/analysis/top-drugs-analysis', title: 'The Most Expensive Drugs in Medicare', tag: 'Drugs' },
   { href: '/analysis/medicare-drug-spending', title: 'Medicare Drug Spending Explainer', tag: 'Cost' },
   { href: '/analysis/state-of-prescribing', title: '2023 Report Card', tag: 'Annual' },
+  { href: '/analysis/rural-prescribing', title: 'Rural Prescribing Problem', tag: 'Geography' },
+  { href: '/analysis/polypharmacy', title: 'The Polypharmacy Problem', tag: 'Risk' },
 ]
 
 export default function RelatedAnalysis({ current }: { current: string }) {

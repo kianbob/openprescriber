@@ -25,6 +25,8 @@ const articles = [
   { title: 'The Ozempic Effect: GLP-1 Drugs Reshaping Medicare', slug: 'ozempic-effect', desc: 'GLP-1 drugs now cost Medicare $8.4 billion annually — tripling since 2019. The fastest-growing drug category analyzed.', emoji: '💉' },
   { title: 'Anatomy of a Pill Mill', slug: 'pill-mills', desc: 'What does a pill mill look like in Medicare data? The statistical fingerprints of high-risk opioid prescribers.', emoji: '🏭' },
   { title: 'The State of Prescribing: 2023 Report Card', slug: 'state-of-prescribing', desc: '10 key findings from 1.38 million prescribers and $275.6 billion in drug costs. The annual data report card.', emoji: '📋' },
+  { title: 'Rural America\'s Prescribing Problem', slug: 'rural-prescribing', desc: 'Rural providers have higher opioid rates, fewer generics, and higher per-patient costs. The urban-rural prescribing divide.', emoji: '🌾' },
+  { title: 'The Polypharmacy Problem', slug: 'polypharmacy', desc: 'Medicare patients fill 31+ prescriptions per year on average. When too many drugs meet too little coordination.', emoji: '💊' },
 ]
 
 export default function AnalysisPage() {

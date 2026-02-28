@@ -15,6 +15,8 @@ const articles = [
   { slug: 'ozempic-effect', title: 'The Ozempic Effect: How GLP-1 Drugs Are Reshaping Medicare Spending', date: '2026-02-28' },
   { slug: 'pill-mills', title: 'Anatomy of a Pill Mill: What Opioid Data Patterns Reveal', date: '2026-02-28' },
   { slug: 'state-of-prescribing', title: 'The State of Prescribing: 2023 Medicare Part D Report Card', date: '2026-02-28' },
+  { slug: 'rural-prescribing', title: 'Rural America\'s Prescribing Problem: Why Small-Town Medicare Costs More', date: '2026-02-28' },
+  { slug: 'polypharmacy', title: 'The Polypharmacy Problem: When Medicare Patients Take Too Many Drugs', date: '2026-02-28' },
 ]
 
 // Non-analysis content pages for RSS
