@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { loadData } from '@/lib/server-utils'
@@ -33,7 +34,7 @@ export default function RiskExplorerPage() {
       <ShareButtons title="Medicare Part D Risk Explorer" />
 
       <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-800 mb-6">
-        <strong>⚠️</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud or malpractice. Many flagged patterns have legitimate clinical explanations.
+        <strong>⚠️</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud or malpractice. Many flagged patterns have legitimate clinical explanations. Also see <Link href="/ml-fraud-detection" className="text-amber-800 font-medium underline">ML Fraud Detection</Link> for machine learning-based analysis.
       </div>
 
       <RiskExplorerClient providers={providers} />

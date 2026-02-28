@@ -179,7 +179,7 @@ export default function FraudRiskMethodologyPage() {
           Beyond the rule-based model, OpenPrescriber now includes a <strong>machine learning fraud detection system</strong> trained on 281 confirmed fraud cases from the OIG LEIE exclusion list. The ML model — a Bagged Decision Trees ensemble — analyzes the same 20 features and identifies <strong>non-obvious pattern combinations</strong> that hand-tuned rules miss.
         </p>
         <p>
-          The ML model flagged <strong>4,680 providers</strong> at ≥75% confidence, including 2,579 that the rule-based system does not flag. Cross-validated performance: 78.9% precision, 60.1% recall. See the <Link href="/ml-fraud-detection" className="text-primary hover:underline">ML Fraud Detection page</Link> for full results and the complete list of flagged providers.
+          The ML model flagged <strong>4,100+ providers</strong> at ≥80% confidence. Cross-validated performance: 83% precision, 66.6% recall. See the <Link href="/ml-fraud-detection" className="text-primary hover:underline">ML Fraud Detection page</Link> for full results and the complete list of flagged providers.
         </p>
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">

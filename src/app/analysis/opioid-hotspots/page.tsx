@@ -79,6 +79,7 @@ export default function OpioidHotspotsPage() {
             <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">☠️ Dangerous Combos</Link>
             <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
             <Link href="/states" className="text-sm text-primary hover:underline">🗺️ State Profiles</Link>
+            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">🤖 ML Fraud Detection</Link>
           </div>
         </div>
       </div>

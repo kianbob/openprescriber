@@ -58,8 +58,9 @@ export default function ExcludedStillPrescribingPage() {
           Regardless of the reason, the presence of excluded NPIs in active prescribing data highlights a system gap. If CMS cannot reliably cross-reference its own prescribing data against OIG&apos;s exclusion list, it raises questions about oversight effectiveness.
         </p>
 
-        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800">View all matches: <Link href="/excluded" className="text-primary font-medium hover:underline">Excluded Providers List →</Link></p>
+          <p className="text-sm text-blue-800">These 372 confirmed cases also serve as training data for our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">🤖 ML Fraud Detection model →</Link>, which identifies 4,100+ additional providers with similar prescribing patterns.</p>
         </div>
       </div>
     </div>

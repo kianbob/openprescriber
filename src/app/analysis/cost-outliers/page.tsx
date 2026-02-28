@@ -67,8 +67,9 @@ export default function CostOutliersPage() {
           Raw cost totals can be misleading — a provider seeing 10,000 patients will naturally spend more than one seeing 100. Cost per beneficiary is a more useful metric. Our top-cost providers range from {fmtMoney(top10[top10.length - 1]?.costPerBene || 0)} to {fmtMoney(top10[0]?.costPerBene || 0)} per patient.
         </p>
 
-        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800">Explore the data: <Link href="/brand-vs-generic" className="text-primary font-medium hover:underline">Brand vs Generic Analysis →</Link></p>
+          <p className="text-sm text-blue-800">Cost outliers are a key input to our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">🤖 ML Fraud Detection model →</Link></p>
         </div>
       </div>
     </div>

@@ -75,7 +75,7 @@ export default function MLFraudPage() {
         </div>
         <div className="bg-white rounded-xl shadow-sm p-4 text-center border">
           <p className="text-2xl font-bold text-red-600">{fmt(data.totalFlagged)}</p>
-          <p className="text-xs text-gray-500">ML Flagged (≥75%)</p>
+          <p className="text-xs text-gray-500">ML Flagged (≥80%)</p>
         </div>
         <div className="bg-white rounded-xl shadow-sm p-4 text-center border">
           <p className="text-2xl font-bold text-green-600">{(data.recall * 100).toFixed(1)}%</p>
