@@ -21,6 +21,9 @@ const articles = [
   { title: 'The Drugs That Cost Medicare Billions', slug: 'top-drugs-analysis', desc: 'Eliquis: $7.75B. Ozempic: $4.3B. The top 20 drugs consume 22% of all Part D spending.', emoji: '💊' },
   { title: 'How We Score Prescribing Risk', slug: 'fraud-risk-methodology', desc: 'Our 10-component model plus ML fraud detection: specialty-adjusted z-scores, drug combinations, OIG matching, and machine learning.', emoji: '🔍' },
   { title: 'Where Does $275.6 Billion Go?', slug: 'medicare-drug-spending', desc: 'The big picture of Medicare Part D spending — who pays, where it flows, and policy implications.', emoji: '🏛️' },
+  { title: 'Nurse Practitioners: The Most Flagged Prescriber Group', slug: 'nurse-practitioners', desc: 'NPs are 19% of prescribers but 49% of flagged providers. What structural factors drive this disproportionate risk signal?', emoji: '👩‍⚕️' },
+  { title: 'The Ozempic Effect: GLP-1 Drugs Reshaping Medicare', slug: 'ozempic-effect', desc: 'GLP-1 drugs now cost Medicare $8.4 billion annually — tripling since 2019. The fastest-growing drug category analyzed.', emoji: '💉' },
+  { title: 'Anatomy of a Pill Mill', slug: 'pill-mills', desc: 'What does a pill mill look like in Medicare data? The statistical fingerprints of high-risk opioid prescribers.', emoji: '🏭' },
 ]
 
 export default function AnalysisPage() {

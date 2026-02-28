@@ -3,8 +3,11 @@ import Link from 'next/link'
 const articles = [
   { href: '/analysis/opioid-crisis', title: 'The Opioid Prescribing Crisis in Medicare', tag: 'Opioids' },
   { href: '/analysis/opioid-hotspots', title: 'Geographic Opioid Hotspots', tag: 'Opioids' },
+  { href: '/analysis/pill-mills', title: 'Anatomy of a Pill Mill', tag: 'Opioids' },
   { href: '/analysis/cost-outliers', title: 'Cost Outlier Providers', tag: 'Cost' },
   { href: '/analysis/brand-generic-gap', title: 'The Brand vs Generic Gap', tag: 'Cost' },
+  { href: '/analysis/ozempic-effect', title: 'The Ozempic Effect: GLP-1 Drugs', tag: 'Drugs' },
+  { href: '/analysis/nurse-practitioners', title: 'NPs: The Most Flagged Group', tag: 'Specialty' },
   { href: '/analysis/fraud-risk-methodology', title: 'How We Score Fraud Risk', tag: 'Methodology' },
   { href: '/analysis/excluded-still-prescribing', title: 'Excluded Providers Still Prescribing', tag: 'Fraud' },
   { href: '/analysis/antipsychotic-elderly', title: 'Antipsychotic Use in the Elderly', tag: 'Risk' },

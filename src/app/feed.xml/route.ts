@@ -11,6 +11,9 @@ const articles = [
   { slug: 'top-drugs-analysis', title: 'The Drugs That Cost Medicare Billions', date: '2026-02-27' },
   { slug: 'fraud-risk-methodology', title: 'How We Score Prescribing Risk', date: '2026-02-27' },
   { slug: 'medicare-drug-spending', title: 'Where Does $275.6 Billion Go? Medicare Part D Spending Explained', date: '2026-02-27' },
+  { slug: 'nurse-practitioners', title: 'Nurse Practitioners: The Largest and Most Flagged Prescriber Group', date: '2026-02-28' },
+  { slug: 'ozempic-effect', title: 'The Ozempic Effect: How GLP-1 Drugs Are Reshaping Medicare Spending', date: '2026-02-28' },
+  { slug: 'pill-mills', title: 'Anatomy of a Pill Mill: What Opioid Data Patterns Reveal', date: '2026-02-28' },
 ]
 
 // Non-analysis content pages for RSS
@@ -23,6 +26,10 @@ const contentPages = [
   { path: '/peer-comparison', title: 'How Does Your Doctor Compare? Specialty-Adjusted Analysis', date: '2026-02-27' },
   { path: '/specialty-profiles', title: 'Specialty Prescribing Profiles: Average Metrics by Medical Specialty', date: '2026-02-27' },
   { path: '/prescription-drug-costs', title: 'Medicare Prescription Drug Costs 2023', date: '2026-02-27' },
+  { path: '/medicare-fraud', title: 'Medicare Fraud: How It Works, How We Detect It', date: '2026-02-28' },
+  { path: '/opioid-prescribers', title: 'Opioid Prescribers in Medicare Part D: State Rankings', date: '2026-02-28' },
+  { path: '/drug-costs', title: 'Medicare Drug Costs: The Most Expensive Drugs in Part D', date: '2026-02-28' },
+  { path: '/medicare-part-d', title: 'Medicare Part D: Complete Guide to Prescription Drug Coverage', date: '2026-02-28' },
 ]
 
 export async function GET() {

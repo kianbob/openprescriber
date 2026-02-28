@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
     '/analysis/prescribing-trends', '/analysis/specialty-deep-dive', '/analysis/geographic-disparities',
     '/analysis/top-drugs-analysis', '/analysis/fraud-risk-methodology', '/analysis/medicare-drug-spending',
+    '/analysis/nurse-practitioners', '/analysis/ozempic-effect', '/analysis/pill-mills',
+    '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
   ]
 
   // Provider detail pages
