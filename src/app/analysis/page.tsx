@@ -15,6 +15,12 @@ const articles = [
   { title: 'Geographic Hotspots for Opioid Prescribing', slug: 'opioid-hotspots', desc: 'State-by-state analysis reveals persistent geographic patterns in opioid prescribing.', emoji: '🗺️' },
   { title: 'Excluded but Still Prescribing', slug: 'excluded-still-prescribing', desc: 'We found 62 providers on the OIG exclusion list who appear in active Medicare prescribing data.', emoji: '🚫' },
   { title: 'The Antipsychotic Problem in Elderly Care', slug: 'antipsychotic-elderly', desc: 'Why CMS tracks antipsychotic prescribing to patients 65+ and what the data shows.', emoji: '⚠️' },
+  { title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth', slug: 'prescribing-trends', desc: 'Medicare Part D drug costs surged 50% from $183B to $275.6B in five years. What\'s driving the explosion?', emoji: '📈' },
+  { title: 'Which Medical Specialties Drive the Most Drug Spending?', slug: 'specialty-deep-dive', desc: 'From oncologists generating millions to primary care\'s aggregate impact — specialty prescribing patterns revealed.', emoji: '🩺' },
+  { title: 'Geographic Disparities in Medicare Prescribing', slug: 'geographic-disparities', desc: 'State-level spending and opioid variations reveal a 3x cost gap and persistent rural-urban divides.', emoji: '🌎' },
+  { title: 'The Drugs That Cost Medicare Billions', slug: 'top-drugs-analysis', desc: 'Eliquis: $7.75B. Ozempic: $4.3B. The top 20 drugs consume 22% of all Part D spending.', emoji: '💊' },
+  { title: 'How We Score Prescribing Risk', slug: 'fraud-risk-methodology', desc: 'Deep dive into our multi-factor scoring model — percentiles, flags, and what they mean.', emoji: '🔍' },
+  { title: 'Where Does $275.6 Billion Go?', slug: 'medicare-drug-spending', desc: 'The big picture of Medicare Part D spending — who pays, where it flows, and policy implications.', emoji: '🏛️' },
 ]
 
 export default function AnalysisPage() {

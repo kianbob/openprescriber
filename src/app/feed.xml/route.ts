@@ -5,6 +5,12 @@ const articles = [
   { slug: 'opioid-hotspots', title: 'Opioid Hotspots: Which States Have the Highest Prescribing Rates?', date: '2026-02-27' },
   { slug: 'excluded-still-prescribing', title: 'Excluded But Still Prescribing: LEIE Providers in Medicare', date: '2026-02-27' },
   { slug: 'antipsychotic-elderly', title: 'Antipsychotic Prescribing to Elderly Medicare Patients', date: '2026-02-27' },
+  { slug: 'prescribing-trends', title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth', date: '2026-02-27' },
+  { slug: 'specialty-deep-dive', title: 'Which Medical Specialties Drive the Most Drug Spending?', date: '2026-02-27' },
+  { slug: 'geographic-disparities', title: 'Geographic Disparities in Medicare Prescribing', date: '2026-02-27' },
+  { slug: 'top-drugs-analysis', title: 'The Drugs That Cost Medicare Billions', date: '2026-02-27' },
+  { slug: 'fraud-risk-methodology', title: 'How We Score Prescribing Risk', date: '2026-02-27' },
+  { slug: 'medicare-drug-spending', title: 'Where Does $275.6 Billion Go? Medicare Part D Spending Explained', date: '2026-02-27' },
 ]
 
 export async function GET() {
