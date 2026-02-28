@@ -25,7 +25,7 @@ export function SpecialtyCostChart({ data }: { data: { specialty: string; cost: 
     <div className="h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
-          <Pie data={data.slice(0, 10)} dataKey="cost" nameKey="specialty" cx="50%" cy="50%" outerRadius={100} label={({ specialty, percent }) => `${specialty.slice(0, 15)}… ${(percent * 100).toFixed(0)}%`}>
+          <Pie data={data.slice(0, 10)} dataKey="cost" nameKey="specialty" cx="50%" cy="50%" outerRadius={100} label={({ specialty, percent }) => percent > 0.05 ? `${specialty.slice(0, 15)}… ${(percent * 100).toFixed(0)}%` : ''}>
             {data.slice(0, 10).map((_, i) => <Cell key={i} fill={COLORS[i]} />)}
           </Pie>
           <Tooltip formatter={v => fmtMoney(v as number)} />

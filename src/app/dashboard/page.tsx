@@ -13,7 +13,8 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   const stats = loadData('stats.json')
-  const states = loadData('states.json') as { state: string; cost: number; avgOpioidRate: number }[]
+  const REAL_STATES = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY'.split(','))
+  const states = (loadData('states.json') as { state: string; cost: number; avgOpioidRate: number }[]).filter(s => REAL_STATES.has(s.state))
   const specs = loadData('specialties.json') as { specialty: string; cost: number }[]
 
   const trends = loadData('yearly-trends.json') as { year: number; providers: number; claims: number; cost: number; opioidProv: number; opioidPct: number; highOpioid: number }[]

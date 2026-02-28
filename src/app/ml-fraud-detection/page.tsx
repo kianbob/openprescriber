@@ -47,7 +47,6 @@ export default function MLFraudPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'ML Fraud Detection' }]} />
-      <DisclaimerBanner variant="ml" />
 
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>

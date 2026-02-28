@@ -20,7 +20,7 @@ export default function Footer() {
             <li><Link href="/flagged" className="hover:text-white">Flagged Providers</Link></li>
             <li><Link href="/ml-fraud-detection" className="hover:text-white">ML Fraud Detection</Link></li>
             <li><Link href="/risk-explorer" className="hover:text-white">Risk Explorer</Link></li>
-            <li><Link href="/opioids" className="hover:text-white">Opioid Prescribing</Link></li>
+            <li><Link href="/opioid-prescribers" className="hover:text-white">Opioid Prescribers</Link></li>
             <li><Link href="/dangerous-combinations" className="hover:text-white">Dangerous Combos</Link></li>
             <li><Link href="/brand-vs-generic" className="hover:text-white">Brand vs Generic</Link></li>
             <li><Link href="/ira-negotiation" className="hover:text-white">IRA Drug Prices</Link></li>
@@ -37,6 +37,8 @@ export default function Footer() {
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             <li><Link href="/downloads" className="hover:text-white">Downloads</Link></li>
             <li><Link href="/taxpayer-cost" className="hover:text-white">Taxpayer Cost</Link></li>
+            <li><Link href="/medicare-fraud" className="hover:text-white">Medicare Fraud</Link></li>
+            <li><Link href="/drug-costs" className="hover:text-white">Drug Costs</Link></li>
             <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
           </ul>
         </div>
