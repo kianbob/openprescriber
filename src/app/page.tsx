@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { fmtMoney, fmt, riskBadge } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import { CostTrendChart } from './dashboard/DashboardCharts'
 
 export default function HomePage() {
   const stats = loadData('stats.json')
@@ -8,6 +9,7 @@ export default function HomePage() {
   const highRisk = loadData('high-risk.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; claims: number; cost: number; opioidRate: number; riskScore: number; riskLevel: string; riskFlags: string[]; isExcluded: boolean }[]
   const topOpioid = (loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]).filter(p => p.claims >= 100)
   const topCost = loadData('top-cost.json') as { npi: string; name: string; city: string; state: string; specialty: string; cost: number; claims: number; costPerBene: number; brandPct: number }[]
+  const trends = loadData('yearly-trends.json') as { year: number; providers: number; claims: number; cost: number }[]
   const REAL_STATES = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY'.split(','))
 
   return (
@@ -72,6 +74,20 @@ export default function HomePage() {
             </div>
           </div>
           <Link href="/flagged" className="inline-block mt-4 text-sm text-red-700 font-medium hover:underline">View all flagged providers →</Link>
+        </div>
+      </section>
+
+      {/* Cost Trend */}
+      <section className="max-w-6xl mx-auto px-4 mt-8">
+        <div className="bg-white rounded-xl shadow-sm p-6 border">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-xl font-bold font-[family-name:var(--font-heading)]">Drug Costs: 5-Year Trend</h2>
+              <p className="text-sm text-gray-500">Medicare Part D spending grew 50% from 2019 to 2023</p>
+            </div>
+            <Link href="/dashboard" className="text-sm text-primary hover:underline">Full dashboard →</Link>
+          </div>
+          <CostTrendChart data={trends} />
         </div>
       </section>
 

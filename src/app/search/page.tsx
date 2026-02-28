@@ -4,7 +4,7 @@ import SearchClient from './SearchClient'
 
 export const metadata: Metadata = {
   title: 'Search Medicare Part D Prescribers',
-  description: 'Search 199,000+ Medicare Part D prescribers by name, state, or specialty.',
+  description: 'Search 11,700+ Medicare Part D prescriber profiles by name, NPI, state, or specialty.',
   alternates: { canonical: 'https://www.openprescriber.org/search' },
 }
 

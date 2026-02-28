@@ -6,7 +6,9 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
+import { StateCostTrend, StateOpioidTrend } from './StateCharts'
 
+type StateTrend = { year: number; state: string; providers: number; claims: number; cost: number; opioidProv: number; avgOpioidRate: number }
 type StateData = { state: string; providers: number; claims: number; cost: number; benes: number; opioidProv: number; highOpioid: number; opioidClaims: number; avgOpioidRate: number; costPerBene: number }
 type Provider = { npi: string; name: string; city: string; state: string; specialty: string; claims: number; cost: number; riskLevel: string; opioidRate?: number }
 
@@ -40,6 +42,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
   const stateOpioid = topOpioid.filter(p => p.state === abbr).slice(0, 20)
   const highRisk = loadData('high-risk.json') as (Provider & { riskScore: number; riskLevel: string })[]
   const stateFlagged = highRisk.filter(p => p.state === abbr)
+  const stateYearly = (loadData('state-yearly.json') as Record<string, StateTrend[]>)[abbr] || []
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
@@ -66,6 +69,20 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
           </div>
         ))}
       </div>
+
+      {/* 5-Year Trends */}
+      {stateYearly.length >= 2 && (
+        <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <div className="bg-white rounded-xl shadow-sm p-5 border">
+            <h2 className="text-lg font-bold mb-3">Drug Cost Trends (2019–2023)</h2>
+            <StateCostTrend data={stateYearly} />
+          </div>
+          <div className="bg-white rounded-xl shadow-sm p-5 border">
+            <h2 className="text-lg font-bold mb-3">Opioid Prescribing Trends</h2>
+            <StateOpioidTrend data={stateYearly} />
+          </div>
+        </div>
+      )}
 
       {/* Flagged */}
       {stateFlagged.length > 0 && (

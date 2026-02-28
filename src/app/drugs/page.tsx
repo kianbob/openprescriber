@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { fmtMoney, fmt } from '@/lib/utils'
+import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function DrugsPage() {
             {drugs.map((d, i) => (
               <tr key={d.generic + i} className="hover:bg-gray-50">
                 <td className="px-4 py-2 text-gray-500">{i + 1}</td>
-                <td className="px-4 py-2 font-medium text-gray-900">{d.generic}</td>
+                <td className="px-4 py-2 font-medium"><Link href={`/drugs/${slugify(d.generic)}`} className="text-primary hover:underline">{d.generic}</Link></td>
                 <td className="px-4 py-2 text-gray-500 hidden md:table-cell">{d.brand || '—'}</td>
                 <td className="px-4 py-2 text-right font-mono font-semibold">{fmtMoney(d.cost)}</td>
                 <td className="px-4 py-2 text-right font-mono">{fmt(d.claims)}</td>

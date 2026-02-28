@@ -12,8 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function ExcludedPage() {
-  const highRisk = loadData('high-risk.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; claims: number; cost: number; opioidRate: number; riskScore: number; riskFlags: string[]; isExcluded: boolean }[]
-  const excluded = highRisk.filter(p => p.isExcluded)
+  const excluded = loadData('excluded.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; claims: number; cost: number; opioidRate: number; riskScore: number; riskFlags: string[]; isExcluded: boolean }[]
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
