@@ -23,7 +23,7 @@ export default function CostOutliersPage() {
 
       <div className="prose prose-gray max-w-none mt-6">
         <p className="text-lg text-gray-600">
-          Medicare Part D spent $40.2 billion on prescription drugs in 2023, but spending is heavily concentrated among a relatively small number of providers. The top 1,000 prescribers alone account for a disproportionate share.
+          Medicare Part D spent $275.6 billion on prescription drugs in 2023, but spending is heavily concentrated among a relatively small number of providers. The top 1,000 prescribers alone account for a disproportionate share.
         </p>
 
         <h2>The Top 10 by Total Drug Cost</h2>
