@@ -237,7 +237,11 @@ export default function HomePage() {
             { icon: '🔴', label: 'Flagged', href: '/flagged', sub: 'Risk-scored providers' },
             { icon: '💉', label: 'Opioids', href: '/opioids', sub: 'Prescribing patterns' },
             { icon: '💰', label: 'Brand vs Generic', href: '/brand-vs-generic', sub: 'Cost analysis' },
-            { icon: '📊', label: 'Dashboard', href: '/dashboard', sub: 'Interactive charts' },
+            { icon: '📊', label: 'Dashboard', href: '/dashboard', sub: '5-year trends' },
+            { icon: '⚖️', label: 'IRA Drug Prices', href: '/ira-negotiation', sub: '$22B in negotiated drugs' },
+            { icon: '💉', label: 'GLP-1 Tracker', href: '/glp1-tracker', sub: 'Ozempic spending' },
+            { icon: '☠️', label: 'Dangerous Combos', href: '/dangerous-combinations', sub: 'Opioid+benzo risks' },
+            { icon: '📋', label: 'Peer Comparison', href: '/peer-comparison', sub: 'Specialty-adjusted' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center">
               <span className="text-2xl">{item.icon}</span>

@@ -19,6 +19,14 @@ type Provider = {
   riskScore: number; riskFlags: string[]; riskLevel: string;
   isExcluded: boolean; exclusionInfo: { type: string; date: string; state: string } | null;
   topDrugs?: { drug: string; brand: string; claims: number; cost: number }[];
+  zScores?: { opioid: number; cost: number; brand: number; claims: number; opioidLA: number };
+  anomalyScore?: number;
+  peerComparison?: { opioidVsPeer: number | null; costVsPeer: number | null; brandVsPeer: number | null };
+  specialtyAvg?: { opioidRate: number; costPerBene: number; brandPct: number; providers: number };
+  drugDiversity?: number;
+  opioidBenzoCombination?: boolean;
+  iraDrugCost?: number;
+  glp1Cost?: number;
 }
 
 const FLAG_LABELS: Record<string, string> = {
@@ -118,6 +126,57 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
         ))}
       </div>
 
+      {/* Peer Comparison */}
+      {p.peerComparison && p.specialtyAvg && (
+        <section className="mt-8">
+          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-3">Peer Comparison <span className="text-sm font-normal text-gray-500">vs. {fmt(p.specialtyAvg.providers)} {p.specialty} providers</span></h2>
+          <div className="bg-white rounded-xl shadow-sm p-5 border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {p.peerComparison.opioidVsPeer != null && p.peerComparison.opioidVsPeer !== 0 && (
+                <div className="text-center">
+                  <p className={`text-2xl font-bold ${p.peerComparison.opioidVsPeer > 100 ? 'text-red-600' : p.peerComparison.opioidVsPeer > 0 ? 'text-orange-600' : 'text-green-600'}`}>
+                    {p.peerComparison.opioidVsPeer > 0 ? '+' : ''}{p.peerComparison.opioidVsPeer}%
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">Opioid rate vs peers</p>
+                  <p className="text-xs text-gray-400">{p.opioidRate.toFixed(1)}% vs {p.specialtyAvg.opioidRate.toFixed(1)}% avg</p>
+                </div>
+              )}
+              {p.peerComparison.costVsPeer != null && (
+                <div className="text-center">
+                  <p className={`text-2xl font-bold ${p.peerComparison.costVsPeer > 200 ? 'text-red-600' : p.peerComparison.costVsPeer > 50 ? 'text-orange-600' : 'text-gray-700'}`}>
+                    {p.peerComparison.costVsPeer > 0 ? '+' : ''}{p.peerComparison.costVsPeer}%
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">Cost per patient vs peers</p>
+                  <p className="text-xs text-gray-400">{fmtMoney(p.costPerBene)} vs {fmtMoney(p.specialtyAvg.costPerBene)} avg</p>
+                </div>
+              )}
+              {p.peerComparison.brandVsPeer != null && p.peerComparison.brandVsPeer !== 0 && (
+                <div className="text-center">
+                  <p className={`text-2xl font-bold ${p.peerComparison.brandVsPeer > 200 ? 'text-red-600' : p.peerComparison.brandVsPeer > 50 ? 'text-orange-600' : 'text-gray-700'}`}>
+                    {p.peerComparison.brandVsPeer > 0 ? '+' : ''}{p.peerComparison.brandVsPeer}%
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">Brand preference vs peers</p>
+                  <p className="text-xs text-gray-400">{p.brandPct.toFixed(1)}% vs {p.specialtyAvg.brandPct.toFixed(1)}% avg</p>
+                </div>
+              )}
+            </div>
+            {p.zScores && (Math.max(p.zScores.opioid, p.zScores.cost, p.zScores.brand) > 3) && (
+              <p className="text-xs text-red-600 mt-3 bg-red-50 rounded p-2">
+                ⚠️ This provider has metrics more than 3 standard deviations above their specialty average in one or more categories.
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Dangerous Drug Combination Warning */}
+      {p.opioidBenzoCombination && (
+        <div className="mt-6 bg-red-50 border border-red-300 rounded-lg p-4">
+          <p className="text-sm font-bold text-red-800">⚠️ Opioid + Benzodiazepine Co-Prescriber</p>
+          <p className="text-xs text-red-700 mt-1">This provider prescribes both opioids and benzodiazepines. The FDA has issued a <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-fda-warns-about-serious-risks-and-death-when-combining-opioid-pain-or" target="_blank" rel="noopener noreferrer" className="underline">Black Box Warning</a> about the life-threatening risks of concurrent use.</p>
+        </div>
+      )}
+
       {/* Opioid Section */}
       {p.opioidRate > 0 && (
         <section className="mt-8">
@@ -196,6 +255,39 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+      )}
+
+      {/* Drug Diversity & Special Categories */}
+      {(p.drugDiversity || p.iraDrugCost || p.glp1Cost) && (
+        <section className="mt-8">
+          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-3">Prescribing Profile</h2>
+          <div className="bg-white rounded-xl shadow-sm p-5 border grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            {p.drugDiversity && (
+              <div>
+                <p className="text-xl font-bold">{p.drugDiversity}</p>
+                <p className="text-xs text-gray-500">Unique Drugs</p>
+              </div>
+            )}
+            {p.iraDrugCost != null && p.iraDrugCost > 0 && (
+              <div>
+                <p className="text-xl font-bold text-blue-700">{fmtMoney(p.iraDrugCost)}</p>
+                <p className="text-xs text-gray-500"><Link href="/ira-negotiation" className="text-primary hover:underline">IRA Negotiated Drugs</Link></p>
+              </div>
+            )}
+            {p.glp1Cost != null && p.glp1Cost > 0 && (
+              <div>
+                <p className="text-xl font-bold text-purple-700">{fmtMoney(p.glp1Cost)}</p>
+                <p className="text-xs text-gray-500"><Link href="/glp1-tracker" className="text-primary hover:underline">GLP-1 Drugs</Link></p>
+              </div>
+            )}
+            {p.anomalyScore != null && p.anomalyScore > 0 && (
+              <div>
+                <p className={`text-xl font-bold ${p.anomalyScore > 50 ? 'text-red-600' : p.anomalyScore > 20 ? 'text-orange-600' : 'text-gray-700'}`}>{p.anomalyScore.toFixed(1)}</p>
+                <p className="text-xs text-gray-500">Anomaly Score</p>
+              </div>
+            )}
           </div>
         </section>
       )}
