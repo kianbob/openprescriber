@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'What is the ML Fraud Detection model?',
-    a: 'Our machine learning model is a Bagged Decision Trees ensemble trained on confirmed fraud cases from the OIG exclusion list. It analyzes 20 prescribing features and identifies non-obvious pattern combinations that our rule-based scoring misses. The model flagged 4,680 providers at ≥75% confidence. ML scores appear on provider profiles and on the ML Fraud Detection page.',
+    a: 'Our machine learning model is a Bagged Decision Trees ensemble trained on confirmed fraud cases from the OIG exclusion list. It analyzes 20 prescribing features and identifies non-obvious pattern combinations that our rule-based scoring misses. The model flagged 4,385 providers at ≥80% confidence. ML scores appear on provider profiles and on the ML Fraud Detection page.',
   },
   {
     q: 'Why are provider names public?',

@@ -8,7 +8,7 @@ import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
   title: 'ML Fraud Detection — Machine Learning Identifies Suspicious Prescribers',
-  description: 'A machine learning model trained on confirmed fraud cases identifies Medicare Part D prescribers with patterns consistent with fraud. 4,680 providers flagged.',
+  description: 'A machine learning model trained on confirmed fraud cases identifies Medicare Part D prescribers with patterns consistent with fraud. Scores 1M+ providers.',
   alternates: { canonical: 'https://www.openprescriber.org/ml-fraud-detection' },
 }
 
@@ -31,7 +31,7 @@ export default function MLFraudPage() {
   // Group by risk tier
   const tier1 = preds.filter(p => p.mlScore >= 0.95) // Very High
   const tier2 = preds.filter(p => p.mlScore >= 0.85 && p.mlScore < 0.95) // High
-  const tier3 = preds.filter(p => p.mlScore >= 0.75 && p.mlScore < 0.85) // Elevated
+  const tier3 = preds.filter(p => p.mlScore >= 0.80 && p.mlScore < 0.85) // Elevated
 
   // Top specialties
   const bySpec: Record<string, number> = {}
@@ -130,7 +130,7 @@ export default function MLFraudPage() {
         </div>
         <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
           <p className="text-lg font-bold text-yellow-700">{fmt(tier3.length)} providers</p>
-          <p className="text-sm text-yellow-600">Elevated (75-84% ML confidence)</p>
+          <p className="text-sm text-yellow-600">Elevated (80-84% ML confidence)</p>
           <p className="text-xs text-gray-500 mt-1">Notable pattern similarities</p>
         </div>
       </div>
@@ -166,7 +166,7 @@ export default function MLFraudPage() {
                     p.mlScore >= 0.85 ? 'bg-orange-100 text-orange-700' :
                     'bg-yellow-100 text-yellow-700'
                   }`}>
-                    {(p.mlScore * 100).toFixed(0)}%
+                    {p.mlScore >= 1 ? 'Very High' : `${(p.mlScore * 100).toFixed(0)}%`}
                   </span>
                 </td>
                 <td className="px-3 py-2 text-right font-mono text-xs hidden md:table-cell">

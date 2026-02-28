@@ -134,8 +134,8 @@ export default function MethodologyPage() {
           <li><strong>Training data:</strong> 281 confirmed fraud cases from the OIG LEIE exclusion list, matched to active Medicare Part D prescribers</li>
           <li><strong>Algorithm:</strong> Bagged Decision Trees ensemble (20 trees, max depth 7) with 3× oversampling of fraud cases</li>
           <li><strong>Features:</strong> 20 prescribing metrics including opioid rates, cost per beneficiary, brand preference, specialty-adjusted z-scores, drug combination flags, and drug diversity</li>
-          <li><strong>Performance:</strong> 5-fold cross-validated — 78.9% precision, 60.1% recall, F1 score of 0.68</li>
-          <li><strong>Results:</strong> 76.2% recall on known fraud cases. 4,680 providers flagged at ≥75% confidence, including 2,579 not caught by the rule-based system</li>
+          <li><strong>Performance:</strong> 5-fold cross-validated — 83% precision, 66.6% recall, F1 score of 0.74</li>
+          <li><strong>Results:</strong> 76.5% recall on known fraud cases. 4,385 providers flagged at ≥80% confidence</li>
         </ul>
         <p>The ML model complements the rule-based system by detecting <strong>non-obvious pattern combinations</strong> that hand-tuned thresholds miss. Both systems are displayed on provider profiles. See the <Link href="/ml-fraud-detection" className="text-primary hover:underline">ML Fraud Detection page</Link> for full results.</p>
 

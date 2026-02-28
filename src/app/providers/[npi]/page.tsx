@@ -114,7 +114,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
         <div className="mt-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-semibold text-purple-800">🤖 ML Fraud Detection Score: {(mlScore * 100).toFixed(0)}%</h3>
+              <h3 className="text-sm font-semibold text-purple-800">🤖 ML Fraud Detection Score: {mlScore >= 1 ? 'Very High' : `${(mlScore * 100).toFixed(0)}%`}</h3>
               <p className="text-xs text-purple-600 mt-1">
                 Machine learning model identifies prescribing patterns consistent with confirmed fraud cases. 
                 This is a <strong>statistical indicator</strong>, not an accusation.
