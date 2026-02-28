@@ -85,7 +85,7 @@ export default function DangerousCombinationsPage() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {top50.map(p => (
+              {top50.slice(0, 25).map(p => (
                 <tr key={p.npi}>
                   <td className="px-3 py-2">
                     <Link href={`/providers/${p.npi}`} className="text-primary hover:underline font-medium">{p.name}</Link>
@@ -98,6 +98,32 @@ export default function DangerousCombinationsPage() {
                   <td className="px-3 py-2 text-right font-mono font-bold">{p.anomalyScore.toFixed(1)}</td>
                 </tr>
               ))}
+            </tbody>
+            <tbody>
+              <tr>
+                <td colSpan={7}>
+                  <details>
+                    <summary className="px-3 py-3 text-sm text-primary font-medium cursor-pointer hover:bg-gray-50">Show all 50 co-prescribers →</summary>
+                    <table className="w-full text-sm">
+                      <tbody className="divide-y">
+                        {top50.slice(25).map(p => (
+                          <tr key={p.npi}>
+                            <td className="px-3 py-2">
+                              <Link href={`/providers/${p.npi}`} className="text-primary hover:underline font-medium">{p.name}</Link>
+                            </td>
+                            <td className="px-3 py-2 text-xs text-gray-500">{p.specialty}</td>
+                            <td className="px-3 py-2 text-xs text-gray-500">{p.city}, {p.state}</td>
+                            <td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{p.opioidRate.toFixed(1)}%</td>
+                            <td className="px-3 py-2 text-right font-mono">{fmt(p.claims)}</td>
+                            <td className="px-3 py-2 text-right font-mono">{fmtMoney(p.cost)}</td>
+                            <td className="px-3 py-2 text-right font-mono font-bold">{p.anomalyScore.toFixed(1)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </details>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

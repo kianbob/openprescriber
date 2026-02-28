@@ -54,6 +54,22 @@ const faqs = [
     q: 'How often is the data updated?',
     a: 'CMS releases new Part D data annually, typically with a 2-year lag. We currently show 2023 data (the most recent available). We will update when CMS publishes 2024 data.',
   },
+  {
+    q: 'How do I look up my doctor?',
+    a: 'Use our <a href="/search">search page</a> to look up any Medicare Part D prescriber by name, NPI number, city, state, or specialty. Detailed profiles with prescribing data, risk scores, and peer comparisons are available for over 19,000 providers. If your doctor doesn\'t have a detailed profile, it means they weren\'t flagged by our risk model — which is a good sign.',
+  },
+  {
+    q: 'What should I do if my provider is flagged?',
+    a: 'A flagged provider does NOT mean your doctor is doing anything wrong. Our risk scores identify statistical outliers — prescribing patterns that differ significantly from peers. Many flagged patterns have legitimate clinical explanations (e.g., pain specialists will naturally have high opioid rates). If you have concerns, discuss them directly with your healthcare provider or contact your state medical board.',
+  },
+  {
+    q: 'How accurate is the risk scoring model?',
+    a: 'Our ML fraud detection model achieves 83% precision and 67% recall in cross-validation against confirmed fraud cases. This means roughly 4 in 5 providers flagged by the model share statistical patterns with known fraud cases. However, sharing patterns is not proof of wrongdoing. Our rule-based scoring uses transparent, reproducible methods — every score can be traced to specific data points. See our <a href="/methodology">full methodology</a>.',
+  },
+  {
+    q: 'Is this data up to date?',
+    a: 'Our data comes from CMS Medicare Part D Public Use Files for 2023, which is the most recent dataset available. CMS typically releases data with a 1-year lag. We also use 2019-2022 data for trend analysis. The OIG exclusion list (LEIE) is updated monthly. We will update to the 2024 data when CMS releases it.',
+  },
 ]
 
 export default function FAQPage() {
@@ -75,7 +91,7 @@ export default function FAQPage() {
         {faqs.map((f, i) => (
           <div key={i} className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <h2 className="text-lg font-bold text-gray-900">{f.q}</h2>
-            <p className="text-gray-600 mt-2">{f.a}</p>
+            <p className="text-gray-600 mt-2 [&_a]:text-primary [&_a]:hover:underline" dangerouslySetInnerHTML={{ __html: f.a }} />
           </div>
         ))}
       </div>

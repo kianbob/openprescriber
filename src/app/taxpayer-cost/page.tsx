@@ -32,6 +32,8 @@ export default function TaxpayerCostPage() {
     }))
     .sort((a, b) => b.costPerBene - a.costPerBene)
 
+  const maxCostPerBene = stateRanked[0]?.costPerBene || 1
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Taxpayer Cost' }]} />
@@ -101,7 +103,12 @@ export default function TaxpayerCostPage() {
                 <tr key={s.state} className="hover:bg-gray-50">
                   <td className="px-4 py-2 text-gray-500">{i + 1}</td>
                   <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary font-medium hover:underline">{s.name}</Link></td>
-                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.costPerBene > costPerBene * 1.2 ? 'text-red-600' : ''}`}>${s.costPerBene.toLocaleString()}</td>
+                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.costPerBene > costPerBene * 1.2 ? 'text-red-600' : ''}`}>
+                    <div className="flex items-center justify-end gap-2">
+                      <div className="h-2 rounded bg-primary/20" style={{ width: `${(s.costPerBene / maxCostPerBene) * 60}px` }} />
+                      <span>${s.costPerBene.toLocaleString()}</span>
+                    </div>
+                  </td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.claims)}</td>
                 </tr>
