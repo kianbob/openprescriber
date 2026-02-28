@@ -233,7 +233,7 @@ export default function HomePage() {
             { icon: '🏥', label: 'States', href: '/states', sub: '60 states & territories' },
             { icon: '⚕️', label: 'Specialties', href: '/specialties', sub: '156 provider types' },
             { icon: '💊', label: 'Top Drugs', href: '/drugs', sub: '500 drugs by cost' },
-            { icon: '👤', label: 'Providers', href: '/providers', sub: '11,700+ profiles' },
+            { icon: '👤', label: 'Providers', href: '/providers', sub: '19,300+ profiles' },
             { icon: '🔴', label: 'Flagged', href: '/flagged', sub: 'Risk-scored providers' },
             { icon: '💉', label: 'Opioids', href: '/opioids', sub: 'Prescribing patterns' },
             { icon: '💰', label: 'Brand vs Generic', href: '/brand-vs-generic', sub: 'Cost analysis' },

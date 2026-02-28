@@ -18,6 +18,8 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Risk Analysis</h3>
           <ul className="space-y-2">
             <li><Link href="/flagged" className="hover:text-white">Flagged Providers</Link></li>
+            <li><Link href="/risk-explorer" className="hover:text-white">Risk Explorer</Link></li>
+            <li><Link href="/dangerous-combinations" className="hover:text-white">Dangerous Combos</Link></li>
             <li><Link href="/opioids" className="hover:text-white">Opioid Prescribing</Link></li>
             <li><Link href="/brand-vs-generic" className="hover:text-white">Brand vs Generic</Link></li>
             <li><Link href="/excluded" className="hover:text-white">Excluded Providers</Link></li>

@@ -17,5 +17,8 @@
     "low": 842305
   },
   "avgCostPerClaim": 171,
-  "avgClaimsPerProvider": 1170
+  "avgClaimsPerProvider": 1170,
+  "brandCost": 185456091362,
+  "genericCost": 39452807960,
+  "brandPct": 13.4
 }
