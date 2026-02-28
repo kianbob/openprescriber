@@ -27,6 +27,8 @@ type Provider = {
   opioidBenzoCombination?: boolean;
   iraDrugCost?: number;
   glp1Cost?: number;
+  claimsPerBene?: number;
+  riskComponents?: Record<string, number>;
 }
 
 const FLAG_LABELS: Record<string, string> = {
@@ -125,6 +127,55 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           </div>
         ))}
       </div>
+
+      {/* Risk Score Breakdown */}
+      {p.riskComponents && p.riskScore > 0 && (
+        <section className="mt-8">
+          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-3">Risk Score Breakdown <span className="text-sm font-normal text-gray-500">{p.riskScore}/100</span></h2>
+          <div className="bg-white rounded-xl shadow-sm p-5 border">
+            {/* Score bar */}
+            <div className="mb-4">
+              <div className="w-full bg-gray-100 rounded-full h-4 overflow-hidden">
+                <div className={`h-full rounded-full transition-all ${p.riskScore >= 50 ? 'bg-red-500' : p.riskScore >= 30 ? 'bg-orange-500' : p.riskScore >= 15 ? 'bg-yellow-500' : 'bg-green-500'}`} style={{ width: `${Math.min(100, p.riskScore)}%` }} />
+              </div>
+              <div className="flex justify-between text-xs text-gray-400 mt-1">
+                <span>Low (0)</span><span>Moderate (15)</span><span>Elevated (30)</span><span>High (50+)</span>
+              </div>
+            </div>
+            {/* Component breakdown */}
+            <div className="space-y-2">
+              {Object.entries(p.riskComponents).filter(([, v]) => (v as number) > 0).sort((a, b) => (b[1] as number) - (a[1] as number)).map(([key, pts]) => {
+                const labels: Record<string, string> = {
+                  opioidPeer: 'Opioid rate vs specialty peers',
+                  opioidPop: 'Opioid rate (national percentile)',
+                  costOutlier: 'Cost per patient outlier',
+                  brandPref: 'Brand-name preference',
+                  opioidLA: 'Long-acting opioid rate',
+                  antipsych: 'Elderly antipsychotic prescribing',
+                  drugCombo: 'Opioid + benzodiazepine combo',
+                  leie: 'OIG excluded provider',
+                  lowDiversity: 'Low drug diversity',
+                  frequentFills: 'High fills per patient',
+                };
+                return (
+                  <div key={key} className="flex items-center gap-3">
+                    <div className="flex-1">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-700">{labels[key] || key}</span>
+                        <span className="font-mono font-semibold text-gray-900">+{pts as number}</span>
+                      </div>
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 mt-1">
+                        <div className="h-full bg-red-400 rounded-full" style={{ width: `${Math.min(100, (pts as number) / 25 * 100)}%` }} />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-xs text-gray-400 mt-3">Score components are additive. <Link href="/methodology" className="text-primary hover:underline">Read full methodology</Link></p>
+          </div>
+        </section>
+      )}
 
       {/* Peer Comparison */}
       {p.peerComparison && p.specialtyAvg && (

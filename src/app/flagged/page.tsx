@@ -29,6 +29,10 @@ const FLAG_LABELS: Record<string, string> = {
   elevated_antipsych_elderly: '⚠️ Elevated antipsychotic prescribing to 65+',
   opioid_benzo_coprescriber: '☠️ Opioid + benzodiazepine co-prescriber (FDA Black Box)',
   leie_excluded: '🚫 OIG Excluded (LEIE match)',
+  very_low_drug_diversity: '🎯 Very low drug diversity (≤5 drugs)',
+  low_drug_diversity: '🎯 Low drug diversity (≤10 drugs)',
+  extreme_fills_per_patient: '🔄 Extreme fills per patient (>20/year)',
+  high_fills_per_patient: '🔄 High fills per patient (>15/year)',
 }
 
 export default function FlaggedPage() {

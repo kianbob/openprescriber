@@ -70,26 +70,40 @@ export default function MethodologyPage() {
         <h3>Component 8: OIG Exclusion Match (0–20 points)</h3>
         <p>We cross-reference every provider NPI against the Office of Inspector General&apos;s <Link href="https://oig.hhs.gov/exclusions/">List of Excluded Individuals/Entities (LEIE)</Link> — individuals convicted of healthcare fraud, patient abuse, or related felonies. We matched <strong>372 excluded providers</strong> who are still actively prescribing in Medicare Part D.</p>
 
+        <h3>Component 9: Low Drug Diversity (0–6 points)</h3>
+        <p>Providers who prescribe very few unique drugs (≤5–10) while also prescribing opioids are flagged. A legitimate general practitioner prescribes dozens of different medications. A provider prescribing only 6 drugs — most of them opioids — is a red flag for a &ldquo;pill mill&rdquo; operation. Requires opioid rate &gt;10% and ≥100 claims.</p>
+
+        <h3>Component 10: High Fills Per Patient (0–5 points)</h3>
+        <p>Providers whose claims-per-beneficiary ratio exceeds the 95th or 99th percentile (national threshold: &gt;15–20 fills/patient/year). Extremely high fill rates may indicate patients receiving excessive prescriptions or potential doctor shopping facilitation.</p>
+
         <h3>Volume Multiplier (×1.0–1.15)</h3>
         <p>High-volume providers (&gt;5,000 claims) receive a 15% multiplier on their raw score, because the same risky patterns at scale affect more patients. Providers with &gt;2,000 claims get a 5% multiplier.</p>
+
+        <h3>Minimum Thresholds</h3>
+        <p>To reduce noise from low-volume statistical anomalies, we require:</p>
+        <ul>
+          <li><strong>≥100 claims</strong> for inclusion in scoring (eliminates borderline providers)</li>
+          <li><strong>≥11 beneficiaries</strong> (CMS suppression threshold)</li>
+          <li><strong>Low-volume penalty:</strong> Providers with &lt;200 claims receive reduced points for population percentile flags (60% cap)</li>
+        </ul>
 
         <h2>Risk Levels</h2>
         <div className="not-prose grid grid-cols-2 md:grid-cols-4 gap-3 my-4">
           <div className="bg-red-50 rounded-lg p-3 text-center border border-red-200">
             <p className="font-bold text-red-700">High (≥50)</p>
-            <p className="text-xs text-gray-600">159 providers</p>
+            <p className="text-xs text-gray-600">233 providers</p>
           </div>
           <div className="bg-orange-50 rounded-lg p-3 text-center border border-orange-200">
             <p className="font-bold text-orange-700">Elevated (30–49)</p>
-            <p className="text-xs text-gray-600">7,406 providers</p>
+            <p className="text-xs text-gray-600">6,473 providers</p>
           </div>
           <div className="bg-yellow-50 rounded-lg p-3 text-center border border-yellow-200">
             <p className="font-bold text-yellow-700">Moderate (15–29)</p>
-            <p className="text-xs text-gray-600">38,438 providers</p>
+            <p className="text-xs text-gray-600">43,120 providers</p>
           </div>
           <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
             <p className="font-bold text-green-700">Low (0–14)</p>
-            <p className="text-xs text-gray-600">1,031,351 providers</p>
+            <p className="text-xs text-gray-600">842,305 providers</p>
           </div>
         </div>
 

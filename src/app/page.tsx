@@ -24,11 +24,11 @@ export default function HomePage() {
             The most comprehensive open analysis of Medicare Part D prescribing data — 5 years of trends, fraud risk scoring, opioid tracking, and cost transparency for every provider.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/flagged" className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-              🔴 View Flagged Providers
+            <Link href="/risk-explorer" className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+              🔍 Explore Risk Data
             </Link>
-            <Link href="/opioids" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold border border-white/30 transition-colors">
-              💊 Opioid Analysis
+            <Link href="/flagged" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold border border-white/30 transition-colors">
+              🔴 Flagged Providers
             </Link>
             <Link href="/search" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold border border-white/30 transition-colors">
               🔍 Search Prescribers
