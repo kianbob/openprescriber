@@ -18,6 +18,7 @@ type Provider = {
   avgAge: number; femalePct: number | null; avgRiskScore: number;
   riskScore: number; riskFlags: string[]; riskLevel: string;
   isExcluded: boolean; exclusionInfo: { type: string; date: string; state: string } | null;
+  topDrugs?: { drug: string; brand: string; claims: number; cost: number }[];
 }
 
 const FLAG_LABELS: Record<string, string> = {
@@ -169,6 +170,35 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           </div>
         </div>
       </section>
+
+      {/* Top Prescribed Drugs */}
+      {p.topDrugs && p.topDrugs.length > 0 && (
+        <section className="mt-8">
+          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-3">Top Prescribed Drugs</h2>
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden border">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-2 text-left font-semibold">Drug (Generic)</th>
+                  <th className="px-4 py-2 text-left font-semibold hidden md:table-cell">Brand</th>
+                  <th className="px-4 py-2 text-right font-semibold">Claims</th>
+                  <th className="px-4 py-2 text-right font-semibold">Cost</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {p.topDrugs.map((d, i) => (
+                  <tr key={i} className="hover:bg-gray-50">
+                    <td className="px-4 py-2 font-medium">{d.drug}</td>
+                    <td className="px-4 py-2 text-gray-500 hidden md:table-cell">{d.brand || '—'}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmt(d.claims)}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmtMoney(d.cost)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
 
       {/* Patient Demographics */}
       <section className="mt-8">

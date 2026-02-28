@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
-import { StatesCostChart, SpecialtyCostChart, OpioidStateChart, RiskBreakdownChart } from './DashboardCharts'
+import { StatesCostChart, SpecialtyCostChart, OpioidStateChart, RiskBreakdownChart, CostTrendChart, OpioidTrendChart, ProviderGrowthChart } from './DashboardCharts'
 
 export const metadata: Metadata = {
   title: 'Medicare Part D Dashboard — Interactive Charts',
@@ -15,6 +15,8 @@ export default function DashboardPage() {
   const states = loadData('states.json') as { state: string; cost: number; avgOpioidRate: number }[]
   const specs = loadData('specialties.json') as { specialty: string; cost: number }[]
 
+  const trends = loadData('yearly-trends.json') as { year: number; providers: number; claims: number; cost: number; opioidProv: number; opioidPct: number; highOpioid: number }[]
+
   const riskData = [
     { level: 'High', count: stats.riskCounts.high },
     { level: 'Elevated', count: stats.riskCounts.elevated },
@@ -26,6 +28,25 @@ export default function DashboardPage() {
       <Breadcrumbs items={[{ label: 'Dashboard' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Medicare Part D Dashboard</h1>
       <p className="text-gray-600 mb-8">Interactive overview of prescribing patterns across {fmt(stats.providers)} providers and {fmtMoney(stats.cost)} in drug costs.</p>
+
+      {/* 5-Year Trends */}
+      <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="bg-white rounded-xl shadow-sm p-5 border">
+          <h2 className="text-lg font-bold mb-2">Drug Costs Over Time</h2>
+          <p className="text-xs text-gray-500 mb-3">Total Medicare Part D spending, 2019–2023</p>
+          <CostTrendChart data={trends} />
+        </div>
+        <div className="bg-white rounded-xl shadow-sm p-5 border">
+          <h2 className="text-lg font-bold mb-2">Opioid Prescribing Trends</h2>
+          <p className="text-xs text-gray-500 mb-3">Opioid prescribers and average rate, 2019–2023</p>
+          <OpioidTrendChart data={trends} />
+        </div>
+        <div className="bg-white rounded-xl shadow-sm p-5 border">
+          <h2 className="text-lg font-bold mb-2">Prescriber Growth</h2>
+          <p className="text-xs text-gray-500 mb-3">Total providers in Medicare Part D, 2019–2023</p>
+          <ProviderGrowthChart data={trends} />
+        </div>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white rounded-xl shadow-sm p-5 border">

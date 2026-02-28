@@ -32,7 +32,7 @@ export default function DrugsPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
-            {drugs.slice(0, 100).map((d, i) => (
+            {drugs.map((d, i) => (
               <tr key={d.generic + i} className="hover:bg-gray-50">
                 <td className="px-4 py-2 text-gray-500">{i + 1}</td>
                 <td className="px-4 py-2 font-medium text-gray-900">{d.generic}</td>

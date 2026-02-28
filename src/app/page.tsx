@@ -16,10 +16,10 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-heading)] mb-4">
-            199,202 Prescribers. $40.2 Billion. Every Pill Tracked.
+            {fmt(stats.providers)} Prescribers. {fmtMoney(stats.cost)}. Every Pill Tracked.
           </h1>
           <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-            The most comprehensive open analysis of Medicare Part D prescribing data — with fraud risk scoring, opioid tracking, and cost transparency for every provider.
+            The most comprehensive open analysis of Medicare Part D prescribing data — 5 years of trends, fraud risk scoring, opioid tracking, and cost transparency for every provider.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/flagged" className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
@@ -217,7 +217,7 @@ export default function HomePage() {
             { icon: '🏥', label: 'States', href: '/states', sub: '60 states & territories' },
             { icon: '⚕️', label: 'Specialties', href: '/specialties', sub: '156 provider types' },
             { icon: '💊', label: 'Top Drugs', href: '/drugs', sub: '500 drugs by cost' },
-            { icon: '👤', label: 'Providers', href: '/providers', sub: '5,000+ profiles' },
+            { icon: '👤', label: 'Providers', href: '/providers', sub: '11,700+ profiles' },
             { icon: '🔴', label: 'Flagged', href: '/flagged', sub: 'Risk-scored providers' },
             { icon: '💉', label: 'Opioids', href: '/opioids', sub: 'Prescribing patterns' },
             { icon: '💰', label: 'Brand vs Generic', href: '/brand-vs-generic', sub: 'Cost analysis' },

@@ -1,6 +1,6 @@
 // @ts-nocheck
 'use client'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line, CartesianGrid, Area, AreaChart } from 'recharts'
 import { fmtMoney, fmt } from '@/lib/utils'
 
 const COLORS = ['#1e40af', '#0ea5e9', '#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#84cc16']
@@ -44,6 +44,57 @@ export function OpioidStateChart({ data }: { data: { state: string; avgOpioidRat
           <YAxis type="category" dataKey="state" width={30} />
           <Tooltip formatter={v => (v as number).toFixed(1) + '%'} />
           <Bar dataKey="avgOpioidRate" fill="#dc2626" radius={[0, 4, 4, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+export function CostTrendChart({ data }: { data: { year: number; cost: number; claims: number; providers: number }[] }) {
+  return (
+    <div className="h-[300px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart data={data} margin={{ left: 10, right: 10, top: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="year" />
+          <YAxis tickFormatter={v => '$' + (v / 1e9).toFixed(0) + 'B'} />
+          <Tooltip formatter={(v: number) => fmtMoney(v)} labelFormatter={l => `Year: ${l}`} />
+          <Area type="monotone" dataKey="cost" stroke="#1e40af" fill="#1e40af" fillOpacity={0.15} strokeWidth={2} name="Total Drug Cost" />
+        </AreaChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+export function OpioidTrendChart({ data }: { data: { year: number; opioidProv: number; opioidPct: number; highOpioid: number }[] }) {
+  return (
+    <div className="h-[300px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data} margin={{ left: 10, right: 10, top: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="year" />
+          <YAxis yAxisId="left" tickFormatter={v => fmt(v)} />
+          <YAxis yAxisId="right" orientation="right" unit="%" />
+          <Tooltip formatter={(v: number, name: string) => name.includes('%') ? v.toFixed(1) + '%' : fmt(v)} />
+          <Line yAxisId="left" type="monotone" dataKey="opioidProv" stroke="#dc2626" strokeWidth={2} name="Opioid Prescribers" dot={{ r: 4 }} />
+          <Line yAxisId="right" type="monotone" dataKey="opioidPct" stroke="#f59e0b" strokeWidth={2} name="Opioid Rate %" dot={{ r: 4 }} />
+          <Legend />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+export function ProviderGrowthChart({ data }: { data: { year: number; providers: number; cost: number }[] }) {
+  return (
+    <div className="h-[300px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data} margin={{ left: 10, right: 10 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="year" />
+          <YAxis tickFormatter={v => (v / 1e6).toFixed(1) + 'M'} />
+          <Tooltip formatter={(v: number) => fmt(v)} />
+          <Bar dataKey="providers" fill="#0ea5e9" radius={[4, 4, 0, 0]} name="Providers" />
         </BarChart>
       </ResponsiveContainer>
     </div>
