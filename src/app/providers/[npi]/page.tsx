@@ -68,6 +68,13 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
   if (!fs.existsSync(filePath)) notFound()
   const p: Provider = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
+  // Load ML fraud score if available
+  let mlScore: number | null = null
+  try {
+    const mlScores = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'ml-scores.json'), 'utf8'))
+    if (mlScores[npi] !== undefined) mlScore = mlScores[npi]
+  } catch {}
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Providers', href: '/providers' }, { label: p.name }]} />
@@ -99,6 +106,22 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
               Exclusion type: {p.exclusionInfo.type} · Date: {p.exclusionInfo.date} · State: {p.exclusionInfo.state}
             </p>
           )}
+        </div>
+      )}
+
+      {/* ML Fraud Score */}
+      {mlScore !== null && mlScore >= 0.75 && (
+        <div className="mt-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-semibold text-purple-800">🤖 ML Fraud Detection Score: {(mlScore * 100).toFixed(0)}%</h3>
+              <p className="text-xs text-purple-600 mt-1">
+                Machine learning model identifies prescribing patterns consistent with confirmed fraud cases. 
+                This is a <strong>statistical indicator</strong>, not an accusation.
+              </p>
+            </div>
+            <Link href="/ml-fraud-detection" className="text-xs text-purple-700 hover:underline whitespace-nowrap ml-4">Learn more →</Link>
+          </div>
         </div>
       )}
 

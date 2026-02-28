@@ -18,6 +18,7 @@ const navItems = [
     label: 'Risk Analysis',
     items: [
       { label: 'Risk Explorer', href: '/risk-explorer' },
+      { label: 'ML Fraud Detection', href: '/ml-fraud-detection' },
       { label: 'Flagged Providers', href: '/flagged' },
       { label: 'Opioid Prescribing', href: '/opioids' },
       { label: 'Brand vs Generic', href: '/brand-vs-generic' },
