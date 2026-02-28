@@ -128,6 +128,17 @@ export default function MethodologyPage() {
           <li><strong>Minimum threshold:</strong> We require ≥50 claims for scoring — very low-volume providers are excluded</li>
         </ul>
 
+        <h2>Machine Learning Fraud Detection</h2>
+        <p>In addition to the rule-based scoring model, OpenPrescriber employs a <strong>machine learning model</strong> trained on confirmed fraud cases to identify providers with prescribing patterns consistent with fraud.</p>
+        <ul>
+          <li><strong>Training data:</strong> 281 confirmed fraud cases from the OIG LEIE exclusion list, matched to active Medicare Part D prescribers</li>
+          <li><strong>Algorithm:</strong> Bagged Decision Trees ensemble (20 trees, max depth 7) with 3× oversampling of fraud cases</li>
+          <li><strong>Features:</strong> 20 prescribing metrics including opioid rates, cost per beneficiary, brand preference, specialty-adjusted z-scores, drug combination flags, and drug diversity</li>
+          <li><strong>Performance:</strong> 5-fold cross-validated — 78.9% precision, 60.1% recall, F1 score of 0.68</li>
+          <li><strong>Results:</strong> 76.2% recall on known fraud cases. 4,680 providers flagged at ≥75% confidence, including 2,579 not caught by the rule-based system</li>
+        </ul>
+        <p>The ML model complements the rule-based system by detecting <strong>non-obvious pattern combinations</strong> that hand-tuned thresholds miss. Both systems are displayed on provider profiles. See the <Link href="/ml-fraud-detection" className="text-primary hover:underline">ML Fraud Detection page</Link> for full results.</p>
+
         <h2>Data Sources</h2>
         <ul>
           <li><strong>CMS Medicare Part D Prescribers - by Provider (2023):</strong> 1,380,665 provider records with opioid, brand/generic, cost, and demographic data</li>

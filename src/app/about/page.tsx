@@ -22,7 +22,7 @@ export default function AboutPage() {
         <h2>What We Do</h2>
         <ul>
           <li><strong>Provider Profiles</strong> — Detailed prescribing data for 1,380,665 Medicare Part D prescribers</li>
-          <li><strong>Risk Scoring</strong> — Multi-factor statistical model flagging outlier prescribing patterns</li>
+          <li><strong>Risk Scoring</strong> — Multi-factor statistical model + machine learning fraud detection trained on confirmed fraud cases</li>
           <li><strong>Opioid Analysis</strong> — State-by-state and provider-level opioid prescribing tracking</li>
           <li><strong>Cost Transparency</strong> — $275.6 billion in drug costs broken down by provider, drug, state, and specialty</li>
           <li><strong>LEIE Cross-Reference</strong> — Matching active prescribers against the OIG&apos;s excluded provider list</li>

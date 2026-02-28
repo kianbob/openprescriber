@@ -23,7 +23,11 @@ const faqs = [
   },
   {
     q: 'How is the risk score calculated?',
-    a: 'We use a multi-factor model that scores providers on six dimensions: opioid prescribing rate, long-acting opioid rate, cost per beneficiary, brand-name prescribing preference, antipsychotic prescribing to elderly patients, and OIG exclusion status. See our Methodology page for details.',
+    a: 'We use a 10-component rule-based model scoring providers on opioid prescribing, costs, brand preference, drug combinations, LEIE exclusion, and more — all adjusted by specialty. In addition, a machine learning model trained on 281 confirmed fraud cases identifies providers with similar prescribing patterns. See our Methodology page for details.',
+  },
+  {
+    q: 'What is the ML Fraud Detection model?',
+    a: 'Our machine learning model is a Bagged Decision Trees ensemble trained on confirmed fraud cases from the OIG exclusion list. It analyzes 20 prescribing features and identifies non-obvious pattern combinations that our rule-based scoring misses. The model flagged 4,680 providers at ≥75% confidence. ML scores appear on provider profiles and on the ML Fraud Detection page.',
   },
   {
     q: 'Why are provider names public?',

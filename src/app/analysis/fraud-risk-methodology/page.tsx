@@ -174,10 +174,19 @@ export default function FraudRiskMethodologyPage() {
           <li><strong>Correlation ≠ fraud:</strong> Statistical outliers are not inherently problematic. Our scores identify unusual patterns, not bad actors.</li>
         </ul>
 
+        <h2>Machine Learning Extension</h2>
+        <p>
+          Beyond the rule-based model, OpenPrescriber now includes a <strong>machine learning fraud detection system</strong> trained on 281 confirmed fraud cases from the OIG LEIE exclusion list. The ML model — a Bagged Decision Trees ensemble — analyzes the same 20 features and identifies <strong>non-obvious pattern combinations</strong> that hand-tuned rules miss.
+        </p>
+        <p>
+          The ML model flagged <strong>4,680 providers</strong> at ≥75% confidence, including 2,579 that the rule-based system does not flag. Cross-validated performance: 78.9% precision, 60.1% recall. See the <Link href="/ml-fraud-detection" className="text-primary hover:underline">ML Fraud Detection page</Link> for full results and the complete list of flagged providers.
+        </p>
+
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
-          <p className="text-sm text-blue-800 font-medium">Explore the Model</p>
+          <p className="text-sm text-blue-800 font-medium">Explore the Models</p>
           <div className="flex flex-wrap gap-2">
             <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">🤖 ML Fraud Detection</Link>
             <Link href="/flagged" className="text-sm text-primary hover:underline">🔴 Flagged Providers</Link>
             <Link href="/methodology" className="text-sm text-primary hover:underline">📋 Full Methodology</Link>
             <Link href="/peer-comparison" className="text-sm text-primary hover:underline">📊 Peer Comparison</Link>

@@ -48,7 +48,7 @@ export default function FlaggedPage() {
       <ShareButtons title="Flagged Medicare Part D Providers" />
 
       <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800">
-        <strong>⚠️ Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>.
+        <strong>⚠️ Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>. Also see our <Link href="/ml-fraud-detection" className="text-primary underline font-medium">🤖 ML Fraud Detection</Link> — a machine learning model trained on confirmed fraud cases that identifies 4,680 additional suspicious providers.
       </div>
 
       {/* Summary stats */}
