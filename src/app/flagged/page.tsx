@@ -12,19 +12,23 @@ export const metadata: Metadata = {
 }
 
 const FLAG_LABELS: Record<string, string> = {
-  extreme_opioid: '🔴 Extreme opioid rate (99th percentile)',
-  very_high_opioid: '🟠 Very high opioid rate (95th percentile)',
-  high_opioid: '🟡 High opioid rate (90th percentile)',
-  high_la_opioid: '💊 High long-acting opioid rate',
+  extreme_opioid_vs_peers: '🔴 Extreme opioid rate vs specialty peers (>5σ)',
+  very_high_opioid_vs_peers: '🟠 Very high opioid rate vs peers (>3σ)',
+  high_opioid_vs_peers: '🟡 High opioid rate vs peers (>2σ)',
+  '99th_pctile_opioid': '🔴 99th percentile opioid rate (population)',
+  '95th_pctile_opioid': '🟠 95th percentile opioid rate',
+  '90th_pctile_opioid': '🟡 90th percentile opioid rate',
+  high_la_opioid_vs_peers: '💊 High long-acting opioid vs peers (>3σ)',
   elevated_la_opioid: '💊 Elevated long-acting opioid rate',
-  extreme_cost: '💰 Extreme cost per beneficiary (99th pctile)',
-  high_cost: '💰 High cost per beneficiary (95th pctile)',
-  extreme_brand: '🏷️ Extreme brand-name prescribing (99th pctile)',
-  high_brand: '🏷️ High brand-name prescribing (95th pctile)',
+  extreme_cost_outlier: '💰 Extreme cost outlier (99th pctile + >2σ vs peers)',
+  high_cost_outlier: '💰 High cost outlier (95th + >1.5σ vs peers)',
+  elevated_cost: '💰 Elevated cost (95th percentile)',
+  extreme_brand_preference: '🏷️ Extreme brand preference (>3σ vs peers, >50%)',
+  high_brand_preference: '🏷️ High brand preference (>2σ vs peers, >30%)',
   high_antipsych_elderly: '⚠️ High antipsychotic prescribing to 65+',
   elevated_antipsych_elderly: '⚠️ Elevated antipsychotic prescribing to 65+',
+  opioid_benzo_coprescriber: '☠️ Opioid + benzodiazepine co-prescriber (FDA Black Box)',
   leie_excluded: '🚫 OIG Excluded (LEIE match)',
-  high_volume_opioid: '📈 High-volume + high opioid combo',
 }
 
 export default function FlaggedPage() {
@@ -35,7 +39,7 @@ export default function FlaggedPage() {
       <Breadcrumbs items={[{ label: 'Flagged Providers' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Flagged Providers</h1>
       <p className="text-gray-600 mb-2">
-        {highRisk.length} providers flagged as high-risk by our multi-factor statistical model. Risk scores are based on opioid prescribing outliers, cost anomalies, brand-name bias, antipsychotic prescribing to elderly patients, and OIG exclusion status.
+        {fmt(highRisk.length)} providers flagged by our multi-factor statistical model — {highRisk.filter(p => p.riskLevel === 'high').length} high-risk (score ≥50) and {fmt(highRisk.filter(p => p.riskLevel === 'elevated').length)} elevated (score ≥30). Scores combine specialty-adjusted peer comparison, population percentiles, drug combination analysis, and OIG exclusion matching.
       </p>
       <ShareButtons title="Flagged Medicare Part D Providers" />
 
@@ -43,8 +47,30 @@ export default function FlaggedPage() {
         <strong>⚠️ Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>.
       </div>
 
-      <div className="mt-8 space-y-4">
-        {highRisk.map(p => (
+      {/* Summary stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+        <div className="bg-red-50 rounded-xl p-4 text-center border border-red-200">
+          <p className="text-2xl font-bold text-red-700">{highRisk.filter(p => p.riskLevel === 'high').length}</p>
+          <p className="text-xs text-gray-600">High Risk (≥50)</p>
+        </div>
+        <div className="bg-orange-50 rounded-xl p-4 text-center border border-orange-200">
+          <p className="text-2xl font-bold text-orange-700">{fmt(highRisk.filter(p => p.riskLevel === 'elevated').length)}</p>
+          <p className="text-xs text-gray-600">Elevated (≥30)</p>
+        </div>
+        <div className="bg-blue-50 rounded-xl p-4 text-center border border-blue-200">
+          <p className="text-2xl font-bold text-primary">{fmt(highRisk.filter(p => p.isExcluded).length)}</p>
+          <p className="text-xs text-gray-600">LEIE Excluded</p>
+        </div>
+        <div className="bg-purple-50 rounded-xl p-4 text-center border border-purple-200">
+          <p className="text-2xl font-bold text-purple-700">{fmt(highRisk.filter(p => p.riskFlags?.includes('opioid_benzo_coprescriber')).length)}</p>
+          <p className="text-xs text-gray-600">Opioid+Benzo</p>
+        </div>
+      </div>
+
+      <p className="text-sm text-gray-500 mt-6">Showing top 200 by risk score. Use <Link href="/search" className="text-primary hover:underline">search</Link> to find specific providers.</p>
+
+      <div className="mt-4 space-y-4">
+        {highRisk.slice(0, 200).map(p => (
           <div key={p.npi} className="bg-white rounded-xl shadow-sm border border-red-100 p-5 hover:shadow-md transition-shadow">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
