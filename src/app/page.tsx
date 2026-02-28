@@ -1,7 +1,15 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import { fmtMoney, fmt, riskBadge } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { CostTrendChart } from './dashboard/DashboardCharts'
+import { stateName } from '@/lib/state-names'
+
+export const metadata: Metadata = {
+  title: 'OpenPrescriber — Medicare Part D Prescribing Data & Analysis',
+  description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis. Free, open data.',
+  alternates: { canonical: 'https://www.openprescriber.org' },
+}
 
 export default function HomePage() {
   const stats = loadData('stats.json')
@@ -209,7 +217,7 @@ export default function HomePage() {
                 <tr key={s.state} className="hover:bg-gray-50">
                   <td className="px-4 py-2 text-gray-500">{i + 1}</td>
                   <td className="px-4 py-2">
-                    <Link href={`/states/${s.state.toLowerCase()}`} className="font-medium text-primary hover:underline">{s.state}</Link>
+                    <Link href={`/states/${s.state.toLowerCase()}`} className="font-medium text-primary hover:underline">{stateName(s.state)}</Link>
                   </td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.opioidProv)}</td>

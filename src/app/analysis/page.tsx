@@ -13,7 +13,7 @@ const articles = [
   { title: 'Who Are the Highest-Cost Prescribers?', slug: 'cost-outliers', desc: 'Some providers generate millions in drug costs. What drives the spending?', emoji: '💰' },
   { title: 'Brand vs Generic: The Billion-Dollar Gap', slug: 'brand-generic-gap', desc: 'Generic drugs could save Medicare billions more. Which specialties resist the switch?', emoji: '🏷️' },
   { title: 'Geographic Hotspots for Opioid Prescribing', slug: 'opioid-hotspots', desc: 'State-by-state analysis reveals persistent geographic patterns in opioid prescribing.', emoji: '🗺️' },
-  { title: 'Excluded but Still Prescribing', slug: 'excluded-still-prescribing', desc: 'We found 62 providers on the OIG exclusion list who appear in active Medicare prescribing data.', emoji: '🚫' },
+  { title: 'Excluded but Still Prescribing', slug: 'excluded-still-prescribing', desc: 'We found 372 providers on the OIG exclusion list who appear in active Medicare prescribing data.', emoji: '🚫' },
   { title: 'The Antipsychotic Problem in Elderly Care', slug: 'antipsychotic-elderly', desc: 'Why CMS tracks antipsychotic prescribing to patients 65+ and what the data shows.', emoji: '⚠️' },
   { title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth', slug: 'prescribing-trends', desc: 'Medicare Part D drug costs surged 50% from $183B to $275.6B in five years. What\'s driving the explosion?', emoji: '📈' },
   { title: 'Which Medical Specialties Drive the Most Drug Spending?', slug: 'specialty-deep-dive', desc: 'From oncologists generating millions to primary care\'s aggregate impact — specialty prescribing patterns revealed.', emoji: '🩺' },

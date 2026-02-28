@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
   title: 'Medicare Part D Prescribing by State',
@@ -37,7 +38,7 @@ export default function StatesPage() {
             {states.map((s, i) => (
               <tr key={s.state} className="hover:bg-gray-50">
                 <td className="px-4 py-2 text-gray-500">{i + 1}</td>
-                <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="font-medium text-primary hover:underline">{s.state}</Link></td>
+                <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="font-medium text-primary hover:underline">{stateName(s.state)}</Link></td>
                 <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                 <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
                 <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.claims)}</td>

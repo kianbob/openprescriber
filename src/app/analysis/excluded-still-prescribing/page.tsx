@@ -6,8 +6,8 @@ import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
-  title: 'Excluded but Still Prescribing: 62 OIG-Listed Providers in Medicare Part D',
-  description: 'We found 62 providers on the OIG exclusion list who appear in active Medicare Part D prescribing data. How does this happen?',
+  title: 'Excluded but Still Prescribing: 372 OIG-Listed Providers in Medicare Part D',
+  description: 'We found 372 providers on the OIG exclusion list who appear in active Medicare Part D prescribing data. How does this happen?',
   alternates: { canonical: 'https://www.openprescriber.org/analysis/excluded-still-prescribing' },
 }
 

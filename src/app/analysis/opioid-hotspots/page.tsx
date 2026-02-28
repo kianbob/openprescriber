@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
   title: 'Geographic Hotspots for Opioid Prescribing in Medicare',
@@ -37,7 +38,7 @@ export default function OpioidHotspotsPage() {
                 <thead className="bg-red-50"><tr><th className="px-3 py-2 text-left font-semibold">State</th><th className="px-3 py-2 text-right font-semibold">Avg Rate</th><th className="px-3 py-2 text-right font-semibold">High-Rate</th></tr></thead>
                 <tbody className="divide-y">
                   {top.map(s => (
-                    <tr key={s.state}><td className="px-3 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{s.state}</Link></td><td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{s.avgOpioidRate.toFixed(1)}%</td><td className="px-3 py-2 text-right font-mono">{fmt(s.highOpioid)}</td></tr>
+                    <tr key={s.state}><td className="px-3 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{stateName(s.state)}</Link></td><td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{s.avgOpioidRate.toFixed(1)}%</td><td className="px-3 py-2 text-right font-mono">{fmt(s.highOpioid)}</td></tr>
                   ))}
                 </tbody>
               </table>
@@ -50,7 +51,7 @@ export default function OpioidHotspotsPage() {
                 <thead className="bg-green-50"><tr><th className="px-3 py-2 text-left font-semibold">State</th><th className="px-3 py-2 text-right font-semibold">Avg Rate</th><th className="px-3 py-2 text-right font-semibold">High-Rate</th></tr></thead>
                 <tbody className="divide-y">
                   {bottom.map(s => (
-                    <tr key={s.state}><td className="px-3 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{s.state}</Link></td><td className="px-3 py-2 text-right font-mono text-green-600 font-semibold">{s.avgOpioidRate.toFixed(1)}%</td><td className="px-3 py-2 text-right font-mono">{fmt(s.highOpioid)}</td></tr>
+                    <tr key={s.state}><td className="px-3 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{stateName(s.state)}</Link></td><td className="px-3 py-2 text-right font-mono text-green-600 font-semibold">{s.avgOpioidRate.toFixed(1)}%</td><td className="px-3 py-2 text-right font-mono">{fmt(s.highOpioid)}</td></tr>
                   ))}
                 </tbody>
               </table>

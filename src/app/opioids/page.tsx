@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
+import { stateName } from '@/lib/state-names'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ export default function OpioidsPage() {
               {opioidByState.filter(s => s.opioidProv > 0).slice(0, 30).map((s, i) => (
                 <tr key={s.state} className="hover:bg-gray-50">
                   <td className="px-4 py-2 text-gray-500">{i + 1}</td>
-                  <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary font-medium hover:underline">{s.state}</Link></td>
+                  <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary font-medium hover:underline">{stateName(s.state)}</Link></td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.opioidProv)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{s.opioidPct}%</td>
