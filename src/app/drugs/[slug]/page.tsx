@@ -8,7 +8,6 @@ import { loadData } from '@/lib/server-utils'
 import { DrugInsights, DataInsights } from '@/components/AIOverview'
 
 type Drug = { generic: string; brand: string; claims: number; cost: number; benes: number; providers: number; fills: number; costPerClaim: number }
-type Provider = { npi: string; name: string; city: string; state: string; specialty: string; claims: number; cost: number; riskLevel: string; opioidRate?: number; topDrugs?: { drug: string; claims: number; cost: number }[] }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -42,7 +41,8 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
   // Find providers who prescribe this drug from provider-index
   // We can't search all 11K files efficiently, but we can check provider detail files
   // For now, show the drug stats and link to search
-  const provIndex = loadData('provider-index.json') as Provider[]
+  const drugProviders = loadData('drug-providers.json') as Record<string, { npi: string; name: string; city: string; state: string; specialty: string; claims: number; cost: number }[]>
+  const topPrescribers = drugProviders[drug.generic] || []
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -85,6 +85,42 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
 
       {/* AI Overview */}
       <DataInsights insights={DrugInsights({ generic: drug.generic, brand: drug.brand, cost: drug.cost, claims: drug.claims, costPerClaim: drug.costPerClaim, providers: drug.providers, benes: drug.benes, rank, totalDrugs: allDrugs.length })} />
+
+      {/* Top Prescribers */}
+      {topPrescribers.length > 0 && (
+        <section className="mt-8">
+          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Top Prescribers of {drug.generic}</h2>
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-3 text-left font-semibold">#</th>
+                  <th className="px-4 py-3 text-left font-semibold">Provider</th>
+                  <th className="px-4 py-3 text-left font-semibold">Specialty</th>
+                  <th className="px-4 py-3 text-left font-semibold">Location</th>
+                  <th className="px-4 py-3 text-right font-semibold">Claims</th>
+                  <th className="px-4 py-3 text-right font-semibold">Cost</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {topPrescribers.slice(0, 20).map((prov, i) => (
+                  <tr key={prov.npi} className="hover:bg-gray-50">
+                    <td className="px-4 py-2 text-gray-500">{i + 1}</td>
+                    <td className="px-4 py-2">
+                      <Link href={`/providers/${prov.npi}`} className="text-primary hover:underline font-medium">{prov.name}</Link>
+                    </td>
+                    <td className="px-4 py-2 text-gray-600">{prov.specialty}</td>
+                    <td className="px-4 py-2 text-gray-600">{prov.city}, {prov.state}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmt(prov.claims)}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmtMoney(prov.cost)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-400 mt-2">Top prescribers ranked by total cost for this drug in 2023.</p>
+        </section>
+      )}
 
       {/* Related Drugs */}
       <section className="mt-8">
