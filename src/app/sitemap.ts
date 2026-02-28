@@ -8,7 +8,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '', '/states', '/specialties', '/drugs', '/providers', '/dashboard',
     '/flagged', '/opioids', '/brand-vs-generic', '/excluded',
-    '/search', '/about', '/methodology', '/analysis',
+    '/search', '/about', '/methodology', '/analysis', '/downloads',
+    '/analysis/opioid-crisis', '/analysis/cost-outliers', '/analysis/brand-generic-gap',
+    '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
   ]
 
   // Provider detail pages
@@ -18,9 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // State detail pages
   const states = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'states.json'), 'utf8')) as { state: string }[]
 
+  // Specialty detail pages
+  const specs = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'specialties.json'), 'utf8')) as { specialty: string }[]
+  const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
   return [
     ...staticRoutes.map(r => ({ url: `${base}${r}`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: r === '' ? 1 : 0.8 })),
     ...states.map(s => ({ url: `${base}/states/${s.state.toLowerCase()}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 })),
+    ...specs.map(s => ({ url: `${base}/specialties/${slugify(s.specialty)}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
     ...providerNPIs.map(npi => ({ url: `${base}/providers/${npi}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
   ]
 }

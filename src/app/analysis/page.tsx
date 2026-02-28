@@ -1,0 +1,42 @@
+import { Metadata } from 'next'
+import Link from 'next/link'
+import Breadcrumbs from '@/components/Breadcrumbs'
+
+export const metadata: Metadata = {
+  title: 'Analysis — Medicare Part D Research & Insights',
+  description: 'Data-driven analysis of Medicare Part D prescribing patterns — opioid crisis, cost outliers, brand vs generic, geographic variation.',
+  alternates: { canonical: 'https://www.openprescriber.org/analysis' },
+}
+
+const articles = [
+  { title: 'The Medicare Opioid Crisis in Numbers', slug: 'opioid-crisis', desc: 'One in three Medicare prescribers write opioid prescriptions. We mapped the geographic and specialty hotspots.', emoji: '💊' },
+  { title: 'Who Are the Highest-Cost Prescribers?', slug: 'cost-outliers', desc: 'Some providers generate millions in drug costs. What drives the spending?', emoji: '💰' },
+  { title: 'Brand vs Generic: The Billion-Dollar Gap', slug: 'brand-generic-gap', desc: 'Generic drugs could save Medicare billions more. Which specialties resist the switch?', emoji: '🏷️' },
+  { title: 'Geographic Hotspots for Opioid Prescribing', slug: 'opioid-hotspots', desc: 'State-by-state analysis reveals persistent geographic patterns in opioid prescribing.', emoji: '🗺️' },
+  { title: 'Excluded but Still Prescribing', slug: 'excluded-still-prescribing', desc: 'We found 62 providers on the OIG exclusion list who appear in active Medicare prescribing data.', emoji: '🚫' },
+  { title: 'The Antipsychotic Problem in Elderly Care', slug: 'antipsychotic-elderly', desc: 'Why CMS tracks antipsychotic prescribing to patients 65+ and what the data shows.', emoji: '⚠️' },
+]
+
+export default function AnalysisPage() {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-10">
+      <Breadcrumbs items={[{ label: 'Analysis' }]} />
+      <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Analysis & Research</h1>
+      <p className="text-gray-600 mb-8">Data-driven investigations into Medicare Part D prescribing patterns.</p>
+
+      <div className="space-y-4">
+        {articles.map(a => (
+          <Link key={a.slug} href={`/analysis/${a.slug}`} className="block bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all">
+            <div className="flex items-start gap-4">
+              <span className="text-3xl">{a.emoji}</span>
+              <div>
+                <h2 className="text-lg font-bold text-gray-900">{a.title}</h2>
+                <p className="text-sm text-gray-600 mt-1">{a.desc}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
