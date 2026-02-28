@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import DrugCostsClient from './DrugCostsClient'
 
 export const metadata: Metadata = {
   title: 'Medicare Drug Costs: The Most Expensive Prescription Drugs in Part D',
@@ -63,40 +64,11 @@ export default function DrugCostsPage() {
         </div>
       </section>
 
-      {/* Top 25 Most Expensive Drugs */}
+      {/* Top Drugs - Interactive */}
       <section className="mt-10">
         <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-2">Top 25 Most Expensive Drugs</h2>
         <p className="text-sm text-gray-600 mb-4">These 25 drugs account for <strong>{fmtMoney(topTotal)}</strong> — {(topTotal / stats.cost * 100).toFixed(0)}% of all Part D spending.</p>
-        <div className="bg-white rounded-xl shadow-sm overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left font-semibold">#</th>
-                <th className="px-4 py-3 text-left font-semibold">Drug</th>
-                <th className="px-4 py-3 text-left font-semibold hidden md:table-cell">Generic Name</th>
-                <th className="px-4 py-3 text-right font-semibold">Total Cost</th>
-                <th className="px-4 py-3 text-right font-semibold hidden md:table-cell">Claims</th>
-                <th className="px-4 py-3 text-right font-semibold hidden md:table-cell">Patients</th>
-                <th className="px-4 py-3 text-right font-semibold">Cost/Claim</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {top25.map((d, i) => (
-                <tr key={d.brand} className={`hover:bg-gray-50 ${i < 5 ? 'bg-blue-50/30' : ''}`}>
-                  <td className="px-4 py-2 font-mono text-gray-500">{i + 1}</td>
-                  <td className="px-4 py-2">
-                    <Link href={`/drugs/${d.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`} className="font-semibold text-primary hover:underline">{d.brand}</Link>
-                  </td>
-                  <td className="px-4 py-2 text-gray-600 hidden md:table-cell">{d.generic}</td>
-                  <td className="px-4 py-2 text-right font-mono font-bold">{fmtMoney(d.cost)}</td>
-                  <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(d.claims)}</td>
-                  <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(d.benes)}</td>
-                  <td className="px-4 py-2 text-right font-mono">${d.costPerClaim.toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <DrugCostsClient drugs={top25} />
         <p className="mt-3 text-right"><Link href="/drugs" className="text-primary text-sm font-medium hover:underline">View all 500 drugs →</Link></p>
       </section>
 
@@ -129,12 +101,12 @@ export default function DrugCostsPage() {
       <section className="mt-10 bg-gray-50 rounded-xl p-6 border">
         <h2 className="text-lg font-bold mb-3">Related</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          <Link href="/drugs" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">💊 All Top Drugs</Link>
-          <Link href="/glp1-tracker" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">💉 GLP-1 Tracker</Link>
-          <Link href="/ira-negotiation" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">⚖️ IRA Drug Prices</Link>
-          <Link href="/brand-vs-generic" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">💰 Brand vs Generic</Link>
-          <Link href="/taxpayer-cost" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🏛️ Taxpayer Cost</Link>
-          <Link href="/dashboard" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">📊 Dashboard</Link>
+          <Link href="/drugs" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">All Top Drugs</Link>
+          <Link href="/glp1-tracker" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">GLP-1 Tracker</Link>
+          <Link href="/ira-negotiation" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">IRA Drug Prices</Link>
+          <Link href="/brand-vs-generic" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Brand vs Generic</Link>
+          <Link href="/taxpayer-cost" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Taxpayer Cost</Link>
+          <Link href="/dashboard" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Dashboard</Link>
         </div>
       </section>
     </div>

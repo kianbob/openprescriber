@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import PeerComparisonClient from './PeerComparisonClient'
 
 export const metadata: Metadata = {
   title: 'How Does Your Doctor Compare? Specialty-Adjusted Prescribing Analysis',
@@ -26,6 +27,11 @@ export default function PeerComparisonPage() {
   const lowestOpioid = [...specialties].filter(([, v]) => v.n >= 100).sort((a, b) => a[1].opioidRate.mean - b[1].opioidRate.mean).slice(0, 5)
   const highestCost = [...specialties].sort((a, b) => b[1].costPerBene.mean - a[1].costPerBene.mean).slice(0, 5)
   const highestBrand = [...specialties].sort((a, b) => b[1].brandPct.mean - a[1].brandPct.mean).slice(0, 5)
+
+  // Flatten for client
+  const specEntries = specialties.map(([name, s]) => ({
+    name, n: s.n, opioidMean: s.opioidRate.mean, costMean: s.costPerBene.mean, brandMean: s.brandPct.mean, opioidP95: s.opioidRate.p95
+  }))
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -73,42 +79,14 @@ export default function PeerComparisonPage() {
         <h2>Specialty Benchmarks</h2>
         <p>The table below shows average metrics for each specialty, sorted by number of providers. Click any specialty to see its full profile.</p>
 
-        <div className="not-prose my-6 overflow-x-auto">
-          <table className="w-full text-sm bg-white rounded-xl shadow-sm">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-3 py-2 text-left font-semibold">Specialty</th>
-                <th className="px-3 py-2 text-right font-semibold">Providers</th>
-                <th className="px-3 py-2 text-right font-semibold">Avg Opioid %</th>
-                <th className="px-3 py-2 text-right font-semibold">Avg Cost/Bene</th>
-                <th className="px-3 py-2 text-right font-semibold">Avg Brand %</th>
-                <th className="px-3 py-2 text-right font-semibold">P95 Opioid</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {specialties.slice(0, 40).map(([spec, s]) => (
-                <tr key={spec}>
-                  <td className="px-3 py-2">
-                    <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline font-medium text-xs">{spec}</Link>
-                  </td>
-                  <td className="px-3 py-2 text-right font-mono">{fmt(s.n)}</td>
-                  <td className="px-3 py-2 text-right font-mono">{s.opioidRate.mean.toFixed(1)}%</td>
-                  <td className="px-3 py-2 text-right font-mono">{fmtMoney(s.costPerBene.mean)}</td>
-                  <td className="px-3 py-2 text-right font-mono">{s.brandPct.mean.toFixed(1)}%</td>
-                  <td className="px-3 py-2 text-right font-mono text-red-600">{s.opioidRate.p95.toFixed(1)}%</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {specialties.length > 40 && (
-            <p className="text-xs text-gray-400 mt-2">Showing top 40 of {specialties.length} specialties by provider count. <Link href="/specialties" className="text-primary hover:underline">View all →</Link></p>
-          )}
+        <div className="not-prose my-6">
+          <PeerComparisonClient specialties={specEntries} />
         </div>
 
         <h2>Highest Opioid Prescribing Specialties</h2>
         <div className="not-prose my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-red-50 rounded-xl p-4 border border-red-200">
-            <h4 className="font-bold text-red-800 text-sm mb-2">🔴 Highest Opioid Rate</h4>
+            <h4 className="font-bold text-red-800 text-sm mb-2">Highest Opioid Rate</h4>
             {highestOpioid.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
@@ -117,7 +95,7 @@ export default function PeerComparisonPage() {
             ))}
           </div>
           <div className="bg-green-50 rounded-xl p-4 border border-green-200">
-            <h4 className="font-bold text-green-800 text-sm mb-2">🟢 Lowest Opioid Rate (n≥100)</h4>
+            <h4 className="font-bold text-green-800 text-sm mb-2">Lowest Opioid Rate (n&gt;=100)</h4>
             {lowestOpioid.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
@@ -129,7 +107,7 @@ export default function PeerComparisonPage() {
 
         <div className="not-prose my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-            <h4 className="font-bold text-blue-800 text-sm mb-2">💰 Highest Cost per Beneficiary</h4>
+            <h4 className="font-bold text-blue-800 text-sm mb-2">Highest Cost per Beneficiary</h4>
             {highestCost.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
@@ -138,7 +116,7 @@ export default function PeerComparisonPage() {
             ))}
           </div>
           <div className="bg-orange-50 rounded-xl p-4 border border-orange-200">
-            <h4 className="font-bold text-orange-800 text-sm mb-2">💊 Highest Brand Name %</h4>
+            <h4 className="font-bold text-orange-800 text-sm mb-2">Highest Brand Name %</h4>
             {highestBrand.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
@@ -163,7 +141,7 @@ export default function PeerComparisonPage() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-sm text-blue-800">Try it yourself: <Link href="/tools/peer-lookup" className="text-primary font-medium hover:underline">Peer Comparison Tool →</Link> | <Link href="/flagged" className="text-primary font-medium hover:underline">Flagged Providers →</Link> | <Link href="/specialties" className="text-primary font-medium hover:underline">All Specialties →</Link></p>
           </div>
-          <p className="text-xs text-gray-400">Data source: CMS Medicare Part D Prescribers dataset, 2023. Z-scores are calculated within specialty groups with n≥30 providers. Statistical outlier identification does not imply inappropriate prescribing. This analysis is for educational and research purposes only.</p>
+          <p className="text-xs text-gray-400">Data source: CMS Medicare Part D Prescribers dataset, 2023. Z-scores are calculated within specialty groups with n&gt;=30 providers. Statistical outlier identification does not imply inappropriate prescribing. This analysis is for educational and research purposes only.</p>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import DangerousClient from './DangerousClient'
 
 export const metadata: Metadata = {
   title: 'Dangerous Drug Combinations: 6,149 Opioid+Benzo Co-Prescribers',
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function DangerousCombinationsPage() {
   const combos = loadData('drug-combos.json') as { npi: string; name: string; city: string; state: string; specialty: string; claims: number; cost: number; opioidRate: number; riskLevel: string; anomalyScore: number }[]
-  const top50 = [...combos].sort((a, b) => b.anomalyScore - a.anomalyScore).slice(0, 50)
+  const sorted = [...combos].sort((a, b) => b.anomalyScore - a.anomalyScore)
   const totalCost = combos.reduce((s, d) => s + d.cost, 0)
   const highRisk = combos.filter(c => c.riskLevel === 'high').length
   const stateMap: Record<string, number> = {}
@@ -33,7 +34,7 @@ export default function DangerousCombinationsPage() {
 
       <div className="prose prose-gray max-w-none mt-6">
         <div className="not-prose bg-red-50 border-2 border-red-300 rounded-xl p-6 my-4">
-          <h3 className="font-bold text-red-800 mb-2">⚠️ FDA Black Box Warning</h3>
+          <h3 className="font-bold text-red-800 mb-2">FDA Black Box Warning</h3>
           <p className="text-sm text-red-700">
             In 2016, the FDA issued its strongest warning — a <strong>Black Box Warning</strong> — against concurrent prescribing of opioids and benzodiazepines. The combination can cause profound sedation, respiratory depression, coma, and death. Despite this, thousands of Medicare providers continue to co-prescribe these drug classes at elevated rates.
           </p>
@@ -66,66 +67,13 @@ export default function DangerousCombinationsPage() {
           Despite the warning, our analysis of the 2023 Medicare Part D dataset identified <strong>{fmt(combos.length)} providers</strong> who prescribe both opioids and benzodiazepines at rates that significantly exceed their specialty peers. These are not occasional prescribers — they are statistical outliers whose concurrent prescribing patterns warrant scrutiny.
         </p>
 
-        <h2>Top 50 by Anomaly Score</h2>
+        <h2>Co-Prescribers by Anomaly Score</h2>
         <p>
           We rank co-prescribers by an <strong>anomaly score</strong> that accounts for the volume and rate of concurrent prescribing relative to specialty norms. A higher score indicates greater deviation from expected patterns.
         </p>
 
-        <div className="not-prose my-6 overflow-x-auto">
-          <table className="w-full text-sm bg-white rounded-xl shadow-sm">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-3 py-2 text-left font-semibold">Provider</th>
-                <th className="px-3 py-2 text-left font-semibold">Specialty</th>
-                <th className="px-3 py-2 text-left font-semibold">Location</th>
-                <th className="px-3 py-2 text-right font-semibold">Opioid Rate</th>
-                <th className="px-3 py-2 text-right font-semibold">Claims</th>
-                <th className="px-3 py-2 text-right font-semibold">Cost</th>
-                <th className="px-3 py-2 text-right font-semibold">Score</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {top50.slice(0, 25).map(p => (
-                <tr key={p.npi}>
-                  <td className="px-3 py-2">
-                    <Link href={`/providers/${p.npi}`} className="text-primary hover:underline font-medium">{p.name}</Link>
-                  </td>
-                  <td className="px-3 py-2 text-xs text-gray-500">{p.specialty}</td>
-                  <td className="px-3 py-2 text-xs text-gray-500">{p.city}, {p.state}</td>
-                  <td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{p.opioidRate.toFixed(1)}%</td>
-                  <td className="px-3 py-2 text-right font-mono">{fmt(p.claims)}</td>
-                  <td className="px-3 py-2 text-right font-mono">{fmtMoney(p.cost)}</td>
-                  <td className="px-3 py-2 text-right font-mono font-bold">{p.anomalyScore.toFixed(1)}</td>
-                </tr>
-              ))}
-            </tbody>
-            <tbody>
-              <tr>
-                <td colSpan={7}>
-                  <details>
-                    <summary className="px-3 py-3 text-sm text-primary font-medium cursor-pointer hover:bg-gray-50">Show all 50 co-prescribers →</summary>
-                    <table className="w-full text-sm">
-                      <tbody className="divide-y">
-                        {top50.slice(25).map(p => (
-                          <tr key={p.npi}>
-                            <td className="px-3 py-2">
-                              <Link href={`/providers/${p.npi}`} className="text-primary hover:underline font-medium">{p.name}</Link>
-                            </td>
-                            <td className="px-3 py-2 text-xs text-gray-500">{p.specialty}</td>
-                            <td className="px-3 py-2 text-xs text-gray-500">{p.city}, {p.state}</td>
-                            <td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{p.opioidRate.toFixed(1)}%</td>
-                            <td className="px-3 py-2 text-right font-mono">{fmt(p.claims)}</td>
-                            <td className="px-3 py-2 text-right font-mono">{fmtMoney(p.cost)}</td>
-                            <td className="px-3 py-2 text-right font-mono font-bold">{p.anomalyScore.toFixed(1)}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </details>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="not-prose my-6">
+          <DangerousClient combos={sorted} />
         </div>
 
         <h2>Breakdown by Specialty</h2>
