@@ -104,7 +104,13 @@ export default function SpecialtyDeepDivePage() {
         </p>
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">Browse specialties: <Link href="/specialties" className="text-primary font-medium hover:underline">All Specialties →</Link></p>
+          <p className="text-sm text-blue-800 font-medium">Related Analysis</p>
+          <div className="flex flex-wrap gap-3 mt-1">
+            <Link href="/specialties" className="text-sm text-primary hover:underline">⚕️ All Specialties</Link>
+            <Link href="/specialty-profiles" className="text-sm text-primary hover:underline">📊 Specialty Profiles</Link>
+            <Link href="/peer-comparison" className="text-sm text-primary hover:underline">📋 Peer Comparison</Link>
+            <Link href="/tools/peer-lookup" className="text-sm text-primary hover:underline">🔍 Peer Lookup Tool</Link>
+          </div>
         </div>
 
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">

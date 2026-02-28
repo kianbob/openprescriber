@@ -72,7 +72,13 @@ export default function OpioidHotspotsPage() {
         </p>
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">Full state data: <Link href="/opioids" className="text-primary font-medium hover:underline">Opioid Prescribing Analysis →</Link></p>
+          <p className="text-sm text-blue-800 font-medium">Related Analysis</p>
+          <div className="flex flex-wrap gap-3 mt-1">
+            <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Data</Link>
+            <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">☠️ Dangerous Combos</Link>
+            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+            <Link href="/states" className="text-sm text-primary hover:underline">🗺️ State Profiles</Link>
+          </div>
         </div>
       </div>
     </div>

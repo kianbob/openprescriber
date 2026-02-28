@@ -105,7 +105,12 @@ export default function GeographicDisparitiesPage() {
         </p>
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">Explore by state: <Link href="/states" className="text-primary font-medium hover:underline">All State Profiles →</Link></p>
+          <p className="text-sm text-blue-800 font-medium">Related Analysis</p>
+          <div className="flex flex-wrap gap-3 mt-1">
+            <Link href="/states" className="text-sm text-primary hover:underline">🗺️ State Profiles</Link>
+            <Link href="/taxpayer-cost" className="text-sm text-primary hover:underline">💰 Taxpayer Cost</Link>
+            <Link href="/analysis/opioid-hotspots" className="text-sm text-primary hover:underline">📍 Opioid Hotspots</Link>
+          </div>
         </div>
 
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">

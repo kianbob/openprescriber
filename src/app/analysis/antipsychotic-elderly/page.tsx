@@ -50,7 +50,7 @@ export default function AntipsychoticElderlyPage() {
 
         <h2>Our Approach</h2>
         <p>
-          We assign risk points to providers whose antipsychotic prescribing to patients 65+ exceeds statistical norms. This is one of six factors in our <Link href="/methodology">multi-factor risk model</Link>. It is not, by itself, an indicator of wrongdoing — but it raises questions worth examining.
+          We assign risk points to providers whose antipsychotic prescribing to patients 65+ exceeds statistical norms. This is one of ten components in our <Link href="/methodology">specialty-adjusted risk model</Link>. It is not, by itself, an indicator of wrongdoing — but it raises questions worth examining.
         </p>
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">

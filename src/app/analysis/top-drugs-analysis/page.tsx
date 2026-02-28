@@ -100,7 +100,13 @@ export default function TopDrugsAnalysisPage() {
         </p>
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">Explore drug data: <Link href="/drugs" className="text-primary font-medium hover:underline">Search All Drugs →</Link></p>
+          <p className="text-sm text-blue-800 font-medium">Related Analysis</p>
+          <div className="flex flex-wrap gap-3 mt-1">
+            <Link href="/drugs" className="text-sm text-primary hover:underline">💊 All Drugs</Link>
+            <Link href="/ira-negotiation" className="text-sm text-primary hover:underline">⚖️ IRA Price Negotiation</Link>
+            <Link href="/glp1-tracker" className="text-sm text-primary hover:underline">💉 GLP-1 Spending Surge</Link>
+            <Link href="/taxpayer-cost" className="text-sm text-primary hover:underline">💰 Taxpayer Cost</Link>
+          </div>
         </div>
 
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">

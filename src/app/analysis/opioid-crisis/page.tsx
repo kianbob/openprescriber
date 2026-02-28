@@ -86,8 +86,14 @@ export default function OpioidCrisisPage() {
           The key question isn&apos;t just <em>how much</em> but <em>where and by whom</em>. Geographic hotspots and specialty patterns point to systemic issues that blanket regulations miss.
         </p>
 
-        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">Explore the full data: <Link href="/opioids" className="text-primary font-medium hover:underline">Opioid Prescribing Analysis →</Link></p>
+        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
+          <p className="text-sm text-blue-800 font-medium">Related Analysis</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Prescribing Data</Link>
+            <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">☠️ Opioid+Benzo Co-Prescribers</Link>
+            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+            <Link href="/analysis/opioid-hotspots" className="text-sm text-primary hover:underline">📍 Geographic Hotspots</Link>
+          </div>
         </div>
       </div>
     </div>

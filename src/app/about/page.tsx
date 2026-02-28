@@ -30,7 +30,7 @@ export default function AboutPage() {
 
         <h2>Data Sources</h2>
         <ul>
-          <li><strong>CMS Medicare Part D Prescribers by Provider (2023)</strong> — 199,202 prescribers, 84 data fields per provider</li>
+          <li><strong>CMS Medicare Part D Prescribers by Provider (2019–2023)</strong> — 1,380,665 prescribers in 2023, 84 data fields per provider, 5 years of trend data</li>
           <li><strong>CMS Medicare Part D Prescribers by Provider and Drug (2023)</strong> — Provider-drug level prescribing detail</li>
           <li><strong>OIG LEIE Downloadable Database</strong> — 8,300+ excluded individuals and entities</li>
         </ul>

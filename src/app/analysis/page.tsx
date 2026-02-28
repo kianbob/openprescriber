@@ -19,7 +19,7 @@ const articles = [
   { title: 'Which Medical Specialties Drive the Most Drug Spending?', slug: 'specialty-deep-dive', desc: 'From oncologists generating millions to primary care\'s aggregate impact — specialty prescribing patterns revealed.', emoji: '🩺' },
   { title: 'Geographic Disparities in Medicare Prescribing', slug: 'geographic-disparities', desc: 'State-level spending and opioid variations reveal a 3x cost gap and persistent rural-urban divides.', emoji: '🌎' },
   { title: 'The Drugs That Cost Medicare Billions', slug: 'top-drugs-analysis', desc: 'Eliquis: $7.75B. Ozempic: $4.3B. The top 20 drugs consume 22% of all Part D spending.', emoji: '💊' },
-  { title: 'How We Score Prescribing Risk', slug: 'fraud-risk-methodology', desc: 'Deep dive into our multi-factor scoring model — percentiles, flags, and what they mean.', emoji: '🔍' },
+  { title: 'How We Score Prescribing Risk', slug: 'fraud-risk-methodology', desc: 'Our 10-component model: specialty-adjusted z-scores, drug combination analysis, and OIG exclusion matching.', emoji: '🔍' },
   { title: 'Where Does $275.6 Billion Go?', slug: 'medicare-drug-spending', desc: 'The big picture of Medicare Part D spending — who pays, where it flows, and policy implications.', emoji: '🏛️' },
 ]
 
