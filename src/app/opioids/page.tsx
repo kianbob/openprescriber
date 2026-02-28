@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function OpioidsPage() {
   const stats = loadData('stats.json')
   const opioidByState = loadData('opioid-by-state.json') as { state: string; providers: number; opioidProv: number; highOpioid: number; opioidClaims: number; avgOpioidRate: number; opioidPct: number }[]
-  const topOpioid = loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]
+  const topOpioid = (loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]).filter(p => p.claims >= 100)
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">

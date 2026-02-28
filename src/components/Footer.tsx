@@ -31,6 +31,9 @@ export default function Footer() {
             <li><Link href="/analysis/cost-outliers" className="hover:text-white">Cost Outliers</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
             <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
+            <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
+            <li><Link href="/downloads" className="hover:text-white">Downloads</Link></li>
+            <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
           </ul>
         </div>
         <div>
@@ -38,6 +41,8 @@ export default function Footer() {
           <ul className="space-y-2">
             <li><a href="https://www.openmedicaid.org" className="hover:text-white">OpenMedicaid</a></li>
             <li><a href="https://www.openmedicare.us" className="hover:text-white">OpenMedicare</a></li>
+            <li><a href="https://www.openfeds.org" className="hover:text-white">OpenFeds</a></li>
+            <li><a href="https://www.openspending.us" className="hover:text-white">OpenSpending</a></li>
             <li><a href="https://www.vaccinewatch.org" className="hover:text-white">VaccineWatch</a></li>
             <li><a href="https://www.openlobby.us" className="hover:text-white">OpenLobby</a></li>
             <li><a href="https://www.opensubsidies.org" className="hover:text-white">OpenSubsidies</a></li>

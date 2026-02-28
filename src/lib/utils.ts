@@ -2,8 +2,8 @@ export function fmtMoney(n: number | null | undefined): string {
   if (n == null) return 'N/A'
   if (Math.abs(n) >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B'
   if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M'
-  if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K'
-  return '$' + n.toFixed(0)
+  if (Math.abs(n) >= 1e4) return '$' + (n / 1e3).toFixed(0) + 'K'
+  return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 })
 }
 
 export function fmt(n: number | null | undefined): string {

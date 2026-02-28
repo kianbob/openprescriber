@@ -6,8 +6,9 @@ export default function HomePage() {
   const stats = loadData('stats.json')
   const states = loadData('states.json') as { state: string; providers: number; claims: number; cost: number; opioidProv: number; highOpioid: number; avgOpioidRate: number }[]
   const highRisk = loadData('high-risk.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; claims: number; cost: number; opioidRate: number; riskScore: number; riskLevel: string; riskFlags: string[]; isExcluded: boolean }[]
-  const topOpioid = loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]
+  const topOpioid = (loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]).filter(p => p.claims >= 100)
   const topCost = loadData('top-cost.json') as { npi: string; name: string; city: string; state: string; specialty: string; cost: number; claims: number; costPerBene: number; brandPct: number }[]
+  const REAL_STATES = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY'.split(','))
 
   return (
     <div>
@@ -41,7 +42,7 @@ export default function HomePage() {
             { label: 'Prescribers', value: fmt(stats.providers), sub: '156 specialties' },
             { label: 'Drug Costs', value: fmtMoney(stats.cost), sub: fmt(stats.claims) + ' claims' },
             { label: 'Opioid Prescribers', value: fmt(stats.opioidProv), sub: fmt(stats.highOpioid) + ' high-rate', color: 'text-red-600' },
-            { label: 'Flagged Providers', value: fmt(stats.riskCounts.high + stats.riskCounts.elevated), sub: fmt(stats.riskCounts.high) + ' high risk', color: 'text-red-600' },
+            { label: 'Flagged High Risk', value: fmt(stats.riskCounts.high), sub: fmt(stats.riskCounts.elevated) + ' elevated', color: 'text-red-600' },
           ].map(tile => (
             <div key={tile.label} className="bg-white rounded-xl shadow-sm p-5 border border-gray-100 text-center">
               <p className={`text-2xl md:text-3xl font-bold ${tile.color || 'text-primary'}`}>{tile.value}</p>
@@ -188,7 +189,7 @@ export default function HomePage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {[...states].sort((a, b) => b.avgOpioidRate - a.avgOpioidRate).slice(0, 15).map((s, i) => (
+              {[...states].filter(s => REAL_STATES.has(s.state)).sort((a, b) => b.avgOpioidRate - a.avgOpioidRate).slice(0, 15).map((s, i) => (
                 <tr key={s.state} className="hover:bg-gray-50">
                   <td className="px-4 py-2 text-gray-500">{i + 1}</td>
                   <td className="px-4 py-2">

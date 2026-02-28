@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '', '/states', '/specialties', '/drugs', '/providers', '/dashboard',
     '/flagged', '/opioids', '/brand-vs-generic', '/excluded',
-    '/search', '/about', '/methodology', '/analysis', '/downloads',
+    '/search', '/about', '/methodology', '/analysis', '/downloads', '/faq', '/privacy',
     '/analysis/opioid-crisis', '/analysis/cost-outliers', '/analysis/brand-generic-gap',
     '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
   ]

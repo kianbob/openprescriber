@@ -31,7 +31,15 @@ const navItems = [
       { label: 'Cost Outliers', href: '/analysis/cost-outliers' },
     ],
   },
-  { label: 'About', href: '/about' },
+  {
+    label: 'About',
+    items: [
+      { label: 'About', href: '/about' },
+      { label: 'Methodology', href: '/methodology' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Privacy', href: '/privacy' },
+    ],
+  },
 ]
 
 export default function Navbar() {
@@ -80,6 +88,7 @@ export default function Navbar() {
 
       {open && (
         <div className="lg:hidden bg-white border-t px-4 py-3 space-y-2">
+          <Link href="/search" className="block py-1 text-sm font-medium text-primary">🔍 Search Prescribers</Link>
           {navItems.map(item =>
             'items' in item && item.items ? item.items.map(sub => (
               <Link key={sub.href} href={sub.href} className="block py-1 text-sm text-gray-700">{sub.label}</Link>
