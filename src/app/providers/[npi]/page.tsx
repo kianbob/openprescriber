@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, riskBadge, riskColor } from '@/lib/utils'
 import fs from 'fs'
 import path from 'path'
@@ -79,6 +80,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           </h1>
           <p className="text-gray-600 mt-1">{p.specialty} · {p.city}, {p.state} {p.zip5}</p>
           <p className="text-xs text-gray-400 mt-1">NPI: {p.npi}</p>
+          <ShareButtons title={`${p.name} — Medicare Part D Prescribing Profile`} />
         </div>
         {p.riskScore > 0 && (
           <div className={`flex-shrink-0 rounded-xl p-3 border text-center ${riskColor(p.riskLevel)}`}>
@@ -362,8 +364,24 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
         </div>
       </section>
 
-      <p className="text-xs text-gray-400 mt-8">
-        Data from CMS Medicare Part D Prescriber Public Use File, 2023. <Link href="/methodology" className="text-primary hover:underline">Methodology</Link> · <Link href="/about" className="text-primary hover:underline">About</Link>
+      {/* Explore More */}
+      <section className="mt-10 bg-gray-50 rounded-xl p-6 border">
+        <h2 className="text-lg font-bold mb-3">Explore More</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <Link href={`/states/${p.state.toLowerCase()}`} className="text-sm text-primary hover:underline">📍 {p.state} Prescribers</Link>
+          <Link href={`/specialties/${p.specialty.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`} className="text-sm text-primary hover:underline">🩺 {p.specialty}</Link>
+          <Link href="/flagged" className="text-sm text-primary hover:underline">🔴 All Flagged Providers</Link>
+          <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+          <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Analysis</Link>
+          <Link href="/peer-comparison" className="text-sm text-primary hover:underline">📊 Peer Comparison</Link>
+          <Link href="/methodology" className="text-sm text-primary hover:underline">📋 Methodology</Link>
+          <Link href="/search" className="text-sm text-primary hover:underline">🔍 Search Providers</Link>
+        </div>
+      </section>
+
+      <p className="text-xs text-gray-400 mt-6">
+        Data from CMS Medicare Part D Prescriber Public Use File, 2023. Risk scores are statistical indicators, not allegations.
+        <Link href="/methodology" className="text-primary hover:underline ml-2">Methodology</Link> · <Link href="/about" className="text-primary hover:underline ml-1">About</Link>
       </p>
     </div>
   )

@@ -17,7 +17,14 @@ export default function ProvidersPage() {
     <div className="max-w-6xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Providers' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Provider Directory</h1>
-      <p className="text-gray-600 mb-6">{fmt(providers.length)} Medicare Part D prescribers with detailed profiles.</p>
+      <p className="text-gray-600 mb-4">{fmt(providers.length)} Medicare Part D prescribers with detailed profiles, risk scores, and peer comparisons.</p>
+
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 flex items-center justify-between">
+        <p className="text-sm text-blue-800">Looking for a specific provider? Use our search to find by name, NPI, city, or specialty.</p>
+        <Link href="/search" className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-900 whitespace-nowrap ml-4">🔍 Search Providers</Link>
+      </div>
+
+      <p className="text-xs text-gray-500 mb-3">Showing top 200 by risk score. <Link href="/flagged" className="text-primary hover:underline">View all flagged providers</Link> or <Link href="/risk-explorer" className="text-primary hover:underline">explore risk data</Link>.</p>
 
       <div className="bg-white rounded-xl shadow-sm overflow-x-auto">
         <table className="w-full text-sm">
