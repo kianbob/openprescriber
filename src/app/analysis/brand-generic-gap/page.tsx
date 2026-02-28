@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'Brand vs Generic: The Billion-Dollar Gap in Medicare Part D',
@@ -69,6 +70,7 @@ export default function BrandGenericGapPage() {
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
           <p className="text-sm text-blue-800">See the full breakdown: <Link href="/brand-vs-generic" className="text-primary font-medium hover:underline">Brand vs Generic Explorer →</Link></p>
         </div>
+      <RelatedAnalysis current={"/analysis/brand-generic-gap"} />
       </div>
     </div>
   )

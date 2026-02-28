@@ -5,6 +5,7 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { stateName } from '@/lib/state-names'
 import { loadData } from '@/lib/server-utils'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'The Medicare Opioid Crisis in Numbers',
@@ -97,6 +98,7 @@ export default function OpioidCrisisPage() {
             <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">🤖 ML Fraud Detection</Link>
           </div>
         </div>
+      <RelatedAnalysis current={"/analysis/opioid-crisis"} />
       </div>
     </div>
   )

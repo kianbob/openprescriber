@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'Excluded but Still Prescribing: 372 OIG-Listed Providers in Medicare Part D',
@@ -62,6 +63,7 @@ export default function ExcludedStillPrescribingPage() {
           <p className="text-sm text-blue-800">View all matches: <Link href="/excluded" className="text-primary font-medium hover:underline">Excluded Providers List →</Link></p>
           <p className="text-sm text-blue-800">These 372 confirmed cases also serve as training data for our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">🤖 ML Fraud Detection model →</Link>, which identifies 4,100+ additional providers with similar prescribing patterns.</p>
         </div>
+      <RelatedAnalysis current={"/analysis/excluded-still-prescribing"} />
       </div>
     </div>
   )

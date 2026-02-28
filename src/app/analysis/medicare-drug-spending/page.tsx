@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'Where Does $275.6 Billion Go? Medicare Part D Spending Explained',
@@ -128,6 +129,7 @@ export default function MedicareDrugSpendingPage() {
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">
           <p>Data source: CMS Medicare Part D Prescribers dataset (2023). Total drug costs include ingredient cost, dispensing fees, and sales tax as reported by CMS. Rebate and net cost figures are estimates based on publicly available research, as manufacturer rebates are not included in CMS public use files. This analysis is for informational purposes only and does not constitute medical, financial, or legal advice.</p>
         </div>
+      <RelatedAnalysis current={"/analysis/medicare-drug-spending"} />
       </div>
     </div>
   )

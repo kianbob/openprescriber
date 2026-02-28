@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'Which Medical Specialties Drive the Most Drug Spending?',
@@ -116,6 +117,7 @@ export default function SpecialtyDeepDivePage() {
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">
           <p>Data source: CMS Medicare Part D Prescribers dataset (2023). Specialty classifications follow CMS taxonomy codes. Provider counts subject to CMS suppression rules for values below 11. This analysis is for informational purposes only and does not constitute medical or legal advice.</p>
         </div>
+      <RelatedAnalysis current={"/analysis/specialty-deep-dive"} />
       </div>
     </div>
   )

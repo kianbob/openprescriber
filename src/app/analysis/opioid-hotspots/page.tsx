@@ -5,6 +5,7 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'Geographic Hotspots for Opioid Prescribing in Medicare',
@@ -82,6 +83,7 @@ export default function OpioidHotspotsPage() {
             <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">🤖 ML Fraud Detection</Link>
           </div>
         </div>
+      <RelatedAnalysis current={"/analysis/opioid-hotspots"} />
       </div>
     </div>
   )

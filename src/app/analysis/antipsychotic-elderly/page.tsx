@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'The Antipsychotic Problem in Elderly Medicare Patients',
@@ -56,6 +57,7 @@ export default function AntipsychoticElderlyPage() {
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
           <p className="text-sm text-blue-800">See flagged providers: <Link href="/flagged" className="text-primary font-medium hover:underline">All Flagged Providers →</Link></p>
         </div>
+      <RelatedAnalysis current={"/analysis/antipsychotic-elderly"} />
       </div>
     </div>
   )

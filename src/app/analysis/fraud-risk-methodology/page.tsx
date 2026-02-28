@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'How We Score Prescribing Risk: Specialty-Adjusted Peer Comparison',
@@ -197,6 +198,7 @@ export default function FraudRiskMethodologyPage() {
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">
           <p>Data: CMS Medicare Part D (2023), OIG LEIE. Risk scores are computed by OpenPrescriber for informational purposes. They do not constitute allegations of fraud, abuse, or inappropriate prescribing.</p>
         </div>
+      <RelatedAnalysis current={"/analysis/fraud-risk-methodology"} />
       </div>
     </div>
   )

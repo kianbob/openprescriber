@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 export const metadata: Metadata = {
   title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth',
@@ -114,6 +115,7 @@ export default function PrescribingTrendsPage() {
         <div className="mt-8 text-xs text-gray-400 border-t pt-4">
           <p>Data source: CMS Medicare Part D Prescribers dataset (2019–2023). All figures represent total drug costs including ingredient cost, dispensing fees, and sales tax. Individual provider data is subject to CMS suppression rules for counts below 11. This analysis is for informational purposes only and does not constitute medical or legal advice.</p>
         </div>
+      <RelatedAnalysis current={"/analysis/prescribing-trends"} />
       </div>
     </div>
   )
