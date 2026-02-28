@@ -16,6 +16,7 @@ const articles = [
   { href: '/analysis/specialty-deep-dive', title: 'Specialty Prescribing Deep Dive', tag: 'Specialty' },
   { href: '/analysis/top-drugs-analysis', title: 'The Most Expensive Drugs in Medicare', tag: 'Drugs' },
   { href: '/analysis/medicare-drug-spending', title: 'Medicare Drug Spending Explainer', tag: 'Cost' },
+  { href: '/analysis/state-of-prescribing', title: '2023 Report Card', tag: 'Annual' },
 ]
 
 export default function RelatedAnalysis({ current }: { current: string }) {

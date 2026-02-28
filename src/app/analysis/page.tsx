@@ -24,6 +24,7 @@ const articles = [
   { title: 'Nurse Practitioners: The Most Flagged Prescriber Group', slug: 'nurse-practitioners', desc: 'NPs are 19% of prescribers but 49% of flagged providers. What structural factors drive this disproportionate risk signal?', emoji: '👩‍⚕️' },
   { title: 'The Ozempic Effect: GLP-1 Drugs Reshaping Medicare', slug: 'ozempic-effect', desc: 'GLP-1 drugs now cost Medicare $8.4 billion annually — tripling since 2019. The fastest-growing drug category analyzed.', emoji: '💉' },
   { title: 'Anatomy of a Pill Mill', slug: 'pill-mills', desc: 'What does a pill mill look like in Medicare data? The statistical fingerprints of high-risk opioid prescribers.', emoji: '🏭' },
+  { title: 'The State of Prescribing: 2023 Report Card', slug: 'state-of-prescribing', desc: '10 key findings from 1.38 million prescribers and $275.6 billion in drug costs. The annual data report card.', emoji: '📋' },
 ]
 
 export default function AnalysisPage() {
