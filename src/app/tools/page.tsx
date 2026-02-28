@@ -10,14 +10,35 @@ export const metadata: Metadata = {
 
 const tools = [
   {
-    title: 'Generic Savings Calculator',
-    description: 'Calculate how much Medicare could save if providers switched from brand-name to generic drugs. Explore savings potential by state.',
-    href: '/tools/savings-calculator',
-    emoji: '💰',
+    title: 'Risk Score Calculator',
+    description: 'Enter prescribing metrics to calculate a risk score. See how opioid rates, costs, and other factors contribute to our 10-component model.',
+    href: '/tools/risk-calculator',
+    emoji: '🎯',
+    tag: 'Calculator',
+  },
+  {
+    title: 'Drug Cost Lookup',
+    description: 'Search 500 of the most expensive drugs in Medicare Part D. See total cost, claims, patients, and cost per prescription.',
+    href: '/tools/drug-lookup',
+    emoji: '💊',
+    tag: 'Search',
+  },
+  {
+    title: 'State Report Card',
+    description: 'Get a letter grade for your state\'s Medicare Part D performance. Rankings for drug costs, opioid rates, and cost per patient.',
+    href: '/tools/state-report-card',
+    emoji: '🏆',
     tag: 'Interactive',
   },
   {
-    title: 'Prescriber Peer Comparison Tool',
+    title: 'Generic Savings Calculator',
+    description: 'Calculate how much Medicare could save if providers switched from brand-name to generic drugs by state.',
+    href: '/tools/savings-calculator',
+    emoji: '💰',
+    tag: 'Calculator',
+  },
+  {
+    title: 'Prescriber Peer Comparison',
     description: 'Look up any medical specialty to see opioid rates, costs, and brand prescribing benchmarks with percentile data.',
     href: '/tools/peer-lookup',
     emoji: '📊',

@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ira-negotiation', '/glp1-tracker', '/dangerous-combinations', '/peer-comparison',
     '/taxpayer-cost', '/specialty-profiles', '/prescription-drug-costs',
     '/risk-explorer', '/ml-fraud-detection',
-    '/tools', '/tools/savings-calculator', '/tools/peer-lookup',
+    '/tools', '/tools/savings-calculator', '/tools/peer-lookup', '/tools/drug-lookup', '/tools/state-report-card', '/tools/risk-calculator',
     '/analysis/opioid-crisis', '/analysis/cost-outliers', '/analysis/brand-generic-gap',
     '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
     '/analysis/prescribing-trends', '/analysis/specialty-deep-dive', '/analysis/geographic-disparities',

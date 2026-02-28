@@ -251,6 +251,8 @@ export default function HomePage() {
             { icon: '☠️', label: 'Dangerous Combos', href: '/dangerous-combinations', sub: 'Opioid+benzo risks' },
             { icon: '🤖', label: 'ML Fraud Detection', href: '/ml-fraud-detection', sub: '4,100+ ML-flagged' },
             { icon: '📋', label: 'Peer Comparison', href: '/peer-comparison', sub: 'Specialty-adjusted' },
+            { icon: '🎯', label: 'Risk Calculator', href: '/tools/risk-calculator', sub: 'Try the scoring model' },
+            { icon: '🏆', label: 'State Report Card', href: '/tools/state-report-card', sub: 'Grade your state' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center">
               <span className="text-2xl">{item.icon}</span>
