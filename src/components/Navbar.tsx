@@ -55,6 +55,7 @@ const navItems = [
       { label: 'Methodology', href: '/methodology' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Tools', href: '/tools' },
+      { label: 'Compare Providers', href: '/tools/compare' },
       { label: 'Privacy', href: '/privacy' },
     ],
   },

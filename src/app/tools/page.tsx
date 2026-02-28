@@ -45,6 +45,13 @@ const tools = [
     tag: 'Interactive',
   },
   {
+    title: 'Compare Providers',
+    description: 'Enter two NPI numbers and see a side-by-side comparison of claims, costs, opioid rates, risk scores, and prescribing flags.',
+    href: '/tools/compare',
+    emoji: '⚖️',
+    tag: 'Interactive',
+  },
+  {
     title: 'Risk Explorer',
     description: 'Filter and explore 6,700+ flagged Medicare Part D providers by risk score, state, specialty, and specific risk flags.',
     href: '/risk-explorer',
