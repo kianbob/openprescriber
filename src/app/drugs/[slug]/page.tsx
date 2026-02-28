@@ -6,6 +6,7 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { DrugInsights, DataInsights } from '@/components/AIOverview'
+import { CostBreakdownPie, ProviderDistributionBar } from './DrugCharts'
 
 type Drug = { generic: string; brand: string; claims: number; cost: number; benes: number; providers: number; fills: number; costPerClaim: number }
 
@@ -81,6 +82,20 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
             <p className="text-xs text-gray-500 mt-1">{s.label}</p>
           </div>
         ))}
+      </div>
+
+      {/* Cost Charts */}
+      <div className="grid md:grid-cols-2 gap-6 mt-6">
+        <div className="bg-white rounded-xl shadow-sm p-5 border">
+          <h2 className="text-sm font-semibold text-gray-700 mb-2">Share of Medicare Part D Spending</h2>
+          <CostBreakdownPie drugCost={drug.cost} totalCost={275647552066} drugName={drug.generic} />
+        </div>
+        {topPrescribers.length >= 3 && (
+          <div className="bg-white rounded-xl shadow-sm p-5 border">
+            <h2 className="text-sm font-semibold text-gray-700 mb-2">Top Prescribers by Cost</h2>
+            <ProviderDistributionBar topPrescribers={topPrescribers} totalCost={drug.cost} />
+          </div>
+        )}
       </div>
 
       {/* AI Overview */}

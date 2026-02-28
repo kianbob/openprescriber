@@ -309,6 +309,27 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* Featured Analysis */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-6 text-center">Featured Analysis</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { icon: '\u{1F3E5}', title: 'The Opioid Crisis in Numbers', href: '/analysis/opioid-crisis', desc: 'Which states and specialties drive America\u2019s opioid crisis?' },
+            { icon: '\u{1F4B0}', title: 'Cost Outliers', href: '/analysis/cost-outliers', desc: 'Providers charging 10x their peers \u2014 who are they?' },
+            { icon: '\u{1F916}', title: 'ML Fraud Detection', href: '/ml-fraud-detection', desc: 'How machine learning catches fraud patterns rules miss.' },
+            { icon: '\u{1F48A}', title: 'The Ozempic Effect', href: '/analysis/ozempic-effect', desc: 'GLP-1 drugs are reshaping Medicare spending.' },
+            { icon: '\u{2620}\u{FE0F}', title: 'Dangerous Drug Combinations', href: '/dangerous-combinations', desc: '6,149 providers prescribing opioids with benzos.' },
+            { icon: '\u{1F474}', title: 'Antipsychotics in Elderly', href: '/analysis/antipsychotic-elderly', desc: 'Off-label prescribing in nursing homes.' },
+          ].map(item => (
+            <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-5 border hover:shadow-md hover:border-primary/20 transition-all">
+              <span className="text-3xl">{item.icon}</span>
+              <h3 className="font-semibold text-gray-900 mt-3">{item.title}</h3>
+              <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

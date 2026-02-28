@@ -101,6 +101,52 @@ export function ProviderGrowthChart({ data }: { data: { year: number; providers:
   )
 }
 
+export function TopDrugsCostChart({ data }: { data: { generic: string; cost: number }[] }) {
+  return (
+    <div className="h-[400px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data} layout="vertical" margin={{ left: 80, right: 10 }}>
+          <XAxis type="number" tickFormatter={v => '$' + (v / 1e9).toFixed(1) + 'B'} />
+          <YAxis type="category" dataKey="generic" width={80} tick={{ fontSize: 12 }} />
+          <Tooltip formatter={v => fmtMoney(v as number)} />
+          <Bar dataKey="cost" fill="#1e40af" radius={[0, 4, 4, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+export function CostGrowthRateChart({ data }: { data: { year: number; growthRate: number }[] }) {
+  return (
+    <div className="h-[400px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data} margin={{ left: 10, right: 10, top: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="year" />
+          <YAxis unit="%" />
+          <Tooltip formatter={(v: number) => v.toFixed(1) + '%'} labelFormatter={l => `Year: ${l}`} />
+          <Line type="monotone" dataKey="growthRate" stroke="#0ea5e9" strokeWidth={2} name="YoY Growth %" dot={{ r: 5, fill: '#0ea5e9' }} />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+export function SpecialtyOpioidChart({ data }: { data: { specialty: string; avgOpioidRate: number }[] }) {
+  return (
+    <div className="h-[500px]">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data} layout="vertical" margin={{ left: 140, right: 10 }}>
+          <XAxis type="number" unit="%" />
+          <YAxis type="category" dataKey="specialty" width={140} tick={{ fontSize: 11 }} />
+          <Tooltip formatter={v => (v as number).toFixed(1) + '%'} />
+          <Bar dataKey="avgOpioidRate" fill="#dc2626" radius={[0, 4, 4, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
 export function RiskBreakdownChart({ data }: { data: { level: string; count: number }[] }) {
   const colors = { High: '#dc2626', Elevated: '#f59e0b', Moderate: '#6366f1', Low: '#10b981' }
   return (
