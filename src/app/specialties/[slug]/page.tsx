@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import { SpecialtyInsights, DataInsights } from '@/components/AIOverview'
 
 type Spec = { specialty: string; providers: number; claims: number; cost: number; opioidProv: number; avgOpioidRate: number; avgBrandPct: number; costPerProvider: number }
 
@@ -60,6 +61,9 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
           </div>
         ))}
       </div>
+
+      {/* AI Overview */}
+      <DataInsights insights={SpecialtyInsights({ specialty: spec.specialty, providers: spec.providers, cost: spec.cost, opioidProv: spec.opioidProv, avgOpioidRate: spec.avgOpioidRate, avgBrandPct: spec.avgBrandPct, costPerProvider: spec.costPerProvider, flagged: specFlagged.length, totalProviders: 1380665 })} />
 
       {specFlagged.length > 0 && (
         <section className="mt-8">

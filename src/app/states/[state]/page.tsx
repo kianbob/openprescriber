@@ -7,6 +7,7 @@ import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
 import { StateCostTrend, StateOpioidTrend } from './StateCharts'
+import { StateInsights, DataInsights } from '@/components/AIOverview'
 
 type StateTrend = { year: number; state: string; providers: number; claims: number; cost: number; opioidProv: number; avgOpioidRate: number }
 type StateData = { state: string; providers: number; claims: number; cost: number; benes: number; opioidProv: number; highOpioid: number; opioidClaims: number; avgOpioidRate: number; costPerBene: number }
@@ -69,6 +70,15 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
           </div>
         ))}
       </div>
+
+      {/* AI Overview */}
+      {(() => {
+        const costGrowth = stateYearly.length >= 2 ? ((stateYearly[stateYearly.length - 1].cost / stateYearly[0].cost - 1) * 100) : undefined
+        const REAL_STATES = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY'.split(','))
+        const filtered = states.filter(st => REAL_STATES.has(st.state))
+        const insights = StateInsights({ state: abbr, providers: s.providers, cost: s.cost, opioidProv: s.opioidProv, highOpioid: s.highOpioid, avgOpioidRate: s.avgOpioidRate, costPerBene: s.costPerBene, flagged: stateFlagged.length, costGrowth, allStates: filtered })
+        return <DataInsights insights={insights} />
+      })()}
 
       {/* 5-Year Trends */}
       {stateYearly.length >= 2 && (

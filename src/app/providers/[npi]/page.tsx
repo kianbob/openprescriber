@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, riskBadge, riskColor } from '@/lib/utils'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
+import { ProviderInsights, DataInsights } from '@/components/AIOverview'
 import fs from 'fs'
 import path from 'path'
 
@@ -284,6 +285,9 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           <p className="text-xs text-red-700 mt-1">This provider prescribes both opioids and benzodiazepines. The FDA has issued a <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-fda-warns-about-serious-risks-and-death-when-combining-opioid-pain-or" target="_blank" rel="noopener noreferrer" className="underline">Black Box Warning</a> about the life-threatening risks of concurrent use.</p>
         </div>
       )}
+
+      {/* AI Overview */}
+      <DataInsights insights={ProviderInsights({ name: p.name, specialty: p.specialty, opioidRate: p.opioidRate, costPerBene: p.costPerBene, brandPct: p.brandPct, riskScore: p.riskScore, riskFlags: p.riskFlags, isExcluded: p.isExcluded, mlScore, peerComparison: p.peerComparison, drugDiversity: p.drugDiversity, opioidBenzoCombination: p.opioidBenzoCombination, claims: p.claims })} />
 
       {/* Opioid Section */}
       {p.opioidRate > 0 && (

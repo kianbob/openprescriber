@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import { DrugInsights, DataInsights } from '@/components/AIOverview'
 
 type Drug = { generic: string; brand: string; claims: number; cost: number; benes: number; providers: number; fills: number; costPerClaim: number }
 type Provider = { npi: string; name: string; city: string; state: string; specialty: string; claims: number; cost: number; riskLevel: string; opioidRate?: number; topDrugs?: { drug: string; claims: number; cost: number }[] }
@@ -82,20 +83,8 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
         ))}
       </div>
 
-      {/* Context */}
-      <section className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
-        <h2 className="text-lg font-bold text-blue-900 mb-2">About {drug.generic}</h2>
-        <p className="text-sm text-blue-800">
-          {drug.generic}{drug.brand ? ` (sold as ${drug.brand})` : ''} was prescribed {fmt(drug.claims)} times by {fmt(drug.providers)} Medicare Part D providers in 2023, 
-          costing the program {fmtMoney(drug.cost)}. At {fmtMoney(drug.costPerClaim)} per claim, 
-          {drug.costPerClaim > 500 ? ' this is a high-cost medication.' : drug.costPerClaim > 100 ? ' this is a moderately priced medication.' : ' this is a relatively affordable medication.'}
-        </p>
-        {drug.cost > 1e9 && (
-          <p className="text-sm text-blue-700 mt-2">
-            💰 This drug alone accounts for {(drug.cost / 275647552066 * 100).toFixed(1)}% of all Medicare Part D drug spending.
-          </p>
-        )}
-      </section>
+      {/* AI Overview */}
+      <DataInsights insights={DrugInsights({ generic: drug.generic, brand: drug.brand, cost: drug.cost, claims: drug.claims, costPerClaim: drug.costPerClaim, providers: drug.providers, benes: drug.benes, rank, totalDrugs: allDrugs.length })} />
 
       {/* Related Drugs */}
       <section className="mt-8">
