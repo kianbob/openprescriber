@@ -22,30 +22,40 @@ export default function AboutPage() {
         <h2>What We Do</h2>
         <ul>
           <li><strong>Provider Profiles</strong> — Detailed prescribing data for 1,380,665 Medicare Part D prescribers</li>
-          <li><strong>Risk Scoring</strong> — Multi-factor statistical model + machine learning fraud detection trained on confirmed fraud cases</li>
+          <li><strong>Risk Scoring</strong> — Multi-factor statistical model + machine learning fraud detection trained on confirmed fraud cases. <Link href="/methodology" className="text-primary font-medium hover:underline">Read our complete scoring methodology →</Link></li>
           <li><strong>Opioid Analysis</strong> — State-by-state and provider-level opioid prescribing tracking</li>
           <li><strong>Cost Transparency</strong> — $275.6 billion in drug costs broken down by provider, drug, state, and specialty</li>
           <li><strong>LEIE Cross-Reference</strong> — Matching active prescribers against the OIG&apos;s excluded provider list</li>
         </ul>
 
         <h2>Data Sources</h2>
+        <p className="text-sm text-gray-500 not-prose">Last updated: February 2026</p>
         <ul>
           <li><strong>CMS Medicare Part D Prescribers by Provider (2019–2023)</strong> — 1,380,665 prescribers in 2023, 84 data fields per provider, 5 years of trend data</li>
           <li><strong>CMS Medicare Part D Prescribers by Provider and Drug (2023)</strong> — Provider-drug level prescribing detail</li>
           <li><strong>OIG LEIE Downloadable Database</strong> — 8,300+ excluded individuals and entities</li>
         </ul>
+      </div>
 
-        <h2>Important Disclaimers</h2>
-        <p>
+      <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
+        <h2 className="text-lg font-bold text-amber-900 mb-3">Important Disclaimers</h2>
+        <p className="text-amber-900 mb-3">
           Risk scores are <strong>statistical indicators</strong> based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations — for example, pain management specialists are expected to have higher opioid prescribing rates. Always consider clinical context.
         </p>
-        <p>
+        <p className="text-amber-900">
           This platform is not medical advice. Prescribing data reflects patterns, not quality of care. Provider names are public under CMS data release policies.
         </p>
+      </div>
 
+      <div className="prose prose-gray max-w-none mt-8">
         <h2>Part of TheDataProject.ai</h2>
         <p>
           OpenPrescriber is one of 9 data transparency platforms built by <a href="https://thedataproject.ai" className="text-primary">TheDataProject.ai</a>, covering healthcare, government spending, immigration, lobbying, vaccines, and farm subsidies.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions or corrections? Contact us at <a href="mailto:data@thedataproject.ai" className="text-primary font-medium hover:underline">data@thedataproject.ai</a>
         </p>
       </div>
     </div>

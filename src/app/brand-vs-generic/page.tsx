@@ -63,12 +63,13 @@ export default function BrandVsGenericPage() {
                   <td className="px-4 py-2"><Link href={`/specialties/${slugify(s.specialty)}`} className="text-primary font-medium hover:underline">{s.specialty}</Link></td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
-                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgBrandPct > 50 ? 'text-red-600' : ''}`}>{s.avgBrandPct.toFixed(1)}%</td>
+                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgBrandPct > 50 ? 'text-red-600' : ''}`}>{s.avgBrandPct.toFixed(1)}%{s.providers < 25 && <span className="text-gray-400 font-normal text-xs ml-1">(small sample)</span>}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <p className="mt-3 text-xs text-gray-500">Note: Specialties with fewer than 25 providers may show extreme percentages due to small sample sizes.</p>
       </section>
 
       {/* Top Cost Providers */}
