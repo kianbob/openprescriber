@@ -49,7 +49,7 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-4 -mt-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: 'Prescribers', value: fmt(stats.providers), sub: '156 specialties' },
+            { label: 'Prescribers', value: fmt(stats.providers), sub: fmt(stats.totalSpecialties) + ' specialties' },
             { label: 'Drug Costs', value: fmtMoney(stats.cost), sub: fmt(stats.claims) + ' claims' },
             { label: 'Opioid Prescribers', value: fmt(stats.opioidProv), sub: fmt(stats.highOpioid) + ' high-rate', color: 'text-red-600' },
             { label: 'Flagged High Risk', value: fmt(stats.riskCounts.high), sub: fmt(stats.riskCounts.elevated) + ' elevated', color: 'text-red-600' },
@@ -239,7 +239,7 @@ export default function HomePage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { icon: '🏥', label: 'States', href: '/states', sub: '60 states & territories' },
-            { icon: '⚕️', label: 'Specialties', href: '/specialties', sub: '156 provider types' },
+            { icon: '⚕️', label: 'Specialties', href: '/specialties', sub: '205 provider types' },
             { icon: '💊', label: 'Top Drugs', href: '/drugs', sub: '500 drugs by cost' },
             { icon: '👤', label: 'Providers', href: '/providers', sub: '19,300+ profiles' },
             { icon: '🔴', label: 'Flagged', href: '/flagged', sub: 'Risk-scored providers' },
@@ -261,11 +261,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* What Sets Us Apart */}
+      <section className="max-w-6xl mx-auto px-4 mt-12">
+        <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-6 text-center">What Sets OpenPrescriber Apart</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-xl shadow-sm p-5 border border-green-100">
+            <p className="text-3xl mb-2">🎯</p>
+            <h3 className="font-semibold text-gray-900">Specialty-Adjusted Scoring</h3>
+            <p className="text-sm text-gray-600 mt-2">We compare each provider against their own specialty peers using z-scores — a pain specialist prescribing opioids isn&apos;t the same as a dermatologist doing so.</p>
+          </div>
+          <div className="bg-white rounded-xl shadow-sm p-5 border border-purple-100">
+            <p className="text-3xl mb-2">🤖</p>
+            <h3 className="font-semibold text-gray-900">Machine Learning Detection</h3>
+            <p className="text-sm text-gray-600 mt-2">Our ML model trained on 281 confirmed fraud cases catches 2,579 providers that rule-based systems miss entirely.</p>
+          </div>
+          <div className="bg-white rounded-xl shadow-sm p-5 border border-blue-100">
+            <p className="text-3xl mb-2">📅</p>
+            <h3 className="font-semibold text-gray-900">2023 Data (Latest Available)</h3>
+            <p className="text-sm text-gray-600 mt-2">While competitors like ProPublica&apos;s Prescriber Checkup are stuck on 2016 data, we use the most recent CMS release.</p>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="bg-white py-12 mt-8">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-8 text-center">How We Score Risk</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { num: '01', title: 'Opioid Prescribing', desc: 'We flag providers whose opioid prescribing rate exceeds the 95th percentile for their specialty. Long-acting opioids carry additional weight.' },
               { num: '02', title: 'Cost & Brand Patterns', desc: 'Providers prescribing mostly brand-name drugs when generics exist, or with abnormally high cost-per-beneficiary, receive elevated scores.' },

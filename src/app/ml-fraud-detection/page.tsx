@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
+import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
@@ -46,6 +47,7 @@ export default function MLFraudPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'ML Fraud Detection' }]} />
+      <DisclaimerBanner variant="ml" />
 
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>

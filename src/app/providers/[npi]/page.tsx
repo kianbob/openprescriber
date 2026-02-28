@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, riskBadge, riskColor } from '@/lib/utils'
+import DisclaimerBanner from '@/components/DisclaimerBanner'
 import fs from 'fs'
 import path from 'path'
 
@@ -33,6 +34,27 @@ type Provider = {
 }
 
 const FLAG_LABELS: Record<string, string> = {
+  // v3 specialty-adjusted flags
+  extreme_opioid_vs_peers: 'Extreme opioid rate vs specialty peers',
+  very_high_opioid_vs_peers: 'Very high opioid rate vs specialty peers',
+  high_opioid_vs_peers: 'High opioid rate vs specialty peers',
+  '99th_pctile_opioid': '99th percentile opioid prescribing',
+  '95th_pctile_opioid': '95th percentile opioid prescribing',
+  '90th_pctile_opioid': '90th percentile opioid prescribing',
+  high_la_opioid_vs_peers: 'High long-acting opioid rate vs peers',
+  extreme_cost_outlier: 'Extreme cost outlier (population + peer)',
+  high_cost_outlier: 'High cost outlier (population + peer)',
+  elevated_cost: 'Elevated cost per beneficiary',
+  extreme_brand_preference: 'Extreme brand-name preference',
+  high_brand_preference: 'High brand-name preference',
+  high_antipsych_elderly: 'High antipsychotic prescribing (65+)',
+  elevated_antipsych_elderly: 'Elevated antipsychotic prescribing (65+)',
+  opioid_benzo_coprescriber: 'Opioid + benzodiazepine co-prescriber',
+  leie_excluded: 'OIG Excluded Provider',
+  low_drug_diversity: 'Low drug diversity',
+  very_low_drug_diversity: 'Very low drug diversity',
+  high_fills_per_patient: 'High fills per patient',
+  // Legacy flags (backward compat)
   extreme_opioid: 'Extreme opioid prescribing rate',
   very_high_opioid: 'Very high opioid prescribing rate',
   high_opioid: 'High opioid prescribing rate',
@@ -42,9 +64,6 @@ const FLAG_LABELS: Record<string, string> = {
   high_cost: 'High cost per beneficiary',
   extreme_brand: 'Extreme brand-name prescribing',
   high_brand: 'High brand-name prescribing',
-  high_antipsych_elderly: 'High antipsychotic prescribing (65+)',
-  elevated_antipsych_elderly: 'Elevated antipsychotic prescribing (65+)',
-  leie_excluded: 'OIG Excluded Provider',
   high_volume_opioid: 'High volume + high opioid combo',
 }
 
@@ -75,9 +94,21 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
     if (mlScores[npi] !== undefined) mlScore = mlScores[npi]
   } catch {}
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalBusiness',
+    name: p.name + (p.credentials ? ', ' + p.credentials : ''),
+    description: `Medicare Part D prescriber — ${p.specialty} in ${p.city}, ${p.state}. ${fmt(p.claims)} claims, ${fmtMoney(p.cost)} in drug costs (2023).`,
+    address: { '@type': 'PostalAddress', addressLocality: p.city, addressRegion: p.state, postalCode: p.zip5, addressCountry: 'US' },
+    medicalSpecialty: p.specialty,
+    url: `https://www.openprescriber.org/providers/${npi}`,
+  }
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Breadcrumbs items={[{ label: 'Providers', href: '/providers' }, { label: p.name }]} />
+      {p.riskScore > 0 && <DisclaimerBanner variant="risk" />}
 
       {/* Header */}
       <div className="flex items-start justify-between gap-4">

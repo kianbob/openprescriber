@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
+import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { loadData } from '@/lib/server-utils'
 import RiskExplorerClient from './RiskExplorerClient'
 
@@ -26,6 +27,7 @@ export default function RiskExplorerPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Risk Explorer' }]} />
+      <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Risk Explorer</h1>
       <p className="text-gray-600 mb-2">
         Interactive tool to explore {providers.length.toLocaleString()} flagged Medicare Part D providers. 

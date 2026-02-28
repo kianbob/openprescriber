@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
+import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
@@ -17,6 +18,7 @@ export default function ExcludedPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Excluded Providers' }]} />
+      <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Excluded Providers in Medicare Part D</h1>
       <p className="text-gray-600 mb-2">
         {excluded.length} providers in our dataset match the OIG&apos;s List of Excluded Individuals/Entities (LEIE). These are individuals or entities that have been convicted of healthcare fraud, patient abuse, or related offenses.

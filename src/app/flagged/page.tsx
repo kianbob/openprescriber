@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
+import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
@@ -41,6 +42,7 @@ export default function FlaggedPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Flagged Providers' }]} />
+      <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Flagged Providers</h1>
       <p className="text-gray-600 mb-2">
         {fmt(highRisk.length)} providers flagged by our multi-factor statistical model — {highRisk.filter(p => p.riskLevel === 'high').length} high-risk (score ≥50) and {fmt(highRisk.filter(p => p.riskLevel === 'elevated').length)} elevated (score ≥30). Scores combine specialty-adjusted peer comparison, population percentiles, drug combination analysis, and OIG exclusion matching.
