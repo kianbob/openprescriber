@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { StatesCostChart, SpecialtyCostChart, OpioidStateChart, RiskBreakdownChart, CostTrendChart, OpioidTrendChart, ProviderGrowthChart } from './DashboardCharts'

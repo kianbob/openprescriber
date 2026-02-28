@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 type StateData = { state: string; brandCost: number; genericCost: number; brandPct: number; providers: number; [key: string]: unknown }
 
+const STATE_NAMES: Record<string, string> = {AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',PR:'Puerto Rico',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',VI:'Virgin Islands',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'}
+
 function fmtMoney(n: number): string {
   if (Math.abs(n) >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B'
   if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M'
@@ -54,7 +56,7 @@ export default function SavingsCalculatorClient({ states }: { states: StateData[
         >
           <option value="">— Choose a state —</option>
           {states.sort((a, b) => a.state.localeCompare(b.state)).map(s => (
-            <option key={s.state} value={s.state}>{s.state}</option>
+            <option key={s.state} value={s.state}>{STATE_NAMES[s.state] || s.state}</option>
           ))}
         </select>
 

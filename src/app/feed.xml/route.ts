@@ -13,6 +13,18 @@ const articles = [
   { slug: 'medicare-drug-spending', title: 'Where Does $275.6 Billion Go? Medicare Part D Spending Explained', date: '2026-02-27' },
 ]
 
+// Non-analysis content pages for RSS
+const contentPages = [
+  { path: '/ml-fraud-detection', title: 'ML Fraud Detection: Machine Learning Identifies Suspicious Prescribers', date: '2026-02-28' },
+  { path: '/ira-negotiation', title: 'IRA Drug Price Negotiation: $22 Billion in Medicare Savings', date: '2026-02-27' },
+  { path: '/glp1-tracker', title: 'GLP-1 Spending Explosion: Ozempic, Mounjaro & the $8.4B Surge', date: '2026-02-27' },
+  { path: '/dangerous-combinations', title: 'Dangerous Drug Combinations: 6,149 Opioid+Benzo Co-Prescribers', date: '2026-02-27' },
+  { path: '/taxpayer-cost', title: 'Your Tax Dollar: Medicare Part D Cost Per Taxpayer by State', date: '2026-02-27' },
+  { path: '/peer-comparison', title: 'How Does Your Doctor Compare? Specialty-Adjusted Analysis', date: '2026-02-27' },
+  { path: '/specialty-profiles', title: 'Specialty Prescribing Profiles: Average Metrics by Medical Specialty', date: '2026-02-27' },
+  { path: '/prescription-drug-costs', title: 'Medicare Prescription Drug Costs 2023', date: '2026-02-27' },
+]
+
 export async function GET() {
   const base = 'https://www.openprescriber.org'
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -27,6 +39,12 @@ export async function GET() {
       <title>${a.title}</title>
       <link>${base}/analysis/${a.slug}</link>
       <guid>${base}/analysis/${a.slug}</guid>
+      <pubDate>${new Date(a.date).toUTCString()}</pubDate>
+    </item>`).join('\n    ')}
+    ${contentPages.map(a => `<item>
+      <title>${a.title}</title>
+      <link>${base}${a.path}</link>
+      <guid>${base}${a.path}</guid>
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
     </item>`).join('\n    ')}
   </channel>

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
   title: 'Methodology: How We Score Risk — Specialty-Adjusted Peer Comparison',

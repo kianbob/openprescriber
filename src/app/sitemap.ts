@@ -11,12 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/search', '/about', '/methodology', '/analysis', '/downloads', '/faq', '/privacy',
     '/ira-negotiation', '/glp1-tracker', '/dangerous-combinations', '/peer-comparison',
     '/taxpayer-cost', '/specialty-profiles', '/prescription-drug-costs',
-    '/tools/savings-calculator', '/tools/peer-lookup',
-    '/risk-explorer', '/ml-fraud-detection', '/taxpayer-cost', '/specialty-profiles',
+    '/risk-explorer', '/ml-fraud-detection',
+    '/tools', '/tools/savings-calculator', '/tools/peer-lookup',
     '/analysis/opioid-crisis', '/analysis/cost-outliers', '/analysis/brand-generic-gap',
     '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
-    '/ira-negotiation', '/glp1-tracker', '/dangerous-combinations', '/peer-comparison',
-    '/tools', '/tools/savings-calculator', '/tools/peer-lookup',
+    '/analysis/prescribing-trends', '/analysis/specialty-deep-dive', '/analysis/geographic-disparities',
+    '/analysis/top-drugs-analysis', '/analysis/fraud-risk-methodology', '/analysis/medicare-drug-spending',
   ]
 
   // Provider detail pages

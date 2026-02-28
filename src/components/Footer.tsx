@@ -15,26 +15,28 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Risk Analysis</h3>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Risk & Spending</h3>
           <ul className="space-y-2">
             <li><Link href="/flagged" className="hover:text-white">Flagged Providers</Link></li>
+            <li><Link href="/ml-fraud-detection" className="hover:text-white">ML Fraud Detection</Link></li>
             <li><Link href="/risk-explorer" className="hover:text-white">Risk Explorer</Link></li>
-            <li><Link href="/dangerous-combinations" className="hover:text-white">Dangerous Combos</Link></li>
             <li><Link href="/opioids" className="hover:text-white">Opioid Prescribing</Link></li>
+            <li><Link href="/dangerous-combinations" className="hover:text-white">Dangerous Combos</Link></li>
             <li><Link href="/brand-vs-generic" className="hover:text-white">Brand vs Generic</Link></li>
-            <li><Link href="/excluded" className="hover:text-white">Excluded Providers</Link></li>
+            <li><Link href="/ira-negotiation" className="hover:text-white">IRA Drug Prices</Link></li>
+            <li><Link href="/glp1-tracker" className="hover:text-white">GLP-1 Tracker</Link></li>
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Analysis</h3>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Resources</h3>
           <ul className="space-y-2">
             <li><Link href="/analysis" className="hover:text-white">All Analysis</Link></li>
-            <li><Link href="/analysis/opioid-crisis" className="hover:text-white">Opioid Crisis</Link></li>
-            <li><Link href="/analysis/cost-outliers" className="hover:text-white">Cost Outliers</Link></li>
+            <li><Link href="/tools" className="hover:text-white">Tools</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
             <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             <li><Link href="/downloads" className="hover:text-white">Downloads</Link></li>
+            <li><Link href="/taxpayer-cost" className="hover:text-white">Taxpayer Cost</Link></li>
             <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
           </ul>
         </div>

@@ -23,6 +23,27 @@ const tools = [
     emoji: '📊',
     tag: 'Interactive',
   },
+  {
+    title: 'Risk Explorer',
+    description: 'Filter and explore 6,700+ flagged Medicare Part D providers by risk score, state, specialty, and specific risk flags.',
+    href: '/risk-explorer',
+    emoji: '🔍',
+    tag: 'Interactive',
+  },
+  {
+    title: 'Provider Search',
+    description: 'Search 19,300+ Medicare Part D prescriber profiles by name, NPI, city, state, or specialty.',
+    href: '/search',
+    emoji: '👤',
+    tag: 'Search',
+  },
+  {
+    title: 'ML Fraud Detection',
+    description: 'Machine learning model trained on confirmed fraud cases scores 1M+ providers. Explore 4,100+ flagged prescribers.',
+    href: '/ml-fraud-detection',
+    emoji: '🤖',
+    tag: 'AI/ML',
+  },
 ]
 
 export default function ToolsPage() {

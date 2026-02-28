@@ -16,10 +16,11 @@ export default function TaxpayerCostPage() {
   const stats = loadData('stats.json') as { cost: number; claims: number; providers: number; benes: number; brandCost: number; genericCost: number; brandPct: number }
   const states = loadData('states.json') as { state: string; cost: number; benes: number; providers: number; claims: number }[]
 
-  // US has ~150M taxpayers
+  // US has ~150M taxpayers; Medicare Part D has ~52M enrolled beneficiaries (CMS 2023)
   const US_TAXPAYERS = 150_000_000
+  const PART_D_ENROLLEES = 52_000_000 // CMS 2023 enrollment (stats.benes is provider-summed, overcounts)
   const costPerTaxpayer = Math.round(stats.cost / US_TAXPAYERS)
-  const costPerBene = Math.round(stats.cost / stats.benes)
+  const costPerBene = Math.round(stats.cost / PART_D_ENROLLEES)
 
   // State taxpayer estimates (rough proportion by population, simplified)
   const stateRanked = [...states]
@@ -53,8 +54,8 @@ export default function TaxpayerCostPage() {
           <p className="text-xs text-gray-600 mt-1">Per Beneficiary</p>
         </div>
         <div className="bg-blue-50 rounded-xl p-5 text-center border border-blue-200">
-          <p className="text-3xl font-bold text-primary">{fmt(stats.benes)}</p>
-          <p className="text-xs text-gray-600 mt-1">Beneficiaries</p>
+          <p className="text-3xl font-bold text-primary">~52M</p>
+          <p className="text-xs text-gray-600 mt-1">Part D Enrollees</p>
         </div>
       </div>
 
@@ -90,9 +91,9 @@ export default function TaxpayerCostPage() {
               <tr>
                 <th className="px-4 py-3 text-left font-semibold">#</th>
                 <th className="px-4 py-3 text-left font-semibold">State</th>
-                <th className="px-4 py-3 text-right font-semibold">Cost/Beneficiary</th>
+                <th className="px-4 py-3 text-right font-semibold">Cost/Patient*</th>
                 <th className="px-4 py-3 text-right font-semibold">Total Cost</th>
-                <th className="px-4 py-3 text-right font-semibold hidden md:table-cell">Beneficiaries</th>
+                <th className="px-4 py-3 text-right font-semibold hidden md:table-cell">Prescriptions*</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -102,7 +103,7 @@ export default function TaxpayerCostPage() {
                   <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary font-medium hover:underline">{s.name}</Link></td>
                   <td className={`px-4 py-2 text-right font-mono font-semibold ${s.costPerBene > costPerBene * 1.2 ? 'text-red-600' : ''}`}>${s.costPerBene.toLocaleString()}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
-                  <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.benes)}</td>
+                  <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.claims)}</td>
                 </tr>
               ))}
             </tbody>
@@ -123,6 +124,7 @@ export default function TaxpayerCostPage() {
       </section>
 
       <p className="text-xs text-gray-400 mt-8">
+        *Cost per patient is calculated from provider-level data (patients seeing multiple providers are counted once per provider). Actual Medicare Part D enrollment: ~52 million (CMS 2023).
         Data from CMS Medicare Part D Public Use Files, 2023. Taxpayer estimates based on ~150M federal income tax filers.
         <Link href="/methodology" className="text-primary hover:underline ml-2">Methodology</Link>
       </p>

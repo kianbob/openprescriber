@@ -270,6 +270,7 @@ export default function HomePage() {
               { num: '01', title: 'Opioid Prescribing', desc: 'We flag providers whose opioid prescribing rate exceeds the 95th percentile for their specialty. Long-acting opioids carry additional weight.' },
               { num: '02', title: 'Cost & Brand Patterns', desc: 'Providers prescribing mostly brand-name drugs when generics exist, or with abnormally high cost-per-beneficiary, receive elevated scores.' },
               { num: '03', title: 'Cross-Reference', desc: 'We match all providers against the OIG\'s List of Excluded Individuals/Entities (LEIE) — providers convicted of fraud or abuse.' },
+              { num: '04', title: 'Machine Learning', desc: 'A model trained on 281 confirmed fraud cases identifies providers with similar prescribing patterns that rules alone miss.' },
             ].map(item => (
               <div key={item.num} className="text-center">
                 <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold mx-auto">{item.num}</div>
