@@ -253,6 +253,7 @@ export default function HomePage() {
             { icon: '📋', label: 'Peer Comparison', href: '/peer-comparison', sub: 'Specialty-adjusted' },
             { icon: '🎯', label: 'Risk Calculator', href: '/tools/risk-calculator', sub: 'Try the scoring model' },
             { icon: '🏆', label: 'State Report Card', href: '/tools/state-report-card', sub: 'Grade your state' },
+            { icon: '💊', label: 'Drug Lookup', href: '/tools/drug-lookup', sub: 'Search 500 drugs by name. See costs, claims, and top prescribers.' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center">
               <span className="text-2xl">{item.icon}</span>
@@ -279,8 +280,8 @@ export default function HomePage() {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-blue-100">
             <p className="text-3xl mb-2">📅</p>
-            <h3 className="font-semibold text-gray-900">2023 Data (Latest Available)</h3>
-            <p className="text-sm text-gray-600 mt-2">While competitors like ProPublica&apos;s Prescriber Checkup are stuck on 2016 data, we use the most recent CMS release.</p>
+            <h3 className="font-semibold text-gray-900">2023 Data — Most Current Available</h3>
+            <p className="text-sm text-gray-600 mt-2">CMS releases Part D data on a ~1-year lag. Our 2023 dataset is the newest available — while competitors like ProPublica&apos;s Prescriber Checkup remain stuck on 2016.</p>
           </div>
         </div>
       </section>

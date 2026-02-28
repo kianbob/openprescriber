@@ -29,6 +29,16 @@ export default function MedicareFraudPage() {
       </p>
       <ShareButtons title="Medicare Fraud: What the Data Shows" />
 
+      {/* CTA Box */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mt-6">
+        <p className="font-semibold text-blue-900 mb-3">Explore our fraud detection tools:</p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/flagged" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Flagged Providers</Link>
+          <Link href="/ml-fraud-detection" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">ML Fraud Detection</Link>
+          <Link href="/risk-explorer" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Risk Explorer</Link>
+        </div>
+      </div>
+
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
         <div className="bg-red-50 rounded-xl p-5 text-center border border-red-200">

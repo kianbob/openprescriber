@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
-import { fmtMoney, fmt, riskBadge, riskColor } from '@/lib/utils'
+import { fmtMoney, fmt, riskBadge, riskColor, slugify } from '@/lib/utils'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { ProviderInsights, DataInsights } from '@/components/AIOverview'
 import fs from 'fs'
@@ -359,7 +359,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
               <tbody className="divide-y divide-gray-100">
                 {p.topDrugs.map((d, i) => (
                   <tr key={i} className="hover:bg-gray-50">
-                    <td className="px-4 py-2 font-medium">{d.drug}</td>
+                    <td className="px-4 py-2 font-medium"><Link href={`/drugs/${slugify(d.drug)}`} className="text-primary hover:underline">{d.drug}</Link></td>
                     <td className="px-4 py-2 text-gray-500 hidden md:table-cell">{d.brand || '—'}</td>
                     <td className="px-4 py-2 text-right font-mono">{fmt(d.claims)}</td>
                     <td className="px-4 py-2 text-right font-mono">{fmtMoney(d.cost)}</td>

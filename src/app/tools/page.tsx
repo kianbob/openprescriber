@@ -79,7 +79,7 @@ export default function ToolsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tools.map(tool => (
-          <Link key={tool.href} href={tool.href} className="block bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-blue-300 transition-all">
+          <Link key={tool.href} href={tool.href} className="block bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-primary/30 transition-all">
             <div className="flex items-start gap-3">
               <span className="text-3xl">{tool.emoji}</span>
               <div>
