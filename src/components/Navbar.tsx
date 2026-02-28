@@ -21,6 +21,8 @@ const navItems = [
       { label: 'Opioid Prescribing', href: '/opioids' },
       { label: 'Brand vs Generic', href: '/brand-vs-generic' },
       { label: 'Excluded Providers', href: '/excluded' },
+      { label: 'IRA Drugs', href: '/ira-negotiation' },
+      { label: 'Dangerous Combos', href: '/dangerous-combinations' },
     ],
   },
   {

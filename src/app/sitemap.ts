@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/savings-calculator', '/tools/peer-lookup',
     '/analysis/opioid-crisis', '/analysis/cost-outliers', '/analysis/brand-generic-gap',
     '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
+    '/ira-negotiation', '/glp1-tracker', '/dangerous-combinations', '/peer-comparison',
+    '/tools', '/tools/savings-calculator', '/tools/peer-lookup',
   ]
 
   // Provider detail pages
