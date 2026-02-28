@@ -17,6 +17,7 @@ const articles = [
   { slug: 'state-of-prescribing', title: 'The State of Prescribing: 2023 Medicare Part D Report Card', date: '2026-02-28' },
   { slug: 'rural-prescribing', title: 'Rural America\'s Prescribing Problem: Why Small-Town Medicare Costs More', date: '2026-02-28' },
   { slug: 'polypharmacy', title: 'The Polypharmacy Problem: When Medicare Patients Take Too Many Drugs', date: '2026-02-28' },
+  { slug: 'state-rankings', title: 'State-by-State Medicare Prescribing Rankings: A Deep Dive', date: '2026-02-28' },
 ]
 
 // Non-analysis content pages for RSS

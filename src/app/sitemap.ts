@@ -12,13 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ira-negotiation', '/glp1-tracker', '/dangerous-combinations', '/peer-comparison',
     '/taxpayer-cost', '/specialty-profiles', '/prescription-drug-costs',
     '/risk-explorer', '/ml-fraud-detection',
-    '/tools', '/tools/compare', '/tools/savings-calculator', '/tools/peer-lookup', '/tools/drug-lookup', '/tools/state-report-card', '/tools/risk-calculator',
+    '/tools', '/tools/compare', '/tools/savings-calculator', '/tools/peer-lookup', '/tools/drug-lookup', '/tools/state-report-card', '/tools/risk-calculator', '/tools/city-lookup', '/tools/specialty-comparison',
     '/analysis/opioid-crisis', '/analysis/cost-outliers', '/analysis/brand-generic-gap',
     '/analysis/opioid-hotspots', '/analysis/excluded-still-prescribing', '/analysis/antipsychotic-elderly',
     '/analysis/prescribing-trends', '/analysis/specialty-deep-dive', '/analysis/geographic-disparities',
     '/analysis/top-drugs-analysis', '/analysis/fraud-risk-methodology', '/analysis/medicare-drug-spending',
     '/analysis/nurse-practitioners', '/analysis/ozempic-effect', '/analysis/pill-mills', '/analysis/state-of-prescribing',
-    '/analysis/rural-prescribing', '/analysis/polypharmacy',
+    '/analysis/rural-prescribing', '/analysis/polypharmacy', '/analysis/state-rankings',
     '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
   ]
 

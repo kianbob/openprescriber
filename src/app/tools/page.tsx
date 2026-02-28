@@ -52,6 +52,20 @@ const tools = [
     tag: 'Interactive',
   },
   {
+    title: 'City Lookup',
+    description: 'Search for Medicare Part D prescribers by city. See provider names, specialties, costs, and risk levels for any U.S. city.',
+    href: '/tools/city-lookup',
+    emoji: '🏙️',
+    tag: 'Search',
+  },
+  {
+    title: 'Specialty Comparison',
+    description: 'Compare 2-3 medical specialties side by side. See providers, costs, opioid rates, brand prescribing, and more.',
+    href: '/tools/specialty-comparison',
+    emoji: '🔬',
+    tag: 'Interactive',
+  },
+  {
     title: 'Risk Explorer',
     description: 'Filter and explore 6,700+ flagged Medicare Part D providers by risk score, state, specialty, and specific risk flags.',
     href: '/risk-explorer',

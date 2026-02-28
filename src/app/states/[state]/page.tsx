@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
-import { fmtMoney, fmt } from '@/lib/utils'
+import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
 import { StateCostTrend, StateOpioidTrend } from './StateCharts'
@@ -93,6 +93,40 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
           </div>
         </div>
       )}
+
+      {/* Top Specialties */}
+      {(() => {
+        const specCounts: Record<string, number> = {}
+        for (const p of allProviders.filter(p => p.state === abbr)) {
+          specCounts[p.specialty] = (specCounts[p.specialty] || 0) + 1
+        }
+        const topSpecs = Object.entries(specCounts).sort((a, b) => b[1] - a[1]).slice(0, 10)
+        return topSpecs.length > 0 ? (
+          <section className="mt-8">
+            <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Top Specialties in {name}</h2>
+            <div className="bg-white rounded-xl shadow-sm overflow-x-auto border">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold">#</th>
+                    <th className="px-4 py-3 text-left font-semibold">Specialty</th>
+                    <th className="px-4 py-3 text-right font-semibold">Providers</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {topSpecs.map(([spec, count], i) => (
+                    <tr key={spec} className="hover:bg-gray-50">
+                      <td className="px-4 py-2 text-gray-400">{i + 1}</td>
+                      <td className="px-4 py-2"><Link href={`/specialties/${slugify(spec)}`} className="text-primary font-medium hover:underline">{spec}</Link></td>
+                      <td className="px-4 py-2 text-right font-mono">{fmt(count)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        ) : null
+      })()}
 
       {/* Flagged */}
       {stateFlagged.length > 0 && (

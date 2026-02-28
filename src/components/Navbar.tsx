@@ -56,6 +56,8 @@ const navItems = [
       { label: 'FAQ', href: '/faq' },
       { label: 'Tools', href: '/tools' },
       { label: 'Compare Providers', href: '/tools/compare' },
+      { label: 'City Lookup', href: '/tools/city-lookup' },
+      { label: 'Specialty Comparison', href: '/tools/specialty-comparison' },
       { label: 'Privacy', href: '/privacy' },
     ],
   },

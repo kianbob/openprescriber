@@ -19,6 +19,7 @@ const articles = [
   { href: '/analysis/state-of-prescribing', title: '2023 Report Card', tag: 'Annual' },
   { href: '/analysis/rural-prescribing', title: 'Rural Prescribing Problem', tag: 'Geography' },
   { href: '/analysis/polypharmacy', title: 'The Polypharmacy Problem', tag: 'Risk' },
+  { href: '/analysis/state-rankings', title: 'State-by-State Prescribing Rankings', tag: 'Geography' },
 ]
 
 export default function RelatedAnalysis({ current }: { current: string }) {

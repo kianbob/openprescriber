@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
+import { stateName } from '@/lib/state-names'
 import { SpecialtyInsights, DataInsights } from '@/components/AIOverview'
 
 type Spec = { specialty: string; providers: number; claims: number; cost: number; opioidProv: number; avgOpioidRate: number; avgBrandPct: number; costPerProvider: number }
@@ -64,6 +65,40 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
 
       {/* AI Overview */}
       <DataInsights insights={SpecialtyInsights({ specialty: spec.specialty, providers: spec.providers, cost: spec.cost, opioidProv: spec.opioidProv, avgOpioidRate: spec.avgOpioidRate, avgBrandPct: spec.avgBrandPct, costPerProvider: spec.costPerProvider, flagged: specFlagged.length, totalProviders: 1380665 })} />
+
+      {/* Top States */}
+      {(() => {
+        const stateCounts: Record<string, number> = {}
+        for (const p of allProviders.filter(p => p.specialty === spec.specialty)) {
+          stateCounts[p.state] = (stateCounts[p.state] || 0) + 1
+        }
+        const topStates = Object.entries(stateCounts).sort((a, b) => b[1] - a[1]).slice(0, 10)
+        return topStates.length > 0 ? (
+          <section className="mt-8">
+            <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Top States for {spec.specialty}</h2>
+            <div className="bg-white rounded-xl shadow-sm overflow-x-auto border">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold">#</th>
+                    <th className="px-4 py-3 text-left font-semibold">State</th>
+                    <th className="px-4 py-3 text-right font-semibold">Providers</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {topStates.map(([st, count], i) => (
+                    <tr key={st} className="hover:bg-gray-50">
+                      <td className="px-4 py-2 text-gray-400">{i + 1}</td>
+                      <td className="px-4 py-2"><Link href={`/states/${st.toLowerCase()}`} className="text-primary font-medium hover:underline">{stateName(st)}</Link></td>
+                      <td className="px-4 py-2 text-right font-mono">{fmt(count)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        ) : null
+      })()}
 
       {specFlagged.length > 0 && (
         <section className="mt-8">
