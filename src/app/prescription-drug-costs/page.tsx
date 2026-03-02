@@ -22,6 +22,19 @@ export default function PrescriptionDrugCostsPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'How much does Medicare Part D spend on prescription drugs?', acceptedAnswer: { '@type': 'Answer', text: 'In 2023, Medicare Part D spent $275.6 billion on prescription drugs through 1.38 million prescribers, covering over 1.6 billion prescriptions.' } },
+            { '@type': 'Question', name: 'What is the most expensive drug in Medicare Part D?', acceptedAnswer: { '@type': 'Answer', text: 'Apixaban (brand name Eliquis) is the most expensive drug in Medicare Part D at $7.75 billion in 2023, followed by Semaglutide (Ozempic) and other specialty drugs.' } },
+            { '@type': 'Question', name: 'How much have Medicare drug costs increased?', acceptedAnswer: { '@type': 'Answer', text: 'Medicare Part D drug costs grew 50% in 5 years, from $183 billion in 2019 to $275.6 billion in 2023. GLP-1 drugs like Ozempic are a major driver of this growth.' } },
+            { '@type': 'Question', name: 'What percentage of Medicare spending is on brand-name drugs?', acceptedAnswer: { '@type': 'Answer', text: `Brand-name drugs account for just ${stats.brandPct}% of prescriptions but approximately ${Math.round(stats.brandCost / stats.cost * 100)}% of total Medicare Part D costs.` } },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Prescription Drug Costs' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Medicare Prescription Drug Costs</h1>
       <p className="text-gray-600 mb-6">A comprehensive look at where $275.6 billion in Medicare Part D spending goes — every drug, every provider, every state.</p>

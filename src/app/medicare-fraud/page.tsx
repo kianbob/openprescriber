@@ -25,6 +25,18 @@ export default function MedicareFraudPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'How much does Medicare fraud cost?', acceptedAnswer: { '@type': 'Answer', text: 'Medicare fraud, waste, and abuse costs taxpayers an estimated $31+ billion annually according to government estimates. OpenPrescriber uses data analysis and machine learning to identify suspicious prescribing patterns.' } },
+            { '@type': 'Question', name: 'How does OpenPrescriber detect Medicare fraud?', acceptedAnswer: { '@type': 'Answer', text: 'We use a 10-component statistical model plus machine learning trained on 281 confirmed fraud cases. The system analyzes opioid rates, cost patterns, brand prescribing, drug combinations, and cross-references the OIG exclusion list.' } },
+            { '@type': 'Question', name: 'How many providers are flagged for potential fraud?', acceptedAnswer: { '@type': 'Answer', text: `Our analysis flagged ${stats.riskCounts?.high || 233} high-risk and ${stats.riskCounts?.elevated || 6473} elevated-risk providers out of 1.38 million Medicare Part D prescribers. Our ML model additionally flagged ${mlData.totalFlagged} providers.` } },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Medicare Fraud' }]} />
       <DisclaimerBanner variant="risk" />
 

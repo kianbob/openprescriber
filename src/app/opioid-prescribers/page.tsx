@@ -24,6 +24,16 @@ export default function OpioidPrescribersPage() {
   const REAL = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY'.split(','))
   const realStates = states.filter(s => REAL.has(s.state)).sort((a, b) => b.avgOpioidRate - a.avgOpioidRate)
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'How many doctors prescribe opioids in Medicare?', acceptedAnswer: { '@type': 'Answer', text: `${fmt(stats.opioidProv)} of ${fmt(stats.providers)} Medicare Part D prescribers (${((stats.opioidProv / stats.providers) * 100).toFixed(0)}%) prescribed at least one opioid in 2023. Of those, ${fmt(stats.highOpioid)} have opioid prescribing rates above 20%.` } },
+      { '@type': 'Question', name: 'Which state has the highest opioid prescribing rate?', acceptedAnswer: { '@type': 'Answer', text: `${stateName(realStates[0].state)} has the highest average opioid prescribing rate at ${(realStates[0].avgOpioidRate ?? 0).toFixed(1)}%, followed by ${stateName(realStates[1].state)} at ${(realStates[1].avgOpioidRate ?? 0).toFixed(1)}%.` } },
+      { '@type': 'Question', name: 'What is a high opioid prescribing rate?', acceptedAnswer: { '@type': 'Answer', text: 'OpenPrescriber flags providers with opioid prescribing rates above 20% as high-rate prescribers. Rates above the 95th percentile for a provider\'s specialty trigger risk scoring. Context matters — pain management specialists are expected to have higher rates.' } },
+    ],
+  }
+
   const totalOpioidClaims = states.reduce((s, st) => s + (st.opioidClaims || 0), 0)
 
   return (

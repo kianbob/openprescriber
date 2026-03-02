@@ -78,6 +78,12 @@ export async function generateMetadata({ params }: { params: Promise<{ npi: stri
     title: `${p.name}${p.credentials ? ', ' + p.credentials : ''} — Medicare Part D Prescribing Profile`,
     description: `${p.name} in ${p.city}, ${p.state} prescribed ${fmt(p.claims)} Medicare Part D claims totaling ${fmtMoney(p.cost)}. ${p.opioidRate > 0 ? `Opioid rate: ${(p.opioidRate ?? 0).toFixed(1)}%.` : ''} Specialty: ${p.specialty}.`,
     alternates: { canonical: `https://www.openprescriber.org/providers/${npi}` },
+    openGraph: {
+      title: `${p.name}${p.credentials ? ', ' + p.credentials : ''} — Medicare Part D Profile`,
+      description: `${p.name} in ${p.city}, ${p.state} prescribed ${fmt(p.claims)} Medicare Part D claims totaling ${fmtMoney(p.cost)}. Specialty: ${p.specialty}.`,
+      url: `https://www.openprescriber.org/providers/${npi}`,
+      type: 'article',
+    },
   }
 }
 

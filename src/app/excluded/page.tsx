@@ -1,7 +1,9 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
+import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import ExcludedClient from './ExcludedClient'
 
@@ -29,6 +31,26 @@ export default function ExcludedPage() {
       </p>
       <ShareButtons title="Excluded Providers Still in Medicare Part D" />
 
+      {/* Summary Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+        <div className="bg-red-50 rounded-xl p-4 text-center border border-red-200">
+          <p className="text-2xl font-bold text-red-700">{fmt(excluded.length)}</p>
+          <p className="text-xs text-gray-600">Excluded Providers</p>
+        </div>
+        <div className="bg-white rounded-xl p-4 text-center border">
+          <p className="text-2xl font-bold text-primary">{fmt(excluded.reduce((s, p) => s + (p.claims ?? 0), 0))}</p>
+          <p className="text-xs text-gray-600">Total Claims</p>
+        </div>
+        <div className="bg-white rounded-xl p-4 text-center border">
+          <p className="text-2xl font-bold text-primary">{fmtMoney(excluded.reduce((s, p) => s + (p.cost ?? 0), 0))}</p>
+          <p className="text-xs text-gray-600">Total Drug Costs</p>
+        </div>
+        <div className="bg-orange-50 rounded-xl p-4 text-center border border-orange-200">
+          <p className="text-2xl font-bold text-orange-700">{fmt(excluded.filter(p => (p.riskScore ?? 0) >= 50).length)}</p>
+          <p className="text-xs text-gray-600">High Risk (≥50)</p>
+        </div>
+      </div>
+
       <div className="mt-4 bg-red-50 border border-red-200 rounded-lg p-4 text-sm">
         <p className="text-red-800"><strong>What is the LEIE?</strong> The Office of Inspector General (OIG) maintains a list of providers excluded from all federal healthcare programs. Excluded providers are prohibited from receiving payment for services rendered to Medicare or Medicaid beneficiaries. Matching is based on NPI numbers and may include false positives.</p>
       </div>
@@ -36,6 +58,17 @@ export default function ExcludedPage() {
       <div className="mt-8">
         <ExcludedClient excluded={excluded} />
       </div>
+
+      {/* Related Analysis */}
+      <section className="mt-12">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Related Analysis</h2>
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+          <Link href="/analysis/excluded-still-prescribing" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
+            <h3 className="font-semibold text-gray-900 mb-1">🚫 Excluded Providers Still Prescribing</h3>
+            <p className="text-sm text-gray-600">Deep dive into how OIG-excluded providers continue to appear in Medicare Part D prescribing data.</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
