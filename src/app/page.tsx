@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: 'OpenPrescriber — Medicare Part D Prescribing Data & Analysis',
   description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis. Free, open data.',
   alternates: { canonical: 'https://www.openprescriber.org' },
+  openGraph: {
+    title: 'OpenPrescriber — Medicare Part D Prescribing Data & Analysis',
+    description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis.',
+    url: 'https://www.openprescriber.org',
+    type: 'website',
+  },
 }
 
 export default function HomePage() {
@@ -22,6 +28,21 @@ export default function HomePage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'OpenPrescriber',
+          url: 'https://www.openprescriber.org',
+          description: 'The most comprehensive open analysis of Medicare Part D prescribing data — 1.38 million prescribers, $275.6 billion in drug costs, fraud risk scoring, and opioid tracking.',
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://www.openprescriber.org/search?q={search_term_string}',
+            'query-input': 'required name=search_term_string',
+          },
+        }) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 text-center">
@@ -282,6 +303,16 @@ export default function HomePage() {
             <p className="text-3xl mb-2">📅</p>
             <h3 className="font-semibold text-gray-900">2023 Data — Most Current Available</h3>
             <p className="text-sm text-gray-600 mt-2">CMS releases Part D data on a ~1-year lag. Our 2023 dataset is the newest available — while competitors like ProPublica&apos;s Prescriber Checkup remain stuck on 2016.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Freshness */}
+      <section className="max-w-6xl mx-auto px-4 mt-8">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 flex items-center gap-3">
+          <span className="text-xl">📅</span>
+          <div>
+            <strong>Data current through 2023</strong> — the most recent Medicare Part D data available from CMS. Updated March 2026. ProPublica&apos;s Prescriber Checkup remains stuck on 2016 data.
           </div>
         </div>
       </section>

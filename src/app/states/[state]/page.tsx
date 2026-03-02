@@ -212,6 +212,24 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
           </table>
         </div>
       </section>
+      {/* Related Analysis */}
+      <section className="mt-12 bg-gray-50 rounded-xl p-6">
+        <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">Related Analysis</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/analysis/state-rankings" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
+            <h3 className="font-semibold text-sm">🏆 State Rankings</h3>
+            <p className="text-xs text-gray-500 mt-1">How does {name} compare to all 50 states?</p>
+          </Link>
+          <Link href="/analysis/opioid-hotspots" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
+            <h3 className="font-semibold text-sm">🗺️ Opioid Hotspots</h3>
+            <p className="text-xs text-gray-500 mt-1">Geographic patterns in opioid prescribing.</p>
+          </Link>
+          <Link href="/analysis/rural-prescribing" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
+            <h3 className="font-semibold text-sm">🌾 Rural Prescribing</h3>
+            <p className="text-xs text-gray-500 mt-1">Urban-rural divide in prescribing patterns.</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
