@@ -8,6 +8,12 @@ import RelatedAnalysis from '@/components/RelatedAnalysis'
 export const metadata: Metadata = {
   title: 'The Drugs That Cost Medicare Billions',
   description: 'Eliquis costs Medicare $7.75B annually. Semaglutide: $4.3B. Analysis of the most expensive drugs in Medicare Part D and the concentration of spending.',
+  openGraph: {
+    title: 'The Drugs That Cost Medicare Billions',
+    description: 'Eliquis costs Medicare $7.75B annually. Semaglutide: $4.3B. Analysis of the most expensive drugs in Medicare Part D and the concentration of spending.',
+    url: 'https://openprescriber.vercel.app/analysis/top-drugs-analysis',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/top-drugs-analysis' },
 }
 

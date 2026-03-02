@@ -55,6 +55,25 @@ export default function SavingsCalculatorPage() {
           <p className="text-xs text-gray-400">Data source: CMS Medicare Part D Prescribers dataset, 2023. Savings estimates are illustrative and assume average generic substitution rates. Actual savings depend on generic availability and clinical appropriateness. This tool is for educational purposes only.</p>
         </div>
       </div>
+
+      {/* You Might Also Like */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">You Might Also Like</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/tools/drug-lookup" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Drug Lookup</h3>
+            <p className="text-sm text-gray-600">Search Medicare Part D drug prices</p>
+          </Link>
+          <Link href="/tools/specialty-comparison" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Specialty Comparison</h3>
+            <p className="text-sm text-gray-600">Compare specialties side by side</p>
+          </Link>
+          <Link href="/analysis/brand-generic-gap" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Brand vs Generic</h3>
+            <p className="text-sm text-gray-600">The billion-dollar gap in Medicare</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

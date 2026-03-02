@@ -8,6 +8,12 @@ import RelatedAnalysis from '@/components/RelatedAnalysis'
 export const metadata: Metadata = {
   title: 'Which Medical Specialties Drive the Most Drug Spending?',
   description: 'A deep dive into how medical specialties vary in Medicare Part D prescribing — from cost per provider to opioid rates and brand-name preference.',
+  openGraph: {
+    title: 'Which Medical Specialties Drive the Most Drug Spending?',
+    description: 'A deep dive into how medical specialties vary in Medicare Part D prescribing — from cost per provider to opioid rates and brand-name preference.',
+    url: 'https://openprescriber.vercel.app/analysis/specialty-deep-dive',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/specialty-deep-dive' },
 }
 

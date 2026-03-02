@@ -10,6 +10,12 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'The Polypharmacy Problem: When Medicare Patients Take Too Many Drugs',
   description: 'Some Medicare patients receive prescriptions from dozens of providers. Analysis of high-fills-per-patient patterns and dangerous drug accumulation.',
+  openGraph: {
+    title: 'The Polypharmacy Problem: When Medicare Patients Take Too Many Drugs',
+    description: 'Some Medicare patients receive prescriptions from dozens of providers. Analysis of high-fills-per-patient patterns and dangerous drug accumulation.',
+    url: 'https://openprescriber.vercel.app/analysis/polypharmacy',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/polypharmacy' },
 }
 

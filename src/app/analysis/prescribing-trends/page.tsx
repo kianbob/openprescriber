@@ -8,6 +8,12 @@ import RelatedAnalysis from '@/components/RelatedAnalysis'
 export const metadata: Metadata = {
   title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth',
   description: 'Medicare Part D drug costs surged 50% from $183B in 2019 to $275.6B in 2023. Analysis of the forces driving this unprecedented spending growth.',
+  openGraph: {
+    title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth',
+    description: 'Medicare Part D drug costs surged 50% from $183B in 2019 to $275.6B in 2023. Analysis of the forces driving this unprecedented spending growth.',
+    url: 'https://openprescriber.vercel.app/analysis/prescribing-trends',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/prescribing-trends' },
 }
 

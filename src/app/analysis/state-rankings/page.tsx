@@ -14,6 +14,12 @@ type HighRisk = { npi: string; state: string }
 export const metadata: Metadata = {
   title: 'State-by-State Medicare Prescribing Rankings — Deep Dive Analysis',
   description: 'Ranking all 50 states and territories across Medicare Part D metrics: drug costs, opioid rates, cost per beneficiary, and flagged providers.',
+  openGraph: {
+    title: 'State-by-State Medicare Prescribing Rankings — Deep Dive Analysis',
+    description: 'Ranking all 50 states and territories across Medicare Part D metrics: drug costs, opioid rates, cost per beneficiary, and flagged providers.',
+    url: 'https://openprescriber.vercel.app/analysis/state-rankings',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/state-rankings' },
 }
 

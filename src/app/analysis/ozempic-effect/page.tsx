@@ -10,6 +10,12 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'The Ozempic Effect: How GLP-1 Drugs Are Reshaping Medicare Spending',
   description: 'Ozempic and GLP-1 drugs now cost Medicare $8.4 billion annually — tripling since 2019. Analysis of the fastest-growing drug category in Part D.',
+  openGraph: {
+    title: 'The Ozempic Effect: How GLP-1 Drugs Are Reshaping Medicare Spending',
+    description: 'Ozempic and GLP-1 drugs now cost Medicare $8.4 billion annually — tripling since 2019. Analysis of the fastest-growing drug category in Part D.',
+    url: 'https://openprescriber.vercel.app/analysis/ozempic-effect',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/ozempic-effect' },
 }
 

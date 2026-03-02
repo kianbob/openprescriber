@@ -14,6 +14,17 @@ export default function DrugsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
+            { '@type': 'ListItem', position: 2, name: 'Drugs', item: 'https://openprescriber.vercel.app/drugs' },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Top Drugs' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Top 500 Medicare Part D Drugs</h1>
       <p className="text-gray-600 mb-6">Ranked by total drug cost paid by Medicare Part D in 2023.</p>

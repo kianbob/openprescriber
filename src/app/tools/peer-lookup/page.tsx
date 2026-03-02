@@ -54,6 +54,25 @@ export default function PeerLookupPage() {
           <p className="text-xs text-gray-400">Data source: CMS Medicare Part D Prescribers dataset, 2023. Benchmarks are calculated for specialties with 30+ providers. This tool is for educational purposes only and should not be used as the sole basis for healthcare decisions.</p>
         </div>
       </div>
+
+      {/* You Might Also Like */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">You Might Also Like</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/tools/specialty-comparison" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Specialty Comparison</h3>
+            <p className="text-sm text-gray-600">Compare specialties side by side</p>
+          </Link>
+          <Link href="/tools/risk-calculator" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Risk Calculator</h3>
+            <p className="text-sm text-gray-600">Calculate risk scores with our model</p>
+          </Link>
+          <Link href="/analysis/specialty-deep-dive" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Specialty Deep Dive</h3>
+            <p className="text-sm text-gray-600">Which specialties drive the most spending?</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

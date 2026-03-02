@@ -10,6 +10,12 @@ import RelatedAnalysis from '@/components/RelatedAnalysis'
 export const metadata: Metadata = {
   title: 'The Medicare Opioid Crisis in Numbers',
   description: 'One in three Medicare Part D prescribers write opioid prescriptions. Analysis of 65,349 opioid prescribers and 16,431 high-rate providers.',
+  openGraph: {
+    title: 'The Medicare Opioid Crisis in Numbers',
+    description: 'One in three Medicare Part D prescribers write opioid prescriptions. Analysis of 65,349 opioid prescribers and 16,431 high-rate providers.',
+    url: 'https://openprescriber.vercel.app/analysis/opioid-crisis',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/opioid-crisis' },
 }
 

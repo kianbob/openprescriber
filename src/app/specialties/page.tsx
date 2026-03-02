@@ -14,6 +14,17 @@ export default function SpecialtiesPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
+            { '@type': 'ListItem', position: 2, name: 'Specialties', item: 'https://openprescriber.vercel.app/specialties' },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Specialties' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Prescribing by Specialty</h1>
       <p className="text-gray-600 mb-6">{specs.length} medical specialties ranked by number of Medicare Part D prescribers.</p>

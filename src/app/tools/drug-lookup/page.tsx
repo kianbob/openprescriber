@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
@@ -19,6 +20,25 @@ export default function DrugLookupPage() {
       <div className="mt-6">
         <DrugLookupClient />
       </div>
+
+      {/* You Might Also Like */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">You Might Also Like</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/tools/savings-calculator" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Savings Calculator</h3>
+            <p className="text-sm text-gray-600">How much could Medicare save with generics?</p>
+          </Link>
+          <Link href="/analysis/top-drugs-analysis" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Top Drugs Analysis</h3>
+            <p className="text-sm text-gray-600">The drugs costing Medicare billions</p>
+          </Link>
+          <Link href="/analysis/brand-generic-gap" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Brand vs Generic Gap</h3>
+            <p className="text-sm text-gray-600">Why some providers still prefer brands</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

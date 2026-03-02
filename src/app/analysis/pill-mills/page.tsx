@@ -11,6 +11,12 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'Anatomy of a Pill Mill: What Opioid Data Patterns Reveal About High-Risk Prescribers',
   description: 'What does a pill mill look like in Medicare data? We analyze the statistical fingerprints of high-risk opioid prescribers using specialty-adjusted z-scores.',
+  openGraph: {
+    title: 'Anatomy of a Pill Mill: What Opioid Data Patterns Reveal About High-Risk Prescribers',
+    description: 'What does a pill mill look like in Medicare data? We analyze the statistical fingerprints of high-risk opioid prescribers using specialty-adjusted z-scores.',
+    url: 'https://openprescriber.vercel.app/analysis/pill-mills',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/pill-mills' },
 }
 

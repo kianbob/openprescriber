@@ -14,6 +14,17 @@ export default function StatesPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
+            { '@type': 'ListItem', position: 2, name: 'States', item: 'https://openprescriber.vercel.app/states' },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'States' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Medicare Part D Prescribing by State</h1>
       <p className="text-gray-600 mb-6">Drug costs, prescriber counts, and opioid prescribing rates for all {states.length} states and territories.</p>

@@ -8,6 +8,12 @@ import RelatedAnalysis from '@/components/RelatedAnalysis'
 export const metadata: Metadata = {
   title: 'Where Does $275.6 Billion Go? Medicare Part D Spending Explained',
   description: 'A comprehensive look at Medicare Part D drug spending — who pays, where the money flows, and the policy implications of a $275.6 billion annual drug bill.',
+  openGraph: {
+    title: 'Where Does $275.6 Billion Go? Medicare Part D Spending Explained',
+    description: 'A comprehensive look at Medicare Part D drug spending — who pays, where the money flows, and the policy implications of a $275.6 billion annual drug bill.',
+    url: 'https://openprescriber.vercel.app/analysis/medicare-drug-spending',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/medicare-drug-spending' },
 }
 

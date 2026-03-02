@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
@@ -19,6 +20,25 @@ export default function RiskCalculatorPage() {
       <div className="mt-6">
         <RiskCalcClient />
       </div>
+
+      {/* You Might Also Like */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">You Might Also Like</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/tools/compare" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Compare Providers</h3>
+            <p className="text-sm text-gray-600">Side-by-side provider comparison</p>
+          </Link>
+          <Link href="/tools/peer-lookup" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Peer Comparison</h3>
+            <p className="text-sm text-gray-600">Look up specialty benchmarks</p>
+          </Link>
+          <Link href="/analysis/fraud-risk-methodology" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Risk Methodology</h3>
+            <p className="text-sm text-gray-600">Our 10-component scoring model explained</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

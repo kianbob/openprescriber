@@ -21,6 +21,17 @@ export default function FlaggedPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
+            { '@type': 'ListItem', position: 2, name: 'Flagged Providers', item: 'https://openprescriber.vercel.app/flagged' },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Flagged Providers' }]} />
       <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Flagged Providers</h1>

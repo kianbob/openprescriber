@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
@@ -19,6 +20,25 @@ export default function StateReportCardPage() {
       <div className="mt-6">
         <StateReportClient />
       </div>
+
+      {/* You Might Also Like */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">You Might Also Like</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/tools/city-lookup" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">City Lookup</h3>
+            <p className="text-sm text-gray-600">Find prescribers in any city</p>
+          </Link>
+          <Link href="/tools/savings-calculator" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Savings Calculator</h3>
+            <p className="text-sm text-gray-600">Generic savings potential by state</p>
+          </Link>
+          <Link href="/analysis/state-rankings" className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">State Rankings</h3>
+            <p className="text-sm text-gray-600">All 50 states ranked on prescribing metrics</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

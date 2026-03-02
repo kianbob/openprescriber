@@ -8,6 +8,12 @@ import RelatedAnalysis from '@/components/RelatedAnalysis'
 export const metadata: Metadata = {
   title: 'Geographic Disparities in Medicare Prescribing',
   description: 'State-level analysis reveals dramatic geographic variation in Medicare drug spending, opioid rates, and prescribing patterns across the United States.',
+  openGraph: {
+    title: 'Geographic Disparities in Medicare Prescribing',
+    description: 'State-level analysis reveals dramatic geographic variation in Medicare drug spending, opioid rates, and prescribing patterns across the United States.',
+    url: 'https://openprescriber.vercel.app/analysis/geographic-disparities',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/geographic-disparities' },
 }
 

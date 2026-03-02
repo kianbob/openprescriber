@@ -11,6 +11,12 @@ import { stateName } from '@/lib/state-names'
 export const metadata: Metadata = {
   title: 'Rural America\'s Prescribing Problem: Why Small-Town Medicare Costs More',
   description: 'Rural providers have higher opioid prescribing rates, fewer generics, and higher per-patient costs than urban peers. What the Medicare data reveals.',
+  openGraph: {
+    title: "Rural America's Prescribing Problem: Why Small-Town Medicare Costs More",
+    description: 'Rural providers have higher opioid prescribing rates, fewer generics, and higher per-patient costs than urban peers. What the Medicare data reveals.',
+    url: 'https://openprescriber.vercel.app/analysis/rural-prescribing',
+    type: 'article',
+  },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/rural-prescribing' },
 }
 

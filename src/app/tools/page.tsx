@@ -91,6 +91,17 @@ const tools = [
 export default function ToolsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
+            { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://openprescriber.vercel.app/tools' },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Tools' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">Interactive Tools</h1>
 
