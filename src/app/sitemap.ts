@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/top-drugs-analysis', '/analysis/fraud-risk-methodology', '/analysis/medicare-drug-spending',
     '/analysis/nurse-practitioners', '/analysis/ozempic-effect', '/analysis/pill-mills', '/analysis/state-of-prescribing',
     '/analysis/rural-prescribing', '/analysis/polypharmacy', '/analysis/state-rankings',
+    '/analysis/telehealth-prescribing', '/analysis/pharmacy-benefit-managers', '/analysis/most-expensive-prescribers',
+    '/analysis/generic-adoption', '/analysis/controlled-substance-pipeline',
     '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
   ]
 

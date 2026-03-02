@@ -18,6 +18,11 @@ const articles = [
   { slug: 'rural-prescribing', title: 'Rural America\'s Prescribing Problem: Why Small-Town Medicare Costs More', date: '2026-02-28' },
   { slug: 'polypharmacy', title: 'The Polypharmacy Problem: When Medicare Patients Take Too Many Drugs', date: '2026-02-28' },
   { slug: 'state-rankings', title: 'State-by-State Medicare Prescribing Rankings: A Deep Dive', date: '2026-02-28' },
+  { slug: 'telehealth-prescribing', title: 'How Telehealth Changed Prescribing Patterns Post-COVID', date: '2026-03-02' },
+  { slug: 'pharmacy-benefit-managers', title: 'Pharmacy Benefit Managers: The Middlemen Driving Drug Costs', date: '2026-03-02' },
+  { slug: 'most-expensive-prescribers', title: 'The Most Expensive Prescribers in Medicare Part D', date: '2026-03-02' },
+  { slug: 'generic-adoption', title: 'Why Doctors Still Prescribe Brands When Generics Exist', date: '2026-03-02' },
+  { slug: 'controlled-substance-pipeline', title: 'The Controlled Substance Pipeline: Beyond Opioids', date: '2026-03-02' },
 ]
 
 // Non-analysis content pages for RSS
