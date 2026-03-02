@@ -38,6 +38,7 @@ export default function OpioidPrescribersPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumbs items={[{ label: 'Opioid Prescribers' }]} />
       <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-heading)] mb-4">Opioid Prescribers in Medicare Part D</h1>
       <p className="text-lg text-gray-600 mb-2">
