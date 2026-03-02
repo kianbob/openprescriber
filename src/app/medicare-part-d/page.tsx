@@ -21,8 +21,20 @@ export default function MedicarePartDPage() {
   const trends = loadData('yearly-trends.json') as { year: number; cost: number; claims: number; providers: number }[]
   const drugs = loadData('drugs.json') as { brand: string; generic: string; cost: number; claims: number; benes: number }[]
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What is Medicare Part D?', acceptedAnswer: { '@type': 'Answer', text: 'Medicare Part D is the federal prescription drug benefit that covers approximately 52 million Americans. It covers outpatient prescription drugs through private insurance plans approved by Medicare.' } },
+      { '@type': 'Question', name: 'How much does Medicare Part D cost taxpayers?', acceptedAnswer: { '@type': 'Answer', text: `Medicare Part D spent ${fmtMoney(stats.cost)} on prescription drugs in 2023 through ${fmt(stats.providers)} healthcare providers, covering ${fmt(stats.claims)} prescriptions.` } },
+      { '@type': 'Question', name: 'What drugs does Medicare Part D cover?', acceptedAnswer: { '@type': 'Answer', text: 'Medicare Part D covers most FDA-approved prescription drugs dispensed at pharmacies. The top drugs by cost include Apixaban (Eliquis), Semaglutide (Ozempic), and other specialty medications. Each Part D plan has a formulary listing covered drugs.' } },
+      { '@type': 'Question', name: 'Is Medicare Part D spending increasing?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Part D drug costs grew 50% from $183 billion in 2019 to $275.6 billion in 2023. The Inflation Reduction Act introduced price negotiation for 10 high-cost drugs starting in 2026.' } },
+    ],
+  }
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumbs items={[{ label: 'Medicare Part D' }]} />
       <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-heading)] mb-4">Medicare Part D: The Complete Data Guide</h1>
       <p className="text-lg text-gray-600 mb-4">

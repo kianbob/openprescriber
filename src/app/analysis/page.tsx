@@ -31,6 +31,7 @@ const categories: { heading: string; articles: { title: string; slug: string; de
       { title: 'Why Doctors Still Prescribe Brands When Generics Exist', slug: 'generic-adoption', desc: 'Brand loyalty, pharma marketing, and specialty variation in generic drug adoption.', emoji: '💊' },
       { title: 'Where Does $275.6 Billion Go?', slug: 'medicare-drug-spending', desc: 'The big picture of Medicare Part D spending — who pays, where it flows, and policy implications.', emoji: '🏛️' },
       { title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth', slug: 'prescribing-trends', desc: 'Medicare Part D drug costs surged 50% from $183B to $275.6B in five years. What\'s driving the explosion?', emoji: '📈' },
+      { title: 'The 50 Most Prescribed Drugs in Medicare Part D', slug: 'most-prescribed-drugs', desc: 'Ranked by claims count — the most commonly prescribed drugs in Medicare, with cost-per-claim and provider data.', emoji: '💊' },
     ],
   },
   {
@@ -38,6 +39,9 @@ const categories: { heading: string; articles: { title: string; slug: string; de
     articles: [
       { title: 'How We Score Prescribing Risk', slug: 'fraud-risk-methodology', desc: 'Our 10-component model plus ML fraud detection: specialty-adjusted z-scores, drug combinations, OIG matching, and machine learning.', emoji: '🔍' },
       { title: 'Excluded but Still Prescribing', slug: 'excluded-still-prescribing', desc: 'We found 372 providers on the OIG exclusion list who appear in active Medicare prescribing data.', emoji: '🚫' },
+      { title: 'How Much Medicare Part D Waste?', slug: 'medicare-waste', desc: 'A data-driven estimate of Medicare waste from brand overprescribing, excluded providers, cost outliers, and opioid excess.', emoji: '🗑️' },
+      { title: 'Pharmacy Fraud in Medicare: How We Detect It', slug: 'pharmacy-fraud', desc: 'Our multi-layered fraud detection approach using ML, statistical analysis, and OIG exclusion matching.', emoji: '🏥' },
+      { title: 'Doctor Shopping in Medicare Part D', slug: 'doctor-shopping', desc: 'The data behind multi-provider prescribing — opioid rate outliers, cost-per-beneficiary extremes, and co-prescribing red flags.', emoji: '🔄' },
     ],
   },
   {
@@ -47,6 +51,7 @@ const categories: { heading: string; articles: { title: string; slug: string; de
       { title: 'Rural America\'s Prescribing Problem', slug: 'rural-prescribing', desc: 'Rural providers have higher opioid rates, fewer generics, and higher per-patient costs. The urban-rural prescribing divide.', emoji: '🌾' },
       { title: 'The State of Prescribing: 2023 Report Card', slug: 'state-of-prescribing', desc: '10 key findings from 1.38 million prescribers and $275.6 billion in drug costs. The annual data report card.', emoji: '📋' },
       { title: 'State Rankings: The Best and Worst of Medicare Prescribing', slug: 'state-rankings', desc: 'Ranking all 50 states by opioid rates, drug costs, risk scores, and brand prescribing.', emoji: '🏆' },
+      { title: 'Medicare Part D Spending by State', slug: 'medicare-spending-by-state', desc: 'State-by-state rankings of total cost, per-capita cost, cost growth, and opioid spending.', emoji: '💵' },
     ],
   },
   {

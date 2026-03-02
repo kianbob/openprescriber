@@ -23,6 +23,11 @@ const articles = [
   { slug: 'most-expensive-prescribers', title: 'The Most Expensive Prescribers in Medicare Part D', date: '2026-03-02' },
   { slug: 'generic-adoption', title: 'Why Doctors Still Prescribe Brands When Generics Exist', date: '2026-03-02' },
   { slug: 'controlled-substance-pipeline', title: 'The Controlled Substance Pipeline: Beyond Opioids', date: '2026-03-02' },
+  { slug: 'medicare-waste', title: 'How Much Medicare Part D Waste? A Data-Driven Estimate', date: '2026-03-02' },
+  { slug: 'doctor-shopping', title: 'Doctor Shopping in Medicare Part D: The Data Behind Multi-Provider Prescribing', date: '2026-03-02' },
+  { slug: 'medicare-spending-by-state', title: 'Medicare Part D Spending by State: Who Pays the Most?', date: '2026-03-02' },
+  { slug: 'most-prescribed-drugs', title: 'The 50 Most Prescribed Drugs in Medicare Part D (2023)', date: '2026-03-02' },
+  { slug: 'pharmacy-fraud', title: 'Pharmacy Fraud in Medicare: How We Detect It', date: '2026-03-02' },
 ]
 
 // Non-analysis content pages for RSS

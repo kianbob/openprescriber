@@ -23,11 +23,22 @@ export default function DrugCostsPage() {
   const trends = loadData('yearly-trends.json') as { year: number; cost: number; claims: number; providers: number }[]
 
   const top25 = drugs.slice(0, 25)
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What is the most expensive drug in Medicare?', acceptedAnswer: { '@type': 'Answer', text: `${drugs[0].generic} (${drugs[0].brand}) is the most expensive drug in Medicare Part D, costing ${fmtMoney(drugs[0].cost)} in 2023 across ${fmt(drugs[0].claims)} claims.` } },
+      { '@type': 'Question', name: 'How much does Medicare spend on prescription drugs?', acceptedAnswer: { '@type': 'Answer', text: `Medicare Part D spent ${fmtMoney(stats.cost)} on prescription drugs in 2023, covering ${fmt(stats.claims)} prescriptions through ${fmt(stats.providers)} prescribers.` } },
+      { '@type': 'Question', name: 'Are prescription drug costs increasing?', acceptedAnswer: { '@type': 'Answer', text: `Yes. Medicare Part D drug costs grew 50% in 5 years, from $183 billion in 2019 to $275.6 billion in 2023. GLP-1 drugs, specialty biologics, and brand-name persistence are major drivers.` } },
+    ],
+  }
   const topTotal = top25.reduce((s, d) => s + d.cost, 0)
   const costGrowth = ((trends[4].cost / trends[0].cost - 1) * 100).toFixed(0)
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumbs items={[{ label: 'Drug Costs' }]} />
       <h1 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-heading)] mb-4">Medicare Drug Costs: Where $275.6 Billion Goes</h1>
       <p className="text-lg text-gray-600 mb-2">

@@ -21,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/rural-prescribing', '/analysis/polypharmacy', '/analysis/state-rankings',
     '/analysis/telehealth-prescribing', '/analysis/pharmacy-benefit-managers', '/analysis/most-expensive-prescribers',
     '/analysis/generic-adoption', '/analysis/controlled-substance-pipeline',
+    '/analysis/medicare-waste', '/analysis/doctor-shopping', '/analysis/medicare-spending-by-state',
+    '/analysis/most-prescribed-drugs', '/analysis/pharmacy-fraud',
     '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
   ]
 
