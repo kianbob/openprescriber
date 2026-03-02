@@ -316,10 +316,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { icon: '\u{1F3E5}', title: 'The Opioid Crisis in Numbers', href: '/analysis/opioid-crisis', desc: 'Which states and specialties drive America\u2019s opioid crisis?' },
-            { icon: '\u{1F4B0}', title: 'Cost Outliers', href: '/analysis/cost-outliers', desc: 'Providers charging 10x their peers \u2014 who are they?' },
+            { icon: '\u{1F4B0}', title: 'Most Expensive Prescribers', href: '/analysis/most-expensive-prescribers', desc: 'The providers who cost Medicare the most \u2014 and why.' },
             { icon: '\u{1F916}', title: 'ML Fraud Detection', href: '/ml-fraud-detection', desc: 'How machine learning catches fraud patterns rules miss.' },
             { icon: '\u{1F48A}', title: 'The Ozempic Effect', href: '/analysis/ozempic-effect', desc: 'GLP-1 drugs are reshaping Medicare spending.' },
-            { icon: '\u{2620}\u{FE0F}', title: 'Dangerous Drug Combinations', href: '/dangerous-combinations', desc: '6,149 providers prescribing opioids with benzos.' },
+            { icon: '\u{1F4BB}', title: 'Telehealth Prescribing', href: '/analysis/telehealth-prescribing', desc: 'How telehealth changed prescribing patterns post-COVID.' },
+            { icon: '\u{1F48A}', title: 'Generic Adoption Gap', href: '/analysis/generic-adoption', desc: 'Why do some providers still prefer expensive brand-name drugs?' },
+            { icon: '\u{2620}\u{FE0F}', title: 'Controlled Substance Pipeline', href: '/analysis/controlled-substance-pipeline', desc: 'Tracking the flow of opioids, benzos, and stimulants.' },
+            { icon: '\u{1F3E5}', title: 'Pharmacy Benefit Managers', href: '/analysis/pharmacy-benefit-managers', desc: 'The middlemen driving up drug prices.' },
             { icon: '\u{1F474}', title: 'Antipsychotics in Elderly', href: '/analysis/antipsychotic-elderly', desc: 'Off-label prescribing in nursing homes.' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-5 border hover:shadow-md hover:border-primary/20 transition-all">

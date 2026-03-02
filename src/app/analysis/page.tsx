@@ -46,6 +46,7 @@ const categories: { heading: string; articles: { title: string; slug: string; de
       { title: 'Geographic Disparities in Medicare Prescribing', slug: 'geographic-disparities', desc: 'State-level spending and opioid variations reveal a 3x cost gap and persistent rural-urban divides.', emoji: '🌎' },
       { title: 'Rural America\'s Prescribing Problem', slug: 'rural-prescribing', desc: 'Rural providers have higher opioid rates, fewer generics, and higher per-patient costs. The urban-rural prescribing divide.', emoji: '🌾' },
       { title: 'The State of Prescribing: 2023 Report Card', slug: 'state-of-prescribing', desc: '10 key findings from 1.38 million prescribers and $275.6 billion in drug costs. The annual data report card.', emoji: '📋' },
+      { title: 'State Rankings: The Best and Worst of Medicare Prescribing', slug: 'state-rankings', desc: 'Ranking all 50 states by opioid rates, drug costs, risk scores, and brand prescribing.', emoji: '🏆' },
     ],
   },
   {
@@ -53,7 +54,8 @@ const categories: { heading: string; articles: { title: string; slug: string; de
     articles: [
       { title: 'Which Medical Specialties Drive the Most Drug Spending?', slug: 'specialty-deep-dive', desc: 'From oncologists generating millions to primary care\'s aggregate impact — specialty prescribing patterns revealed.', emoji: '🩺' },
       { title: 'The Polypharmacy Problem', slug: 'polypharmacy', desc: 'Medicare patients fill 31+ prescriptions per year on average. When too many drugs meet too little coordination.', emoji: '💊' },
-      { title: 'Dangerous Drug Combinations', slug: 'dangerous-combinations', desc: 'Opioid + benzodiazepine co-prescribing and other high-risk drug combinations in Medicare data.', emoji: '⚠️' },
+      { title: 'Brand vs Generic: The $130 Billion Gap', slug: 'brand-generic-gap', desc: 'Brand-name drugs cost 10x more on average. Which providers and specialties resist generics?', emoji: '💊' },
+      { title: 'Antipsychotics in the Elderly', slug: 'antipsychotic-elderly', desc: 'Off-label antipsychotic use in nursing homes — a pattern linked to excess mortality.', emoji: '👴' },
     ],
   },
 ]

@@ -39,6 +39,9 @@ export default function Footer() {
             <li><Link href="/taxpayer-cost" className="hover:text-white">Taxpayer Cost</Link></li>
             <li><Link href="/medicare-fraud" className="hover:text-white">Medicare Fraud</Link></li>
             <li><Link href="/drug-costs" className="hover:text-white">Drug Costs</Link></li>
+            <li><Link href="/prescription-drug-costs" className="hover:text-white">Prescription Drug Costs</Link></li>
+            <li><Link href="/opioid-prescribers" className="hover:text-white">Opioid Prescribers</Link></li>
+            <li><Link href="/search" className="hover:text-white">Search</Link></li>
             <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
           </ul>
         </div>
@@ -53,6 +56,7 @@ export default function Footer() {
             <li><a href="https://www.openlobby.us" className="hover:text-white">OpenLobby</a></li>
             <li><a href="https://www.opensubsidies.org" className="hover:text-white">OpenSubsidies</a></li>
             <li><a href="https://www.openimmigration.us" className="hover:text-white">OpenImmigration</a></li>
+            <li><a href="https://www.warcosts.org" className="hover:text-white">WarCosts</a></li>
             <li><a href="https://thedataproject.ai" className="hover:text-white">TheDataProject.ai</a></li>
           </ul>
         </div>
