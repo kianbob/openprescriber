@@ -11,11 +11,11 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'Pharmacy Benefit Managers: The Middlemen Driving Drug Costs | OpenPrescriber',
   description: 'How PBMs like Express Scripts, CVS Caremark, and OptumRx control drug pricing through spread pricing, rebate clawbacks, and formulary manipulation — and what it costs Medicare.',
-  alternates: { canonical: 'https://openprescriber.vercel.app/analysis/pharmacy-benefit-managers' },
+  alternates: { canonical: 'https://www.openprescriber.org/analysis/pharmacy-benefit-managers' },
   openGraph: {
     title: 'Pharmacy Benefit Managers: The Middlemen Driving Drug Costs',
     description: 'How PBMs control drug pricing through spread pricing, rebate clawbacks, and formulary manipulation — and what it costs Medicare.',
-    url: 'https://openprescriber.vercel.app/analysis/pharmacy-benefit-managers',
+    url: 'https://www.openprescriber.org/analysis/pharmacy-benefit-managers',
     type: 'article',
   },
 }

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'GLP-1 Spending Explosion: Ozempic, Mounjaro & the $8.4B Surge',
   description: 'GLP-1 receptor agonists are the fastest-growing drug class in Medicare Part D history. Track $8.4B in spending on Ozempic, Mounjaro, Trulicity and more.',
   alternates: { canonical: 'https://www.openprescriber.org/glp1-tracker' },
+  openGraph: {
+    title: 'GLP-1 Drug Tracker',
+    url: 'https://www.openprescriber.org/glp1-tracker',
+    type: 'website',
+  },
 }
 
 export default function GLP1TrackerPage() {

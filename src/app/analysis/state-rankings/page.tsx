@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'State-by-State Medicare Prescribing Rankings — Deep Dive Analysis',
     description: 'Ranking all 50 states and territories across Medicare Part D metrics: drug costs, opioid rates, cost per beneficiary, and flagged providers.',
-    url: 'https://openprescriber.vercel.app/analysis/state-rankings',
+    url: 'https://www.openprescriber.org/analysis/state-rankings',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/state-rankings' },

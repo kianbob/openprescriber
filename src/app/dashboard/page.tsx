@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'Medicare Part D Dashboard — Interactive Charts',
   description: 'Interactive dashboard visualizing Medicare Part D prescribing data — drug costs by state, opioid rates, specialty breakdown, and risk analysis.',
   alternates: { canonical: 'https://www.openprescriber.org/dashboard' },
+  openGraph: {
+    title: 'Medicare Part D Dashboard',
+    url: 'https://www.openprescriber.org/dashboard',
+    type: 'website',
+  },
 }
 
 export default function DashboardPage() {

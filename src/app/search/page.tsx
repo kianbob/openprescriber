@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Search Medicare Part D Prescribers',
   description: 'Search 1.38 million Medicare Part D prescribers by name, NPI, city, state, or specialty.',
   alternates: { canonical: 'https://www.openprescriber.org/search' },
+  openGraph: {
+    title: 'Search Medicare Part D Prescribers',
+    url: 'https://www.openprescriber.org/search',
+    type: 'website',
+  },
 }
 
 export default function SearchPage() {

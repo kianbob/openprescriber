@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'Your Tax Dollar: Medicare Part D Cost Per Taxpayer by State',
   description: 'How much does Medicare Part D cost you? See prescription drug spending per taxpayer in every state.',
   alternates: { canonical: 'https://www.openprescriber.org/taxpayer-cost' },
+  openGraph: {
+    title: 'Taxpayer Cost of Medicare Part D',
+    url: 'https://www.openprescriber.org/taxpayer-cost',
+    type: 'website',
+  },
 }
 
 export default function TaxpayerCostPage() {

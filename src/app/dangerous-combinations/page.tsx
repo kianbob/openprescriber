@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'Dangerous Drug Combinations: 6,149 Opioid+Benzo Co-Prescribers',
   description: 'FDA Black Box Warning: concurrent opioid and benzodiazepine prescribing kills thousands annually. We identified 6,149 Medicare providers co-prescribing these drugs.',
   alternates: { canonical: 'https://www.openprescriber.org/dangerous-combinations' },
+  openGraph: {
+    title: 'Dangerous Drug Combinations',
+    url: 'https://www.openprescriber.org/dangerous-combinations',
+    type: 'website',
+  },
 }
 
 export default function DangerousCombinationsPage() {

@@ -48,10 +48,34 @@ export default function AboutPage() {
       </div>
 
       <div className="prose prose-gray max-w-none mt-8">
+        <h2>By the Numbers</h2>
+        <ul>
+          <li><strong>1,380,665</strong> prescriber profiles</li>
+          <li><strong>$275.6 billion</strong> in drug costs analyzed</li>
+          <li><strong>1.6 billion</strong> prescription claims</li>
+          <li><strong>500</strong> drug profiles with cost and prescriber data</li>
+          <li><strong>205</strong> medical specialty breakdowns</li>
+          <li><strong>62</strong> state and territory profiles</li>
+          <li><strong>24+</strong> in-depth analysis articles</li>
+          <li><strong>8</strong> interactive tools</li>
+          <li><strong>5 years</strong> of trend data (2019–2023)</li>
+        </ul>
+
         <h2>Part of TheDataProject.ai</h2>
         <p>
-          OpenPrescriber is one of 9 data transparency platforms built by <a href="https://thedataproject.ai" className="text-primary">TheDataProject.ai</a>, covering healthcare, government spending, immigration, lobbying, vaccines, and farm subsidies.
+          OpenPrescriber is one of 10 data transparency platforms built by <a href="https://thedataproject.ai" className="text-primary">TheDataProject.ai</a>. Our sister sites cover:
         </p>
+        <ul>
+          <li><a href="https://www.openmedicaid.org" className="text-primary">OpenMedicaid</a> — Medicaid spending data</li>
+          <li><a href="https://www.openmedicare.us" className="text-primary">OpenMedicare</a> — Medicare provider data</li>
+          <li><a href="https://www.vaccinewatch.org" className="text-primary">VaccineWatch</a> — VAERS adverse event data</li>
+          <li><a href="https://www.openlobby.us" className="text-primary">OpenLobby</a> — Federal lobbying disclosure</li>
+          <li><a href="https://www.opensubsidies.org" className="text-primary">OpenSubsidies</a> — Farm subsidy payments</li>
+          <li><a href="https://www.openimmigration.us" className="text-primary">OpenImmigration</a> — Immigration court data</li>
+          <li><a href="https://www.warcosts.org" className="text-primary">WarCosts</a> — Military spending and war costs</li>
+          <li><a href="https://www.openfeds.org" className="text-primary">OpenFeds</a> — Federal workforce data</li>
+          <li><a href="https://www.openspending.us" className="text-primary">OpenSpending</a> — Government spending</li>
+        </ul>
 
         <h2>Contact</h2>
         <p>

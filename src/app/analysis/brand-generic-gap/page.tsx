@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Brand vs Generic: The Billion-Dollar Gap in Medicare Part D',
     description: 'Generic drugs save Medicare billions, but some specialties still prescribe brands at high rates. Which ones and why?',
-    url: 'https://openprescriber.vercel.app/analysis/brand-generic-gap',
+    url: 'https://www.openprescriber.org/analysis/brand-generic-gap',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/brand-generic-gap' },

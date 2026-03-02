@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Who Are the Highest-Cost Medicare Part D Prescribers?',
     description: 'Analysis of the providers generating the most drug costs in Medicare Part D — what drives the spending and where the money goes.',
-    url: 'https://openprescriber.vercel.app/analysis/cost-outliers',
+    url: 'https://www.openprescriber.org/analysis/cost-outliers',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/cost-outliers' },

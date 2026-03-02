@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'Opioid Prescribers in Medicare Part D — State Rankings & Data',
   description: 'Which doctors prescribe the most opioids? See state-by-state opioid prescribing rates, top prescribers, and prescribing patterns across 450,000+ Medicare providers.',
   alternates: { canonical: 'https://www.openprescriber.org/opioid-prescribers' },
+  openGraph: {
+    title: 'Top Opioid Prescribers',
+    url: 'https://www.openprescriber.org/opioid-prescribers',
+    type: 'website',
+  },
 }
 
 export default function OpioidPrescribersPage() {

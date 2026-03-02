@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Antipsychotic Problem in Elderly Medicare Patients',
     description: 'CMS tracks antipsychotic prescribing to patients 65+ as a quality concern. What does the data show about patterns in Medicare Part D?',
-    url: 'https://openprescriber.vercel.app/analysis/antipsychotic-elderly',
+    url: 'https://www.openprescriber.org/analysis/antipsychotic-elderly',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/antipsychotic-elderly' },

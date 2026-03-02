@@ -11,11 +11,11 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'How Telehealth Changed Prescribing Patterns Post-COVID | OpenPrescriber',
   description: 'Telehealth transformed how medications are prescribed in Medicare. Remote prescribing of controlled substances, DEA waivers, and the risks of prescriber shopping via telehealth.',
-  alternates: { canonical: 'https://openprescriber.vercel.app/analysis/telehealth-prescribing' },
+  alternates: { canonical: 'https://www.openprescriber.org/analysis/telehealth-prescribing' },
   openGraph: {
     title: 'How Telehealth Changed Prescribing Patterns Post-COVID',
     description: 'Telehealth transformed how medications are prescribed in Medicare. Remote prescribing of controlled substances, DEA waivers, and the risks of prescriber shopping.',
-    url: 'https://openprescriber.vercel.app/analysis/telehealth-prescribing',
+    url: 'https://www.openprescriber.org/analysis/telehealth-prescribing',
     type: 'article',
   },
 }

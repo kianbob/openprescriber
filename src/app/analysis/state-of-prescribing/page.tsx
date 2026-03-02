@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The State of Prescribing: 2023 Medicare Part D Report Card',
     description: 'A comprehensive report card for Medicare Part D in 2023 — cost trends, opioid patterns, risk findings, and key takeaways from 1.38 million prescribers.',
-    url: 'https://openprescriber.vercel.app/analysis/state-of-prescribing',
+    url: 'https://www.openprescriber.org/analysis/state-of-prescribing',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/state-of-prescribing' },

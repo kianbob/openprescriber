@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'Risk Explorer: Interactive Medicare Prescriber Risk Analysis',
   description: 'Explore 6,700+ flagged Medicare Part D prescribers with interactive filters. Filter by risk score, state, specialty, and specific risk flags.',
   alternates: { canonical: 'https://www.openprescriber.org/risk-explorer' },
+  openGraph: {
+    title: 'Prescriber Risk Explorer',
+    url: 'https://www.openprescriber.org/risk-explorer',
+    type: 'website',
+  },
 }
 
 export default function RiskExplorerPage() {

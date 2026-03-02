@@ -11,11 +11,11 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'The Most Expensive Prescribers in Medicare Part D | OpenPrescriber',
   description: 'Deep dive into the top prescribers by total cost. Who are they, what specialties do they represent, and is their spending justified? Cost per beneficiary analysis.',
-  alternates: { canonical: 'https://openprescriber.vercel.app/analysis/most-expensive-prescribers' },
+  alternates: { canonical: 'https://www.openprescriber.org/analysis/most-expensive-prescribers' },
   openGraph: {
     title: 'The Most Expensive Prescribers in Medicare Part D',
     description: 'Deep dive into the top prescribers by total cost — who they are, what they prescribe, and whether their spending is justified.',
-    url: 'https://openprescriber.vercel.app/analysis/most-expensive-prescribers',
+    url: 'https://www.openprescriber.org/analysis/most-expensive-prescribers',
     type: 'article',
   },
 }

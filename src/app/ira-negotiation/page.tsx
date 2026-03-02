@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'IRA Drug Price Negotiation: Impact on Medicare Part D',
   description: 'The Inflation Reduction Act targets 10 high-cost drugs representing $22.0B in Medicare Part D spending. See which drugs are affected and estimated savings.',
   alternates: { canonical: 'https://www.openprescriber.org/ira-negotiation' },
+  openGraph: {
+    title: 'IRA Drug Price Negotiation',
+    url: 'https://www.openprescriber.org/ira-negotiation',
+    type: 'website',
+  },
 }
 
 export default function IRANegotiationPage() {

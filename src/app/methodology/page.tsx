@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Methodology: How We Score Risk — Specialty-Adjusted Peer Comparison',
   description: 'OpenPrescriber\'s unified risk scoring methodology: specialty-adjusted z-scores, population percentiles, drug combination analysis, and OIG exclusion matching across 1.38M providers.',
   alternates: { canonical: 'https://www.openprescriber.org/methodology' },
+  openGraph: {
+    title: 'Methodology',
+    url: 'https://www.openprescriber.org/methodology',
+    type: 'website',
+  },
 }
 
 export default function MethodologyPage() {

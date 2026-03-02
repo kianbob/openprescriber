@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How We Score Prescribing Risk: Specialty-Adjusted Peer Comparison',
     description: 'Our 10-component risk scoring model combines specialty-adjusted z-scores, population percentiles, drug combination analysis, and OIG exclusion matching across 1.38M providers.',
-    url: 'https://openprescriber.vercel.app/analysis/fraud-risk-methodology',
+    url: 'https://www.openprescriber.org/analysis/fraud-risk-methodology',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/fraud-risk-methodology' },

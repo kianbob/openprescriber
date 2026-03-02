@@ -11,11 +11,11 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'Why Doctors Still Prescribe Brands When Generics Exist | OpenPrescriber',
   description: 'Analysis of generic drug adoption in Medicare Part D. Which specialties are worst at prescribing generics, and why brand loyalty persists despite costing Medicare billions.',
-  alternates: { canonical: 'https://openprescriber.vercel.app/analysis/generic-adoption' },
+  alternates: { canonical: 'https://www.openprescriber.org/analysis/generic-adoption' },
   openGraph: {
     title: 'Why Doctors Still Prescribe Brands When Generics Exist',
     description: 'Which specialties are worst at generic adoption, and why brand loyalty costs Medicare billions annually.',
-    url: 'https://openprescriber.vercel.app/analysis/generic-adoption',
+    url: 'https://www.openprescriber.org/analysis/generic-adoption',
     type: 'article',
   },
 }

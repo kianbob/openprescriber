@@ -69,8 +69,8 @@ export default function AnalysisPage() {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
-            { '@type': 'ListItem', position: 2, name: 'Analysis', item: 'https://openprescriber.vercel.app/analysis' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.openprescriber.org' },
+            { '@type': 'ListItem', position: 2, name: 'Analysis', item: 'https://www.openprescriber.org/analysis' },
           ],
         }) }}
       />

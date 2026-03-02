@@ -11,11 +11,11 @@ import { loadData } from '@/lib/server-utils'
 export const metadata: Metadata = {
   title: 'The Controlled Substance Pipeline: Beyond Opioids | OpenPrescriber',
   description: 'Beyond opioids: benzodiazepines, stimulants, gabapentin, and the broader controlled substance prescribing picture in Medicare Part D. Which providers prescribe multiple categories?',
-  alternates: { canonical: 'https://openprescriber.vercel.app/analysis/controlled-substance-pipeline' },
+  alternates: { canonical: 'https://www.openprescriber.org/analysis/controlled-substance-pipeline' },
   openGraph: {
     title: 'The Controlled Substance Pipeline: Beyond Opioids',
     description: 'Benzodiazepines, stimulants, gabapentin abuse — the broader controlled substance prescribing picture in Medicare.',
-    url: 'https://openprescriber.vercel.app/analysis/controlled-substance-pipeline',
+    url: 'https://www.openprescriber.org/analysis/controlled-substance-pipeline',
     type: 'article',
   },
 }

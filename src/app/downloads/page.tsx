@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'Download Medicare Part D Data',
   description: 'Download processed Medicare Part D prescribing datasets — state summaries, specialty analysis, opioid data, and risk scores.',
   alternates: { canonical: 'https://www.openprescriber.org/downloads' },
+  openGraph: {
+    title: 'Downloads',
+    url: 'https://www.openprescriber.org/downloads',
+    type: 'website',
+  },
 }
 
 export default function DownloadsPage() {

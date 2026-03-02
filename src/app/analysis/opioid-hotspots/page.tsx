@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Geographic Hotspots for Opioid Prescribing in Medicare',
     description: 'State-by-state analysis reveals persistent geographic patterns in opioid prescribing rates across Medicare Part D.',
-    url: 'https://openprescriber.vercel.app/analysis/opioid-hotspots',
+    url: 'https://www.openprescriber.org/analysis/opioid-hotspots',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/opioid-hotspots' },

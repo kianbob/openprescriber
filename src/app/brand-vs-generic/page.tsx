@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Brand vs Generic Prescribing in Medicare Part D',
   description: 'Which specialties and providers prescribe the most brand-name drugs? Analyzing brand vs generic prescribing patterns across Medicare Part D.',
   alternates: { canonical: 'https://www.openprescriber.org/brand-vs-generic' },
+  openGraph: {
+    title: 'Brand vs Generic Drug Analysis',
+    url: 'https://www.openprescriber.org/brand-vs-generic',
+    type: 'website',
+  },
 }
 
 export default function BrandVsGenericPage() {

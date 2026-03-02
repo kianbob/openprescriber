@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Medicare Part D: Complete Guide to Prescription Drug Coverage & Data',
   description: 'Everything you need to know about Medicare Part D — what it covers, how much it costs, 2023 data analysis of 1.38M prescribers and $275.6B in drug spending.',
   alternates: { canonical: 'https://www.openprescriber.org/medicare-part-d' },
+  openGraph: {
+    title: 'Understanding Medicare Part D',
+    url: 'https://www.openprescriber.org/medicare-part-d',
+    type: 'website',
+  },
 }
 
 export default function MedicarePartDPage() {

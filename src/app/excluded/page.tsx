@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Excluded Providers Still Prescribing in Medicare Part D',
   description: 'Medicare Part D prescribers who appear on the OIG List of Excluded Individuals/Entities (LEIE) — providers convicted of healthcare fraud or abuse.',
   alternates: { canonical: 'https://www.openprescriber.org/excluded' },
+  openGraph: {
+    title: 'Excluded Providers Still Prescribing',
+    url: 'https://www.openprescriber.org/excluded',
+    type: 'website',
+  },
 }
 
 export default function ExcludedPage() {

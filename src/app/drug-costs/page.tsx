@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: 'Medicare Drug Costs: The Most Expensive Prescription Drugs in Part D',
   description: 'Medicare Part D spent $275.6 billion on prescription drugs in 2023. See the most expensive drugs, cost trends, and where the money goes.',
   alternates: { canonical: 'https://www.openprescriber.org/drug-costs' },
+  openGraph: {
+    title: 'Medicare Part D Drug Costs',
+    url: 'https://www.openprescriber.org/drug-costs',
+    type: 'website',
+  },
 }
 
 export default function DrugCostsPage() {

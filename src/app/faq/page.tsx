@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description: 'Common questions about OpenPrescriber, Medicare Part D data, risk scoring, and how to use the site.',
   alternates: { canonical: 'https://www.openprescriber.org/faq' },
+  openGraph: {
+    title: 'Frequently Asked Questions',
+    url: 'https://www.openprescriber.org/faq',
+    type: 'website',
+  },
 }
 
 const faqs = [

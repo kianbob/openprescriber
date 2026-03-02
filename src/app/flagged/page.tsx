@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: 'Flagged Providers: Medicare Part D Risk Analysis',
   description: 'Providers flagged by our multi-factor risk scoring model — opioid outliers, cost anomalies, brand-name bias, and OIG exclusion matches.',
   alternates: { canonical: 'https://www.openprescriber.org/flagged' },
+  openGraph: {
+    title: 'Flagged High-Risk Providers',
+    url: 'https://www.openprescriber.org/flagged',
+    type: 'website',
+  },
 }
 
 export default function FlaggedPage() {
@@ -27,8 +32,8 @@ export default function FlaggedPage() {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
-            { '@type': 'ListItem', position: 2, name: 'Flagged Providers', item: 'https://openprescriber.vercel.app/flagged' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.openprescriber.org' },
+            { '@type': 'ListItem', position: 2, name: 'Flagged Providers', item: 'https://www.openprescriber.org/flagged' },
           ],
         }) }}
       />

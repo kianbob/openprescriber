@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: 'ML Fraud Detection — Machine Learning Identifies Suspicious Prescribers',
   description: 'A machine learning model trained on confirmed fraud cases identifies Medicare Part D prescribers with patterns consistent with fraud. Scores 1M+ providers.',
   alternates: { canonical: 'https://www.openprescriber.org/ml-fraud-detection' },
+  openGraph: {
+    title: 'ML Fraud Detection',
+    url: 'https://www.openprescriber.org/ml-fraud-detection',
+    type: 'website',
+  },
 }
 
 type Prediction = {

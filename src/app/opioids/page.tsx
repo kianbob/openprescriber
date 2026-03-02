@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Opioid Prescribing in Medicare Part D: Complete Analysis',
   description: 'Which doctors prescribe the most opioids? State-by-state analysis of opioid prescribing rates, long-acting opioids, and high-volume prescribers in Medicare Part D.',
   alternates: { canonical: 'https://www.openprescriber.org/opioids' },
+  openGraph: {
+    title: 'Opioid Prescribing Analysis',
+    url: 'https://www.openprescriber.org/opioids',
+    type: 'website',
+  },
 }
 
 export default function OpioidsPage() {

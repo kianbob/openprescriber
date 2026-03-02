@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nurse Practitioners: The Largest — and Most Flagged — Prescriber Group in Medicare',
     description: "Nurse Practitioners account for 19% of all Medicare Part D prescribers and 49% of all flagged providers. What's driving this disproportionate risk signal?",
-    url: 'https://openprescriber.vercel.app/analysis/nurse-practitioners',
+    url: 'https://www.openprescriber.org/analysis/nurse-practitioners',
     type: 'article',
   },
   alternates: { canonical: 'https://www.openprescriber.org/analysis/nurse-practitioners' },

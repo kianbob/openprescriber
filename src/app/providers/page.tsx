@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Medicare Part D Provider Directory',
   description: 'Browse and search Medicare Part D prescribers with risk scores, opioid rates, and prescribing data.',
   alternates: { canonical: 'https://www.openprescriber.org/providers' },
+  openGraph: {
+    title: 'Medicare Part D Providers',
+    url: 'https://www.openprescriber.org/providers',
+    type: 'website',
+  },
 }
 
 export default function ProvidersPage() {
@@ -22,8 +27,8 @@ export default function ProvidersPage() {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
-            { '@type': 'ListItem', position: 2, name: 'Providers', item: 'https://openprescriber.vercel.app/providers' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.openprescriber.org' },
+            { '@type': 'ListItem', position: 2, name: 'Providers', item: 'https://www.openprescriber.org/providers' },
           ],
         }) }}
       />

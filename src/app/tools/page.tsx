@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'OpenPrescriber Tools: Interactive Medicare Data Explorers',
   description: 'Interactive tools for exploring Medicare Part D prescribing data. Generic savings calculator, peer comparison lookup, and more.',
   alternates: { canonical: 'https://www.openprescriber.org/tools' },
+  openGraph: {
+    title: 'Interactive Medicare Part D Tools',
+    url: 'https://www.openprescriber.org/tools',
+    type: 'website',
+  },
 }
 
 const tools = [
@@ -97,8 +102,8 @@ export default function ToolsPage() {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://openprescriber.vercel.app' },
-            { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://openprescriber.vercel.app/tools' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.openprescriber.org' },
+            { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://www.openprescriber.org/tools' },
           ],
         }) }}
       />
