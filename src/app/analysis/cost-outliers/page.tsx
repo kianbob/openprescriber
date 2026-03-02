@@ -50,7 +50,7 @@ export default function CostOutliersPage() {
                   <td className="px-4 py-2"><Link href={`/providers/${p.npi}`} className="text-primary hover:underline">{p.name}</Link><br /><span className="text-xs text-gray-400">{p.city}, {p.state}</span></td>
                   <td className="px-4 py-2 text-gray-600">{p.specialty}</td>
                   <td className="px-4 py-2 text-right font-mono font-semibold">{fmtMoney(p.cost)}</td>
-                  <td className="px-4 py-2 text-right font-mono">{p.brandPct > 0 ? p.brandPct.toFixed(0) + '%' : '—'}</td>
+                  <td className="px-4 py-2 text-right font-mono">{p.brandPct > 0 ? (p.brandPct ?? 0).toFixed(0) + '%' : '—'}</td>
                 </tr>
               ))}
             </tbody>

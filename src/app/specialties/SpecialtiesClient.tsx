@@ -75,8 +75,8 @@ export default function SpecialtiesClient({ specs }: { specs: Spec[] }) {
                 <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                 <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
                 <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.claims)}</td>
-                <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : ''}`}>{s.avgOpioidRate.toFixed(1)}%</td>
-                <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{s.avgBrandPct.toFixed(1)}%</td>
+                <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : ''}`}>{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
+                <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{(s.avgBrandPct ?? 0).toFixed(1)}%</td>
                 <td className="px-4 py-2 text-right font-mono hidden lg:table-cell">{fmtMoney(s.costPerProvider)}</td>
               </tr>
             ))}

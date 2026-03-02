@@ -132,7 +132,7 @@ export default function StateOfPrescribingArticle() {
               {topOpioidStates.map(s => (
                 <tr key={s.state}>
                   <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{stateName(s.state)}</Link></td>
-                  <td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{s.avgOpioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
                 </tr>
               ))}
             </tbody>

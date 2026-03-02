@@ -34,7 +34,7 @@ function Metric({ label, emoji, dist, unit }: { label: string; emoji: string; di
           <p className="text-xs text-red-500">95th Percentile</p>
         </div>
       </div>
-      <p className="text-xs text-gray-400 mt-2">Std Dev: {unit === 'money' ? fmtMoney(dist.std) : dist.std.toFixed(1) + '%'} · Outlier threshold (mean+2σ): {format(dist.mean + 2 * dist.std)}</p>
+      <p className="text-xs text-gray-400 mt-2">Std Dev: {unit === 'money' ? fmtMoney(dist.std) : (dist.std ?? 0).toFixed(1) + '%'} · Outlier threshold (mean+2σ): {format(dist.mean + 2 * dist.std)}</p>
     </div>
   )
 }

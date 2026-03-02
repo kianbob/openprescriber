@@ -63,7 +63,7 @@ export default function BrandVsGenericPage() {
                   <td className="px-4 py-2"><Link href={`/specialties/${slugify(s.specialty)}`} className="text-primary font-medium hover:underline">{s.specialty}</Link></td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
-                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgBrandPct > 50 ? 'text-red-600' : ''}`}>{s.avgBrandPct.toFixed(1)}%{s.providers < 25 && <span className="text-gray-400 font-normal text-xs ml-1">(small sample)</span>}</td>
+                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgBrandPct > 50 ? 'text-red-600' : ''}`}>{(s.avgBrandPct ?? 0).toFixed(1)}%{s.providers < 25 && <span className="text-gray-400 font-normal text-xs ml-1">(small sample)</span>}</td>
                 </tr>
               ))}
             </tbody>
@@ -95,7 +95,7 @@ export default function BrandVsGenericPage() {
                   <td className="px-4 py-2 text-gray-600 hidden md:table-cell">{p.specialty}</td>
                   <td className="px-4 py-2 text-gray-500 hidden md:table-cell">{p.city}, {p.state}</td>
                   <td className="px-4 py-2 text-right font-mono font-semibold">{fmtMoney(p.cost)}</td>
-                  <td className={`px-4 py-2 text-right font-mono ${p.brandPct > 50 ? 'text-red-600 font-semibold' : ''}`}>{p.brandPct > 0 ? p.brandPct.toFixed(0) + '%' : '—'}</td>
+                  <td className={`px-4 py-2 text-right font-mono ${p.brandPct > 50 ? 'text-red-600 font-semibold' : ''}`}>{p.brandPct > 0 ? (p.brandPct ?? 0).toFixed(0) + '%' : '—'}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmtMoney(p.costPerBene)}</td>
                 </tr>
               ))}

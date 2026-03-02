@@ -105,7 +105,7 @@ export default function MLFraudPage() {
             <ul className="space-y-1">
               <li>• <strong>Precision: {(data.cv.precision * 100).toFixed(1)}%</strong> — {(data.cv.precision * 100).toFixed(0)}% of flagged providers match fraud patterns</li>
               <li>• <strong>Recall: {(data.cv.recall * 100).toFixed(1)}%</strong> — catches {(data.cv.recall * 100).toFixed(0)}% of known fraud cases</li>
-              <li>• <strong>F1 Score: {data.cv.f1.toFixed(3)}</strong> — harmonic mean of precision and recall</li>
+              <li>• <strong>F1 Score: {(data.cv.f1 ?? 0).toFixed(3)}</strong> — harmonic mean of precision and recall</li>
               <li>• 5-fold cross-validation on held-out data</li>
             </ul>
           </div>

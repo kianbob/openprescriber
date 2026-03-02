@@ -124,7 +124,7 @@ export default function PillMillsArticle() {
                     <td className="px-4 py-2"><Link href={`/providers/${p.npi}`} className="font-medium text-primary hover:underline">{p.name}</Link></td>
                     <td className="px-4 py-2 text-gray-600 hidden md:table-cell text-xs">{p.specialty}</td>
                     <td className="px-4 py-2 text-gray-500 hidden md:table-cell text-xs">{p.city}, {p.state}</td>
-                    <td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{p.opioidRate.toFixed(1)}%</td>
+                    <td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{(p.opioidRate ?? 0).toFixed(1)}%</td>
                     <td className="px-4 py-2 text-center"><span className="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs font-bold">{p.riskScore}</span></td>
                   </tr>
                 ))}

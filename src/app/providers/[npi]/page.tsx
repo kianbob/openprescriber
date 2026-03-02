@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: { params: Promise<{ npi: stri
   const p: Provider = JSON.parse(fs.readFileSync(filePath, 'utf8'))
   return {
     title: `${p.name}${p.credentials ? ', ' + p.credentials : ''} — Medicare Part D Prescribing Profile`,
-    description: `${p.name} in ${p.city}, ${p.state} prescribed ${fmt(p.claims)} Medicare Part D claims totaling ${fmtMoney(p.cost)}. ${p.opioidRate > 0 ? `Opioid rate: ${p.opioidRate.toFixed(1)}%.` : ''} Specialty: ${p.specialty}.`,
+    description: `${p.name} in ${p.city}, ${p.state} prescribed ${fmt(p.claims)} Medicare Part D claims totaling ${fmtMoney(p.cost)}. ${p.opioidRate > 0 ? `Opioid rate: ${(p.opioidRate ?? 0).toFixed(1)}%.` : ''} Specialty: ${p.specialty}.`,
     alternates: { canonical: `https://www.openprescriber.org/providers/${npi}` },
   }
 }
@@ -247,7 +247,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
                     {p.peerComparison.opioidVsPeer > 0 ? '+' : ''}{p.peerComparison.opioidVsPeer}%
                   </p>
                   <p className="text-xs text-gray-500 mt-1">Opioid rate vs peers</p>
-                  <p className="text-xs text-gray-400">{p.opioidRate.toFixed(1)}% vs {p.specialtyAvg.opioidRate.toFixed(1)}% avg</p>
+                  <p className="text-xs text-gray-400">{(p.opioidRate ?? 0).toFixed(1)}% vs {(p.specialtyAvg.opioidRate ?? 0).toFixed(1)}% avg</p>
                 </div>
               )}
               {p.peerComparison.costVsPeer != null && (
@@ -265,7 +265,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
                     {p.peerComparison.brandVsPeer > 0 ? '+' : ''}{p.peerComparison.brandVsPeer}%
                   </p>
                   <p className="text-xs text-gray-500 mt-1">Brand preference vs peers</p>
-                  <p className="text-xs text-gray-400">{p.brandPct.toFixed(1)}% vs {p.specialtyAvg.brandPct.toFixed(1)}% avg</p>
+                  <p className="text-xs text-gray-400">{(p.brandPct ?? 0).toFixed(1)}% vs {(p.specialtyAvg.brandPct ?? 0).toFixed(1)}% avg</p>
                 </div>
               )}
             </div>
@@ -296,7 +296,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           <div className="bg-white rounded-xl shadow-sm p-5 border">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <p className={`text-2xl font-bold ${p.opioidRate > 20 ? 'text-red-600' : p.opioidRate > 10 ? 'text-orange-600' : 'text-gray-900'}`}>{p.opioidRate.toFixed(1)}%</p>
+                <p className={`text-2xl font-bold ${p.opioidRate > 20 ? 'text-red-600' : p.opioidRate > 10 ? 'text-orange-600' : 'text-gray-900'}`}>{(p.opioidRate ?? 0).toFixed(1)}%</p>
                 <p className="text-xs text-gray-500">Opioid Rate</p>
               </div>
               <div>
@@ -308,13 +308,13 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
                 <p className="text-xs text-gray-500">Opioid Cost</p>
               </div>
               <div>
-                <p className="text-xl font-bold">{p.opioidLARate > 0 ? p.opioidLARate.toFixed(1) + '%' : '—'}</p>
+                <p className="text-xl font-bold">{p.opioidLARate > 0 ? (p.opioidLARate ?? 0).toFixed(1) + '%' : '—'}</p>
                 <p className="text-xs text-gray-500">Long-Acting Rate</p>
               </div>
             </div>
             {p.opioidRate > 20 && (
               <p className="text-sm text-red-600 mt-3 bg-red-50 rounded p-2">
-                This provider&apos;s opioid prescribing rate of {p.opioidRate.toFixed(1)}% is above the 20% threshold that CMS considers elevated.
+                This provider&apos;s opioid prescribing rate of {(p.opioidRate ?? 0).toFixed(1)}% is above the 20% threshold that CMS considers elevated.
               </p>
             )}
           </div>
@@ -396,7 +396,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
             )}
             {p.anomalyScore != null && p.anomalyScore > 0 && (
               <div>
-                <p className={`text-xl font-bold ${p.anomalyScore > 50 ? 'text-red-600' : p.anomalyScore > 20 ? 'text-orange-600' : 'text-gray-700'}`}>{p.anomalyScore.toFixed(1)}</p>
+                <p className={`text-xl font-bold ${p.anomalyScore > 50 ? 'text-red-600' : p.anomalyScore > 20 ? 'text-orange-600' : 'text-gray-700'}`}>{(p.anomalyScore ?? 0).toFixed(1)}</p>
                 <p className="text-xs text-gray-500">Anomaly Score</p>
               </div>
             )}
@@ -409,15 +409,15 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
         <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-3">Patient Profile</h2>
         <div className="bg-white rounded-xl shadow-sm p-5 border grid grid-cols-3 gap-4 text-center">
           <div>
-            <p className="text-xl font-bold">{p.avgAge > 0 ? p.avgAge.toFixed(0) : '—'}</p>
+            <p className="text-xl font-bold">{p.avgAge > 0 ? (p.avgAge ?? 0).toFixed(0) : '—'}</p>
             <p className="text-xs text-gray-500">Avg Age</p>
           </div>
           <div>
-            <p className="text-xl font-bold">{p.femalePct != null ? p.femalePct.toFixed(0) + '%' : '—'}</p>
+            <p className="text-xl font-bold">{p.femalePct != null ? (p.femalePct ?? 0).toFixed(0) + '%' : '—'}</p>
             <p className="text-xs text-gray-500">Female</p>
           </div>
           <div>
-            <p className="text-xl font-bold">{p.avgRiskScore > 0 ? p.avgRiskScore.toFixed(2) : '—'}</p>
+            <p className="text-xl font-bold">{p.avgRiskScore > 0 ? (p.avgRiskScore ?? 0).toFixed(2) : '—'}</p>
             <p className="text-xs text-gray-500">Avg Risk Score</p>
           </div>
         </div>

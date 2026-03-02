@@ -74,8 +74,8 @@ export default function SpecialtyCompareClient({ specialties }: { specialties: S
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between"><span className="text-gray-500">Providers</span><span className="font-mono font-semibold">{fmt(s.providers)}</span></div>
                   <div className="flex justify-between"><span className="text-gray-500">Total Cost</span><span className="font-mono font-semibold">{fmtMoney(s.cost)}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-500">Avg Opioid Rate</span><span className="font-mono font-semibold">{s.avgOpioidRate.toFixed(1)}%</span></div>
-                  <div className="flex justify-between"><span className="text-gray-500">Avg Brand %</span><span className="font-mono font-semibold">{s.avgBrandPct.toFixed(1)}%</span></div>
+                  <div className="flex justify-between"><span className="text-gray-500">Avg Opioid Rate</span><span className="font-mono font-semibold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span></div>
+                  <div className="flex justify-between"><span className="text-gray-500">Avg Brand %</span><span className="font-mono font-semibold">{(s.avgBrandPct ?? 0).toFixed(1)}%</span></div>
                   <div className="flex justify-between"><span className="text-gray-500">Cost/Provider</span><span className="font-mono font-semibold">{fmtMoney(s.costPerProvider)}</span></div>
                   <div className="flex justify-between"><span className="text-gray-500">Opioid Prescribers</span><span className="font-mono font-semibold">{fmt(s.opioidProv)}</span></div>
                 </div>

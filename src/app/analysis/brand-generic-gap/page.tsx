@@ -57,7 +57,7 @@ export default function BrandGenericGapPage() {
                 <tr key={s.specialty}>
                   <td className="px-4 py-2"><Link href={`/specialties/${slugify(s.specialty)}`} className="text-primary hover:underline">{s.specialty}</Link></td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
-                  <td className="px-4 py-2 text-right font-mono font-semibold text-red-600">{s.avgBrandPct.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono font-semibold text-red-600">{(s.avgBrandPct ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
                 </tr>
               ))}

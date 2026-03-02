@@ -52,8 +52,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
           { label: 'Claims', value: fmt(spec.claims) },
           { label: 'Cost/Provider', value: fmtMoney(spec.costPerProvider) },
           { label: 'Opioid Prescribers', value: fmt(spec.opioidProv), color: 'text-red-600' },
-          { label: 'Avg Opioid Rate', value: spec.avgOpioidRate.toFixed(1) + '%', color: spec.avgOpioidRate > 10 ? 'text-red-600' : '' },
-          { label: 'Avg Brand %', value: spec.avgBrandPct.toFixed(1) + '%' },
+          { label: 'Avg Opioid Rate', value: (spec.avgOpioidRate ?? 0).toFixed(1) + '%', color: spec.avgOpioidRate > 10 ? 'text-red-600' : '' },
+          { label: 'Avg Brand %', value: (spec.avgBrandPct ?? 0).toFixed(1) + '%' },
           { label: 'Flagged', value: String(specFlagged.length), color: specFlagged.length > 0 ? 'text-red-600' : '' },
         ].map(t => (
           <div key={t.label} className="bg-white rounded-xl shadow-sm p-4 border text-center">

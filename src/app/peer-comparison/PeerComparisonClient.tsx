@@ -67,10 +67,10 @@ export default function PeerComparisonClient({ specialties }: { specialties: Spe
                   <Link href={`/specialties/${slugify(s.name)}`} className="text-primary hover:underline font-medium text-xs">{s.name}</Link>
                 </td>
                 <td className="px-3 py-2 text-right font-mono">{fmt(s.n)}</td>
-                <td className="px-3 py-2 text-right font-mono">{s.opioidMean.toFixed(1)}%</td>
+                <td className="px-3 py-2 text-right font-mono">{(s.opioidMean ?? 0).toFixed(1)}%</td>
                 <td className="px-3 py-2 text-right font-mono">{fmtMoney(s.costMean)}</td>
-                <td className="px-3 py-2 text-right font-mono">{s.brandMean.toFixed(1)}%</td>
-                <td className="px-3 py-2 text-right font-mono text-red-600">{s.opioidP95.toFixed(1)}%</td>
+                <td className="px-3 py-2 text-right font-mono">{(s.brandMean ?? 0).toFixed(1)}%</td>
+                <td className="px-3 py-2 text-right font-mono text-red-600">{(s.opioidP95 ?? 0).toFixed(1)}%</td>
               </tr>
             ))}
           </tbody>

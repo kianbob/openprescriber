@@ -126,7 +126,7 @@ export default function HomePage() {
                   <td className="px-4 py-2 text-gray-600 hidden md:table-cell">{p.specialty}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(p.claims)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmtMoney(p.cost)}</td>
-                  <td className="px-4 py-2 text-right font-mono">{p.opioidRate > 0 ? p.opioidRate.toFixed(1) + '%' : '—'}</td>
+                  <td className="px-4 py-2 text-right font-mono">{p.opioidRate > 0 ? (p.opioidRate ?? 0).toFixed(1) + '%' : '—'}</td>
                   <td className="px-4 py-2 text-center">
                     <span className="text-xs font-medium bg-red-100 text-red-700 px-2 py-0.5 rounded-full">{p.riskScore}</span>
                   </td>
@@ -158,7 +158,7 @@ export default function HomePage() {
                       <Link href={`/providers/${p.npi}`} className="text-primary hover:underline text-xs font-medium">{p.name}</Link>
                       <br /><span className="text-xs text-gray-400">{p.state} · {p.specialty}</span>
                     </td>
-                    <td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{p.opioidRate.toFixed(1)}%</td>
+                    <td className="px-3 py-2 text-right font-mono text-red-600 font-semibold">{(p.opioidRate ?? 0).toFixed(1)}%</td>
                     <td className="px-3 py-2 text-right font-mono text-gray-600">{fmt(p.claims)}</td>
                   </tr>
                 ))}
@@ -187,7 +187,7 @@ export default function HomePage() {
                       <br /><span className="text-xs text-gray-400">{p.state} · {p.specialty}</span>
                     </td>
                     <td className="px-3 py-2 text-right font-mono font-semibold">{fmtMoney(p.cost)}</td>
-                    <td className="px-3 py-2 text-right font-mono text-gray-600">{p.brandPct > 0 ? p.brandPct.toFixed(0) + '%' : '—'}</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-600">{p.brandPct > 0 ? (p.brandPct ?? 0).toFixed(0) + '%' : '—'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -223,7 +223,7 @@ export default function HomePage() {
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.opioidProv)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.highOpioid)}</td>
                   <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : 'text-gray-700'}`}>
-                    {s.avgOpioidRate.toFixed(1)}%
+                    {(s.avgOpioidRate ?? 0).toFixed(1)}%
                   </td>
                 </tr>
               ))}

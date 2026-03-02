@@ -113,7 +113,7 @@ export default function OpioidClient({ opioidByState, topOpioid }: { opioidBySta
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.opioidProv)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{s.opioidPct}%</td>
-                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : ''}`}>{s.avgOpioidRate.toFixed(1)}%</td>
+                  <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : ''}`}>{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.highOpioid)}</td>
                 </tr>
               ))}
@@ -157,7 +157,7 @@ export default function OpioidClient({ opioidByState, topOpioid }: { opioidBySta
                   </td>
                   <td className="px-4 py-2 text-gray-600 hidden md:table-cell">{p.specialty}</td>
                   <td className="px-4 py-2 text-gray-500 hidden md:table-cell">{p.city}, {p.state}</td>
-                  <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{p.opioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{(p.opioidRate ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(p.opioidClaims)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(p.claims)}</td>
                 </tr>

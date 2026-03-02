@@ -102,17 +102,17 @@ export default function SpecialtyProfilesClient({ opioid, cost, brand }: { opioi
               <tr key={s.specialty} className="hover:bg-gray-50">
                 <td className="px-4 py-2"><Link href={`/specialties/${slugify(s.specialty)}`} className="text-primary font-medium hover:underline">{s.specialty}</Link></td>
                 {tab === 'opioid' && <>
-                  <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{s.opioidMean.toFixed(1)}%</td>
-                  <td className="px-4 py-2 text-right font-mono">{s.opioidP90.toFixed(1)}%</td>
-                  <td className="px-4 py-2 text-right font-mono">{s.opioidP95.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{(s.opioidMean ?? 0).toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono">{(s.opioidP90 ?? 0).toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono">{(s.opioidP95 ?? 0).toFixed(1)}%</td>
                 </>}
                 {tab === 'cost' && <>
                   <td className="px-4 py-2 text-right font-mono font-semibold">{fmtMoney(Math.round(s.costMean))}</td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(Math.round(s.costP90))}</td>
-                  <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{s.brandMean.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{(s.brandMean ?? 0).toFixed(1)}%</td>
                 </>}
                 {tab === 'brand' && <>
-                  <td className="px-4 py-2 text-right font-mono font-semibold">{s.brandMean.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono font-semibold">{(s.brandMean ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right font-mono">{fmtMoney(Math.round(s.costMean))}</td>
                 </>}
                 <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.n)}</td>

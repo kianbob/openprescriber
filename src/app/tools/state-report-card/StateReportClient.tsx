@@ -83,7 +83,7 @@ export default function StateReportClient() {
                 <p className="text-xs text-gray-500">Drug Costs</p>
               </div>
               <div className="bg-white rounded-xl shadow-sm p-4 border text-center">
-                <p className={`text-xl font-bold ${s.avgOpioidRate > 15 ? 'text-red-600' : 'text-gray-800'}`}>{s.avgOpioidRate.toFixed(1)}%</p>
+                <p className={`text-xl font-bold ${s.avgOpioidRate > 15 ? 'text-red-600' : 'text-gray-800'}`}>{(s.avgOpioidRate ?? 0).toFixed(1)}%</p>
                 <p className="text-xs text-gray-500">Avg Opioid Rate</p>
               </div>
               <div className="bg-white rounded-xl shadow-sm p-4 border text-center">

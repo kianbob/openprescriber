@@ -78,7 +78,7 @@ export default function ExcludedClient({ excluded }: { excluded: Excluded[] }) {
                 <div className="flex gap-4 mt-2 text-sm">
                   <span><strong>{fmt(p.claims)}</strong> claims</span>
                   <span><strong>{fmtMoney(p.cost)}</strong> drug cost</span>
-                  {p.opioidRate > 0 && <span className="text-red-600"><strong>{p.opioidRate.toFixed(1)}%</strong> opioid rate</span>}
+                  {p.opioidRate > 0 && <span className="text-red-600"><strong>{(p.opioidRate ?? 0).toFixed(1)}%</strong> opioid rate</span>}
                 </div>
               </div>
               <div className="flex-shrink-0 w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center">

@@ -90,7 +90,7 @@ export default function PeerComparisonPage() {
             {highestOpioid.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
-                <span className="font-mono text-red-700 font-semibold">{s.opioidRate.mean.toFixed(1)}%</span>
+                <span className="font-mono text-red-700 font-semibold">{(s.opioidRate.mean ?? 0).toFixed(1)}%</span>
               </div>
             ))}
           </div>
@@ -99,7 +99,7 @@ export default function PeerComparisonPage() {
             {lowestOpioid.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
-                <span className="font-mono text-green-700 font-semibold">{s.opioidRate.mean.toFixed(1)}%</span>
+                <span className="font-mono text-green-700 font-semibold">{(s.opioidRate.mean ?? 0).toFixed(1)}%</span>
               </div>
             ))}
           </div>
@@ -120,7 +120,7 @@ export default function PeerComparisonPage() {
             {highestBrand.map(([spec, s]) => (
               <div key={spec} className="flex justify-between text-sm py-1">
                 <Link href={`/specialties/${slugify(spec)}`} className="text-primary hover:underline text-xs">{spec}</Link>
-                <span className="font-mono text-orange-700 font-semibold">{s.brandPct.mean.toFixed(1)}%</span>
+                <span className="font-mono text-orange-700 font-semibold">{(s.brandPct.mean ?? 0).toFixed(1)}%</span>
               </div>
             ))}
           </div>

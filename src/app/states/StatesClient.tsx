@@ -74,7 +74,7 @@ export default function StatesClient({ states }: { states: State[] }) {
                 <td className="px-4 py-2 text-right font-mono">{fmtMoney(s.cost)}</td>
                 <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.claims)}</td>
                 <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmtMoney(s.costPerBene)}</td>
-                <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : ''}`}>{s.avgOpioidRate.toFixed(1)}%</td>
+                <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 10 ? 'text-red-600' : ''}`}>{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
                 <td className="px-4 py-2 text-right font-mono hidden lg:table-cell">{fmt(s.highOpioid)}</td>
               </tr>
             ))}

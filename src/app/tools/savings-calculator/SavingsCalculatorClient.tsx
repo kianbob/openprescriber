@@ -71,7 +71,7 @@ export default function SavingsCalculatorClient({ states }: { states: StateData[
               <p className="text-xs text-gray-500">Generic Spending</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-3 text-center">
-              <p className="text-lg font-bold">{stateData.brandPct.toFixed(1)}%</p>
+              <p className="text-lg font-bold">{(stateData.brandPct ?? 0).toFixed(1)}%</p>
               <p className="text-xs text-gray-500">Brand Rx Rate</p>
             </div>
             <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">

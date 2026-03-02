@@ -78,7 +78,7 @@ export default function OpioidCrisisPage() {
               {topStates.map(s => (
                 <tr key={s.state}>
                   <td className="px-4 py-2"><Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{stateName(s.state)}</Link></td>
-                  <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{s.avgOpioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.highOpioid)}</td>
                 </tr>
               ))}

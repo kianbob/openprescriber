@@ -61,7 +61,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
           { label: 'Cost/Patient', value: fmtMoney(s.costPerBene) },
           { label: 'Opioid Prescribers', value: fmt(s.opioidProv), color: 'text-red-600' },
           { label: 'High Opioid Rate', value: fmt(s.highOpioid), color: 'text-red-600' },
-          { label: 'Avg Opioid Rate', value: s.avgOpioidRate.toFixed(1) + '%', color: s.avgOpioidRate > 10 ? 'text-red-600' : '' },
+          { label: 'Avg Opioid Rate', value: (s.avgOpioidRate ?? 0).toFixed(1) + '%', color: s.avgOpioidRate > 10 ? 'text-red-600' : '' },
           { label: 'Flagged Providers', value: String(stateFlagged.length), color: stateFlagged.length > 0 ? 'text-red-600' : '' },
         ].map(t => (
           <div key={t.label} className="bg-white rounded-xl shadow-sm p-4 border text-center">
@@ -176,7 +176,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
                   <tr key={p.npi} className="hover:bg-gray-50">
                     <td className="px-4 py-2"><Link href={`/providers/${p.npi}`} className="text-primary font-medium hover:underline">{p.name}</Link><br /><span className="text-xs text-gray-500">{p.city}</span></td>
                     <td className="px-4 py-2 text-gray-600 hidden md:table-cell">{p.specialty}</td>
-                    <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{p.opioidRate.toFixed(1)}%</td>
+                    <td className="px-4 py-2 text-right font-mono text-red-600 font-semibold">{(p.opioidRate ?? 0).toFixed(1)}%</td>
                     <td className="px-4 py-2 text-right font-mono">{fmt(p.opioidClaims)}</td>
                   </tr>
                 ))}

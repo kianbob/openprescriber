@@ -74,7 +74,7 @@ export default function OpioidPrescribersPage() {
                     <Link href={`/states/${s.state.toLowerCase()}`} className="font-medium text-primary hover:underline">{stateName(s.state)}</Link>
                   </td>
                   <td className={`px-4 py-2 text-right font-mono font-semibold ${s.avgOpioidRate > 15 ? 'text-red-600' : s.avgOpioidRate > 10 ? 'text-orange-600' : 'text-gray-700'}`}>
-                    {s.avgOpioidRate.toFixed(1)}%
+                    {(s.avgOpioidRate ?? 0).toFixed(1)}%
                   </td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(s.opioidProv)}</td>
                   <td className="px-4 py-2 text-right font-mono hidden md:table-cell">{fmt(s.highOpioid)}</td>
@@ -110,7 +110,7 @@ export default function OpioidPrescribersPage() {
                   </td>
                   <td className="px-4 py-2 text-gray-600 hidden md:table-cell text-xs">{p.specialty}</td>
                   <td className="px-4 py-2 text-gray-500 hidden md:table-cell text-xs">{p.city}, {p.state}</td>
-                  <td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{p.opioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{(p.opioidRate ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right font-mono">{fmt(p.claims)}</td>
                 </tr>
               ))}

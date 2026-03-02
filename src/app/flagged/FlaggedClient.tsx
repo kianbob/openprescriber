@@ -91,7 +91,7 @@ export default function FlaggedClient({ providers }: { providers: Provider[] }) 
                 <div className="flex flex-wrap gap-3 mt-1.5 text-sm">
                   <span><strong>{fmt(p.claims)}</strong> claims</span>
                   <span><strong>{fmtMoney(p.cost)}</strong> drug cost</span>
-                  {p.opioidRate > 0 && <span className="text-red-600"><strong>{p.opioidRate.toFixed(1)}%</strong> opioid</span>}
+                  {p.opioidRate > 0 && <span className="text-red-600"><strong>{(p.opioidRate ?? 0).toFixed(1)}%</strong> opioid</span>}
                   {p.costPerBene > 0 && <span><strong>{fmtMoney(p.costPerBene)}</strong>/patient</span>}
                 </div>
                 <div className="flex flex-wrap gap-1 mt-1.5">

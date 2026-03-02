@@ -252,7 +252,7 @@ export default function ControlledSubstancePipelinePage() {
                   <tr key={s.specialty} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-4 py-2 font-medium">{s.specialty}</td>
                     <td className="px-4 py-2 text-right">{fmt(s.providers)}</td>
-                    <td className="px-4 py-2 text-right font-medium text-red-700">{s.opioidRate.toFixed(1)}%</td>
+                    <td className="px-4 py-2 text-right font-medium text-red-700">{(s.opioidRate ?? 0).toFixed(1)}%</td>
                     <td className="px-4 py-2 text-right">{flagged ? fmt(flagged.count) : '—'}</td>
                   </tr>
                 )
@@ -281,7 +281,7 @@ export default function ControlledSubstancePipelinePage() {
               {topOpioidStates.map((s, i) => (
                 <tr key={s.state} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                   <td className="px-4 py-2 font-medium">{s.state}</td>
-                  <td className="px-4 py-2 text-right font-bold text-red-700">{s.opioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-bold text-red-700">{(s.opioidRate ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right">{fmtMoney(s.cost)}</td>
                 </tr>

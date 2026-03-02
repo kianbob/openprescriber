@@ -123,7 +123,7 @@ export default function TelehealthPrescribingPage() {
                   <td className="px-4 py-2 text-right">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right">{fmt(s.claims)}</td>
                   <td className="px-4 py-2 text-right">{fmtMoney(Math.round(s.cost / s.claims))}</td>
-                  <td className="px-4 py-2 text-right">{s.opioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right">{(s.opioidRate ?? 0).toFixed(1)}%</td>
                 </tr>
               ))}
             </tbody>
@@ -155,7 +155,7 @@ export default function TelehealthPrescribingPage() {
                   <td className="px-4 py-2 text-right">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right">{fmt(s.claims)}</td>
                   <td className="px-4 py-2 text-right">{fmtMoney(s.cost)}</td>
-                  <td className="px-4 py-2 text-right">{s.opioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right">{(s.opioidRate ?? 0).toFixed(1)}%</td>
                 </tr>
               ))}
             </tbody>
@@ -222,7 +222,7 @@ export default function TelehealthPrescribingPage() {
               {highOpioidStates.map((s, i) => (
                 <tr key={s.state} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                   <td className="px-4 py-2 font-medium">{s.state}</td>
-                  <td className="px-4 py-2 text-right font-medium text-red-700">{s.opioidRate.toFixed(1)}%</td>
+                  <td className="px-4 py-2 text-right font-medium text-red-700">{(s.opioidRate ?? 0).toFixed(1)}%</td>
                   <td className="px-4 py-2 text-right">{fmt(s.providers)}</td>
                   <td className="px-4 py-2 text-right">{fmtMoney(s.cost)}</td>
                 </tr>

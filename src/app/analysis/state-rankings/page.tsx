@@ -125,7 +125,7 @@ export default function StateRankingsPage() {
               <li key={s.state} className="flex items-center gap-3 bg-white rounded-lg p-3 border">
                 <span className="text-lg font-bold text-red-600 w-8">{i + 1}.</span>
                 <Link href={`/states/${s.state.toLowerCase()}`} className="text-primary font-medium hover:underline">{stateName(s.state)}</Link>
-                <span className="ml-auto font-mono text-sm text-red-600 font-semibold">{s.avgOpioidRate.toFixed(1)}%</span>
+                <span className="ml-auto font-mono text-sm text-red-600 font-semibold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
               </li>
             ))}
           </ol>
@@ -172,7 +172,7 @@ export default function StateRankingsPage() {
                 <li key={s.state} className="flex items-center gap-2 text-sm">
                   <span className="font-bold text-red-600 w-5">{i + 1}.</span>
                   <Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{stateName(s.state)}</Link>
-                  <span className="ml-auto font-mono text-red-600">{s.avgOpioidRate.toFixed(1)}%</span>
+                  <span className="ml-auto font-mono text-red-600">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
                 </li>
               ))}
             </ol>
@@ -184,7 +184,7 @@ export default function StateRankingsPage() {
                 <li key={s.state} className="flex items-center gap-2 text-sm">
                   <span className="font-bold text-green-600 w-5">{i + 1}.</span>
                   <Link href={`/states/${s.state.toLowerCase()}`} className="text-primary hover:underline">{stateName(s.state)}</Link>
-                  <span className="ml-auto font-mono text-green-600">{s.avgOpioidRate.toFixed(1)}%</span>
+                  <span className="ml-auto font-mono text-green-600">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
                 </li>
               ))}
             </ol>

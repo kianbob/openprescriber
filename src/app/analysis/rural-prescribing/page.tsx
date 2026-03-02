@@ -64,7 +64,7 @@ export default function RuralPrescribingArticle() {
               {top10Opioid.map((s, i) => (
                 <div key={s.state} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-red-50/50">
                   <Link href={`/states/${s.state.toLowerCase()}`} className="text-sm text-primary hover:underline">{i + 1}. {stateName(s.state)}</Link>
-                  <span className="text-sm font-mono text-red-600 font-bold">{s.avgOpioidRate.toFixed(1)}%</span>
+                  <span className="text-sm font-mono text-red-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
                 </div>
               ))}
             </div>
@@ -75,7 +75,7 @@ export default function RuralPrescribingArticle() {
               {bottom10Opioid.map((s, i) => (
                 <div key={s.state} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-green-50/50">
                   <Link href={`/states/${s.state.toLowerCase()}`} className="text-sm text-primary hover:underline">{ruralStates.length - 9 + i}. {stateName(s.state)}</Link>
-                  <span className="text-sm font-mono text-green-600 font-bold">{s.avgOpioidRate.toFixed(1)}%</span>
+                  <span className="text-sm font-mono text-green-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
                 </div>
               ))}
             </div>
