@@ -24,6 +24,7 @@ export default function HomePage() {
   const topOpioid = (loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]).filter(p => p.claims >= 100)
   const topCost = loadData('top-cost.json') as { npi: string; name: string; city: string; state: string; specialty: string; cost: number; claims: number; costPerBene: number; brandPct: number }[]
   const trends = loadData('yearly-trends.json') as { year: number; providers: number; claims: number; cost: number }[]
+  const drugs = loadData('drugs.json') as { generic: string; brand: string; cost: number; claims: number }[]
   const REAL_STATES = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY'.split(','))
 
   return (
@@ -362,6 +363,46 @@ export default function HomePage() {
               <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
             </Link>
           ))}
+        </div>
+      </section>
+      {/* Quick Links for SEO */}
+      <section className="bg-gray-50 py-10 mt-4">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">Browse by State</h2>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {[...states].filter(s => REAL_STATES.has(s.state)).sort((a, b) => b.cost - a.cost).slice(0, 20).map(s => (
+              <Link key={s.state} href={`/states/${s.state.toLowerCase()}`} className="text-xs bg-white px-3 py-1.5 rounded-full border hover:border-primary/30 hover:text-primary transition-colors">
+                {stateName(s.state)}
+              </Link>
+            ))}
+            <Link href="/states" className="text-xs text-primary px-3 py-1.5">All states →</Link>
+          </div>
+
+          <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">Top Drugs by Cost</h2>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {drugs.slice(0, 15).map(d => (
+              <Link key={d.generic} href={`/drugs/${d.generic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`} className="text-xs bg-white px-3 py-1.5 rounded-full border hover:border-primary/30 hover:text-primary transition-colors">
+                {d.generic} {d.brand && <span className="text-gray-400">({d.brand})</span>}
+              </Link>
+            ))}
+            <Link href="/drugs" className="text-xs text-primary px-3 py-1.5">All 500 drugs →</Link>
+          </div>
+
+          <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">Popular Analysis</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+            <Link href="/analysis/opioid-crisis" className="text-primary hover:underline">Opioid Crisis</Link>
+            <Link href="/analysis/ozempic-effect" className="text-primary hover:underline">Ozempic Effect</Link>
+            <Link href="/analysis/pill-mills" className="text-primary hover:underline">Pill Mills</Link>
+            <Link href="/analysis/nurse-practitioners" className="text-primary hover:underline">Nurse Practitioners</Link>
+            <Link href="/analysis/state-rankings" className="text-primary hover:underline">State Rankings</Link>
+            <Link href="/analysis/telehealth-prescribing" className="text-primary hover:underline">Telehealth</Link>
+            <Link href="/analysis/most-expensive-prescribers" className="text-primary hover:underline">Most Expensive</Link>
+            <Link href="/analysis/generic-adoption" className="text-primary hover:underline">Generic Adoption</Link>
+            <Link href="/medicare-fraud" className="text-primary hover:underline">Medicare Fraud</Link>
+            <Link href="/opioid-prescribers" className="text-primary hover:underline">Opioid Prescribers</Link>
+            <Link href="/drug-costs" className="text-primary hover:underline">Drug Costs</Link>
+            <Link href="/medicare-part-d" className="text-primary hover:underline">Medicare Part D</Link>
+          </div>
         </div>
       </section>
     </div>
