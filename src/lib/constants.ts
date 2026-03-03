@@ -1,0 +1,36 @@
+export const FLAG_LABELS: Record<string, string> = {
+  extreme_opioid_vs_peers: 'Extreme opioid rate vs specialty peers',
+  very_high_opioid_vs_peers: 'Very high opioid rate vs specialty peers',
+  high_opioid_vs_peers: 'High opioid rate vs specialty peers',
+  '99th_pctile_opioid': '99th percentile opioid prescribing',
+  '95th_pctile_opioid': '95th percentile opioid prescribing',
+  '90th_pctile_opioid': '90th percentile opioid prescribing',
+  high_la_opioid_vs_peers: 'High long-acting opioid rate vs peers',
+  extreme_cost_outlier: 'Extreme cost outlier (population + peer)',
+  high_cost_outlier: 'High cost outlier (population + peer)',
+  elevated_cost: 'Elevated cost per beneficiary',
+  extreme_brand_preference: 'Extreme brand-name preference',
+  high_brand_preference: 'High brand-name preference',
+  high_antipsych_elderly: 'High antipsychotic prescribing (65+)',
+  elevated_antipsych_elderly: 'Elevated antipsychotic prescribing (65+)',
+  opioid_benzo_coprescriber: 'Opioid + benzodiazepine co-prescriber',
+  leie_excluded: 'OIG Excluded Provider',
+  low_drug_diversity: 'Low drug diversity',
+  very_low_drug_diversity: 'Very low drug diversity',
+  high_fills_per_patient: 'High fills per patient',
+  extreme_fills_per_patient: 'Extreme fills per patient',
+  elevated_la_opioid: 'Elevated long-acting opioid rate',
+  extreme_opioid: 'Extreme opioid prescribing rate',
+  very_high_opioid: 'Very high opioid prescribing rate',
+  high_opioid: 'High opioid prescribing rate',
+  high_la_opioid: 'High long-acting opioid rate',
+  extreme_cost: 'Extreme cost per beneficiary',
+  high_cost: 'High cost per beneficiary',
+  extreme_brand: 'Extreme brand-name prescribing',
+  high_brand: 'High brand-name prescribing',
+  high_volume_opioid: 'High volume + high opioid combo',
+}
+
+export function flagLabel(f: string): string {
+  return FLAG_LABELS[f] || f.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+}

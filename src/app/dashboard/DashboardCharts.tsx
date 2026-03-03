@@ -22,13 +22,14 @@ export function StatesCostChart({ data }: { data: { state: string; cost: number 
 
 export function SpecialtyCostChart({ data }: { data: { specialty: string; cost: number }[] }) {
   return (
-    <div className="h-[300px]">
+    <div className="h-[400px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
-          <Pie data={data.slice(0, 10)} dataKey="cost" nameKey="specialty" cx="50%" cy="50%" outerRadius={100} label={({ specialty, percent }) => percent > 0.05 ? `${specialty.slice(0, 15)}… ${(percent * 100).toFixed(0)}%` : ''}>
-            {data.slice(0, 10).map((_, i) => <Cell key={i} fill={COLORS[i]} />)}
+          <Pie data={data.slice(0, 8)} dataKey="cost" nameKey="specialty" cx="50%" cy="45%" outerRadius={110} innerRadius={50} paddingAngle={2} label={({ specialty, percent }) => percent > 0.06 ? `${(percent * 100).toFixed(0)}%` : ''} labelLine={false}>
+            {data.slice(0, 8).map((_, i) => <Cell key={i} fill={COLORS[i]} />)}
           </Pie>
           <Tooltip formatter={v => fmtMoney(v as number)} />
+          <Legend layout="horizontal" verticalAlign="bottom" wrapperStyle={{ fontSize: '12px' }} formatter={(v) => v.length > 20 ? v.slice(0, 18) + '…' : v} />
         </PieChart>
       </ResponsiveContainer>
     </div>
@@ -150,13 +151,13 @@ export function SpecialtyOpioidChart({ data }: { data: { specialty: string; avgO
 export function RiskBreakdownChart({ data }: { data: { level: string; count: number }[] }) {
   const colors = { High: '#dc2626', Elevated: '#f59e0b', Moderate: '#6366f1', Low: '#10b981' }
   return (
-    <div className="h-[250px]">
+    <div className="h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
-          <Pie data={data} dataKey="count" nameKey="level" cx="50%" cy="50%" outerRadius={80} label>
+          <Pie data={data} dataKey="count" nameKey="level" cx="50%" cy="45%" outerRadius={90} innerRadius={40} paddingAngle={2} label={({ level, percent }) => `${level} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
             {data.map((d, i) => <Cell key={i} fill={colors[d.level as keyof typeof colors] || COLORS[i]} />)}
           </Pie>
-          <Tooltip />
+          <Tooltip formatter={(v) => fmt(v as number)} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>

@@ -15,6 +15,36 @@ const popularComparisons = [
   ['Ophthalmology', 'Optometry'],
 ]
 
+function ComparisonChart({ data, title, format }: { data: { name: string; value: number; color: string }[]; title: string; format: (v: number) => string }) {
+  return (
+    <div className="bg-white rounded-xl shadow-sm p-5 border">
+      <h4 className="font-semibold text-sm text-gray-700 mb-3">{title}</h4>
+      <div className="h-[180px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data} layout="vertical" margin={{ left: 10, right: 20 }}>
+            <XAxis type="number" tickFormatter={(v) => format(v)} />
+            <YAxis type="category" dataKey="name" width={0} tick={false} />
+            <Tooltip formatter={(v) => format(v as number)} />
+            <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{ position: 'right', formatter: (v: number) => format(v), fontSize: 12 }}>
+              {data.map((d, i) => (
+                <rect key={i} fill={d.color} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="flex gap-4 mt-2">
+        {data.map((d, i) => (
+          <div key={i} className="flex items-center gap-1.5 text-xs text-gray-600">
+            <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: d.color }} />
+            {d.name}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function SpecialtyCompareClient({ specialties }: { specialties: Spec[] }) {
   const [selected, setSelected] = useState<(string | '')[]>(['', '', ''])
 
@@ -35,15 +65,8 @@ export default function SpecialtyCompareClient({ specialties }: { specialties: S
     setSelected(next)
   }
 
-  const chartData = useMemo(() => {
-    if (specs.length < 2) return []
-    return [
-      { metric: 'Providers', ...Object.fromEntries(specs.map((s, i) => [`s${i}`, s.providers])) },
-      { metric: 'Avg Opioid %', ...Object.fromEntries(specs.map((s, i) => [`s${i}`, s.avgOpioidRate])) },
-      { metric: 'Avg Brand %', ...Object.fromEntries(specs.map((s, i) => [`s${i}`, s.avgBrandPct])) },
-      { metric: 'Cost/Provider ($K)', ...Object.fromEntries(specs.map((s, i) => [`s${i}`, Math.round(s.costPerProvider / 1000)])) },
-    ]
-  }, [specs])
+  const makeChartData = (accessor: (s: Spec) => number) =>
+    specs.map((s, i) => ({ name: s.specialty, value: accessor(s), color: COLORS[i] }))
 
   return (
     <div className="mt-6">
@@ -83,21 +106,11 @@ export default function SpecialtyCompareClient({ specialties }: { specialties: S
             ))}
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-5 border mt-6">
-            <h3 className="font-bold text-lg mb-4">Comparison Chart</h3>
-            <div className="h-[350px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData} margin={{ left: 10, right: 10 }}>
-                  <XAxis dataKey="metric" tick={{ fontSize: 12 }} />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  {specs.map((s, i) => (
-                    <Bar key={s.specialty} dataKey={`s${i}`} name={s.specialty} fill={COLORS[i]} radius={[4, 4, 0, 0]} />
-                  ))}
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <ComparisonChart data={makeChartData(s => s.providers)} title="Total Providers" format={v => fmt(v)} />
+            <ComparisonChart data={makeChartData(s => s.avgOpioidRate)} title="Average Opioid Rate (%)" format={v => v.toFixed(1) + '%'} />
+            <ComparisonChart data={makeChartData(s => s.costPerProvider)} title="Cost per Provider" format={v => fmtMoney(v)} />
+            <ComparisonChart data={makeChartData(s => s.avgBrandPct)} title="Average Brand-Name Rate (%)" format={v => v.toFixed(1) + '%'} />
           </div>
         </>
       )}

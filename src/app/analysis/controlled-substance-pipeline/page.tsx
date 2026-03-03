@@ -6,6 +6,7 @@ import ArticleSchema from '@/components/ArticleSchema'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { fmtMoney, fmt } from '@/lib/utils'
+import { flagLabel } from '@/lib/constants'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
@@ -217,7 +218,7 @@ export default function ControlledSubstancePipelinePage() {
                     <td className="px-3 py-2">
                       <div className="flex flex-wrap gap-1">
                         {p.riskFlags.map(f => (
-                          <span key={f} className="bg-red-100 text-red-800 px-1.5 py-0.5 rounded text-xs">{f}</span>
+                          <span key={f} className="bg-red-100 text-red-800 px-1.5 py-0.5 rounded text-xs">{flagLabel(f)}</span>
                         ))}
                       </div>
                     </td>

@@ -94,6 +94,8 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
   const filePath = path.join(process.cwd(), 'public', 'data', 'providers', `${npi}.json`)
   if (!fs.existsSync(filePath)) notFound()
   const p: Provider = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  const drugsList = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'drugs.json'), 'utf8'))
+  const validDrugSlugs = new Set(drugsList.map((d: any) => slugify(d.generic)))
 
   // Load ML fraud score if available
   let mlScore: number | null = null
@@ -365,7 +367,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
               <tbody className="divide-y divide-gray-100">
                 {p.topDrugs.map((d, i) => (
                   <tr key={i} className="hover:bg-gray-50">
-                    <td className="px-4 py-2 font-medium"><Link href={`/drugs/${slugify(d.drug)}`} className="text-primary hover:underline">{d.drug}</Link></td>
+                    <td className="px-4 py-2 font-medium">{validDrugSlugs.has(slugify(d.drug)) ? <Link href={`/drugs/${slugify(d.drug)}`} className="text-primary hover:underline">{d.drug}</Link> : d.drug}</td>
                     <td className="px-4 py-2 text-gray-500 hidden md:table-cell">{d.brand || '—'}</td>
                     <td className="px-4 py-2 text-right font-mono">{fmt(d.claims)}</td>
                     <td className="px-4 py-2 text-right font-mono">{fmtMoney(d.cost)}</td>

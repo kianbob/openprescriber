@@ -37,9 +37,9 @@ type Provider = {
 }
 
 const POPULAR_COMPARISONS = [
-  { npi1: '1194726900', npi2: '1790786416', label: 'High-risk pain management providers' },
-  { npi1: '1447252627', npi2: '1578560570', label: 'Top cost outlier prescribers' },
-  { npi1: '1003000712', npi2: '1003035239', label: 'Different specialty comparison' },
+  { npi1: '1003158122', npi2: '1003282203', label: 'High-risk opioid prescribers' },
+  { npi1: '1003013673', npi2: '1003027764', label: 'Top cost outlier prescribers' },
+  { npi1: '1003000142', npi2: '1003000936', label: 'Low-risk specialty comparison' },
 ]
 
 function riskBadgeEl(level: string) {
