@@ -17,6 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={heading.variable}>
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HT9HV6KT4D" />
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HT9HV6KT4D');` }} />
         <link rel="alternate" type="application/rss+xml" title="OpenPrescriber Analysis" href="/feed.xml" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
