@@ -159,7 +159,7 @@ export default function OzempicEffectArticle() {
           States with Medicaid expansion tend to show higher uptake among dual-eligible beneficiaries, while non-expansion states show gaps in coverage for lower-income patients who age into Medicare with untreated or undertreated diabetes. The result is that some of the highest-need populations in the country have the least access to the most effective treatments — a disparity that GLP-1 coverage expansion could address but that current policy perpetuates.
         </p>
         <p>
-          <Link href="/geographic">Explore state-by-state prescribing patterns →</Link>
+          <Link href="/states">Explore state-by-state prescribing patterns →</Link>
         </p>
 
         <h2>The Novo Nordisk and Eli Lilly Duopoly</h2>

@@ -287,7 +287,7 @@ export default function BrandGenericGapPage() {
         <h2>How We Flag This</h2>
         <p>
           On OpenPrescriber, brand-name prescribing rate is one of several components in
-          our <Link href="/analysis/risk-scores">composite risk scoring</Link> methodology.
+          our <Link href="/analysis/fraud-risk-methodology">composite risk scoring</Link> methodology.
           We compare each provider&apos;s brand rate to the median for their specialty, then
           flag outliers who fall significantly above that benchmark.
         </p>

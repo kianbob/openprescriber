@@ -269,7 +269,7 @@ export default function PillMillsArticle() {
           Identifying pill mill patterns in Medicare data is only useful if it connects to actionable policy. Several implications emerge from our analysis.
         </p>
         <p>
-          First, CMS already has the data to identify extreme prescribing outliers in near-real-time. The gap is not data availability but the speed and consistency of response. Providers who exhibit pill mill signatures for multiple consecutive years without intervention represent a system failure. Our <Link href="/analysis/risk-scoring">risk scoring methodology</Link> demonstrates that straightforward statistical techniques can surface high-priority cases without sophisticated infrastructure.
+          First, CMS already has the data to identify extreme prescribing outliers in near-real-time. The gap is not data availability but the speed and consistency of response. Providers who exhibit pill mill signatures for multiple consecutive years without intervention represent a system failure. Our <Link href="/analysis/fraud-risk-methodology">risk scoring methodology</Link> demonstrates that straightforward statistical techniques can surface high-priority cases without sophisticated infrastructure.
         </p>
         <p>
           Second, state-level variation in PDMP requirements creates regulatory arbitrage opportunities. Providers operating near state borders can exploit differences in monitoring intensity. Federal standardization of PDMP requirements — including mandatory interstate data sharing and real-time checking before prescribing — would close this gap.

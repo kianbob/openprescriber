@@ -142,7 +142,7 @@ export default function PolypharmacyArticle() {
           But disease burden alone does not explain the variation. Provider density, prescribing culture, access to non-pharmacological treatments, and the availability of clinical pharmacists all play roles. States with robust Prescription Drug Monitoring Programs and active pharmacy review requirements tend to show lower rates of dangerous combinations, even after adjusting for disease prevalence.
         </p>
         <p>
-          Our <Link href="/analysis/geographic">geographic analysis</Link> breaks down prescribing patterns by state, allowing comparisons of per-provider claim volumes, unique drug counts, and high-risk prescribing rates across regions. The variation is striking — and suggests that local prescribing norms matter as much as patient need.
+          Our <Link href="/analysis/state-of-prescribing">geographic analysis</Link> breaks down prescribing patterns by state, allowing comparisons of per-provider claim volumes, unique drug counts, and high-risk prescribing rates across regions. The variation is striking — and suggests that local prescribing norms matter as much as patient need.
         </p>
 
         <h2>Age and Polypharmacy</h2>
@@ -185,7 +185,7 @@ export default function PolypharmacyArticle() {
           A provider with 200 beneficiaries and 40 unique drugs is likely managing a complex patient population with varied needs. A provider with 200 beneficiaries and 200 unique drugs raises different questions — are patients receiving highly individualized regimens, or is prescribing unusually broad? We use specialty-adjusted thresholds to distinguish expected complexity (a rheumatologist will naturally prescribe more unique drugs than a dermatologist) from potential outliers.
         </p>
         <p>
-          The <Link href="/providers">provider search</Link> on OpenPrescriber surfaces these metrics for every Part D prescriber in the country. Users can examine a provider&#39;s unique drug count, average claims per beneficiary, and specific drug mix to assess whether prescribing patterns warrant further review. Combined with our <Link href="/analysis/dangerous-combinations">dangerous combinations analysis</Link>, this data provides a window into the polypharmacy landscape that was previously available only to CMS and large health systems.
+          The <Link href="/providers">provider search</Link> on OpenPrescriber surfaces these metrics for every Part D prescriber in the country. Users can examine a provider&#39;s unique drug count, average claims per beneficiary, and specific drug mix to assess whether prescribing patterns warrant further review. Combined with our <Link href="/analysis/opioid-crisis">dangerous combinations analysis</Link>, this data provides a window into the polypharmacy landscape that was previously available only to CMS and large health systems.
         </p>
 
         <h2>Limitations of Public Data</h2>
@@ -215,7 +215,7 @@ export default function PolypharmacyArticle() {
           <strong>CMS Star Ratings</strong> include medication-related quality measures that incentivize Part D plans to address polypharmacy. High-risk medication use in the elderly (HRM) and medication adherence for diabetes, hypertension, and cholesterol are all Star Rating measures. Plans that score poorly face financial penalties and reduced enrollment, creating a business case for medication review programs. However, the measures focus more on adherence (ensuring patients take prescribed drugs) than on appropriateness (ensuring the prescribed drugs are still needed).
         </p>
         <p>
-          Looking forward, several policy proposals could meaningfully reduce polypharmacy harm: requiring annual comprehensive medication reviews for all beneficiaries taking five or more drugs, expanding pharmacist prescriptive authority for deprescribing, integrating <Link href="/analysis/geographic">regional prescribing data</Link> into plan oversight, and creating quality measures that reward medication reduction where appropriate — not just medication adherence.
+          Looking forward, several policy proposals could meaningfully reduce polypharmacy harm: requiring annual comprehensive medication reviews for all beneficiaries taking five or more drugs, expanding pharmacist prescriptive authority for deprescribing, integrating <Link href="/analysis/state-of-prescribing">regional prescribing data</Link> into plan oversight, and creating quality measures that reward medication reduction where appropriate — not just medication adherence.
         </p>
 
         <h2>The Role of Pharmacy Benefit Managers</h2>
