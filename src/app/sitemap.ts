@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/generic-adoption', '/analysis/controlled-substance-pipeline',
     '/analysis/medicare-waste', '/analysis/doctor-shopping', '/analysis/medicare-spending-by-state',
     '/analysis/most-prescribed-drugs', '/analysis/pharmacy-fraud', '/analysis/160-million-prescriber',
-    '/prescriber-checkup-alternative',
+    '/prescriber-checkup-alternative', '/cities', '/drug-classes', '/fraud', '/trends',
     '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
   ]
 
@@ -38,6 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const drugs = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'drugs.json'), 'utf8')) as { generic: string }[]
   const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
+  // City detail pages
+  const citiesIndex = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'cities-index.json'), 'utf8')) as { slug: string }[]
+
+  // Drug class detail pages
+  const drugClassIndex = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'drug-classes-index.json'), 'utf8')) as { slug: string }[]
+
+  // Fraud by state pages
+  const fraudStates = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'fraud-by-state.json'), 'utf8')) as { state: string }[]
+
   // Specialty detail pages
   const specs = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'specialties.json'), 'utf8')) as { specialty: string }[]
 
@@ -46,6 +55,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...states.map(s => ({ url: `${base}/states/${s.state.toLowerCase()}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 })),
     ...drugs.map(d => ({ url: `${base}/drugs/${slugify(d.generic)}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
     ...specs.map(s => ({ url: `${base}/specialties/${slugify(s.specialty)}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
+    ...citiesIndex.map(c => ({ url: `${base}/cities/${c.slug}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
+    ...drugClassIndex.map(c => ({ url: `${base}/drug-classes/${c.slug}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
+    ...fraudStates.map(s => ({ url: `${base}/fraud/${s.state.toLowerCase()}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 })),
     ...providerNPIs.map(npi => ({ url: `${base}/providers/${npi}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 })),
   ]
 }
