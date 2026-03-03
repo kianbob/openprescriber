@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { stateName } from '@/lib/state-names'
@@ -27,6 +28,7 @@ export default function OpioidCrisisPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'The Medicare Opioid Crisis' }]} />
+      <ArticleSchema title="The Medicare Opioid Crisis in Numbers" description="One in three Medicare Part D prescribers write opioid prescriptions." slug="opioid-crisis" date="2026-03-01" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">The Medicare Opioid Crisis in Numbers</h1>
       <ShareButtons title="The Medicare Opioid Crisis in Numbers" />
 

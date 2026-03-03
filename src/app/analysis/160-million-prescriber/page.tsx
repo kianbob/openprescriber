@@ -5,6 +5,7 @@ import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { fmtMoney, fmt } from '@/lib/utils'
+import RelatedAnalysis from '@/components/RelatedAnalysis'
 
 const title = 'The $160 Million Prescriber: Investigating Medicare\'s Most Expensive Doctor'
 const description =
@@ -522,6 +523,8 @@ export default function OneHundredSixtyMillionPrescriberPage() {
             about any individual provider.
           </div>
         </div>
+
+        <RelatedAnalysis current="/analysis/160-million-prescriber" />
       </div>
     </div>
   )

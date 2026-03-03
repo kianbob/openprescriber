@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import { fmt, fmtMoney } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import ProvidersClient from './ProvidersClient'
+import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
   title: 'Medicare Part D Provider Directory',
@@ -36,6 +37,7 @@ export default function ProvidersPage() {
       <Breadcrumbs items={[{ label: 'Providers' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Provider Directory</h1>
       <p className="text-gray-600 mb-4">{fmt(providers.length)} Medicare Part D prescribers with detailed profiles, risk scores, and peer comparisons.</p>
+      <DataFreshness />
 
       {/* Summary Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">

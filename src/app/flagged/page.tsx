@@ -6,6 +6,7 @@ import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import FlaggedClient from './FlaggedClient'
+import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
   title: 'Flagged Providers: Medicare Part D Risk Analysis',
@@ -43,10 +44,11 @@ export default function FlaggedPage() {
       <p className="text-gray-600 mb-2">
         {fmt(highRisk.length)} providers flagged by our multi-factor statistical model — {highCount} high-risk (score ≥50) and {fmt(elevatedCount)} elevated (score ≥30). Scores combine specialty-adjusted peer comparison, population percentiles, drug combination analysis, and OIG exclusion matching.
       </p>
+      <DataFreshness />
       <ShareButtons title="Flagged Medicare Part D Providers" />
 
       <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800">
-        <strong>⚠️ Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>. Also see our <Link href="/ml-fraud-detection" className="text-primary underline font-medium">ML Fraud Detection</Link> — a machine learning model trained on confirmed fraud cases.
+        <strong>Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>. Also see our <Link href="/ml-fraud-detection" className="text-primary underline font-medium">ML Fraud Detection</Link> — a machine learning model trained on confirmed fraud cases. · <a href="mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary underline font-medium">Dispute this data</a>
       </div>
 
       {/* Summary stats */}

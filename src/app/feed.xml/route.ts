@@ -28,6 +28,7 @@ const articles = [
   { slug: 'medicare-spending-by-state', title: 'Medicare Part D Spending by State: Who Pays the Most?', date: '2026-03-02' },
   { slug: 'most-prescribed-drugs', title: 'The 50 Most Prescribed Drugs in Medicare Part D (2023)', date: '2026-03-02' },
   { slug: 'pharmacy-fraud', title: 'Pharmacy Fraud in Medicare: How We Detect It', date: '2026-03-02' },
+  { slug: '160-million-prescriber', title: 'The $160 Million Prescriber: Investigating Medicare\'s Most Expensive Doctor', date: '2026-03-02' },
 ]
 
 // Non-analysis content pages for RSS

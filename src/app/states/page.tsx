@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import StatesClient from './StatesClient'
+import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
   title: 'Medicare Part D Prescribing by State',
@@ -36,6 +37,7 @@ export default function StatesPage() {
       <Breadcrumbs items={[{ label: 'States' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Medicare Part D Prescribing by State</h1>
       <p className="text-gray-600 mb-4">Drug costs, prescriber counts, and opioid prescribing rates for all {states.length} states and territories.</p>
+      <DataFreshness />
 
       {(() => {
         const REAL = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY'.split(','))

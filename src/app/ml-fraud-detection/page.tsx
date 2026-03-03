@@ -255,7 +255,8 @@ export default function MLFraudPage() {
       </div>
 
       <p className="text-xs text-gray-400 mt-8">
-        Data from CMS Medicare Part D Prescriber Public Use File, 2023. Fraud labels from OIG LEIE. ML predictions are statistical indicators, not accusations.
+        Data from CMS Medicare Part D Prescriber Public Use File, 2023. Fraud labels from OIG LEIE. ML predictions are statistical indicators, not accusations.{' '}
+        <a href="mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber%20ML" className="text-primary hover:underline">Dispute this data</a>
       </p>
     </div>
   )

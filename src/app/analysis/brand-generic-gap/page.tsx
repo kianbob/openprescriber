@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
@@ -26,6 +27,7 @@ export default function BrandGenericGapPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Brand vs Generic Gap' }]} />
+      <ArticleSchema title="Brand vs Generic: The Billion-Dollar Gap" description="The cost divide in Medicare Part D prescribing." slug="brand-generic-gap" date="2026-03-01" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">Brand vs Generic: The Billion-Dollar Gap</h1>
       <ShareButtons title="Brand vs Generic: The Billion-Dollar Gap" />
 

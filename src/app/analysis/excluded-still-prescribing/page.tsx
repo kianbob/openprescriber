@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
@@ -25,6 +26,7 @@ export default function ExcludedStillPrescribingPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Excluded Providers' }]} />
+      <ArticleSchema title="Excluded but Still Prescribing" description="372 OIG-listed providers in active Medicare data." slug="excluded-still-prescribing" date="2026-03-01" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">Excluded but Still Prescribing</h1>
       <ShareButtons title="Excluded Providers Still in Medicare Part D" />
 

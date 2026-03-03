@@ -20,10 +20,26 @@ const articles = [
   { href: '/analysis/rural-prescribing', title: 'Rural Prescribing Problem', tag: 'Geography' },
   { href: '/analysis/polypharmacy', title: 'The Polypharmacy Problem', tag: 'Risk' },
   { href: '/analysis/state-rankings', title: 'State-by-State Prescribing Rankings', tag: 'Geography' },
+  { href: '/analysis/telehealth-prescribing', title: 'How Telehealth Changed Prescribing', tag: 'Trends' },
+  { href: '/analysis/pharmacy-benefit-managers', title: 'The PBM Middlemen Problem', tag: 'Cost' },
+  { href: '/analysis/most-expensive-prescribers', title: 'Most Expensive Prescribers', tag: 'Cost' },
+  { href: '/analysis/generic-adoption', title: 'The Generic Adoption Gap', tag: 'Drugs' },
+  { href: '/analysis/controlled-substance-pipeline', title: 'Controlled Substance Pipeline', tag: 'Opioids' },
+  { href: '/analysis/medicare-waste', title: 'How Much Medicare Part D Waste?', tag: 'Fraud' },
+  { href: '/analysis/doctor-shopping', title: 'Doctor Shopping in Medicare', tag: 'Fraud' },
+  { href: '/analysis/medicare-spending-by-state', title: 'Medicare Spending by State', tag: 'Geography' },
+  { href: '/analysis/most-prescribed-drugs', title: 'The 50 Most Prescribed Drugs', tag: 'Drugs' },
+  { href: '/analysis/pharmacy-fraud', title: 'Pharmacy Fraud Detection', tag: 'Fraud' },
+  { href: '/analysis/160-million-prescriber', title: 'The $160 Million Prescriber', tag: 'Investigation' },
 ]
 
 export default function RelatedAnalysis({ current }: { current: string }) {
-  const related = articles.filter(a => a.href !== current).slice(0, 4)
+  const currentArticle = articles.find(a => a.href === current)
+  const others = articles.filter(a => a.href !== current)
+  // Prefer same-tag articles first, then fill with others
+  const sameTag = currentArticle ? others.filter(a => a.tag === currentArticle.tag) : []
+  const diffTag = others.filter(a => !sameTag.includes(a))
+  const related = [...sameTag, ...diffTag].slice(0, 4)
   return (
     <section className="mt-10 bg-gray-50 rounded-xl p-6 border">
       <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">Related Analysis</h2>

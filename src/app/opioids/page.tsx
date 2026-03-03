@@ -5,6 +5,7 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import OpioidClient from './OpioidClient'
+import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
   title: 'Opioid Prescribing in Medicare Part D: Complete Analysis',
@@ -27,6 +28,7 @@ export default function OpioidsPage() {
       <Breadcrumbs items={[{ label: 'Opioid Prescribing' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Opioid Prescribing in Medicare Part D</h1>
       <p className="text-gray-600 mb-2">A complete analysis of opioid prescribing patterns across {fmt(stats.providers)} Medicare Part D prescribers in 2023.</p>
+      <DataFreshness />
       <ShareButtons title="Opioid Prescribing in Medicare Part D" />
 
       {/* Key Stats */}

@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import SpecialtiesClient from './SpecialtiesClient'
+import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
   title: 'Medicare Part D Prescribing by Specialty',
@@ -35,6 +36,7 @@ export default function SpecialtiesPage() {
       <Breadcrumbs items={[{ label: 'Specialties' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Prescribing by Specialty</h1>
       <p className="text-gray-600 mb-4">{specs.length} medical specialties ranked by number of Medicare Part D prescribers.</p>
+      <DataFreshness />
 
       {(() => {
         const worstOpioid = [...specs].sort((a, b) => b.avgOpioidRate - a.avgOpioidRate)[0]

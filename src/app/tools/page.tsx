@@ -117,19 +117,32 @@ export default function ToolsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {tools.map(tool => (
           <Link key={tool.href} href={tool.href} className="block bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-primary/30 transition-all">
-            <div className="flex items-start gap-3">
-              <span className="text-3xl">{tool.emoji}</span>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <h2 className="font-bold text-lg">{tool.title}</h2>
-                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">{tool.tag}</span>
-                </div>
-                <p className="text-sm text-gray-600">{tool.description}</p>
-              </div>
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="font-bold text-lg">{tool.title}</h2>
+              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">{tool.tag}</span>
             </div>
+            <p className="text-sm text-gray-600">{tool.description}</p>
           </Link>
         ))}
       </div>
+
+      <section className="mt-12 bg-gray-50 rounded-xl p-6 border">
+        <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">You Might Also Like</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <Link href="/analysis" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm">
+            <p className="font-medium text-gray-800">Analysis & Research</p>
+            <p className="text-xs text-gray-500 mt-1">30 data-driven investigations</p>
+          </Link>
+          <Link href="/dashboard" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm">
+            <p className="font-medium text-gray-800">Dashboard</p>
+            <p className="text-xs text-gray-500 mt-1">5-year trends at a glance</p>
+          </Link>
+          <Link href="/prescriber-checkup-alternative" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm">
+            <p className="font-medium text-gray-800">vs. ProPublica</p>
+            <p className="text-xs text-gray-500 mt-1">How we compare</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import { fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
@@ -28,6 +29,7 @@ export default function OpioidHotspotsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Opioid Hotspots' }]} />
+      <ArticleSchema title="Geographic Hotspots for Opioid Prescribing" description="State-by-state analysis reveals persistent geographic patterns." slug="opioid-hotspots" date="2026-03-01" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">Geographic Hotspots for Opioid Prescribing</h1>
       <ShareButtons title="Opioid Prescribing Hotspots by State" />
 

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
 
@@ -20,6 +21,7 @@ export default function AntipsychoticElderlyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Antipsychotic Prescribing' }]} />
+      <ArticleSchema title="Antipsychotics in Elderly Medicare Patients" description="Off-label antipsychotic prescribing in nursing homes." slug="antipsychotic-elderly" date="2026-03-01" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">The Antipsychotic Problem in Elderly Care</h1>
       <ShareButtons title="Antipsychotic Prescribing to Elderly Patients" />
 

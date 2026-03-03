@@ -315,6 +315,9 @@ export default function HomePage() {
             <p className="text-sm text-gray-600 mt-2">CMS releases Part D data on a ~1-year lag. Our 2023 dataset is the newest available — while competitors like ProPublica&apos;s Prescriber Checkup remain stuck on 2016.</p>
           </div>
         </div>
+        <p className="text-center mt-4">
+          <Link href="/prescriber-checkup-alternative" className="text-sm text-primary font-medium hover:underline">See how we compare to ProPublica Prescriber Checkup →</Link>
+        </p>
       </section>
 
       {/* Data Freshness */}
@@ -364,7 +367,7 @@ export default function HomePage() {
             { title: 'Generic Adoption Gap', href: '/analysis/generic-adoption', desc: 'Why do some providers still prefer expensive brand-name drugs?' },
             { title: 'Controlled Substance Pipeline', href: '/analysis/controlled-substance-pipeline', desc: 'Tracking the flow of opioids, benzos, and stimulants.' },
             { title: 'Pharmacy Benefit Managers', href: '/analysis/pharmacy-benefit-managers', desc: 'The middlemen driving up drug prices.' },
-            { title: 'Antipsychotics in Elderly', href: '/analysis/antipsychotic-elderly', desc: 'Off-label prescribing in nursing homes.' },
+            { title: 'The $160 Million Prescriber', href: '/analysis/160-million-prescriber', desc: 'One ER doctor generated $160.3M in Medicare drug costs. We investigated why.' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-5 border hover:shadow-md hover:border-primary/20 transition-all">
               <h3 className="font-semibold text-gray-900">{item.title}</h3>
