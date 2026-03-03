@@ -42,7 +42,7 @@ export default function Footer() {
             <li><Link href="/prescription-drug-costs" className="hover:text-white">Prescription Drug Costs</Link></li>
             <li><Link href="/opioid-prescribers" className="hover:text-white">Opioid Prescribers</Link></li>
             <li><Link href="/search" className="hover:text-white">Search</Link></li>
-            <li><a href="mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="hover:text-white">Dispute Data</a></li>
+            <li><a href="mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="hover:text-white">Dispute Data</a></li>
             <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
           </ul>
         </div>

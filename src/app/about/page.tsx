@@ -79,7 +79,7 @@ export default function AboutPage() {
 
         <h2>Contact</h2>
         <p>
-          Questions or corrections? Contact us at <a href="mailto:data@thedataproject.ai" className="text-primary font-medium hover:underline">data@thedataproject.ai</a>
+          Questions or corrections? Contact us at <a href="mailto:info@thedataproject.ai" className="text-primary font-medium hover:underline">info@thedataproject.ai</a>
         </p>
       </div>
     </div>

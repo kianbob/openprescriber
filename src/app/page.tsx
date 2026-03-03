@@ -163,7 +163,7 @@ export default function HomePage() {
         <p className="mt-3 text-right"><Link href="/flagged" className="text-primary text-sm font-medium hover:underline">View all {stats.riskCounts.high} flagged providers →</Link></p>
         <p className="mt-2 text-xs text-gray-500 bg-gray-50 rounded-lg p-3">
           Risk scores are statistical indicators derived from public CMS data, not allegations of wrongdoing. Providers may appear flagged due to legitimate specialty practices.{' '}
-          <Link href="/methodology" className="text-primary hover:underline">Read our methodology</Link> · <a href="mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary hover:underline">Dispute this data</a>
+          <Link href="/methodology" className="text-primary hover:underline">Read our methodology</Link> · <a href="mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary hover:underline">Dispute this data</a>
         </p>
       </section>
 
@@ -228,7 +228,7 @@ export default function HomePage() {
       <div className="max-w-6xl mx-auto px-4 mt-3">
         <p className="text-xs text-gray-500 bg-gray-50 rounded-lg p-3">
           Named providers appear based on publicly available CMS data. High prescribing volume or cost does not imply wrongdoing.{' '}
-          <Link href="/methodology" className="text-primary hover:underline">Methodology</Link> · <a href="mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary hover:underline">Dispute this data</a>
+          <Link href="/methodology" className="text-primary hover:underline">Methodology</Link> · <a href="mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary hover:underline">Dispute this data</a>
         </p>
       </div>
 

@@ -446,7 +446,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
 
       <p className="text-xs text-gray-400 mt-6">
         Data from CMS Medicare Part D Prescriber Public Use File, 2023. Risk scores are statistical indicators, not allegations of wrongdoing.
-        <Link href="/methodology" className="text-primary hover:underline ml-2">Methodology</Link> · <Link href="/about" className="text-primary hover:underline ml-1">About</Link> · <a href={`mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20NPI%20${p.npi}%20-%20OpenPrescriber`} className="text-primary hover:underline ml-1">Dispute this data</a>
+        <Link href="/methodology" className="text-primary hover:underline ml-2">Methodology</Link> · <Link href="/about" className="text-primary hover:underline ml-1">About</Link> · <a href={`mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20NPI%20${p.npi}%20-%20OpenPrescriber`} className="text-primary hover:underline ml-1">Dispute this data</a>
       </p>
     </div>
   )
