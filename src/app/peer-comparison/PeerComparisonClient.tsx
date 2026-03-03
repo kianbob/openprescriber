@@ -44,7 +44,7 @@ export default function PeerComparisonClient({ specialties }: { specialties: Spe
   return (
     <>
       <div className="mb-4">
-        <input type="text" placeholder="🔍 Search specialties..." value={search}
+        <input type="text" placeholder="Search specialties..." value={search}
           onChange={e => { setSearch(e.target.value); setShowCount(50) }}
           className="rounded-lg border border-gray-200 px-4 py-2 w-full md:w-80" />
       </div>

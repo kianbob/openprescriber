@@ -187,11 +187,11 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
         <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">Related Analysis</h2>
         <div className="grid md:grid-cols-3 gap-4">
           <Link href="/analysis/top-drugs-analysis" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">💊 Top Drugs by Cost</h3>
+            <h3 className="font-semibold text-sm">Top Drugs by Cost</h3>
             <p className="text-xs text-gray-500 mt-1">The 20 drugs that cost Medicare the most.</p>
           </Link>
           <Link href="/analysis/generic-adoption" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">💊 Generic Adoption Gap</h3>
+            <h3 className="font-semibold text-sm">Generic Adoption Gap</h3>
             <p className="text-xs text-gray-500 mt-1">Why some providers resist cheaper generics.</p>
           </Link>
           <Link href="/analysis/pharmacy-benefit-managers" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">

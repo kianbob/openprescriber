@@ -151,12 +151,12 @@ export default function OpioidPrescribersPage() {
       <section className="mt-10 bg-gray-50 rounded-xl p-6 border">
         <h2 className="text-lg font-bold mb-3">Related</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          <Link href="/opioids" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">💊 Opioid Analysis</Link>
-          <Link href="/analysis/opioid-crisis" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">📊 Opioid Crisis in Medicare</Link>
-          <Link href="/analysis/opioid-hotspots" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🗺️ Geographic Hotspots</Link>
+          <Link href="/opioids" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Opioid Analysis</Link>
+          <Link href="/analysis/opioid-crisis" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Opioid Crisis in Medicare</Link>
+          <Link href="/analysis/opioid-hotspots" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Geographic Hotspots</Link>
           <Link href="/dangerous-combinations" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">⚠️ Dangerous Combos</Link>
           <Link href="/flagged" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🔴 Flagged Providers</Link>
-          <Link href="/risk-explorer" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🔍 Risk Explorer</Link>
+          <Link href="/risk-explorer" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Risk Explorer</Link>
         </div>
       </section>
     </div>

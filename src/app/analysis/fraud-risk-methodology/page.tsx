@@ -192,7 +192,7 @@ export default function FraudRiskMethodologyPage() {
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800 font-medium">Explore the Models</p>
           <div className="flex flex-wrap gap-2">
-            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">Risk Explorer</Link>
             <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">ML Fraud Detection</Link>
             <Link href="/flagged" className="text-sm text-primary hover:underline">🔴 Flagged Providers</Link>
             <Link href="/methodology" className="text-sm text-primary hover:underline">📋 Full Methodology</Link>

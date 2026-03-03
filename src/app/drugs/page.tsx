@@ -71,7 +71,7 @@ export default function DrugsPage() {
         <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-3">Related Analysis</h2>
         <div className="grid md:grid-cols-3 gap-3">
           <Link href="/analysis/top-drugs-analysis" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">💊 Drugs That Cost Billions</h3>
+            <h3 className="font-semibold text-sm">Drugs That Cost Billions</h3>
             <p className="text-xs text-gray-500 mt-1">Deep dive into the top 20 most expensive drugs.</p>
           </Link>
           <Link href="/analysis/ozempic-effect" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
@@ -79,7 +79,7 @@ export default function DrugsPage() {
             <p className="text-xs text-gray-500 mt-1">GLP-1 drugs reshaping Medicare spending.</p>
           </Link>
           <Link href="/tools/drug-lookup" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">🔍 Drug Lookup Tool</h3>
+            <h3 className="font-semibold text-sm">Drug Lookup Tool</h3>
             <p className="text-xs text-gray-500 mt-1">Search for any drug by name.</p>
           </Link>
         </div>

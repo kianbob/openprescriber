@@ -255,7 +255,7 @@ export default function PharmacyFraudPage() {
 
         <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
           <div className="bg-white border border-gray-200 rounded-xl p-4">
-            <p className="font-semibold text-sm mb-1">💊 Phantom Billing</p>
+            <p className="font-semibold text-sm mb-1">Phantom Billing</p>
             <p className="text-xs text-gray-600">Billing for prescriptions never dispensed. Signal: high claims volume with few unique beneficiaries.</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-4">
@@ -296,7 +296,7 @@ export default function PharmacyFraudPage() {
           <p className="text-sm text-blue-800 font-medium">Explore Fraud Detection</p>
           <div className="flex flex-wrap gap-3">
             <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">ML Fraud Detection</Link>
-            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">Risk Explorer</Link>
             <Link href="/excluded" className="text-sm text-primary hover:underline">🚫 Excluded Providers</Link>
             <Link href="/analysis/fraud-risk-methodology" className="text-sm text-primary hover:underline">📊 Risk Methodology</Link>
             <Link href="/analysis/doctor-shopping" className="text-sm text-primary hover:underline">💊 Doctor Shopping</Link>

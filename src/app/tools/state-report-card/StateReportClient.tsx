@@ -101,7 +101,7 @@ export default function StateReportClient() {
                   <span className="font-mono font-bold">#{costRank}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-700">💊 Opioid Prescribing Rate</span>
+                  <span className="text-sm text-gray-700">Opioid Prescribing Rate</span>
                   <span className={`font-mono font-bold ${opioidRank <= 10 ? 'text-red-600' : ''}`}>#{opioidRank}</span>
                 </div>
                 <div className="flex items-center justify-between">

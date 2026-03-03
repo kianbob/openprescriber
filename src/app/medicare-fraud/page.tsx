@@ -142,7 +142,7 @@ export default function MedicareFraudPage() {
           <Link href="/flagged" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🔴 Flagged Providers</Link>
           <Link href="/ml-fraud-detection" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">ML Fraud Detection</Link>
           <Link href="/excluded" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🚫 Excluded Providers</Link>
-          <Link href="/risk-explorer" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🔍 Risk Explorer</Link>
+          <Link href="/risk-explorer" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">Risk Explorer</Link>
           <Link href="/dangerous-combinations" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">⚠️ Dangerous Combos</Link>
           <Link href="/methodology" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">📋 Our Methodology</Link>
         </div>

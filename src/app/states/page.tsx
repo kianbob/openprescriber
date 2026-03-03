@@ -74,7 +74,7 @@ export default function StatesPage() {
         <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-3">Related Analysis</h2>
         <div className="grid md:grid-cols-3 gap-3">
           <Link href="/analysis/state-rankings" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">🏆 State Rankings</h3>
+            <h3 className="font-semibold text-sm">State Rankings</h3>
             <p className="text-xs text-gray-500 mt-1">Best and worst states for prescribing patterns.</p>
           </Link>
           <Link href="/analysis/geographic-disparities" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
@@ -82,7 +82,7 @@ export default function StatesPage() {
             <p className="text-xs text-gray-500 mt-1">State-level spending and opioid variations.</p>
           </Link>
           <Link href="/tools/state-report-card" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">📊 State Report Card</h3>
+            <h3 className="font-semibold text-sm">State Report Card</h3>
             <p className="text-xs text-gray-500 mt-1">Grade your state&apos;s prescribing patterns.</p>
           </Link>
         </div>

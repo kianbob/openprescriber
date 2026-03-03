@@ -247,9 +247,9 @@ export default function DoctorShoppingPage() {
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800 font-medium">Explore Related Data</p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Prescribing Data</Link>
+            <Link href="/opioids" className="text-sm text-primary hover:underline">Opioid Prescribing Data</Link>
             <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">☠️ Dangerous Combinations</Link>
-            <Link href="/analysis/opioid-crisis" className="text-sm text-primary hover:underline">📊 Opioid Crisis Analysis</Link>
+            <Link href="/analysis/opioid-crisis" className="text-sm text-primary hover:underline">Opioid Crisis Analysis</Link>
             <Link href="/analysis/pill-mills" className="text-sm text-primary hover:underline">🏭 Pill Mills</Link>
             <Link href="/analysis/medicare-waste" className="text-sm text-primary hover:underline">💰 Medicare Waste</Link>
             <Link href="/analysis/pharmacy-fraud" className="text-sm text-primary hover:underline">🏥 Pharmacy Fraud</Link>

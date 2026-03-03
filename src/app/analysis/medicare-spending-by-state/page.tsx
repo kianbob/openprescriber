@@ -250,7 +250,7 @@ export default function MedicareSpendingByStatePage() {
             <Link href="/states" className="text-sm text-primary hover:underline">🗺️ All State Profiles</Link>
             <Link href="/taxpayer-cost" className="text-sm text-primary hover:underline">💵 Cost Per Taxpayer</Link>
             <Link href="/analysis/geographic-disparities" className="text-sm text-primary hover:underline">🌎 Geographic Disparities</Link>
-            <Link href="/analysis/state-rankings" className="text-sm text-primary hover:underline">🏆 State Rankings</Link>
+            <Link href="/analysis/state-rankings" className="text-sm text-primary hover:underline">State Rankings</Link>
             <Link href="/analysis/opioid-hotspots" className="text-sm text-primary hover:underline">📍 Opioid Hotspots</Link>
             <Link href="/analysis/medicare-waste" className="text-sm text-primary hover:underline">💰 Medicare Waste</Link>
           </div>

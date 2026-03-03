@@ -49,7 +49,7 @@ export default function DangerousClient({ combos }: { combos: Combo[] }) {
   return (
     <>
       <div className="flex flex-col md:flex-row gap-3 mb-4">
-        <input type="text" placeholder="🔍 Search by name, location, or specialty..." value={search}
+        <input type="text" placeholder="Search by name, location, or specialty..." value={search}
           onChange={e => { setSearch(e.target.value); setShowCount(50) }}
           className="rounded-lg border border-gray-200 px-4 py-2 w-full md:w-80" />
         <div className="flex gap-2">

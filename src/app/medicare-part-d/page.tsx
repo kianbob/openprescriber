@@ -161,9 +161,9 @@ export default function MedicarePartDPage() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
         <Link href="/states" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">🏥 Browse by State</Link>
         <Link href="/specialties" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">⚕️ Browse by Specialty</Link>
-        <Link href="/drugs" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">💊 Browse by Drug</Link>
-        <Link href="/search" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">🔍 Search Prescribers</Link>
-        <Link href="/dashboard" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">📊 Dashboard</Link>
+        <Link href="/drugs" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">Browse by Drug</Link>
+        <Link href="/search" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">Search Prescribers</Link>
+        <Link href="/dashboard" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">Dashboard</Link>
         <Link href="/analysis" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium text-center">📝 Analysis Articles</Link>
       </div>
     </div>

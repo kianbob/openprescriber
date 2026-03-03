@@ -244,11 +244,11 @@ export default function MLFraudPage() {
         <h2 className="text-lg font-bold mb-3">Related Resources</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <Link href="/flagged" className="text-sm text-primary hover:underline">🔴 Rule-Based Flagged</Link>
-          <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+          <Link href="/risk-explorer" className="text-sm text-primary hover:underline">Risk Explorer</Link>
           <Link href="/excluded" className="text-sm text-primary hover:underline">🚫 LEIE Excluded</Link>
           <Link href="/methodology" className="text-sm text-primary hover:underline">📋 Methodology</Link>
           <Link href="/analysis/fraud-risk-methodology" className="text-sm text-primary hover:underline">📊 Fraud Analysis</Link>
-          <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Data</Link>
+          <Link href="/opioids" className="text-sm text-primary hover:underline">Opioid Data</Link>
           <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">⚠️ Drug Combos</Link>
           <Link href="/analysis/excluded-still-prescribing" className="text-sm text-primary hover:underline">📰 Excluded Prescribers</Link>
         </div>

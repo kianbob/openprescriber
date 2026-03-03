@@ -436,11 +436,11 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           <Link href={`/states/${p.state.toLowerCase()}`} className="text-sm text-primary hover:underline">📍 {p.state} Prescribers</Link>
           <Link href={`/specialties/${p.specialty.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`} className="text-sm text-primary hover:underline">🩺 {p.specialty}</Link>
           <Link href="/flagged" className="text-sm text-primary hover:underline">🔴 All Flagged Providers</Link>
-          <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
-          <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Analysis</Link>
+          <Link href="/risk-explorer" className="text-sm text-primary hover:underline">Risk Explorer</Link>
+          <Link href="/opioids" className="text-sm text-primary hover:underline">Opioid Analysis</Link>
           <Link href="/peer-comparison" className="text-sm text-primary hover:underline">📊 Peer Comparison</Link>
           <Link href="/methodology" className="text-sm text-primary hover:underline">Methodology</Link>
-          <Link href="/search" className="text-sm text-primary hover:underline">🔍 Search Providers</Link>
+          <Link href="/search" className="text-sm text-primary hover:underline">Search Providers</Link>
         </div>
       </section>
 

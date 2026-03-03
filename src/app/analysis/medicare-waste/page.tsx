@@ -230,7 +230,7 @@ export default function MedicareWastePage() {
           <div className="flex flex-wrap gap-3">
             <Link href="/brand-vs-generic" className="text-sm text-primary hover:underline">💊 Brand vs Generic Tool</Link>
             <Link href="/excluded" className="text-sm text-primary hover:underline">🚫 Excluded Providers</Link>
-            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
+            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">Risk Explorer</Link>
             <Link href="/analysis/fraud-risk-methodology" className="text-sm text-primary hover:underline">📊 Risk Methodology</Link>
             <Link href="/analysis/brand-generic-gap" className="text-sm text-primary hover:underline">💰 Brand-Generic Gap</Link>
             <Link href="/analysis/pharmacy-fraud" className="text-sm text-primary hover:underline">🏥 Pharmacy Fraud Detection</Link>

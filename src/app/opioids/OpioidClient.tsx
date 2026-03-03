@@ -90,7 +90,7 @@ export default function OpioidClient({ opioidByState, topOpioid }: { opioidBySta
       <section className="mt-10">
         <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-4">Opioid Prescribing by State</h2>
         <div className="mb-4">
-          <input type="text" placeholder="🔍 Search states..." value={stateSearch} onChange={e => setStateSearch(e.target.value)} className="rounded-lg border border-gray-200 px-4 py-2 w-full md:w-80" />
+          <input type="text" placeholder="Search states..." value={stateSearch} onChange={e => setStateSearch(e.target.value)} className="rounded-lg border border-gray-200 px-4 py-2 w-full md:w-80" />
         </div>
         <div className="bg-white rounded-xl shadow-sm overflow-x-auto">
           <table className="w-full text-sm">
@@ -130,7 +130,7 @@ export default function OpioidClient({ opioidByState, topOpioid }: { opioidBySta
           High opioid prescribing rates may reflect legitimate pain management specialization. Context matters.
         </div>
         <div className="flex flex-col md:flex-row gap-3 mb-4">
-          <input type="text" placeholder="🔍 Search by name or state..." value={provSearch} onChange={e => { setProvSearch(e.target.value); setProvShowCount(50) }} className="rounded-lg border border-gray-200 px-4 py-2 w-full md:w-80" />
+          <input type="text" placeholder="Search by name or state..." value={provSearch} onChange={e => { setProvSearch(e.target.value); setProvShowCount(50) }} className="rounded-lg border border-gray-200 px-4 py-2 w-full md:w-80" />
           <select value={provFilter} onChange={e => { setProvFilter(e.target.value); setProvShowCount(50) }} className="rounded-lg border border-gray-200 px-4 py-2">
             <option value="">All States</option>
             {provStates.map(s => <option key={s} value={s}>{stateName(s)}</option>)}
