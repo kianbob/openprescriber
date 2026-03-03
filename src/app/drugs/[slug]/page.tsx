@@ -61,7 +61,7 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
           <h1 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-heading)]">
             {drug.generic}
           </h1>
-          {drug.brand && <p className="text-lg text-gray-500 mt-1">Brand name: {drug.brand}</p>}
+          {drug.brand && drug.brand !== drug.generic && <p className="text-lg text-gray-500 mt-1">Brand name: {drug.brand}</p>}
           <p className="text-sm text-gray-400 mt-1">Rank #{rank} of {allDrugs.length} drugs by total cost</p>
           <DataFreshness />
         </div>

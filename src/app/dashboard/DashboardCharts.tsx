@@ -7,7 +7,7 @@ const COLORS = ['#1e40af', '#0ea5e9', '#6366f1', '#8b5cf6', '#06b6d4', '#10b981'
 
 export function StatesCostChart({ data }: { data: { state: string; cost: number }[] }) {
   return (
-    <div className="h-[400px]">
+    <div className="h-[500px]">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data.slice(0, 15)} layout="vertical" margin={{ left: 30, right: 10 }}>
           <XAxis type="number" tickFormatter={v => '$' + (v / 1e9).toFixed(1) + 'B'} />
@@ -38,7 +38,7 @@ export function SpecialtyCostChart({ data }: { data: { specialty: string; cost: 
 
 export function OpioidStateChart({ data }: { data: { state: string; avgOpioidRate: number }[] }) {
   return (
-    <div className="h-[400px]">
+    <div className="h-[500px]">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data.slice(0, 20)} layout="vertical" margin={{ left: 30, right: 10 }}>
           <XAxis type="number" unit="%" />

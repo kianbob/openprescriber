@@ -144,7 +144,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           <p className="font-bold">🚫 This provider appears on the OIG List of Excluded Individuals/Entities (LEIE)</p>
           {p.exclusionInfo && (
             <p className="text-sm mt-1 text-red-100">
-              Exclusion type: {p.exclusionInfo.type} · Date: {p.exclusionInfo.date} · State: {p.exclusionInfo.state}
+              Exclusion type: {p.exclusionInfo.type === '1128b4' ? '1128(b)(4) — License Revocation/Suspension' : p.exclusionInfo.type === '1128a1' ? '1128(a)(1) — Felony Conviction' : p.exclusionInfo.type} · Date: {p.exclusionInfo.date ? (() => { const d = p.exclusionInfo!.date; return d.length === 8 ? `${d.slice(4,6)}/${d.slice(6,8)}/${d.slice(0,4)}` : d })() : 'Unknown'} · State: {p.exclusionInfo.state}
             </p>
           )}
         </div>
