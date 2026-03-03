@@ -153,7 +153,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
         <div className="mt-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-semibold text-purple-800">🤖 ML Fraud Detection Score: {mlScore >= 1 ? 'Very High' : `${(mlScore * 100).toFixed(0)}%`}</h3>
+              <h3 className="text-sm font-semibold text-purple-800">ML Fraud Detection Score: {mlScore >= 1 ? 'Very High' : `${(mlScore * 100).toFixed(0)}%`}</h3>
               <p className="text-xs text-purple-600 mt-1">
                 Machine learning model identifies prescribing patterns consistent with confirmed fraud cases. 
                 This is a <strong>statistical indicator</strong>, not an accusation.
@@ -439,14 +439,14 @@ export default async function ProviderPage({ params }: { params: Promise<{ npi: 
           <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
           <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Analysis</Link>
           <Link href="/peer-comparison" className="text-sm text-primary hover:underline">📊 Peer Comparison</Link>
-          <Link href="/methodology" className="text-sm text-primary hover:underline">📋 Methodology</Link>
+          <Link href="/methodology" className="text-sm text-primary hover:underline">Methodology</Link>
           <Link href="/search" className="text-sm text-primary hover:underline">🔍 Search Providers</Link>
         </div>
       </section>
 
       <p className="text-xs text-gray-400 mt-6">
-        Data from CMS Medicare Part D Prescriber Public Use File, 2023. Risk scores are statistical indicators, not allegations.
-        <Link href="/methodology" className="text-primary hover:underline ml-2">Methodology</Link> · <Link href="/about" className="text-primary hover:underline ml-1">About</Link>
+        Data from CMS Medicare Part D Prescriber Public Use File, 2023. Risk scores are statistical indicators, not allegations of wrongdoing.
+        <Link href="/methodology" className="text-primary hover:underline ml-2">Methodology</Link> · <Link href="/about" className="text-primary hover:underline ml-1">About</Link> · <a href={`mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20NPI%20${p.npi}%20-%20OpenPrescriber`} className="text-primary hover:underline ml-1">Dispute this data</a>
       </p>
     </div>
   )

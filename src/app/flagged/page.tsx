@@ -46,7 +46,7 @@ export default function FlaggedPage() {
       <ShareButtons title="Flagged Medicare Part D Providers" />
 
       <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800">
-        <strong>⚠️ Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>. Also see our <Link href="/ml-fraud-detection" className="text-primary underline font-medium">🤖 ML Fraud Detection</Link> — a machine learning model trained on confirmed fraud cases.
+        <strong>⚠️ Important:</strong> Risk scores are statistical indicators based on publicly available prescribing data. They do not constitute allegations of fraud, abuse, or medical malpractice. Many flagged patterns have legitimate clinical explanations. <Link href="/methodology" className="underline">Read our methodology</Link>. Also see our <Link href="/ml-fraud-detection" className="text-primary underline font-medium">ML Fraud Detection</Link> — a machine learning model trained on confirmed fraud cases.
       </div>
 
       {/* Summary stats */}
@@ -80,7 +80,7 @@ export default function FlaggedPage() {
             <p className="text-sm text-gray-600">How our multi-factor risk scoring model identifies statistical outliers in prescribing data.</p>
           </Link>
           <Link href="/ml-fraud-detection" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
-            <h3 className="font-semibold text-gray-900 mb-1">🤖 ML Fraud Detection</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">ML Fraud Detection</h3>
             <p className="text-sm text-gray-600">Machine learning model trained on confirmed fraud cases to identify similar prescribing patterns.</p>
           </Link>
           <Link href="/analysis/pill-mills" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">

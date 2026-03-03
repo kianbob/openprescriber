@@ -189,7 +189,7 @@ export default function TelehealthPrescribingPage() {
         </p>
 
         <div className="not-prose bg-amber-50 border border-amber-200 rounded-xl p-6 my-6">
-          <h4 className="font-bold text-amber-900 mb-2">⚠️ The Prescriber Shopping Problem</h4>
+          <h4 className="font-bold text-amber-900 mb-2">The Prescriber Shopping Problem</h4>
           <p className="text-sm text-amber-800">
             Telehealth makes it trivially easy for patients to see multiple providers across state lines without any
             single provider knowing about the others. Traditional &quot;doctor shopping&quot; required physical travel;

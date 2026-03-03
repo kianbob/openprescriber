@@ -131,7 +131,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
       {/* Flagged */}
       {stateFlagged.length > 0 && (
         <section className="mt-8">
-          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">⚠️ Flagged Providers in {name}</h2>
+          <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Flagged Providers in {name}</h2>
           <div className="bg-white rounded-xl shadow-sm overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-red-50">

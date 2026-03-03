@@ -135,7 +135,7 @@ export default function ControlledSubstancePipelinePage() {
         </p>
 
         <div className="not-prose bg-red-50 border border-red-200 rounded-xl p-6 my-6">
-          <h4 className="font-bold text-red-900 mb-2">⚠️ The Opioid-Benzodiazepine Combination</h4>
+          <h4 className="font-bold text-red-900 mb-2">The Opioid-Benzodiazepine Combination</h4>
           <p className="text-sm text-red-800">
             Concurrent prescribing of opioids and benzodiazepines is one of the most dangerous patterns we track.
             Both drug classes suppress breathing; together, they dramatically increase the risk of fatal respiratory

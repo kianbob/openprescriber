@@ -101,7 +101,7 @@ export default function OpioidCrisisPage() {
             <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">☠️ Opioid+Benzo Co-Prescribers</Link>
             <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
             <Link href="/analysis/opioid-hotspots" className="text-sm text-primary hover:underline">📍 Geographic Hotspots</Link>
-            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">🤖 ML Fraud Detection</Link>
+            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">ML Fraud Detection</Link>
           </div>
         </div>
       <RelatedAnalysis current={"/analysis/opioid-crisis"} />

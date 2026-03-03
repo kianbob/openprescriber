@@ -56,7 +56,7 @@ export default function MLFraudPage() {
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)]">
-            🤖 ML Fraud Detection
+            ML Fraud Detection
           </h1>
           <p className="text-lg text-gray-600 mt-2">
             Machine learning model identifies Medicare prescribers with patterns consistent with confirmed fraud cases
@@ -228,7 +228,7 @@ export default function MLFraudPage() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-1">🤖 Machine Learning (This Page)</h3>
+            <h3 className="font-semibold mb-1">Machine Learning (This Page)</h3>
             <ul className="text-gray-600 space-y-1">
               <li>• Trained on confirmed fraud cases</li>
               <li>• Finds non-obvious pattern combinations</li>

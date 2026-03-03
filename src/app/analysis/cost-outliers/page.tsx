@@ -76,7 +76,7 @@ export default function CostOutliersPage() {
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800">Explore the data: <Link href="/brand-vs-generic" className="text-primary font-medium hover:underline">Brand vs Generic Analysis →</Link></p>
-          <p className="text-sm text-blue-800">Cost outliers are a key input to our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">🤖 ML Fraud Detection model →</Link></p>
+          <p className="text-sm text-blue-800">Cost outliers are a key input to our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">ML Fraud Detection model →</Link></p>
         </div>
       <RelatedAnalysis current={"/analysis/cost-outliers"} />
       </div>

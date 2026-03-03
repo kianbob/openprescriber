@@ -55,7 +55,7 @@ export default function PeerLookupClient() {
   return (
     <div>
       <div className="bg-white border border-gray-200 rounded-xl p-6 my-8">
-        <h3 className="font-bold text-lg mb-4">🔍 Select a Specialty</h3>
+        <h3 className="font-bold text-lg mb-4">Select a Specialty</h3>
         <select
           className="w-full md:w-96 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           value={selected}
@@ -83,7 +83,7 @@ export default function PeerLookupClient() {
           </div>
 
           <div className="bg-gray-50 rounded-xl p-5 mt-6 border border-gray-200">
-            <h4 className="font-bold text-sm mb-2">📊 How to Interpret These Numbers</h4>
+            <h4 className="font-bold text-sm mb-2">How to Interpret These Numbers</h4>
             <p className="text-sm text-gray-600">
               If a <strong>{selected}</strong> provider has an opioid rate of <strong>{(spec.opioidRate.mean + 2 * spec.opioidRate.std).toFixed(1)}%</strong> or higher, they exceed the outlier threshold (mean + 2σ) and are in the top ~2.5% of their peers. Similarly, a cost per beneficiary above <strong>{fmtMoney(spec.costPerBene.mean + 2 * spec.costPerBene.std)}</strong> or brand rate above <strong>{(spec.brandPct.mean + 2 * spec.brandPct.std).toFixed(1)}%</strong> would be flagged.
             </p>

@@ -295,7 +295,7 @@ export default function PharmacyFraudPage() {
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800 font-medium">Explore Fraud Detection</p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">🤖 ML Fraud Detection</Link>
+            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">ML Fraud Detection</Link>
             <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
             <Link href="/excluded" className="text-sm text-primary hover:underline">🚫 Excluded Providers</Link>
             <Link href="/analysis/fraud-risk-methodology" className="text-sm text-primary hover:underline">📊 Risk Methodology</Link>

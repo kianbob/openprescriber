@@ -50,18 +50,21 @@ export default function HomePage() {
           <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-heading)] mb-4">
             {fmt(stats.providers)} Prescribers. {fmtMoney(stats.cost)}. Every Pill Tracked.
           </h1>
-          <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto mb-4">
             The most comprehensive open analysis of Medicare Part D prescribing data — 5 years of trends, fraud risk scoring, opioid tracking, and cost transparency for every provider.
+          </p>
+          <p className="text-sm text-blue-300 mb-8">
+            Medicare Part D data through 2023 · ML fraud model trained on 281 confirmed cases · Updated March 2026
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/risk-explorer" className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-              🔍 Explore Risk Data
+              Explore Risk Data
             </Link>
-            <Link href="/flagged" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold border border-white/30 transition-colors">
-              🔴 Flagged Providers
+            <Link href="/ml-fraud-detection" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold border border-white/30 transition-colors">
+              ML Fraud Detection
             </Link>
             <Link href="/search" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold border border-white/30 transition-colors">
-              🔍 Search Prescribers
+              Search Prescribers
             </Link>
           </div>
         </div>
@@ -88,7 +91,7 @@ export default function HomePage() {
       {/* Risk Alert Banner */}
       <section className="max-w-6xl mx-auto px-4 mt-8">
         <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-          <h2 className="text-lg font-bold text-red-800 mb-2">⚠️ Risk Analysis Findings</h2>
+          <h2 className="text-lg font-bold text-red-800 mb-2">Risk Analysis Findings</h2>
           <div className="grid md:grid-cols-3 gap-4 text-sm">
             <div>
               <p className="text-2xl font-bold text-red-700">{stats.riskCounts.high}</p>
@@ -158,6 +161,10 @@ export default function HomePage() {
           </table>
         </div>
         <p className="mt-3 text-right"><Link href="/flagged" className="text-primary text-sm font-medium hover:underline">View all {stats.riskCounts.high} flagged providers →</Link></p>
+        <p className="mt-2 text-xs text-gray-500 bg-gray-50 rounded-lg p-3">
+          Risk scores are statistical indicators derived from public CMS data, not allegations of wrongdoing. Providers may appear flagged due to legitimate specialty practices.{' '}
+          <Link href="/methodology" className="text-primary hover:underline">Read our methodology</Link> · <a href="mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary hover:underline">Dispute this data</a>
+        </p>
       </section>
 
       {/* Two-Column: Top Opioid + Top Cost */}
@@ -218,6 +225,12 @@ export default function HomePage() {
           <p className="mt-2 text-right"><Link href="/drugs" className="text-primary text-sm hover:underline">See all →</Link></p>
         </div>
       </section>
+      <div className="max-w-6xl mx-auto px-4 mt-3">
+        <p className="text-xs text-gray-500 bg-gray-50 rounded-lg p-3">
+          Named providers appear based on publicly available CMS data. High prescribing volume or cost does not imply wrongdoing.{' '}
+          <Link href="/methodology" className="text-primary hover:underline">Methodology</Link> · <a href="mailto:data@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="text-primary hover:underline">Dispute this data</a>
+        </p>
+      </div>
 
       {/* Top States by Opioid Risk */}
       <section className="max-w-6xl mx-auto px-4 mt-12">
@@ -260,27 +273,26 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-6 text-center">Explore the Data</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { icon: '🏥', label: 'States', href: '/states', sub: '60 states & territories' },
-            { icon: '⚕️', label: 'Specialties', href: '/specialties', sub: '205 provider types' },
-            { icon: '💊', label: 'Top Drugs', href: '/drugs', sub: '500 drugs by cost' },
-            { icon: '👤', label: 'Providers', href: '/providers', sub: '19,300+ profiles' },
-            { icon: '🔴', label: 'Flagged', href: '/flagged', sub: 'Risk-scored providers' },
-            { icon: '💉', label: 'Opioids', href: '/opioids', sub: 'Prescribing patterns' },
-            { icon: '💰', label: 'Brand vs Generic', href: '/brand-vs-generic', sub: 'Cost analysis' },
-            { icon: '📊', label: 'Dashboard', href: '/dashboard', sub: '5-year trends' },
-            { icon: '⚖️', label: 'IRA Drug Prices', href: '/ira-negotiation', sub: '$22B in negotiated drugs' },
-            { icon: '💉', label: 'GLP-1 Tracker', href: '/glp1-tracker', sub: 'Ozempic spending' },
-            { icon: '☠️', label: 'Dangerous Combos', href: '/dangerous-combinations', sub: 'Opioid+benzo risks' },
-            { icon: '🤖', label: 'ML Fraud Detection', href: '/ml-fraud-detection', sub: '4,100+ ML-flagged' },
-            { icon: '📋', label: 'Peer Comparison', href: '/peer-comparison', sub: 'Specialty-adjusted' },
-            { icon: '🎯', label: 'Risk Calculator', href: '/tools/risk-calculator', sub: 'Try the scoring model' },
-            { icon: '🏆', label: 'State Report Card', href: '/tools/state-report-card', sub: 'Grade your state' },
-            { icon: '💊', label: 'Drug Lookup', href: '/tools/drug-lookup', sub: 'Search 500 drugs by name. See costs, claims, and top prescribers.' },
+            { label: 'States', href: '/states', sub: '60 states & territories' },
+            { label: 'Specialties', href: '/specialties', sub: '205 provider types' },
+            { label: 'Top Drugs', href: '/drugs', sub: '500 drugs by cost' },
+            { label: 'Providers', href: '/providers', sub: '19,300+ profiles' },
+            { label: 'Flagged', href: '/flagged', sub: 'Risk-scored providers' },
+            { label: 'Opioids', href: '/opioids', sub: 'Prescribing patterns' },
+            { label: 'Brand vs Generic', href: '/brand-vs-generic', sub: 'Cost analysis' },
+            { label: 'Dashboard', href: '/dashboard', sub: '5-year trends' },
+            { label: 'IRA Drug Prices', href: '/ira-negotiation', sub: '$22B in negotiated drugs' },
+            { label: 'GLP-1 Tracker', href: '/glp1-tracker', sub: 'Ozempic spending' },
+            { label: 'Dangerous Combos', href: '/dangerous-combinations', sub: 'Opioid+benzo risks' },
+            { label: 'ML Fraud Detection', href: '/ml-fraud-detection', sub: '4,100+ ML-flagged' },
+            { label: 'Peer Comparison', href: '/peer-comparison', sub: 'Specialty-adjusted' },
+            { label: 'Risk Calculator', href: '/tools/risk-calculator', sub: 'Try the scoring model' },
+            { label: 'State Report Card', href: '/tools/state-report-card', sub: 'Grade your state' },
+            { label: 'Drug Lookup', href: '/tools/drug-lookup', sub: 'Search 500 drugs' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-4 border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center">
-              <span className="text-2xl">{item.icon}</span>
-              <p className="font-semibold text-gray-900 mt-2">{item.label}</p>
-              <p className="text-xs text-gray-500">{item.sub}</p>
+              <p className="font-semibold text-gray-900">{item.label}</p>
+              <p className="text-xs text-gray-500 mt-1">{item.sub}</p>
             </Link>
           ))}
         </div>
@@ -291,17 +303,14 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-6 text-center">What Sets OpenPrescriber Apart</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-white rounded-xl shadow-sm p-5 border border-green-100">
-            <p className="text-3xl mb-2">🎯</p>
             <h3 className="font-semibold text-gray-900">Specialty-Adjusted Scoring</h3>
             <p className="text-sm text-gray-600 mt-2">We compare each provider against their own specialty peers using z-scores — a pain specialist prescribing opioids isn&apos;t the same as a dermatologist doing so.</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-purple-100">
-            <p className="text-3xl mb-2">🤖</p>
             <h3 className="font-semibold text-gray-900">Machine Learning Detection</h3>
             <p className="text-sm text-gray-600 mt-2">Our ML model trained on 281 confirmed fraud cases catches 2,579 providers that rule-based systems miss entirely.</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-blue-100">
-            <p className="text-3xl mb-2">📅</p>
             <h3 className="font-semibold text-gray-900">2023 Data — Most Current Available</h3>
             <p className="text-sm text-gray-600 mt-2">CMS releases Part D data on a ~1-year lag. Our 2023 dataset is the newest available — while competitors like ProPublica&apos;s Prescriber Checkup remain stuck on 2016.</p>
           </div>
@@ -311,7 +320,7 @@ export default function HomePage() {
       {/* Data Freshness */}
       <section className="max-w-6xl mx-auto px-4 mt-8">
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 flex items-center gap-3">
-          <span className="text-xl">📅</span>
+          <span className="text-xl font-bold text-blue-600">i</span>
           <div>
             <strong>Data current through 2023</strong> — the most recent Medicare Part D data available from CMS. Updated March 2026. ProPublica&apos;s Prescriber Checkup remains stuck on 2016 data.
           </div>
@@ -347,19 +356,18 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-6 text-center">Featured Analysis</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { icon: '\u{1F3E5}', title: 'The Opioid Crisis in Numbers', href: '/analysis/opioid-crisis', desc: 'Which states and specialties drive America\u2019s opioid crisis?' },
-            { icon: '\u{1F4B0}', title: 'Most Expensive Prescribers', href: '/analysis/most-expensive-prescribers', desc: 'The providers who cost Medicare the most \u2014 and why.' },
-            { icon: '\u{1F916}', title: 'ML Fraud Detection', href: '/ml-fraud-detection', desc: 'How machine learning catches fraud patterns rules miss.' },
-            { icon: '\u{1F48A}', title: 'The Ozempic Effect', href: '/analysis/ozempic-effect', desc: 'GLP-1 drugs are reshaping Medicare spending.' },
-            { icon: '\u{1F4BB}', title: 'Telehealth Prescribing', href: '/analysis/telehealth-prescribing', desc: 'How telehealth changed prescribing patterns post-COVID.' },
-            { icon: '\u{1F48A}', title: 'Generic Adoption Gap', href: '/analysis/generic-adoption', desc: 'Why do some providers still prefer expensive brand-name drugs?' },
-            { icon: '\u{2620}\u{FE0F}', title: 'Controlled Substance Pipeline', href: '/analysis/controlled-substance-pipeline', desc: 'Tracking the flow of opioids, benzos, and stimulants.' },
-            { icon: '\u{1F3E5}', title: 'Pharmacy Benefit Managers', href: '/analysis/pharmacy-benefit-managers', desc: 'The middlemen driving up drug prices.' },
-            { icon: '\u{1F474}', title: 'Antipsychotics in Elderly', href: '/analysis/antipsychotic-elderly', desc: 'Off-label prescribing in nursing homes.' },
+            { title: 'The Opioid Crisis in Numbers', href: '/analysis/opioid-crisis', desc: 'Which states and specialties drive America\u2019s opioid crisis?' },
+            { title: 'Most Expensive Prescribers', href: '/analysis/most-expensive-prescribers', desc: 'The providers who cost Medicare the most \u2014 and why.' },
+            { title: 'ML Fraud Detection', href: '/ml-fraud-detection', desc: 'How machine learning catches fraud patterns rules miss.' },
+            { title: 'The Ozempic Effect', href: '/analysis/ozempic-effect', desc: 'GLP-1 drugs are reshaping Medicare spending.' },
+            { title: 'Telehealth Prescribing', href: '/analysis/telehealth-prescribing', desc: 'How telehealth changed prescribing patterns post-COVID.' },
+            { title: 'Generic Adoption Gap', href: '/analysis/generic-adoption', desc: 'Why do some providers still prefer expensive brand-name drugs?' },
+            { title: 'Controlled Substance Pipeline', href: '/analysis/controlled-substance-pipeline', desc: 'Tracking the flow of opioids, benzos, and stimulants.' },
+            { title: 'Pharmacy Benefit Managers', href: '/analysis/pharmacy-benefit-managers', desc: 'The middlemen driving up drug prices.' },
+            { title: 'Antipsychotics in Elderly', href: '/analysis/antipsychotic-elderly', desc: 'Off-label prescribing in nursing homes.' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="bg-white rounded-xl shadow-sm p-5 border hover:shadow-md hover:border-primary/20 transition-all">
-              <span className="text-3xl">{item.icon}</span>
-              <h3 className="font-semibold text-gray-900 mt-3">{item.title}</h3>
+              <h3 className="font-semibold text-gray-900">{item.title}</h3>
               <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
             </Link>
           ))}

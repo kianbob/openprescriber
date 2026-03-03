@@ -67,7 +67,7 @@ export default function SpecialtiesPage() {
         <h2 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-3">Related Analysis</h2>
         <div className="grid md:grid-cols-3 gap-3">
           <Link href="/analysis/specialty-deep-dive" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">🩺 Specialty Deep Dive</h3>
+            <h3 className="font-semibold text-sm">Specialty Deep Dive</h3>
             <p className="text-xs text-gray-500 mt-1">Which specialties drive the most drug spending?</p>
           </Link>
           <Link href="/analysis/nurse-practitioners" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
@@ -75,7 +75,7 @@ export default function SpecialtiesPage() {
             <p className="text-xs text-gray-500 mt-1">The most flagged prescriber group.</p>
           </Link>
           <Link href="/tools/specialty-comparison" className="bg-white rounded-lg p-4 border hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-sm">📊 Compare Specialties</h3>
+            <h3 className="font-semibold text-sm">Compare Specialties</h3>
             <p className="text-xs text-gray-500 mt-1">Side-by-side specialty comparison.</p>
           </Link>
         </div>

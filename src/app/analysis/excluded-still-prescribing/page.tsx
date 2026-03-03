@@ -67,7 +67,7 @@ export default function ExcludedStillPrescribingPage() {
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800">View all matches: <Link href="/excluded" className="text-primary font-medium hover:underline">Excluded Providers List →</Link></p>
-          <p className="text-sm text-blue-800">These 372 confirmed cases also serve as training data for our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">🤖 ML Fraud Detection model →</Link>, which identifies 4,100+ additional providers with similar prescribing patterns.</p>
+          <p className="text-sm text-blue-800">These 372 confirmed cases also serve as training data for our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">ML Fraud Detection model →</Link>, which identifies 4,100+ additional providers with similar prescribing patterns.</p>
         </div>
       <RelatedAnalysis current={"/analysis/excluded-still-prescribing"} />
       </div>

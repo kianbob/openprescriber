@@ -102,7 +102,7 @@ export default function GLP1TrackerPage() {
         </p>
 
         <div className="not-prose bg-red-50 border border-red-200 rounded-xl p-6 my-6">
-          <h3 className="font-bold text-red-800 mb-2">⚠️ The Cost Challenge</h3>
+          <h3 className="font-bold text-red-800 mb-2">The Cost Challenge</h3>
           <ul className="text-sm text-red-700 space-y-1">
             <li>• <strong>List price:</strong> Ozempic ~$936/month, Mounjaro ~$1,023/month</li>
             <li>• <strong>Lifetime therapy:</strong> GLP-1s require ongoing use; weight regain occurs upon discontinuation</li>

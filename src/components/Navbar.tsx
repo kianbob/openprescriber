@@ -18,10 +18,10 @@ const navItems = [
     ],
   },
   {
-    label: 'Risk Analysis',
+    label: 'Fraud & Risk',
     items: [
       { label: 'Risk Explorer', href: '/risk-explorer' },
-      { label: '🤖 ML Fraud Detection', href: '/ml-fraud-detection' },
+      { label: 'ML Fraud Detection', href: '/ml-fraud-detection' },
       { label: 'Flagged Providers', href: '/flagged' },
       { label: 'Opioid Prescribing', href: '/opioids' },
       { label: 'Dangerous Combos', href: '/dangerous-combinations' },
@@ -40,7 +40,7 @@ const navItems = [
     ],
   },
   {
-    label: 'Analysis',
+    label: 'Investigations',
     items: [
       { label: 'All Analysis', href: '/analysis' },
       { label: 'Opioid Crisis', href: '/analysis/opioid-crisis' },
@@ -73,6 +73,7 @@ const navItems = [
     items: [
       { label: 'About', href: '/about' },
       { label: 'Methodology', href: '/methodology' },
+      { label: 'vs. ProPublica', href: '/prescriber-checkup-alternative' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Privacy', href: '/privacy' },
     ],
@@ -116,7 +117,7 @@ export default function Navbar() {
             )
           ))}
           <Link href="/search" className="ml-2 px-3 py-1.5 text-sm text-gray-400 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 w-48">
-            🔍 Search prescribers…
+            Search prescribers…
           </Link>
         </div>
 
@@ -125,7 +126,7 @@ export default function Navbar() {
 
       {open && (
         <div className="lg:hidden bg-white border-t px-4 py-3 space-y-2">
-          <Link href="/search" className="block py-1 text-sm font-medium text-primary">🔍 Search Prescribers</Link>
+          <Link href="/search" className="block py-1 text-sm font-medium text-primary">Search Prescribers</Link>
           {navItems.map(item =>
             'items' in item && item.items ? item.items.map(sub => (
               <Link key={sub.href} href={sub.href} className="block py-1 text-sm text-gray-700">{sub.label}</Link>

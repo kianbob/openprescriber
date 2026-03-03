@@ -94,22 +94,22 @@ export default function MedicareFraudPage() {
           By analyzing {fmt(stats.providers)} Medicare Part D prescribers across $275.6 billion in drug costs, we&apos;ve identified several concerning patterns:
         </p>
 
-        <h3>🔴 {excluded.length} Excluded Providers Still Prescribing</h3>
+        <h3>{excluded.length} Excluded Providers Still Prescribing</h3>
         <p>
           The OIG maintains a <Link href="/excluded">List of Excluded Individuals/Entities (LEIE)</Link> — providers convicted of healthcare fraud, patient abuse, or other offenses. Despite being excluded, {excluded.length} of these providers still appear as active Medicare Part D prescribers in 2023 data. This raises serious questions about CMS enforcement.
         </p>
 
-        <h3>🤖 Machine Learning Catches What Rules Miss</h3>
+        <h3>Machine Learning Catches What Rules Miss</h3>
         <p>
           Our <Link href="/ml-fraud-detection">ML fraud detection model</Link>, trained on 281 confirmed fraud cases from the LEIE, flagged 4,100+ providers with prescribing patterns that statistically resemble known fraud. Of these, 2,579 were <em>not</em> caught by traditional rule-based scoring — suggesting a significant blind spot in conventional approaches.
         </p>
 
-        <h3>💊 The Opioid Signal</h3>
+        <h3>The Opioid Signal</h3>
         <p>
           Opioid prescribing is the strongest single indicator in our model. Providers who prescribe opioids at rates far above their specialty peers — particularly <Link href="/dangerous-combinations">combined with benzodiazepines</Link> — are disproportionately represented among confirmed fraud cases. We track {fmt(stats.opioidProv)} opioid prescribers, with {fmt(stats.highOpioid)} prescribing at rates above 20%.
         </p>
 
-        <h3>💰 Cost Outliers Signal Waste</h3>
+        <h3>Cost Outliers Signal Waste</h3>
         <p>
           Some providers prescribe drugs costing 10-50x more per patient than their specialty average. While some have legitimate clinical reasons (treating rare diseases, complex cases), the statistical overlap with fraud is significant. Our <Link href="/analysis/cost-outliers">cost outlier analysis</Link> breaks this down.
         </p>
@@ -140,7 +140,7 @@ export default function MedicareFraudPage() {
         <h2 className="text-lg font-bold mb-4">Explore Fraud & Risk Data</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           <Link href="/flagged" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🔴 Flagged Providers</Link>
-          <Link href="/ml-fraud-detection" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🤖 ML Fraud Detection</Link>
+          <Link href="/ml-fraud-detection" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">ML Fraud Detection</Link>
           <Link href="/excluded" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🚫 Excluded Providers</Link>
           <Link href="/risk-explorer" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">🔍 Risk Explorer</Link>
           <Link href="/dangerous-combinations" className="bg-white rounded-lg p-3 border hover:shadow-sm text-sm text-primary font-medium">⚠️ Dangerous Combos</Link>

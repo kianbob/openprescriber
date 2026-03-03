@@ -22,7 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/telehealth-prescribing', '/analysis/pharmacy-benefit-managers', '/analysis/most-expensive-prescribers',
     '/analysis/generic-adoption', '/analysis/controlled-substance-pipeline',
     '/analysis/medicare-waste', '/analysis/doctor-shopping', '/analysis/medicare-spending-by-state',
-    '/analysis/most-prescribed-drugs', '/analysis/pharmacy-fraud',
+    '/analysis/most-prescribed-drugs', '/analysis/pharmacy-fraud', '/analysis/160-million-prescriber',
+    '/prescriber-checkup-alternative',
     '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
   ]
 

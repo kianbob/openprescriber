@@ -24,6 +24,7 @@ const categories: { heading: string; articles: { title: string; slug: string; de
     heading: 'Spending & Costs',
     articles: [
       { title: 'Who Are the Highest-Cost Prescribers?', slug: 'cost-outliers', desc: 'Some providers generate millions in drug costs. What drives the spending?', emoji: '💰' },
+      { title: 'The $160 Million Prescriber', slug: '160-million-prescriber', desc: 'One ER doctor in California generated $160.3M in Medicare drug costs — more than any other provider. We investigated why.', emoji: '🔬' },
       { title: 'The Most Expensive Prescribers in Medicare', slug: 'most-expensive-prescribers', desc: 'Deep dive into the top 100 prescribers by total cost. Who are they, what specialties, and is their spending justified?', emoji: '🏆' },
       { title: 'The Ozempic Effect: GLP-1 Drugs Reshaping Medicare', slug: 'ozempic-effect', desc: 'GLP-1 drugs now cost Medicare $8.4 billion annually — tripling since 2019. The fastest-growing drug category analyzed.', emoji: '💉' },
       { title: 'The Drugs That Cost Medicare Billions', slug: 'top-drugs-analysis', desc: 'Eliquis: $7.75B. Ozempic: $4.3B. The top 20 drugs consume 22% of all Part D spending.', emoji: '💊' },
@@ -92,13 +93,8 @@ export default function AnalysisPage() {
           <div className="space-y-4">
             {cat.articles.map(a => (
               <Link key={a.slug} href={`/analysis/${a.slug}`} className="block bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{a.emoji}</span>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">{a.title}</h3>
-                    <p className="text-sm text-gray-600 mt-1">{a.desc}</p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">{a.title}</h3>
+                <p className="text-sm text-gray-600 mt-1">{a.desc}</p>
               </Link>
             ))}
           </div>
