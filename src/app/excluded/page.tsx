@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
+import DataFreshness from '@/components/DataFreshness'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import ExcludedClient from './ExcludedClient'
@@ -29,6 +30,7 @@ export default function ExcludedPage() {
       <p className="text-gray-600 mb-2">
         {excluded.length} providers in our dataset match the OIG&apos;s List of Excluded Individuals/Entities (LEIE). These are individuals or entities that have been convicted of healthcare fraud, patient abuse, or related offenses.
       </p>
+      <DataFreshness />
       <ShareButtons title="Excluded Providers Still in Medicare Part D" />
 
       {/* Summary Stats */}

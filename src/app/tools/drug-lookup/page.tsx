@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'Drug Cost Lookup — Search Medicare Part D Drug Prices & Spending',
   description: 'Look up any prescription drug to see its total Medicare Part D cost, number of claims, patients, and cost per prescription.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/drug-lookup' },
+  openGraph: {
+    title: 'Drug Cost Lookup — OpenPrescriber',
+    description: 'Search 500 Medicare Part D drugs by name. See costs, claims, and top prescribers.',
+    url: 'https://www.openprescriber.org/tools/drug-lookup',
+    type: 'website',
+  },
 }
 
 export default function DrugLookupPage() {

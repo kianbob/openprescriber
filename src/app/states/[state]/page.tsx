@@ -8,6 +8,7 @@ import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
 import { StateCostTrend, StateOpioidTrend } from './StateCharts'
 import { StateInsights, DataInsights } from '@/components/AIOverview'
+import DataFreshness from '@/components/DataFreshness'
 
 type StateTrend = { year: number; state: string; providers: number; claims: number; cost: number; opioidProv: number; avgOpioidRate: number }
 type StateData = { state: string; providers: number; claims: number; cost: number; benes: number; opioidProv: number; highOpioid: number; opioidClaims: number; avgOpioidRate: number; costPerBene: number }
@@ -50,6 +51,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ st
       <Breadcrumbs items={[{ label: 'States', href: '/states' }, { label: name }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Medicare Part D in {name}</h1>
       <p className="text-gray-600 mb-2">Prescribing data for {fmt(s.providers)} providers in {name}, totaling {fmtMoney(s.cost)} in drug costs.</p>
+      <DataFreshness />
       <ShareButtons title={`Medicare Part D Prescribing in ${name}`} />
 
       {/* Stat Grid */}

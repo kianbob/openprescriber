@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'Risk Score Calculator — Estimate Medicare Prescriber Risk',
   description: 'Enter prescribing metrics to calculate a risk score using our 10-component model. See how opioid rates, costs, and other factors contribute to risk scores.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/risk-calculator' },
+  openGraph: {
+    title: 'Risk Score Calculator — OpenPrescriber',
+    description: 'Calculate Medicare Part D prescribing risk scores using our 10-component model.',
+    url: 'https://www.openprescriber.org/tools/risk-calculator',
+    type: 'website',
+  },
 }
 
 export default function RiskCalculatorPage() {

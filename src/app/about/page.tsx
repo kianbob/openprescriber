@@ -77,9 +77,14 @@ export default function AboutPage() {
           <li><a href="https://www.openspending.us" className="text-primary">OpenSpending</a> — Government spending</li>
         </ul>
 
+        <h2>How We Compare</h2>
+        <p>
+          Looking for a replacement for ProPublica&apos;s Prescriber Checkup? See our <Link href="/prescriber-checkup-alternative">detailed comparison</Link> — we offer 2023 data (vs. 2016), ML fraud detection, specialty-adjusted risk scoring, and 30 analysis articles.
+        </p>
+
         <h2>Contact</h2>
         <p>
-          Questions or corrections? Contact us at <a href="mailto:info@thedataproject.ai" className="text-primary font-medium hover:underline">info@thedataproject.ai</a>
+          Questions, corrections, or data disputes? Contact us at <a href="mailto:info@thedataproject.ai" className="text-primary font-medium hover:underline">info@thedataproject.ai</a>
         </p>
       </div>
     </div>

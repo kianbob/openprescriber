@@ -78,7 +78,7 @@ export default function FlaggedPage() {
         <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Related Analysis</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link href="/analysis/fraud-risk-methodology" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
-            <h3 className="font-semibold text-gray-900 mb-1">📋 Fraud Risk Methodology</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Fraud Risk Methodology</h3>
             <p className="text-sm text-gray-600">How our multi-factor risk scoring model identifies statistical outliers in prescribing data.</p>
           </Link>
           <Link href="/ml-fraud-detection" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
@@ -86,7 +86,7 @@ export default function FlaggedPage() {
             <p className="text-sm text-gray-600">Machine learning model trained on confirmed fraud cases to identify similar prescribing patterns.</p>
           </Link>
           <Link href="/analysis/pill-mills" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
-            <h3 className="font-semibold text-gray-900 mb-1">💊 Pill Mill Analysis</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Pill Mill Analysis</h3>
             <p className="text-sm text-gray-600">Identifying providers with prescribing patterns consistent with pill mill operations.</p>
           </Link>
         </div>

@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'State Report Card — Medicare Part D Prescribing Grades by State',
   description: 'Get a letter grade for your state\'s Medicare Part D prescribing patterns. Rankings for drug costs, opioid rates, and cost per patient.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/state-report-card' },
+  openGraph: {
+    title: 'State Report Card — OpenPrescriber',
+    description: 'Get a letter grade for your state Medicare Part D prescribing performance.',
+    url: 'https://www.openprescriber.org/tools/state-report-card',
+    type: 'website',
+  },
 }
 
 export default function StateReportCardPage() {

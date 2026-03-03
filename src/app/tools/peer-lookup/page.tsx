@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'Prescriber Peer Comparison Tool: Specialty Benchmarks',
   description: 'Look up any medical specialty to see opioid rates, costs, and brand prescribing benchmarks. Compare providers to their peers with percentile data.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/peer-lookup' },
+  openGraph: {
+    title: 'Prescriber Peer Comparison — OpenPrescriber',
+    description: 'Look up specialty benchmarks for opioid rates, costs, and brand prescribing.',
+    url: 'https://www.openprescriber.org/tools/peer-lookup',
+    type: 'website',
+  },
 }
 
 export default function PeerLookupPage() {

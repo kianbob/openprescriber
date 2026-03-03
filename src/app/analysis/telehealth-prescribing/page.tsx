@@ -281,14 +281,14 @@ export default function TelehealthPrescribingPage() {
             </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
-            <h4 className="font-bold text-gray-900 mb-1">📊 Abnormally High Patient Volume</h4>
+            <h4 className="font-bold text-gray-900 mb-1">Abnormally High Patient Volume</h4>
             <p className="text-sm text-gray-600">
               Telehealth enables &quot;pill mill&quot; scale without the physical constraints of a brick-and-mortar office.
               Providers seeing 100+ unique patients per day should trigger review.
             </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
-            <h4 className="font-bold text-gray-900 mb-1">💊 Controlled Substance Concentration</h4>
+            <h4 className="font-bold text-gray-900 mb-1">Controlled Substance Concentration</h4>
             <p className="text-sm text-gray-600">
               High rates of controlled substance prescriptions (stimulants, benzodiazepines, opioids) combined with
               other telehealth indicators raise the risk profile significantly.

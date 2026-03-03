@@ -7,6 +7,7 @@ import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
 import { SpecialtyInsights, DataInsights } from '@/components/AIOverview'
+import DataFreshness from '@/components/DataFreshness'
 
 type Spec = { specialty: string; providers: number; claims: number; cost: number; opioidProv: number; avgOpioidRate: number; avgBrandPct: number; costPerProvider: number }
 
@@ -43,6 +44,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
       <Breadcrumbs items={[{ label: 'Specialties', href: '/specialties' }, { label: spec.specialty }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">{spec.specialty}</h1>
       <p className="text-gray-600 mb-2">{fmt(spec.providers)} Medicare Part D prescribers, {fmtMoney(spec.cost)} in drug costs.</p>
+      <DataFreshness />
       <ShareButtons title={`${spec.specialty} — Medicare Part D`} />
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">

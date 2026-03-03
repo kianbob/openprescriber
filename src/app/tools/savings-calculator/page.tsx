@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: 'Generic Savings Calculator: How Much Could Medicare Save?',
   description: 'Calculate how much Medicare Part D could save if providers switched from brand-name to generic drugs. Explore state-by-state savings potential.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/savings-calculator' },
+  openGraph: {
+    title: 'Generic Savings Calculator — OpenPrescriber',
+    description: 'Calculate how much Medicare could save switching from brand to generic drugs.',
+    url: 'https://www.openprescriber.org/tools/savings-calculator',
+    type: 'website',
+  },
 }
 
 export default function SavingsCalculatorPage() {

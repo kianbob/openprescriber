@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'Compare Medicare Providers Side-by-Side',
   description: 'Compare two Medicare Part D prescribers by NPI number. See side-by-side stats for claims, costs, opioid rates, risk scores, and prescribing flags.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/compare' },
+  openGraph: {
+    title: 'Compare Providers — OpenPrescriber',
+    description: 'Side-by-side comparison of two Medicare Part D prescribers.',
+    url: 'https://www.openprescriber.org/tools/compare',
+    type: 'website',
+  },
 }
 
 export default function ComparePage() {

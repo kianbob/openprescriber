@@ -219,7 +219,7 @@ export default function MLFraudPage() {
         </p>
         <div className="grid md:grid-cols-2 gap-4 text-sm">
           <div>
-            <h3 className="font-semibold mb-1">📋 Rule-Based (10-Component Score)</h3>
+            <h3 className="font-semibold mb-1">Rule-Based (10-Component Score)</h3>
             <ul className="text-gray-600 space-y-1">
               <li>• Hand-tuned thresholds and z-scores</li>
               <li>• Transparent and explainable</li>

@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: 'Provider Lookup by City — Find Medicare Prescribers in Any City',
   description: 'Search for Medicare Part D prescribers by city. See provider names, specialties, claims, costs, and risk levels for any U.S. city.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/city-lookup' },
+  openGraph: {
+    title: 'City Lookup — OpenPrescriber',
+    description: 'Search for Medicare Part D prescribers by city.',
+    url: 'https://www.openprescriber.org/tools/city-lookup',
+    type: 'website',
+  },
 }
 
 export default function CityLookupPage() {

@@ -120,7 +120,9 @@ export default function DashboardPage() {
           <Link href="/analysis/opioid-crisis" className="text-primary hover:underline font-medium">The Opioid Crisis in Numbers →</Link>
           <Link href="/analysis/cost-outliers" className="text-primary hover:underline font-medium">Cost Outliers →</Link>
           <Link href="/analysis/ozempic-effect" className="text-primary hover:underline font-medium">The Ozempic Effect →</Link>
+          <Link href="/analysis/160-million-prescriber" className="text-primary hover:underline font-medium">The $160M Prescriber →</Link>
           <Link href="/ml-fraud-detection" className="text-primary hover:underline font-medium">ML Fraud Detection →</Link>
+          <Link href="/prescriber-checkup-alternative" className="text-primary hover:underline font-medium">vs. ProPublica →</Link>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import { DrugInsights, DataInsights } from '@/components/AIOverview'
+import DataFreshness from '@/components/DataFreshness'
 import { CostBreakdownPie, ProviderDistributionBar } from './DrugCharts'
 
 type Drug = { generic: string; brand: string; claims: number; cost: number; benes: number; providers: number; fills: number; costPerClaim: number }
@@ -56,6 +57,7 @@ export default async function DrugDetailPage({ params }: { params: Promise<{ slu
           </h1>
           {drug.brand && <p className="text-lg text-gray-500 mt-1">Brand name: {drug.brand}</p>}
           <p className="text-sm text-gray-400 mt-1">Rank #{rank} of {allDrugs.length} drugs by total cost</p>
+          <DataFreshness />
         </div>
         <div className="flex-shrink-0 bg-primary/10 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-primary">{fmtMoney(drug.cost)}</p>

@@ -53,15 +53,15 @@ export default function OpioidsPage() {
         <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Related Analysis</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link href="/analysis/opioid-crisis" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
-            <h3 className="font-semibold text-gray-900 mb-1">📊 Opioid Crisis Overview</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Opioid Crisis Overview</h3>
             <p className="text-sm text-gray-600">How Medicare Part D prescribing data reveals the ongoing opioid epidemic.</p>
           </Link>
           <Link href="/analysis/opioid-hotspots" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
-            <h3 className="font-semibold text-gray-900 mb-1">🗺️ Opioid Hotspots</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Opioid Hotspots</h3>
             <p className="text-sm text-gray-600">Geographic clusters of high-rate opioid prescribing across the United States.</p>
           </Link>
           <Link href="/analysis/pill-mills" className="bg-white rounded-xl shadow-sm p-5 border hover:border-primary transition-colors">
-            <h3 className="font-semibold text-gray-900 mb-1">💊 Pill Mill Analysis</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Pill Mill Analysis</h3>
             <p className="text-sm text-gray-600">Identifying providers with prescribing patterns consistent with pill mill operations.</p>
           </Link>
         </div>

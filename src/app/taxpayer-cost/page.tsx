@@ -71,17 +71,17 @@ export default function TaxpayerCostPage() {
         <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-4">Where Your ${costPerTaxpayer} Goes</h2>
         <div className="space-y-4">
           <div className="bg-white rounded-xl shadow-sm p-5 border">
-            <h3 className="font-bold text-lg">💊 Top 10 Drugs: $22 Billion</h3>
+            <h3 className="font-bold text-lg">Top 10 Drugs: $22 Billion</h3>
             <p className="text-sm text-gray-600 mt-1">Just 10 drugs account for 8% of all Part D spending. Eliquis alone costs $7.75 billion — more than NASA&apos;s annual science budget.</p>
             <Link href="/ira-negotiation" className="text-primary text-sm hover:underline mt-2 inline-block">See IRA negotiated drug prices →</Link>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border">
-            <h3 className="font-bold text-lg">🏥 GLP-1 Diabetes/Weight Drugs: $8.4 Billion</h3>
+            <h3 className="font-bold text-lg">GLP-1 Diabetes/Weight Drugs: $8.4 Billion</h3>
             <p className="text-sm text-gray-600 mt-1">Ozempic, Trulicity, and Mounjaro are the fastest-growing drug category. Spending has tripled since 2019.</p>
             <Link href="/glp1-tracker" className="text-primary text-sm hover:underline mt-2 inline-block">Track GLP-1 spending →</Link>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border">
-            <h3 className="font-bold text-lg">💰 Brand-Name Premium: $185 Billion</h3>
+            <h3 className="font-bold text-lg">Brand-Name Premium: $185 Billion</h3>
             <p className="text-sm text-gray-600 mt-1">Brand-name drugs cost 4.7x more per claim than generics, yet still account for 13.4% of all prescriptions.</p>
             <Link href="/brand-vs-generic" className="text-primary text-sm hover:underline mt-2 inline-block">Brand vs Generic analysis →</Link>
           </div>

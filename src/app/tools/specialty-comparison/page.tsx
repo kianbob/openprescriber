@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   title: 'Compare Medical Specialties — Side-by-Side Medicare Prescribing',
   description: 'Compare 2-3 medical specialties side by side. See providers, costs, opioid rates, brand prescribing, and more in Medicare Part D.',
   alternates: { canonical: 'https://www.openprescriber.org/tools/specialty-comparison' },
+  openGraph: {
+    title: 'Specialty Comparison — OpenPrescriber',
+    description: 'Compare medical specialties side by side on costs, opioid rates, and more.',
+    url: 'https://www.openprescriber.org/tools/specialty-comparison',
+    type: 'website',
+  },
 }
 
 export default function SpecialtyComparisonPage() {
