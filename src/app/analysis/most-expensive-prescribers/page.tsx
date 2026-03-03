@@ -371,6 +371,7 @@ export default function MostExpensivePrescribersPage() {
 
         <h2 className="font-[family-name:var(--font-heading)]">Explore Related Analysis</h2>
         <ul>
+          <li><Link href="/analysis/160-million-prescriber" className="text-[#1e40af] hover:underline">The $160 Million Prescriber — Medicare&apos;s Most Expensive Doctor</Link></li>
           <li><Link href="/analysis/cost-outliers" className="text-[#1e40af] hover:underline">Who Are the Highest-Cost Prescribers?</Link></li>
           <li><Link href="/analysis/specialty-deep-dive" className="text-[#1e40af] hover:underline">Which Specialties Drive the Most Spending?</Link></li>
           <li><Link href="/analysis/pharmacy-benefit-managers" className="text-[#1e40af] hover:underline">PBMs: The Middlemen Driving Drug Costs</Link></li>

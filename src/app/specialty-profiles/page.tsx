@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   title: 'Specialty Prescribing Profiles: Average Metrics by Medical Specialty',
   description: 'How does each medical specialty prescribe? Compare opioid rates, drug costs, brand preference, and prescribing volumes across 110 specialties.',
   alternates: { canonical: 'https://www.openprescriber.org/specialty-profiles' },
+  openGraph: {
+    title: 'Specialty Prescribing Profiles',
+    description: 'Compare opioid rates, drug costs, and brand preference across 110 specialties.',
+    url: 'https://www.openprescriber.org/specialty-profiles',
+    type: 'website',
+  },
 }
 
 type SpecStat = { n: number; opioidRate: { mean: number; std: number; p50: number; p90: number; p95: number }; costPerBene: { mean: number; std: number; p50: number; p90: number; p95: number }; brandPct: { mean: number; std: number; p50: number; p90: number } }

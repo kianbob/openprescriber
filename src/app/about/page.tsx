@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: 'About OpenPrescriber',
   description: 'OpenPrescriber is a free, open-data platform analyzing Medicare Part D prescribing patterns, drug costs, and fraud risk indicators.',
   alternates: { canonical: 'https://www.openprescriber.org/about' },
+  openGraph: {
+    title: 'About OpenPrescriber',
+    description: 'Free, open-data platform analyzing Medicare Part D prescribing patterns.',
+    url: 'https://www.openprescriber.org/about',
+    type: 'website',
+  },
 }
 
 export default function AboutPage() {

@@ -88,23 +88,54 @@ export default function OpioidCrisisPage() {
           </table>
         </div>
 
+        <h2>The Specialty Dimension</h2>
+        <p>
+          Opioid prescribing is not uniformly distributed across medical specialties. Pain management specialists and anesthesiologists prescribe opioids at the highest rates — often above 50% — and this is clinically expected. But the crisis signal comes from specialties where opioid prescribing should be rare:
+        </p>
+        <ul>
+          <li><strong>Family Practice and Internal Medicine</strong> account for the most total opioid prescriptions by sheer volume, even at moderate rates</li>
+          <li><strong>Nurse Practitioners</strong> are disproportionately flagged — they&apos;re 19% of prescribers but nearly half of flagged providers (see our <Link href="/analysis/nurse-practitioners">NP analysis</Link>)</li>
+          <li><strong>Emergency Medicine</strong> providers prescribing opioids at high rates raises questions about acute prescribing turning into chronic use</li>
+          <li><strong>Psychiatry</strong> opioid prescribing is particularly concerning given co-occurring substance use disorders</li>
+        </ul>
+
+        <h2>The Dangerous Combination</h2>
+        <p>
+          Beyond opioid prescribing alone, we identified <strong>6,149 providers</strong> who co-prescribe opioids and benzodiazepines — a combination the FDA has <Link href="/dangerous-combinations">specifically warned against</Link> due to dramatically increased overdose risk. This co-prescribing pattern is one of the strongest signals in our risk scoring model.
+        </p>
+
+        <h2>Long-Acting Opioids: The Escalation Signal</h2>
+        <p>
+          Not all opioids carry equal risk. Long-acting opioids (like OxyContin, fentanyl patches, and methadone) are prescribed for chronic pain and carry substantially higher addiction potential. In our data, providers with high long-acting opioid rates relative to their specialty peers receive elevated risk scores — this pattern often indicates escalation from acute to chronic prescribing.
+        </p>
+
         <h2>What This Means</h2>
         <p>
           Not all opioid prescribing is inappropriate — pain management specialists, oncologists, and palliative care providers legitimately prescribe opioids at high rates. But the sheer volume suggests the pipeline remains enormous, even as national efforts aim to curb unnecessary prescribing.
         </p>
         <p>
-          The key question isn&apos;t just <em>how much</em> but <em>where and by whom</em>. Geographic hotspots and specialty patterns point to systemic issues that blanket regulations miss.
+          The key question isn&apos;t just <em>how much</em> but <em>where and by whom</em>. Geographic hotspots and specialty patterns point to systemic issues that blanket regulations miss. Our <Link href="/analysis/pill-mills">pill mill analysis</Link> identifies the statistical fingerprints of the most extreme cases — providers whose prescribing patterns look nothing like their peers.
+        </p>
+        <p>
+          The data also reveals that the opioid crisis hasn&apos;t ended — it has shifted. While overall prescribing volumes have declined from their 2012 peak, the patients who remain on opioids are often on higher doses and more dangerous combinations. Medicare Part D data captures this: 113,169 providers still prescribe opioids at rates above 20%, and the geographic concentration in Southeastern and Appalachian states persists.
         </p>
 
-        <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
-          <p className="text-sm text-blue-800 font-medium">Related Analysis</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/opioids" className="text-sm text-primary hover:underline">💊 Opioid Prescribing Data</Link>
-            <Link href="/dangerous-combinations" className="text-sm text-primary hover:underline">☠️ Opioid+Benzo Co-Prescribers</Link>
-            <Link href="/risk-explorer" className="text-sm text-primary hover:underline">🔍 Risk Explorer</Link>
-            <Link href="/analysis/opioid-hotspots" className="text-sm text-primary hover:underline">📍 Geographic Hotspots</Link>
-            <Link href="/ml-fraud-detection" className="text-sm text-primary hover:underline">ML Fraud Detection</Link>
-          </div>
+        <h2>What You Can Do With This Data</h2>
+        <p>
+          OpenPrescriber makes this data actionable. You can:
+        </p>
+        <ul>
+          <li><Link href="/opioids">Explore opioid prescribing patterns</Link> by state, specialty, and individual provider</li>
+          <li><Link href="/risk-explorer">Use the Risk Explorer</Link> to filter flagged providers by opioid-related risk flags</li>
+          <li><Link href="/dangerous-combinations">View dangerous combination prescribers</Link> — opioid + benzodiazepine co-prescribers</li>
+          <li><Link href="/analysis/opioid-hotspots">See geographic hotspots</Link> — which states and regions have the highest rates</li>
+          <li><Link href="/ml-fraud-detection">Review ML-flagged providers</Link> — machine learning identifies patterns that rules miss</li>
+        </ul>
+
+        <div className="not-prose mt-8 bg-gray-50 border rounded-lg p-4">
+          <p className="text-xs text-gray-500">
+            Data from CMS Medicare Part D Prescriber Public Use File, 2023. Opioid prescribing rates represent the percentage of a provider&apos;s total claims that are for opioid medications. &quot;High-rate&quot; is defined as above 20%. This analysis does not evaluate the clinical appropriateness of individual prescriptions.
+          </p>
         </div>
       <RelatedAnalysis current={"/analysis/opioid-crisis"} />
       </div>

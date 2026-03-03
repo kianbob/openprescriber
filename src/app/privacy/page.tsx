@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'OpenPrescriber privacy policy — how we handle your data.',
   alternates: { canonical: 'https://www.openprescriber.org/privacy' },
+  openGraph: {
+    title: 'Privacy Policy',
+    description: 'OpenPrescriber privacy policy.',
+    url: 'https://www.openprescriber.org/privacy',
+    type: 'website',
+  },
 }
 
 export default function PrivacyPage() {

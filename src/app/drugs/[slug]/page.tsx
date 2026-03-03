@@ -21,6 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${name}${brand} — Medicare Part D Prescribing Data`,
     description: drug ? `${name}${brand}: ${fmtMoney(drug.cost)} total cost, ${fmt(drug.claims)} claims by ${fmt(drug.providers)} providers in Medicare Part D 2023.` : `Prescribing data for ${name} in Medicare Part D.`,
     alternates: { canonical: `https://www.openprescriber.org/drugs/${slug}` },
+    openGraph: {
+      title: `${name}${brand} — Medicare Part D Data`,
+      description: drug ? `${name}${brand}: ${fmtMoney(drug.cost)} total cost, ${fmt(drug.claims)} claims in Medicare Part D 2023.` : `Prescribing data for ${name}.`,
+      url: `https://www.openprescriber.org/drugs/${slug}`,
+      type: 'article',
+    },
   }
 }
 

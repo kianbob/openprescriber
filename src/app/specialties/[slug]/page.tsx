@@ -20,6 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${name} — Medicare Part D Prescribing Profile`,
     description: `Prescribing patterns for ${name} in Medicare Part D: ${spec ? fmt(spec.providers) + ' providers, ' + fmtMoney(spec.cost) + ' drug costs' : ''}.`,
     alternates: { canonical: `https://www.openprescriber.org/specialties/${slug}` },
+    openGraph: {
+      title: `${name} — Medicare Part D Prescribing`,
+      description: `Prescribing patterns for ${name}: ${spec ? fmt(spec.providers) + ' providers, ' + fmtMoney(spec.cost) + ' drug costs' : ''}.`,
+      url: `https://www.openprescriber.org/specialties/${slug}`,
+      type: 'article',
+    },
   }
 }
 
