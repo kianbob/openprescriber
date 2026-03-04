@@ -177,8 +177,8 @@ export default function CompareClient() {
             <StatCard label="Total Claims" v1={p1.claims} v2={p2.claims} format={v => fmt(v)} />
             <StatCard label="Total Drug Cost" v1={p1.cost} v2={p2.cost} format={v => fmtMoney(v)} lowerBetter />
             <StatCard label="Cost per Patient" v1={p1.costPerBene} v2={p2.costPerBene} format={v => fmtMoney(v)} lowerBetter />
-            <StatCard label="Opioid Rate" v1={p1.opioidRate} v2={p2.opioidRate} format={v => v.toFixed(1) + '%'} lowerBetter />
-            <StatCard label="Brand Name %" v1={p1.brandPct} v2={p2.brandPct} format={v => v.toFixed(1) + '%'} lowerBetter />
+            <StatCard label="Opioid Rate" v1={p1.opioidRate} v2={p2.opioidRate} format={v => (v ?? 0).toFixed(1) + '%'} lowerBetter />
+            <StatCard label="Brand Name %" v1={p1.brandPct} v2={p2.brandPct} format={v => (v ?? 0).toFixed(1) + '%'} lowerBetter />
             <StatCard label="Risk Score" v1={p1.riskScore} v2={p2.riskScore} format={v => String(v)} lowerBetter />
           </div>
 
