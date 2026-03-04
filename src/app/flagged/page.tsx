@@ -38,6 +38,18 @@ export default function FlaggedPage() {
           ],
         }) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'What does it mean when a provider is flagged?', acceptedAnswer: { '@type': 'Answer', text: 'A flagged provider shows statistical outlier patterns compared to specialty peers across multiple metrics: opioid prescribing rate, brand-name preference, cost per beneficiary, drug combinations, and more. Flagging is NOT an accusation of fraud — many flagged patterns have legitimate clinical explanations.' } },
+            { '@type': 'Question', name: 'How is the risk score calculated?', acceptedAnswer: { '@type': 'Answer', text: 'OpenPrescriber uses a 10-component scoring model (max 100 points) that compares each provider against their specialty peers using z-scores. Components include opioid rate, brand preference, cost per beneficiary, dangerous drug combinations, and OIG exclusion status.' } },
+            { '@type': 'Question', name: 'Can I dispute a risk score?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Contact info@thedataproject.ai with the provider NPI and your concern. We take data accuracy seriously and will review any disputed scores.' } },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'Flagged Providers' }]} />
       <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Flagged Providers</h1>

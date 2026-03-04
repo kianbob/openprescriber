@@ -20,9 +20,10 @@ export const metadata: Metadata = {
 }
 
 export default function SpecialtyDeepDivePage() {
-  const specs = loadData('specialty-stats.json') as { specialty: string; slug: string; providers: number; cost: number; claims: number; avgOpioidRate: number; avgBrandPct: number; avgCostPerBene: number }[]
+  const specs = loadData('specialties.json') as { specialty: string; providers: number; cost: number; claims: number; avgOpioidRate: number; avgBrandPct: number; costPerProvider: number }[]
+  const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
   const byCostPer = [...specs].filter(s => s.providers >= 100 && s.specialty).sort((a, b) => (b.cost / b.providers) - (a.cost / a.providers))
-  const byOpioid = [...specs].filter(s => s.providers >= 100 && s.specialty && s.avgOpioidRate > 0).sort((a, b) => b.avgOpioidRate - a.avgOpioidRate)
+  const byOpioid = [...specs].filter(s => s.providers >= 100 && s.specialty && (s.avgOpioidRate ?? 0) > 0).sort((a, b) => (b.avgOpioidRate ?? 0) - (a.avgOpioidRate ?? 0))
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -82,9 +83,9 @@ export default function SpecialtyDeepDivePage() {
               </thead>
               <tbody className="divide-y">
                 {byCostPer.slice(0, 15).map((s, i) => (
-                  <tr key={s.slug} className="hover:bg-gray-50">
+                  <tr key={slugify(s.specialty)} className="hover:bg-gray-50">
                     <td className="px-3 py-1.5 text-gray-400">{i + 1}</td>
-                    <td className="px-3 py-1.5"><Link href={`/specialties/${s.slug}`} className="text-primary hover:underline">{s.specialty}</Link></td>
+                    <td className="px-3 py-1.5"><Link href={`/specialties/${slugify(s.specialty)}`} className="text-primary hover:underline">{s.specialty}</Link></td>
                     <td className="px-3 py-1.5 text-right font-mono">{fmt(s.providers)}</td>
                     <td className="px-3 py-1.5 text-right font-mono font-semibold">{fmtMoney(s.cost / s.providers)}</td>
                     <td className="px-3 py-1.5 text-right font-mono hidden md:table-cell">{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
@@ -118,8 +119,8 @@ export default function SpecialtyDeepDivePage() {
           <h3 className="font-bold text-sm mb-2">Highest Opioid Prescribing Specialties</h3>
           <div className="bg-white rounded-xl border overflow-hidden text-sm">
             {byOpioid.slice(0, 10).map((s, i) => (
-              <div key={s.slug} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-red-50/50">
-                <Link href={`/specialties/${s.slug}`} className="text-primary hover:underline">{i + 1}. {s.specialty}</Link>
+              <div key={slugify(s.specialty)} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-red-50/50">
+                <Link href={`/specialties/${slugify(s.specialty)}`} className="text-primary hover:underline">{i + 1}. {s.specialty}</Link>
                 <div className="flex gap-4">
                   <span className="text-xs text-gray-500">{fmt(s.providers)} providers</span>
                   <span className="font-mono text-red-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>

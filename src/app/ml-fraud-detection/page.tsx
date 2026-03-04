@@ -51,6 +51,18 @@ export default function MLFraudPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'How does OpenPrescriber detect Medicare fraud with machine learning?', acceptedAnswer: { '@type': 'Answer', text: `OpenPrescriber uses a BaggedDecisionTrees ensemble (20 trees) trained on ${data.model.fraudLabels} confirmed fraud cases from the OIG LEIE exclusion list, cross-matched to active Medicare prescribers. The model evaluates ${data.model.features} prescribing features per provider and flags those with patterns similar to confirmed fraud.` } },
+            { '@type': 'Question', name: 'How accurate is the ML fraud detection model?', acceptedAnswer: { '@type': 'Answer', text: `The model achieves ${(data.cv.precision * 100).toFixed(1)}% precision and ${(data.cv.recall * 100).toFixed(1)}% recall on 5-fold cross-validation. This means ${(data.cv.precision * 100).toFixed(0)}% of flagged providers match fraud patterns, and the model catches ${(data.cv.recall * 100).toFixed(0)}% of known fraud cases.` } },
+            { '@type': 'Question', name: 'Does an ML flag mean a provider committed fraud?', acceptedAnswer: { '@type': 'Answer', text: 'No. ML predictions are statistical indicators, not accusations. These providers exhibit prescribing patterns similar to confirmed fraud cases, but there may be legitimate medical explanations. High-volume pain specialists, for example, may appear flagged due to medically appropriate opioid prescribing.' } },
+          ],
+        }) }}
+      />
       <Breadcrumbs items={[{ label: 'ML Fraud Detection' }]} />
 
       <div className="flex items-start justify-between gap-4 mb-6">
