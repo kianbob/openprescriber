@@ -4,6 +4,8 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import { fmtMoney, fmt } from '@/lib/utils'
+import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
   title: 'Which Medical Specialties Drive the Most Drug Spending?',
@@ -18,6 +20,10 @@ export const metadata: Metadata = {
 }
 
 export default function SpecialtyDeepDivePage() {
+  const specs = loadData('specialty-stats.json') as { specialty: string; slug: string; providers: number; cost: number; claims: number; avgOpioidRate: number; avgBrandPct: number; avgCostPerBene: number }[]
+  const byCostPer = [...specs].filter(s => s.providers >= 100 && s.specialty).sort((a, b) => (b.cost / b.providers) - (a.cost / a.providers))
+  const byOpioid = [...specs].filter(s => s.providers >= 100 && s.specialty && s.avgOpioidRate > 0).sort((a, b) => b.avgOpioidRate - a.avgOpioidRate)
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <ArticleSchema
@@ -61,6 +67,34 @@ export default function SpecialtyDeepDivePage() {
           At the other end, specialties like optometry, podiatry, and clinical psychology generate relatively modest drug costs per provider — typically under $50,000 annually. Their prescribing scope is narrower, and the medications they prescribe tend to be lower-cost generics.
         </p>
 
+        <div className="not-prose my-6">
+          <h3 className="font-bold text-sm mb-2">Top 15 Specialties by Cost Per Provider</h3>
+          <div className="bg-white rounded-xl border overflow-hidden text-sm">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-3 py-2 text-left font-semibold">#</th>
+                  <th className="px-3 py-2 text-left font-semibold">Specialty</th>
+                  <th className="px-3 py-2 text-right font-semibold">Providers</th>
+                  <th className="px-3 py-2 text-right font-semibold">Cost/Provider</th>
+                  <th className="px-3 py-2 text-right font-semibold hidden md:table-cell">Avg Opioid %</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y">
+                {byCostPer.slice(0, 15).map((s, i) => (
+                  <tr key={s.slug} className="hover:bg-gray-50">
+                    <td className="px-3 py-1.5 text-gray-400">{i + 1}</td>
+                    <td className="px-3 py-1.5"><Link href={`/specialties/${s.slug}`} className="text-primary hover:underline">{s.specialty}</Link></td>
+                    <td className="px-3 py-1.5 text-right font-mono">{fmt(s.providers)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono font-semibold">{fmtMoney(s.cost / s.providers)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono hidden md:table-cell">{(s.avgOpioidRate ?? 0).toFixed(1)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <h2>The Volume Leaders</h2>
         <p>
           While specialists top the per-provider cost charts, primary care dominates in absolute terms. Internal medicine, family practice, and nurse practitioners collectively account for the majority of total Medicare Part D spending — not because their individual costs are high, but because they represent the largest share of prescribers.
@@ -79,6 +113,21 @@ export default function SpecialtyDeepDivePage() {
         <p>
           Emergency medicine presents a unique pattern: relatively high opioid rates but typically for short-duration prescriptions. The concern shifts to whether those short prescriptions become the gateway to longer-term use managed by other providers.
         </p>
+
+        <div className="not-prose my-6">
+          <h3 className="font-bold text-sm mb-2">Highest Opioid Prescribing Specialties</h3>
+          <div className="bg-white rounded-xl border overflow-hidden text-sm">
+            {byOpioid.slice(0, 10).map((s, i) => (
+              <div key={s.slug} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-red-50/50">
+                <Link href={`/specialties/${s.slug}`} className="text-primary hover:underline">{i + 1}. {s.specialty}</Link>
+                <div className="flex gap-4">
+                  <span className="text-xs text-gray-500">{fmt(s.providers)} providers</span>
+                  <span className="font-mono text-red-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <h2>Brand vs. Generic Preferences</h2>
         <p>

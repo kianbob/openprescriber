@@ -4,6 +4,9 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import { fmtMoney, fmt } from '@/lib/utils'
+import { loadData } from '@/lib/server-utils'
+import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
   title: 'Geographic Disparities in Medicare Prescribing',
@@ -18,6 +21,12 @@ export const metadata: Metadata = {
 }
 
 export default function GeographicDisparitiesPage() {
+  const states = loadData('states.json') as { state: string; providers: number; cost: number; avgOpioidRate: number; costPerBene: number; benes: number; claims: number }[]
+  const REAL = new Set('AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY'.split(','))
+  const real = states.filter(s => REAL.has(s.state))
+  const byCost = [...real].sort((a, b) => (b.cost / b.providers) - (a.cost / a.providers))
+  const byOpioid = [...real].sort((a, b) => b.avgOpioidRate - a.avgOpioidRate)
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <ArticleSchema
@@ -65,6 +74,31 @@ export default function GeographicDisparitiesPage() {
           In contrast, states like Hawaii, Minnesota, and Vermont tend to have lower per-beneficiary drug costs. These states generally have healthier populations, stronger managed care penetration, and practice cultures that emphasize conservative prescribing.
         </p>
 
+        <div className="not-prose my-6 grid md:grid-cols-2 gap-4">
+          <div>
+            <h3 className="font-bold text-sm text-red-700 mb-2">Highest Cost Per Provider</h3>
+            <div className="bg-white rounded-xl border overflow-hidden">
+              {byCost.slice(0, 10).map((s, i) => (
+                <div key={s.state} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-red-50/50">
+                  <Link href={`/states/${s.state.toLowerCase()}`} className="text-sm text-primary hover:underline">{i + 1}. {stateName(s.state)}</Link>
+                  <span className="text-sm font-mono text-red-600 font-bold">{fmtMoney(s.cost / s.providers)}/provider</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="font-bold text-sm text-green-700 mb-2">Lowest Cost Per Provider</h3>
+            <div className="bg-white rounded-xl border overflow-hidden">
+              {byCost.slice(-10).reverse().map((s, i) => (
+                <div key={s.state} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-green-50/50">
+                  <Link href={`/states/${s.state.toLowerCase()}`} className="text-sm text-primary hover:underline">{byCost.length - 9 + i}. {stateName(s.state)}</Link>
+                  <span className="text-sm font-mono text-green-600 font-bold">{fmtMoney(s.cost / s.providers)}/provider</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <h2>The Opioid Geography</h2>
         <p>
           <Link href="/analysis/opioid-crisis" className="text-primary hover:underline">Opioid prescribing rates</Link> show some of the most dramatic geographic variation in the entire dataset. Alabama, Tennessee, and Mississippi consistently show the highest average opioid prescribing rates, with some states averaging more than double the national mean.
@@ -75,6 +109,31 @@ export default function GeographicDisparitiesPage() {
         <p>
           Western states like Oregon, Washington, and California tend to show lower opioid rates, though they face their own challenges with fentanyl and illicit opioid use that don&apos;t appear in prescription data.
         </p>
+
+        <div className="not-prose my-6 grid md:grid-cols-2 gap-4">
+          <div>
+            <h3 className="font-bold text-sm text-red-700 mb-2">Highest Opioid Rates</h3>
+            <div className="bg-white rounded-xl border overflow-hidden">
+              {byOpioid.slice(0, 10).map((s, i) => (
+                <div key={s.state} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-red-50/50">
+                  <Link href={`/states/${s.state.toLowerCase()}`} className="text-sm text-primary hover:underline">{i + 1}. {stateName(s.state)}</Link>
+                  <span className="text-sm font-mono text-red-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="font-bold text-sm text-green-700 mb-2">Lowest Opioid Rates</h3>
+            <div className="bg-white rounded-xl border overflow-hidden">
+              {byOpioid.slice(-10).reverse().map((s, i) => (
+                <div key={s.state} className="flex items-center justify-between px-4 py-2 border-b last:border-0 hover:bg-green-50/50">
+                  <Link href={`/states/${s.state.toLowerCase()}`} className="text-sm text-primary hover:underline">{byOpioid.length - 9 + i}. {stateName(s.state)}</Link>
+                  <span className="text-sm font-mono text-green-600 font-bold">{(s.avgOpioidRate ?? 0).toFixed(1)}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <h2>Rural vs. Urban Divide</h2>
         <p>
