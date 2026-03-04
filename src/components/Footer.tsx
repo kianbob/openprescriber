@@ -57,7 +57,7 @@ export default function Footer() {
             <li><a href="https://www.openlobby.us" className="hover:text-white">OpenLobby</a></li>
             <li><a href="https://www.opensubsidies.org" className="hover:text-white">OpenSubsidies</a></li>
             <li><a href="https://www.openimmigration.us" className="hover:text-white">OpenImmigration</a></li>
-            <li><a href="https://www.warcosts.org" className="hover:text-white">WarCosts</a></li>
+            <li><a href="https://www.opencrime.us" className="hover:text-white">OpenCrime</a></li>            <li><a href="https://www.warcosts.org" className="hover:text-white">WarCosts</a></li>
             <li><a href="https://thedataproject.ai" className="hover:text-white">TheDataProject.ai</a></li>
           </ul>
         </div>
