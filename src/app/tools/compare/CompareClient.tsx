@@ -182,21 +182,34 @@ export default function CompareClient() {
             <StatCard label="Risk Score" v1={p1.riskScore} v2={p2.riskScore} format={v => String(v)} lowerBetter />
           </div>
 
-          {/* Bar chart */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
-            <h3 className="font-bold text-lg mb-4 font-[family-name:var(--font-heading)]">Side-by-Side Comparison</h3>
-            <div className="h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData} margin={{ left: 10, right: 10 }}>
-                  <XAxis dataKey="metric" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="p1" name={p1.name.split(' ').slice(-1)[0]} fill="#1e40af" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="p2" name={p2.name.split(' ').slice(-1)[0]} fill="#0ea5e9" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+          {/* Comparison Charts */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {[
+              { label: 'Total Claims', v1: p1.claims, v2: p2.claims, fmt: (v: number) => fmt(v) },
+              { label: 'Opioid Rate', v1: p1.opioidRate ?? 0, v2: p2.opioidRate ?? 0, fmt: (v: number) => v.toFixed(1) + '%' },
+              { label: 'Brand Name %', v1: p1.brandPct ?? 0, v2: p2.brandPct ?? 0, fmt: (v: number) => v.toFixed(1) + '%' },
+              { label: 'Risk Score', v1: p1.riskScore ?? 0, v2: p2.riskScore ?? 0, fmt: (v: number) => String(Math.round(v)) },
+            ].map(item => (
+              <div key={item.label} className="bg-white rounded-xl border border-gray-200 p-5">
+                <h4 className="text-sm font-semibold text-gray-600 mb-3">{item.label}</h4>
+                <div className="h-[120px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={[
+                      { name: p1.name.split(' ').slice(-1)[0], value: item.v1 },
+                      { name: p2.name.split(' ').slice(-1)[0], value: item.v2 },
+                    ]} layout="vertical" margin={{ left: 10, right: 50 }}>
+                      <XAxis type="number" hide />
+                      <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 12 }} />
+                      <Tooltip formatter={(v) => item.fmt(v as number)} />
+                      <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{ position: 'right', formatter: (v: number) => item.fmt(v), fontSize: 12 }}>
+                        <Cell fill="#1e40af" />
+                        <Cell fill="#0ea5e9" />
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Risk flags */}
