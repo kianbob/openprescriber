@@ -101,6 +101,65 @@ export default function RuralPrescribingArticle() {
           <li>Longer treatment durations and dose escalation</li>
         </ul>
 
+        <h2>Small States, Big Problems</h2>
+        <p>
+          States with fewer than 10,000 Medicare Part D prescribers — typically smaller, more rural states — tell a compelling story. Of the {smallStates.length} states in this category, the average opioid prescribing rate is {(smallStates.reduce((sum, s) => sum + (s.avgOpioidRate ?? 0), 0) / smallStates.length).toFixed(1)}%, compared to the national average of {(stats.avgOpioidRate ?? 0).toFixed(1)}%.
+        </p>
+
+        <div className="not-prose my-6">
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+            <h3 className="font-bold text-amber-900 mb-3">Small-State Prescribing ({smallStates.length} states with &lt;10K prescribers)</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div>
+                <p className="text-2xl font-bold text-amber-700">{smallStates.length}</p>
+                <p className="text-xs text-amber-800">States</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-amber-700">{fmt(smallStates.reduce((s, st) => s + st.providers, 0))}</p>
+                <p className="text-xs text-amber-800">Prescribers</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-red-600">{(smallStates.reduce((sum, s) => sum + (s.avgOpioidRate ?? 0), 0) / smallStates.length).toFixed(1)}%</p>
+                <p className="text-xs text-amber-800">Avg Opioid Rate</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-amber-700">{fmtMoney(smallStates.reduce((s, st) => s + st.cost, 0))}</p>
+                <p className="text-xs text-amber-800">Total Drug Cost</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Specialist Desert</h2>
+        <p>
+          Rural areas face a critical shortage of specialists — pain management doctors, addiction medicine specialists, and psychiatrists are concentrated in urban centers. When a patient in rural West Virginia needs chronic pain treatment, they&apos;re far more likely to see a Family Practice provider than a dedicated pain management specialist.
+        </p>
+        <p>
+          This matters because our <Link href="/peer-comparison">peer comparison data</Link> shows that generalists who manage pain have different prescribing patterns than dedicated pain specialists. A Family Practice doctor with a 15% opioid rate stands out among their peers, but a Pain Management specialist at 45% is within normal range for their specialty.
+        </p>
+        <p>
+          The result: rural providers face pressure to treat conditions they weren&apos;t specifically trained for, with fewer consultation options and less access to alternative treatments like physical therapy or cognitive behavioral therapy.
+        </p>
+
+        <h2>Five-Year Trends: Is It Getting Better?</h2>
+        <p>
+          Nationally, opioid prescribing has been declining since 2019, driven by CDC guidelines, state prescription monitoring programs (PDMPs), and increased awareness. But the rural-urban gap persists. States that started with the highest rates have reduced prescribing, but they started from such elevated baselines that they still lead nationally.
+        </p>
+        <p>
+          Colorado consistently shows among the highest state-level opioid rates — but this is partly a data artifact. Colorado has aggressive prescription monitoring, which means more opioid prescriptions are captured in the data rather than diverted off-record. States with less monitoring may undercount.
+        </p>
+
+        <h2>Policy Implications</h2>
+        <p>
+          The rural prescribing gap isn&apos;t primarily a fraud problem — it&apos;s a healthcare access problem wearing a prescribing costume. Addressing it requires:
+        </p>
+        <ul>
+          <li><strong>Telehealth expansion</strong> — Our <Link href="/analysis/telehealth-prescribing">telehealth analysis</Link> shows that remote consultations can connect rural patients with specialists without requiring travel</li>
+          <li><strong>Pain management alternatives</strong> — Physical therapy, acupuncture, and non-opioid medications need to be as accessible in rural Appalachia as in suburban Virginia</li>
+          <li><strong>Provider education</strong> — Continuing education requirements should address rural-specific prescribing challenges</li>
+          <li><strong>Data transparency</strong> — Tools like OpenPrescriber make geographic prescribing patterns visible, enabling targeted interventions rather than one-size-fits-all policies</li>
+        </ul>
+
         <h2>What the Data Can&apos;t Tell Us</h2>
         <p>
           Medicare Part D data captures prescribing patterns but not patient outcomes. A high opioid rate might reflect appropriate care for a patient population with high injury rates — or it might reflect over-prescribing. Without linking to patient outcomes data (emergency visits, overdose rates, mortality), we can&apos;t definitively distinguish between the two.
@@ -108,6 +167,10 @@ export default function RuralPrescribingArticle() {
         <p>
           What we can say is that the <strong>geographic variation is persistent and significant</strong> — the same states led in opioid prescribing five years ago and still lead today. Whatever is driving these patterns isn&apos;t going away on its own.
         </p>
+
+        <div className="not-prose mt-8 bg-gray-50 rounded-xl p-5 text-sm text-gray-600">
+          <p><strong>Data source:</strong> CMS Medicare Part D Prescriber Public Use File, 2023. Opioid rates calculated from DEA-scheduled drug claims. Rural/urban classification based on state-level provider counts as a proxy — individual RUCA codes would provide more granular classification. <Link href="/methodology" className="text-primary hover:underline">Full methodology</Link></p>
+        </div>
       </div>
 
       <RelatedAnalysis current="/analysis/rural-prescribing" />
