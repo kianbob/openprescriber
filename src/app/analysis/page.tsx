@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: 'Analysis — Medicare Part D Research & Insights',
   description: 'Data-driven analysis of Medicare Part D prescribing patterns — opioid crisis, cost outliers, brand vs generic, geographic variation.',
   alternates: { canonical: 'https://www.openprescriber.org/analysis' },
+  openGraph: {
+    title: 'Analysis & Research — OpenPrescriber',
+    description: '30+ data-driven investigations into Medicare Part D prescribing: opioid crisis, fraud risk, cost outliers, geographic disparities.',
+    url: 'https://www.openprescriber.org/analysis',
+    type: 'website',
+  },
 }
 
 const categories: { heading: string; articles: { title: string; slug: string; desc: string }[] }[] = [
