@@ -135,6 +135,25 @@ export default function TaxpayerCostPage() {
         </ul>
       </section>
 
+      {/* Related */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Related</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/analysis/medicare-waste" className="block bg-white border rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">How Much Medicare Part D Waste?</h3>
+            <p className="text-sm text-gray-600">The data-driven estimate of avoidable spending</p>
+          </Link>
+          <Link href="/analysis/most-expensive-prescribers" className="block bg-white border rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Most Expensive Prescribers</h3>
+            <p className="text-sm text-gray-600">Who drives the highest drug costs?</p>
+          </Link>
+          <Link href="/ira-negotiation" className="block bg-white border rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">IRA Drug Price Negotiation</h3>
+            <p className="text-sm text-gray-600">10 drugs, $21.96B — Medicare&apos;s first price negotiation</p>
+          </Link>
+        </div>
+      </section>
+
       <p className="text-xs text-gray-400 mt-8">
         *Cost per patient is calculated from provider-level data (patients seeing multiple providers are counted once per provider). Actual Medicare Part D enrollment: ~52 million (CMS 2023).
         Data from CMS Medicare Part D Public Use Files, 2023. Taxpayer estimates based on ~150M federal income tax filers.
