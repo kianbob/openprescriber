@@ -108,6 +108,25 @@ export default function BrandVsGenericPage() {
           </table>
         </div>
       </section>
+
+      {/* Related */}
+      <section className="mt-12 border-t pt-8">
+        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-4">Related</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/analysis/brand-generic-gap" className="block bg-white border rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">The Brand-Generic Gap</h3>
+            <p className="text-sm text-gray-600">Deep dive into why some providers resist generics</p>
+          </Link>
+          <Link href="/analysis/generic-adoption" className="block bg-white border rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Generic Adoption Gap</h3>
+            <p className="text-sm text-gray-600">Which specialties still prefer brand names?</p>
+          </Link>
+          <Link href="/drug-costs" className="block bg-white border rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all">
+            <h3 className="font-semibold text-primary mb-1">Drug Costs</h3>
+            <p className="text-sm text-gray-600">Top drugs by total Medicare spending</p>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

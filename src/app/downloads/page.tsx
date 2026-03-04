@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 
@@ -95,6 +96,13 @@ export default function DownloadsPage() {
           <li>• <a href="https://data.cms.gov/provider-summary-by-type-of-service/medicare-part-d-prescribers/medicare-part-d-prescribers-by-provider-and-drug" className="text-primary hover:underline" target="_blank" rel="noopener">CMS Medicare Part D Prescribers by Provider and Drug (2023)</a></li>
           <li>• <a href="https://oig.hhs.gov/exclusions/exclusions_list.asp" className="text-primary hover:underline" target="_blank" rel="noopener">OIG List of Excluded Individuals/Entities (LEIE)</a></li>
         </ul>
+      </div>
+      {/* Related */}
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link href="/methodology" className="text-primary hover:underline text-sm">Methodology →</Link>
+        <Link href="/about" className="text-primary hover:underline text-sm">About →</Link>
+        <Link href="/dashboard" className="text-primary hover:underline text-sm">Dashboard →</Link>
+        <Link href="/tools" className="text-primary hover:underline text-sm">Interactive Tools →</Link>
       </div>
     </div>
   )
