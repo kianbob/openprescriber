@@ -171,7 +171,7 @@ export default function ExcludedStillPrescribingPage() {
           Our model learns what distinguishes these {excluded.length} excluded providers from the broader population of Medicare prescribers. It identifies patterns in prescribing volume, drug selection, cost per claim, specialty-adjusted benchmarks, and geographic outlier status. These learned patterns are then applied to the full Medicare Part D dataset to identify additional providers whose prescribing behavior closely resembles the confirmed cases.
         </p>
         <p>
-          The result: the model flags over 4,100 additional providers as high-risk based on behavioral similarity to the {excluded.length} known exclusions. These flagged providers are not accused of fraud — they are identified as statistically similar to providers who were. You can explore the full results on our <Link href="/flagged" className="text-primary font-medium hover:underline">High Risk Providers</Link> page.
+          The result: the model flags 4,183 additional providers as high-risk based on behavioral similarity to the {excluded.length} known exclusions. These flagged providers are not accused of fraud — they are identified as statistically similar to providers who were. You can explore the full results on our <Link href="/flagged" className="text-primary font-medium hover:underline">High Risk Providers</Link> page.
         </p>
 
         <h2>Data Limitations and Caveats</h2>
@@ -240,7 +240,7 @@ export default function ExcludedStillPrescribingPage() {
 
         <div className="not-prose mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
           <p className="text-sm text-blue-800">View all matches: <Link href="/excluded" className="text-primary font-medium hover:underline">Excluded Providers List</Link></p>
-          <p className="text-sm text-blue-800">These {excluded.length} confirmed cases serve as training data for our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">ML Fraud Detection model</Link>, which identifies 4,100+ additional providers with similar prescribing patterns.</p>
+          <p className="text-sm text-blue-800">These {excluded.length} confirmed cases serve as training data for our <Link href="/ml-fraud-detection" className="text-primary font-medium hover:underline">ML Fraud Detection model</Link>, which identifies 4,183 additional providers with similar prescribing patterns.</p>
           <p className="text-sm text-blue-800">Explore flagged providers: <Link href="/flagged" className="text-primary font-medium hover:underline">High Risk Providers</Link></p>
         </div>
       <RelatedAnalysis current={"/analysis/excluded-still-prescribing"} />

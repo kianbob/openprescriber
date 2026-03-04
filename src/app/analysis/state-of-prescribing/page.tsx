@@ -111,9 +111,9 @@ export default function StateOfPrescribingArticle() {
           Despite being on the OIG&apos;s exclusion list for fraud, abuse, or other offenses, {stats.excluded} providers appeared in 2023 prescribing data. This represents a persistent gap in CMS enforcement. <Link href="/excluded">See excluded providers →</Link>
         </p>
 
-        <h2>9. Machine Learning Found 2,579 Providers Rules Missed</h2>
+        <h2>9. Machine Learning Found Thousands of Providers Rules Missed</h2>
         <p>
-          Our ML model, trained on confirmed fraud cases, identified 4,100+ suspicious prescribers. Of these, 2,579 were <em>not</em> flagged by our rule-based scoring — suggesting significant blind spots in traditional approaches. <Link href="/ml-fraud-detection">ML fraud detection →</Link>
+          Our ML model, trained on confirmed fraud cases, identified 4,183 suspicious prescribers. Many were <em>not</em> flagged by our rule-based scoring — suggesting significant blind spots in traditional approaches. <Link href="/ml-fraud-detection">ML fraud detection →</Link>
         </p>
 
         <h2>10. The Opioid Geography Hasn&apos;t Changed</h2>

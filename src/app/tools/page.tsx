@@ -76,7 +76,7 @@ const tools = [
   },
   {
     title: 'ML Fraud Detection',
-    description: 'Machine learning model trained on confirmed fraud cases scores 1M+ providers. Explore 4,100+ flagged prescribers.',
+    description: 'Machine learning model trained on confirmed fraud cases scores 1M+ providers. Explore 4,183 flagged prescribers.',
     href: '/ml-fraud-detection',
     tag: 'AI/ML',
   },

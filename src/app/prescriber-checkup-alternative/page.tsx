@@ -168,7 +168,7 @@ export default function PrescriberCheckupAlternativePage() {
             <p className="text-gray-600 mb-3">
               Our ML model was trained on 281 confirmed fraud cases from the OIG&apos;s List of Excluded
               Individuals and Entities (LEIE). It analyzes prescribing patterns across multiple dimensions
-              to identify statistically anomalous behavior, flagging over 4,100 providers for further review.
+              to identify statistically anomalous behavior, flagging 4,183 providers for further review.
             </p>
             <p className="text-gray-600">
               Additionally, we cross-reference all active prescribers against the OIG LEIE database,

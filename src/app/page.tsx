@@ -284,7 +284,7 @@ export default function HomePage() {
             { label: 'IRA Drug Prices', href: '/ira-negotiation', sub: '$22B in negotiated drugs' },
             { label: 'GLP-1 Tracker', href: '/glp1-tracker', sub: 'Ozempic spending' },
             { label: 'Dangerous Combos', href: '/dangerous-combinations', sub: 'Opioid+benzo risks' },
-            { label: 'ML Fraud Detection', href: '/ml-fraud-detection', sub: '4,100+ ML-flagged' },
+            { label: 'ML Fraud Detection', href: '/ml-fraud-detection', sub: '4,183 ML-flagged' },
             { label: 'Peer Comparison', href: '/peer-comparison', sub: 'Specialty-adjusted' },
             { label: 'Risk Calculator', href: '/tools/risk-calculator', sub: 'Try the scoring model' },
             { label: 'State Report Card', href: '/tools/state-report-card', sub: 'Grade your state' },
@@ -308,7 +308,7 @@ export default function HomePage() {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-purple-100">
             <h3 className="font-semibold text-gray-900">Machine Learning Detection</h3>
-            <p className="text-sm text-gray-600 mt-2">Our ML model trained on 281 confirmed fraud cases catches 2,579 providers that rule-based systems miss entirely.</p>
+            <p className="text-sm text-gray-600 mt-2">Our ML model trained on 281 confirmed fraud cases catches thousands of providers that rule-based systems miss entirely.</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-5 border border-blue-100">
             <h3 className="font-semibold text-gray-900">2023 Data — Most Current Available</h3>

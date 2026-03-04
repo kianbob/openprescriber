@@ -63,7 +63,7 @@ export default function MedicareFraudPage() {
           <p className="text-xs text-gray-600 mt-1">High-Risk Providers</p>
         </div>
         <div className="bg-purple-50 rounded-xl p-5 text-center border border-purple-200">
-          <p className="text-2xl font-bold text-purple-700">4,100+</p>
+          <p className="text-2xl font-bold text-purple-700">4,183</p>
           <p className="text-xs text-gray-600 mt-1">ML-Flagged Providers</p>
         </div>
         <div className="bg-red-50 rounded-xl p-5 text-center border border-red-200">
@@ -101,7 +101,7 @@ export default function MedicareFraudPage() {
 
         <h3>Machine Learning Catches What Rules Miss</h3>
         <p>
-          Our <Link href="/ml-fraud-detection">ML fraud detection model</Link>, trained on 281 confirmed fraud cases from the LEIE, flagged 4,100+ providers with prescribing patterns that statistically resemble known fraud. Of these, 2,579 were <em>not</em> caught by traditional rule-based scoring — suggesting a significant blind spot in conventional approaches.
+          Our <Link href="/ml-fraud-detection">ML fraud detection model</Link>, trained on 281 confirmed fraud cases from the LEIE, flagged 4,183 providers with prescribing patterns that statistically resemble known fraud. Many were <em>not</em> caught by traditional rule-based scoring — suggesting a significant blind spot in conventional approaches.
         </p>
 
         <h3>The Opioid Signal</h3>

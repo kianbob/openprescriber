@@ -226,7 +226,7 @@ export default function PillMillsArticle() {
 
         <h2>What Our ML Model Finds</h2>
         <p>
-          Our <Link href="/ml-fraud-detection">ML fraud detection model</Link> — trained on 281 providers actually convicted of healthcare fraud — identifies patterns that rule-based systems miss. The model learns the <em>combination</em> of features that distinguish fraud cases from legitimate outliers. It flagged 2,579 providers that our rule-based scoring missed entirely.
+          Our <Link href="/ml-fraud-detection">ML fraud detection model</Link> — trained on 281 providers actually convicted of healthcare fraud — identifies patterns that rule-based systems miss. The model learns the <em>combination</em> of features that distinguish fraud cases from legitimate outliers. It flagged thousands of providers that our rule-based scoring missed entirely.
         </p>
         <p>
           The most informative features the model identifies are not the obvious ones. While high opioid rate is predictive, the model places significant weight on <em>temporal patterns</em> — providers whose prescribing volume increased dramatically over a short period, or whose drug mix shifted suddenly toward controlled substances. These trajectory features capture the moment a practice transitions from legitimate to problematic.

@@ -37,7 +37,7 @@ export default function MLFraudPage() {
   // Group by risk tier
   const tier1 = preds.filter(p => p.mlScore >= 0.95) // Very High
   const tier2 = preds.filter(p => p.mlScore >= 0.85 && p.mlScore < 0.95) // High
-  const tier3 = preds.filter(p => p.mlScore >= 0.80 && p.mlScore < 0.85) // Elevated
+  const tier3Count = data.totalFlagged - tier1.length - tier2.length // Elevated (includes providers beyond top 2,000 predictions)
 
   // Top specialties
   const bySpec: Record<string, number> = {}
@@ -147,7 +147,7 @@ export default function MLFraudPage() {
           <p className="text-xs text-gray-500 mt-1">Strong match to fraud patterns</p>
         </div>
         <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-          <p className="text-lg font-bold text-yellow-700">{fmt(tier3.length)} providers</p>
+          <p className="text-lg font-bold text-yellow-700">{fmt(tier3Count)} providers</p>
           <p className="text-sm text-yellow-600">Elevated (80-84% ML confidence)</p>
           <p className="text-xs text-gray-500 mt-1">Notable pattern similarities</p>
         </div>
