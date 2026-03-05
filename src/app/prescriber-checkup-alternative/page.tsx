@@ -300,7 +300,7 @@ export default function PrescriberCheckupAlternativePage() {
         </h2>
         <p className="text-gray-600 mb-4">
           Beyond provider lookup, OpenPrescriber publishes in-depth analysis on prescribing trends,
-          drug costs, and healthcare fraud indicators.
+          drug costs, and healthcare risk indicators.
         </p>
         <div className="flex flex-wrap gap-3 text-sm">
           <Link href="/drugs" className="text-primary font-medium hover:underline">Drug Profiles</Link>

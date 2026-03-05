@@ -8,7 +8,8 @@ export default function ArticleSchema({ title, description, slug, date }: { titl
       url: `https://www.openprescriber.org/analysis/${slug}`,
       datePublished: date,
       dateModified: date,
-      publisher: { '@type': 'Organization', name: 'TheDataProject.ai', url: 'https://thedataproject.ai' },
+      author: { '@type': 'Organization', name: 'OpenPrescriber', url: 'https://www.openprescriber.org' },
+      publisher: { '@type': 'Organization', name: 'OpenPrescriber', url: 'https://www.openprescriber.org' },
       isAccessibleForFree: true,
     })}} />
   )

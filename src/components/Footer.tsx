@@ -44,6 +44,7 @@ export default function Footer() {
             <li><Link href="/search" className="hover:text-white">Search</Link></li>
             <li><a href="mailto:info@thedataproject.ai?subject=Data%20Dispute%20-%20OpenPrescriber" className="hover:text-white">Dispute Data</a></li>
             <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
+            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
           </ul>
         </div>
         <div>
