@@ -64,7 +64,6 @@ export default function Footer() {
             <li><a href="https://www.aiexposure.org" className="hover:text-white">AI Exposure</a></li>
             <li><a href="https://www.tarifftax.org" className="hover:text-white">TariffTax</a></li>
             <li><a href="https://www.shelterscope.com" className="hover:text-white">ShelterScope</a></li>
-            <li><a href="https://www.openprescriber.org" className="hover:text-white">OpenPrescriber</a></li>
             <li><a href="https://thedataproject.ai" className="hover:text-white">TheDataProject.ai</a></li>
           </ul>
         </div>
