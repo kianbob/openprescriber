@@ -6,7 +6,7 @@ import { fmtMoney, fmt } from '@/lib/utils'
 import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
-  title: 'Drug Classes — Medicare Part D Spending by Therapeutic Category',
+  title: 'Drug Classes — Medicare Spending by Category',
   description: 'Explore Medicare Part D drug spending by therapeutic class. Compare costs across 24 drug categories including blood thinners, GLP-1s, insulins, opioids, and more.',
   alternates: { canonical: 'https://www.openprescriber.org/drug-classes' },
   openGraph: {

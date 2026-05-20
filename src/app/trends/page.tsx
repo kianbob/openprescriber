@@ -7,7 +7,7 @@ import DataFreshness from '@/components/DataFreshness'
 import TrendsCharts from './TrendsCharts'
 
 export const metadata: Metadata = {
-  title: 'Medicare Part D Trends (2019-2023) — 5-Year Prescribing Analysis',
+  title: 'Medicare Part D Trends — 5-Year Analysis',
   description: 'How Medicare Part D prescribing has changed from 2019 to 2023. Drug costs grew 50% to $275.6B while opioid prescribing declined. 5-year trend analysis.',
   alternates: { canonical: 'https://www.openprescriber.org/trends' },
   openGraph: {

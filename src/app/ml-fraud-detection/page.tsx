@@ -8,7 +8,7 @@ import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
-  title: 'ML Fraud Detection — Machine Learning Identifies Suspicious Prescribers',
+  title: 'ML Fraud Detection — Suspicious Prescribers',
   description: 'A machine learning model trained on confirmed fraud cases identifies Medicare Part D prescribers with patterns consistent with fraud. Scores 1M+ providers.',
   alternates: { canonical: 'https://www.openprescriber.org/ml-fraud-detection' },
   openGraph: {

@@ -7,7 +7,7 @@ import { loadData } from '@/lib/server-utils'
 import DrugCostsClient from './DrugCostsClient'
 
 export const metadata: Metadata = {
-  title: 'Medicare Drug Costs: The Most Expensive Prescription Drugs in Part D',
+  title: 'Most Expensive Medicare Drugs — Part D Costs',
   description: 'Medicare Part D spent $275.6 billion on prescription drugs in 2023. See the most expensive drugs, cost trends, and where the money goes.',
   alternates: { canonical: 'https://www.openprescriber.org/drug-costs' },
   openGraph: {

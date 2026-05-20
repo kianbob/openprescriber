@@ -7,7 +7,7 @@ import { stateName } from '@/lib/state-names'
 import DataFreshness from '@/components/DataFreshness'
 
 export const metadata: Metadata = {
-  title: 'Medicare Fraud Risk by State — Flagged Prescribers in Every State',
+  title: 'Medicare Fraud Risk by State — All 50 States',
   description: 'Which states have the most Medicare Part D prescribers flagged for potential fraud? Browse high-risk provider counts, costs, and patterns for all 50 states.',
   alternates: { canonical: 'https://www.openprescriber.org/fraud' },
   openGraph: {

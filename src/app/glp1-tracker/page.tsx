@@ -6,7 +6,7 @@ import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
-  title: 'GLP-1 Spending Explosion: Ozempic, Mounjaro & the $8.4B Surge',
+  title: 'GLP-1 Spending — Ozempic & Mounjaro $8.4B Surge',
   description: 'GLP-1 receptor agonists are the fastest-growing drug class in Medicare Part D history. Track $8.4B in spending on Ozempic, Mounjaro, Trulicity and more.',
   alternates: { canonical: 'https://www.openprescriber.org/glp1-tracker' },
   openGraph: {

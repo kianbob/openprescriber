@@ -6,7 +6,7 @@ import { CostTrendChart } from './dashboard/DashboardCharts'
 import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
-  title: 'OpenPrescriber — Medicare Part D Prescribing Data & Analysis',
+  title: 'Medicare Part D Prescribing Data & Analysis',
   description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis. Free, open data.',
   alternates: { canonical: 'https://www.openprescriber.org' },
   openGraph: {

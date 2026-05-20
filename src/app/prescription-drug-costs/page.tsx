@@ -6,7 +6,7 @@ import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
-  title: 'Medicare Prescription Drug Costs 2023 — Part D Spending Data',
+  title: 'Medicare Drug Costs 2023 — Part D Spending',
   description: 'Explore $275.6 billion in Medicare Part D prescription drug costs. See spending by drug, provider, state, and specialty with 5 years of trend data.',
   alternates: { canonical: 'https://www.openprescriber.org/prescription-drug-costs' },
   openGraph: {

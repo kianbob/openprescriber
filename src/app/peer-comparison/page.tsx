@@ -7,7 +7,7 @@ import { loadData } from '@/lib/server-utils'
 import PeerComparisonClient from './PeerComparisonClient'
 
 export const metadata: Metadata = {
-  title: 'How Does Your Doctor Compare? Specialty-Adjusted Prescribing Analysis',
+  title: 'How Does Your Doctor Compare? Peer Analysis',
   description: 'Compare prescribers to their specialty peers using z-score methodology. See opioid rates, costs, and brand preference across 156 specialties.',
   alternates: { canonical: 'https://www.openprescriber.org/peer-comparison' },
   openGraph: {

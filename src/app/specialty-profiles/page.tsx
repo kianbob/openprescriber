@@ -7,7 +7,7 @@ import { loadData } from '@/lib/server-utils'
 import SpecialtyProfilesClient from './SpecialtyProfilesClient'
 
 export const metadata: Metadata = {
-  title: 'Specialty Prescribing Profiles: Average Metrics by Medical Specialty',
+  title: 'Prescribing by Specialty — Averages & Metrics',
   description: 'How does each medical specialty prescribe? Compare opioid rates, drug costs, brand preference, and prescribing volumes across 110 specialties.',
   alternates: { canonical: 'https://www.openprescriber.org/specialty-profiles' },
   openGraph: {

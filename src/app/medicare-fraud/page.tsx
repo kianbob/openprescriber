@@ -7,7 +7,7 @@ import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
 export const metadata: Metadata = {
-  title: 'Medicare Fraud: How It Works, How We Detect It, and What the Data Shows',
+  title: 'Medicare Fraud — How We Detect It with Data',
   description: 'Medicare fraud costs taxpayers $31+ billion annually. See how our data analysis and machine learning detect suspicious prescribing patterns in Medicare Part D.',
   alternates: { canonical: 'https://www.openprescriber.org/medicare-fraud' },
   openGraph: {

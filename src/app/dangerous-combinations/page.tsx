@@ -7,7 +7,7 @@ import { loadData } from '@/lib/server-utils'
 import DangerousClient from './DangerousClient'
 
 export const metadata: Metadata = {
-  title: 'Dangerous Drug Combinations: 6,149 Opioid+Benzo Co-Prescribers',
+  title: 'Dangerous Drug Combos — 6,149 Opioid+Benzo',
   description: 'FDA Black Box Warning: concurrent opioid and benzodiazepine prescribing kills thousands annually. We identified 6,149 Medicare providers co-prescribing these drugs.',
   alternates: { canonical: 'https://www.openprescriber.org/dangerous-combinations' },
   openGraph: {

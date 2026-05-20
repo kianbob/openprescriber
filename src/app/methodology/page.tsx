@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
-  title: 'Methodology: How We Score Risk — Specialty-Adjusted Peer Comparison',
+  title: 'Methodology — How We Score Prescriber Risk',
   description: 'OpenPrescriber\'s unified risk scoring methodology: specialty-adjusted z-scores, population percentiles, drug combination analysis, and OIG exclusion matching across 1.38M providers.',
   alternates: { canonical: 'https://www.openprescriber.org/methodology' },
   openGraph: {

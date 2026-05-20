@@ -7,7 +7,7 @@ import { loadData } from '@/lib/server-utils'
 import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
-  title: 'Opioid Prescribers in Medicare Part D — State Rankings & Data',
+  title: 'Opioid Prescribers in Medicare Part D',
   description: 'Which doctors prescribe the most opioids? See state-by-state opioid prescribing rates, top prescribers, and prescribing patterns across 450,000+ Medicare providers.',
   alternates: { canonical: 'https://www.openprescriber.org/opioid-prescribers' },
   openGraph: {
