@@ -23,8 +23,19 @@ export default function OpioidsPage() {
   const opioidByState = loadData('opioid-by-state.json') as { state: string; providers: number; opioidProv: number; highOpioid: number; opioidClaims: number; avgOpioidRate: number; opioidPct: number }[]
   const topOpioid = (loadData('top-opioid.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; opioidRate: number; opioidClaims: number; claims: number; riskLevel: string }[]).filter(p => p.claims >= 100)
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'Which states have the highest opioid prescribing rates in Medicare?', acceptedAnswer: { '@type': 'Answer', text: 'States in the Southeast and Appalachian region consistently show the highest opioid prescribing rates in Medicare Part D, including Alabama, Tennessee, Mississippi, and West Virginia. OpenPrescriber tracks opioid rates for all 50 states.' } },
+      { '@type': 'Question', name: 'What percentage of Medicare prescribers write opioid prescriptions?', acceptedAnswer: { '@type': 'Answer', text: `Approximately ${fmt(stats.opioidProv)} Medicare Part D prescribers wrote at least one opioid prescription, with ${fmt(stats.highOpioid)} classified as high-rate opioid prescribers based on peer-adjusted thresholds.` } },
+      { '@type': 'Question', name: 'How does OpenPrescriber identify high-risk opioid prescribers?', acceptedAnswer: { '@type': 'Answer', text: 'OpenPrescriber compares each provider\'s opioid prescribing rate against their specialty peers, flags providers with rates significantly above average, and cross-references with OIG exclusion data and other risk indicators.' } },
+    ],
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumbs items={[{ label: 'Opioid Prescribing' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Opioid Prescribing in Medicare Part D</h1>
       <p className="text-gray-600 mb-2">A complete analysis of opioid prescribing patterns across {fmt(stats.providers)} Medicare Part D prescribers in 2023.</p>

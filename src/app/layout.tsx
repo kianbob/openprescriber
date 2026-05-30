@@ -9,8 +9,8 @@ const heading = Playfair_Display({ subsets: ['latin'], variable: '--font-heading
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.openprescriber.org'),
-  title: { default: 'OpenPrescriber — Medicare Part D Prescribing Data & Analysis', template: '%s | OpenPrescriber' },
-  description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis. Free, open data.',
+  title: { default: 'OpenPrescriber — Medicare Prescriber Data & Fraud Analysis', template: '%s | OpenPrescriber' },
+  description: 'Search 1.38 million Medicare prescriber records, flag fraud with ML risk scoring, track opioid hotspots, and explore $275B in Part D drug costs. Free, open data.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -29,8 +29,19 @@ export default function RiskExplorerPage() {
     isExcluded: boolean; opioidBenzoCombination: boolean;
   }[]
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'How does OpenPrescriber calculate Medicare fraud risk scores?', acceptedAnswer: { '@type': 'Answer', text: 'OpenPrescriber uses a machine learning model trained on 281 confirmed OIG exclusion cases. The model evaluates prescribing patterns including cost outliers, opioid rates, brand-name preference, and specialty peer comparisons to assign risk scores from 0 to 100.' } },
+      { '@type': 'Question', name: 'What does a high fraud risk score mean?', acceptedAnswer: { '@type': 'Answer', text: 'A high risk score means a prescriber\'s patterns statistically resemble those of providers who were later excluded by the OIG for fraud or abuse. It does not prove fraud — it highlights providers whose data warrants closer review.' } },
+      { '@type': 'Question', name: 'Can I filter flagged prescribers by state or specialty?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The Risk Explorer lets you filter flagged providers by risk score, state, specialty, and specific risk flags such as cost outliers, high opioid rates, or OIG exclusion matches.' } },
+    ],
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumbs items={[{ label: 'Risk Explorer' }]} />
       <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Risk Explorer</h1>

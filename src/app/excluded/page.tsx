@@ -22,8 +22,18 @@ export const metadata: Metadata = {
 export default function ExcludedPage() {
   const excluded = loadData('excluded.json') as { npi: string; name: string; credentials: string; city: string; state: string; specialty: string; claims: number; cost: number; opioidRate: number; riskScore: number; riskFlags: string[]; isExcluded: boolean }[]
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What is the OIG Exclusion List?', acceptedAnswer: { '@type': 'Answer', text: 'The OIG List of Excluded Individuals/Entities (LEIE) is maintained by the Office of Inspector General. It includes healthcare providers convicted of fraud, patient abuse, or other offenses who are barred from participating in federal healthcare programs like Medicare.' } },
+      { '@type': 'Question', name: 'Can excluded providers still prescribe in Medicare?', acceptedAnswer: { '@type': 'Answer', text: 'Technically no — but OpenPrescriber has identified providers who appear on the OIG exclusion list and still have active prescribing records in CMS data, indicating potential enforcement gaps.' } },
+    ],
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumbs items={[{ label: 'Excluded Providers' }]} />
       <DisclaimerBanner variant="risk" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">Excluded Providers in Medicare Part D</h1>

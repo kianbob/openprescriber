@@ -6,12 +6,12 @@ import { CostTrendChart } from './dashboard/DashboardCharts'
 import { stateName } from '@/lib/state-names'
 
 export const metadata: Metadata = {
-  title: 'Medicare Part D Prescribing Data & Analysis',
-  description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis. Free, open data.',
+  title: 'Medicare Prescriber Data & Fraud Analysis — 1.38M Providers | OpenPrescriber',
+  description: 'Search 1.38 million Medicare prescriber records, flag Medicare fraud with ML risk scoring, track opioid prescribing hotspots, and explore $275B in Part D drug costs. Free, open Medicare prescriber data updated through 2023.',
   alternates: { canonical: 'https://www.openprescriber.org' },
   openGraph: {
-    title: 'OpenPrescriber — Medicare Part D Prescribing Data & Analysis',
-    description: 'Explore 1.38 million Medicare Part D prescribers, $275 billion in drug costs, opioid prescribing patterns, and fraud risk analysis.',
+    title: 'OpenPrescriber — Medicare Prescriber Data & Fraud Risk Analysis',
+    description: 'Search 1.38 million Medicare prescriber records, detect fraud patterns with ML, and explore $275B in Part D drug spending. Free, open data.',
     url: 'https://www.openprescriber.org',
     type: 'website',
   },
@@ -42,6 +42,40 @@ export default function HomePage() {
             target: 'https://www.openprescriber.org/search?q={search_term_string}',
             'query-input': 'required name=search_term_string',
           },
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'What is Medicare prescriber data?',
+              acceptedAnswer: { '@type': 'Answer', text: 'Medicare prescriber data is publicly available information from the Centers for Medicare & Medicaid Services (CMS) that shows every drug prescribed by healthcare providers under Medicare Part D — including the provider, drug name, quantity, and cost. OpenPrescriber aggregates 1.38 million prescriber records from 2019-2023.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'How does OpenPrescriber detect Medicare fraud?',
+              acceptedAnswer: { '@type': 'Answer', text: 'OpenPrescriber uses a machine learning model trained on 281 confirmed OIG exclusion cases to generate fraud risk scores. The model analyzes prescribing patterns including cost outliers, opioid rates, brand-name preference, and peer comparison within each specialty to flag suspicious providers.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'Can I look up my doctor\'s prescribing data?',
+              acceptedAnswer: { '@type': 'Answer', text: 'Yes. Use our Search tool to find any Medicare Part D prescriber by name, NPI number, city, or state. Each provider page shows their prescribing patterns, drug costs, opioid rates, peer comparison, and fraud risk score.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'How much does Medicare Part D spend on drugs?',
+              acceptedAnswer: { '@type': 'Answer', text: 'Medicare Part D spent approximately $275.6 billion on prescription drugs in 2023, covering over 1.38 million prescribers and hundreds of millions of claims. The top 10 drugs alone account for tens of billions in spending.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'What are the most commonly prescribed opioids in Medicare?',
+              acceptedAnswer: { '@type': 'Answer', text: 'The most commonly prescribed opioids in Medicare Part D include hydrocodone-acetaminophen, tramadol, and oxycodone. OpenPrescriber tracks opioid prescribing rates for every provider and identifies geographic hotspots with abnormally high opioid rates.' },
+            },
+          ],
         }) }}
       />
       {/* Hero */}
@@ -413,6 +447,14 @@ export default function HomePage() {
             <Link href="/opioid-prescribers" className="text-primary hover:underline">Opioid Prescribers</Link>
             <Link href="/drug-costs" className="text-primary hover:underline">Drug Costs</Link>
             <Link href="/medicare-part-d" className="text-primary hover:underline">Medicare Part D</Link>
+            <Link href="/analysis/medicare-waste" className="text-primary hover:underline">Medicare Waste</Link>
+            <Link href="/analysis/doctor-shopping" className="text-primary hover:underline">Doctor Shopping</Link>
+            <Link href="/analysis/pharmacy-fraud" className="text-primary hover:underline">Pharmacy Fraud</Link>
+            <Link href="/analysis/polypharmacy" className="text-primary hover:underline">Polypharmacy</Link>
+            <Link href="/analysis/brand-generic-gap" className="text-primary hover:underline">Brand vs Generic</Link>
+            <Link href="/analysis/cost-outliers" className="text-primary hover:underline">Cost Outliers</Link>
+            <Link href="/analysis/excluded-still-prescribing" className="text-primary hover:underline">Excluded Providers</Link>
+            <Link href="/analysis/rural-prescribing" className="text-primary hover:underline">Rural Prescribing</Link>
           </div>
         </div>
       </section>
