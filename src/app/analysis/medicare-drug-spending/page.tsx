@@ -54,6 +54,10 @@ export default function MedicareDrugSpendingPage() {
           </div>
         </div>
 
+        <p>
+          <em>For the latest on 2026 costs, premiums, and the IRA&apos;s impact, see our <Link href="/analysis/medicare-drug-costs-2026">Medicare Drug Costs 2026 guide</Link>.</em>
+        </p>
+
         <h2>What Is Medicare Part D?</h2>
         <p>
           Created by the Medicare Modernization Act of 2003 and launched in 2006, Medicare Part D provides outpatient prescription drug coverage to Medicare beneficiaries through private insurance plans. Unlike Parts A and B, which are administered directly by the federal government, Part D operates through a network of private plan sponsors — insurance companies that contract with Medicare to deliver the benefit.

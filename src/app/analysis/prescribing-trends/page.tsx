@@ -106,6 +106,11 @@ export default function PrescribingTrendsPage() {
           Even if negotiated prices reduce costs for the initial 10 drugs by 25-60% (as CMS estimates), the savings — projected at $6 billion in the first year — would offset only a fraction of the annual spending increases we&apos;ve documented. The pipeline of new specialty drugs continues to grow, and pharmaceutical companies have proven adept at launching new products at premium price points.
         </p>
 
+        <h2>The 2026 Landscape</h2>
+        <p>
+          For the first time, Medicare beneficiaries now benefit from both a <Link href="/analysis/medicare-drug-costs-2026">$2,000 annual out-of-pocket cap</Link> and negotiated drug prices. These structural reforms may finally bend the cost curve — but they face headwinds from an expanding GLP-1 market, new gene therapies, and continued brand-name price increases. The question isn&apos;t whether spending will keep growing, but whether the rate of growth can be controlled.
+        </p>
+
         <h2>What Comes Next</h2>
         <p>
           If current trends continue, Medicare Part D spending could exceed $350 billion by 2027. The trajectory poses difficult questions for policymakers: How do we balance access to innovative treatments with fiscal sustainability? Can value-based pricing models replace the current cost-plus system? And who ultimately bears the burden — taxpayers, beneficiaries through premiums, or both?

@@ -52,7 +52,7 @@ export default function MostPrescribedDrugsPage() {
         <p className="text-lg text-gray-600">
           When people think of Medicare drug costs, they think of expensive specialty drugs. But the drugs
           prescribed <em>most often</em> tell a different story — dominated by chronic disease management:
-          blood thinners, statins, blood pressure medications, and diabetes drugs.
+          blood thinners, statins, blood pressure medications, and diabetes drugs. For a broader look at national prescribing trends including 2026 developments, see our <Link href="/analysis/most-prescribed-medications-2026">Most Prescribed Medications in America 2026</Link> guide.
         </p>
 
         {/* Key stats */}

@@ -98,6 +98,14 @@ export default function TopDrugsAnalysisPage() {
           <strong>Oncology drugs</strong> are the highest per-prescription cost category, with individual treatments costing $10,000-$20,000 per month. While they affect fewer patients than chronic disease medications, their per-unit costs are extraordinary.
         </p>
 
+        <h2>Volume vs. Cost: A Critical Distinction</h2>
+        <p>
+          The drugs that cost Medicare the most are not the drugs prescribed most often. The <Link href="/analysis/most-prescribed-medications-2026">most prescribed medications in America</Link> are overwhelmingly cheap generics — atorvastatin, metformin, lisinopril — that cost a few dollars per fill. The most <em>expensive</em> drugs are specialty and brand-name products prescribed to fewer patients at dramatically higher prices.
+        </p>
+        <p>
+          Eliquis is one of the rare drugs that appears near the top of both lists — widely prescribed <em>and</em> expensive. Understanding this distinction is essential for cost-control policy: targeting generic prescribing rates won&apos;t touch the billion-dollar specialty drugs, and negotiating specialty drug prices won&apos;t affect the high-volume generics that are already cheap.
+        </p>
+
         <h2>What Price Negotiation Could Change</h2>
         <p>
           The first round of Medicare drug price negotiation targets 10 high-cost drugs including Eliquis, Jardiance, and Xarelto. CMS estimates that negotiated prices will reduce costs by $6 billion in the first year of implementation (2026). While meaningful, this represents roughly 2% of total Part D spending — a start, not a solution.

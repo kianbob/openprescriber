@@ -31,6 +31,8 @@ const articles = [
   { href: '/analysis/most-prescribed-drugs', title: 'The 50 Most Prescribed Drugs', tag: 'Drugs' },
   { href: '/analysis/pharmacy-fraud', title: 'Pharmacy Fraud Detection', tag: 'Fraud' },
   { href: '/analysis/160-million-prescriber', title: 'The $160 Million Prescriber', tag: 'Investigation' },
+  { href: '/analysis/medicare-drug-costs-2026', title: 'Medicare Drug Costs in 2026', tag: 'Cost' },
+  { href: '/analysis/most-prescribed-medications-2026', title: 'Most Prescribed Medications 2026', tag: 'Drugs' },
 ]
 
 export default function RelatedAnalysis({ current }: { current: string }) {

@@ -39,6 +39,8 @@ const categories: { heading: string; articles: { title: string; slug: string; de
       { title: 'Where Does $275.6 Billion Go?', slug: 'medicare-drug-spending', desc: 'The big picture of Medicare Part D spending — who pays, where it flows, and policy implications.' },
       { title: 'The $275 Billion Explosion: 5 Years of Medicare Drug Cost Growth', slug: 'prescribing-trends', desc: 'Medicare Part D drug costs surged 50% from $183B to $275.6B in five years. What\'s driving the explosion?' },
       { title: 'The 50 Most Prescribed Drugs in Medicare Part D', slug: 'most-prescribed-drugs', desc: 'Ranked by claims count — the most commonly prescribed drugs in Medicare, with cost-per-claim and provider data.' },
+      { title: 'Medicare Drug Costs in 2026: What Seniors Need to Know', slug: 'medicare-drug-costs-2026', desc: 'The $2,000 out-of-pocket cap, IRA drug negotiations, premium changes, and what Medicare drugs cost in 2026.' },
+      { title: 'Most Prescribed Medications in America 2026', slug: 'most-prescribed-medications-2026', desc: 'The most commonly prescribed drugs in the U.S. — ranked by claims data, with costs, trends, and health insights.' },
     ],
   },
   {
