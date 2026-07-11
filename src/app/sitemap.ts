@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/most-prescribed-drugs', '/analysis/pharmacy-fraud', '/analysis/160-million-prescriber',
     '/contact', '/prescriber-checkup-alternative', '/cities', '/drug-classes', '/fraud', '/trends',
     '/medicare-fraud', '/opioid-prescribers', '/drug-costs', '/medicare-part-d',
+    '/analysis/most-prescribed-drugs-america-2026', '/analysis/ozempic-medicare-cost', '/analysis/generic-vs-brand-drugs-2026',
   ]
 
   // Provider detail pages

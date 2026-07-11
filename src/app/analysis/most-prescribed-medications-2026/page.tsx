@@ -5,6 +5,7 @@ import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import FAQSchema from '@/components/FAQSchema'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
@@ -33,6 +34,11 @@ export default function MostPrescribedMedications2026Page() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <ArticleSchema title={title} description={description} slug={slug} date="2026-06-03" />
+      <FAQSchema faqs={[
+        { question: 'What is the most prescribed medication in America?', answer: 'Atorvastatin (generic Lipitor) is the most prescribed medication in America, with tens of millions of Medicare Part D claims annually. It is a statin used to lower cholesterol and prevent heart disease.' },
+        { question: 'How many prescriptions are filled in the US each year?', answer: 'Approximately 6.7 billion prescriptions are filled annually in the United States. Medicare Part D alone accounts for over 1 billion claims per year.' },
+        { question: 'What are the most prescribed drug categories?', answer: 'Cardiovascular medications (statins, blood pressure drugs, blood thinners) are the most prescribed category, followed by diabetes drugs, thyroid medications, and gastrointestinal treatments.' },
+      ]} />
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Most Prescribed Medications 2026' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">{title}</h1>
       <ShareButtons title={title} />

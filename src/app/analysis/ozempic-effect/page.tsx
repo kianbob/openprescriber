@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import FAQSchema from '@/components/FAQSchema'
 import { fmtMoney, fmt } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
@@ -47,6 +48,11 @@ export default function OzempicEffectArticle() {
         slug="ozempic-effect"
         date="2026-02-28"
       />
+      <FAQSchema faqs={[
+        { question: 'How much does Ozempic cost Medicare?', answer: 'Ozempic costs Medicare billions annually, making it the #2 most expensive drug in Medicare Part D. Each prescription costs approximately $1,000-1,400 per fill. See our detailed Ozempic Medicare cost breakdown for the full taxpayer impact.' },
+        { question: 'Why are GLP-1 drugs so expensive?', answer: 'GLP-1 drugs are expensive because only two companies (Novo Nordisk and Eli Lilly) manufacture them, there are no generic or biosimilar alternatives, and manufacturing injectable peptide drugs is complex. The US pays 3-10x more than other countries for the same medications.' },
+        { question: 'Does Medicare cover Ozempic for weight loss?', answer: 'No. Medicare covers Ozempic only for type 2 diabetes. Wegovy (same molecule, higher dose) is FDA-approved for weight loss but is excluded from Medicare Part D coverage under a 2003 statutory exclusion of anti-obesity medications.' },
+      ]} />
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'The Ozempic Effect' }]} />
 
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-2">The Ozempic Effect: How GLP-1 Drugs Are Reshaping Medicare Spending</h1>

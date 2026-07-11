@@ -5,6 +5,7 @@ import ShareButtons from '@/components/ShareButtons'
 import ArticleSchema from '@/components/ArticleSchema'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import FAQSchema from '@/components/FAQSchema'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 
@@ -43,6 +44,10 @@ export default function MostPrescribedDrugsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <ArticleSchema title={title} description={description} slug={slug} date="2026-03-02" />
+      <FAQSchema faqs={[
+        { question: 'What are the most prescribed drugs in Medicare?', answer: 'The most prescribed drugs in Medicare Part D are generic chronic disease medications: atorvastatin (cholesterol), lisinopril (blood pressure), levothyroxine (thyroid), metformin (diabetes), and amlodipine (blood pressure).' },
+        { question: 'Are the most prescribed drugs also the most expensive?', answer: 'No. The most prescribed drugs are mostly cheap generics costing a few dollars per fill. The most expensive drugs are specialty brand-name medications like Eliquis ($7.75B) and Ozempic that serve fewer patients at much higher per-claim costs.' },
+      ]} />
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Most Prescribed Drugs' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">{title}</h1>
       <ShareButtons title={title} />
@@ -200,6 +205,9 @@ export default function MostPrescribedDrugsPage() {
             <Link href="/analysis/top-drugs-analysis" className="text-sm text-primary hover:underline">💰 Most Expensive Drugs</Link>
             <Link href="/analysis/ozempic-effect" className="text-sm text-primary hover:underline">💉 The Ozempic Effect</Link>
             <Link href="/analysis/brand-generic-gap" className="text-sm text-primary hover:underline">💊 Brand vs Generic Gap</Link>
+            <Link href="/analysis/most-prescribed-drugs-america-2026" className="text-sm text-primary hover:underline">📋 Top 20 Drugs 2026</Link>
+            <Link href="/analysis/ozempic-medicare-cost" className="text-sm text-primary hover:underline">💰 Ozempic Medicare Cost</Link>
+            <Link href="/analysis/generic-vs-brand-drugs-2026" className="text-sm text-primary hover:underline">💊 Generic vs Brand 2026</Link>
             <Link href="/analysis/medicare-waste" className="text-sm text-primary hover:underline">🗑️ Medicare Waste</Link>
             <Link href="/prescription-drug-costs" className="text-sm text-primary hover:underline">📊 Drug Cost Explorer</Link>
           </div>

@@ -6,6 +6,7 @@ import ShareButtons from '@/components/ShareButtons'
 import { fmtMoney, fmt, slugify } from '@/lib/utils'
 import { loadData } from '@/lib/server-utils'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import FAQSchema from '@/components/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Brand vs Generic: The Billion-Dollar Gap in Medicare Part D',
@@ -26,6 +27,10 @@ export default function BrandGenericGapPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <FAQSchema faqs={[
+        { question: 'How much do generic drugs save compared to brand-name drugs?', answer: 'Generic drugs typically cost 80-95% less than brand-name equivalents. In Medicare Part D, the average brand drug costs over $300 per claim while the average generic costs under $15.' },
+        { question: 'Why do some doctors prescribe brand-name drugs instead of generics?', answer: 'Reasons include pharmaceutical marketing, patient preference, lack of generic alternatives for newer drugs, and specialty-specific factors. Some specialties like dermatology and ophthalmology have fewer generic options available.' },
+      ]} />
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Brand vs Generic Gap' }]} />
       <ArticleSchema title="Brand vs Generic: The Billion-Dollar Gap" description="The cost divide in Medicare Part D prescribing." slug="brand-generic-gap" date="2026-03-01" />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">Brand vs Generic: The Billion-Dollar Gap</h1>

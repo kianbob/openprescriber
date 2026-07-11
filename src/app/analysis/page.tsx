@@ -41,6 +41,9 @@ const categories: { heading: string; articles: { title: string; slug: string; de
       { title: 'The 50 Most Prescribed Drugs in Medicare Part D', slug: 'most-prescribed-drugs', desc: 'Ranked by claims count — the most commonly prescribed drugs in Medicare, with cost-per-claim and provider data.' },
       { title: 'Medicare Drug Costs in 2026: What Seniors Need to Know', slug: 'medicare-drug-costs-2026', desc: 'The $2,000 out-of-pocket cap, IRA drug negotiations, premium changes, and what Medicare drugs cost in 2026.' },
       { title: 'Most Prescribed Medications in America 2026', slug: 'most-prescribed-medications-2026', desc: 'The most commonly prescribed drugs in the U.S. — ranked by claims data, with costs, trends, and health insights.' },
+      { title: 'Most Prescribed Drugs in America 2026: Top 20', slug: 'most-prescribed-drugs-america-2026', desc: 'Top 20 drugs by prescription volume with costs, therapeutic uses, and 2026 trends.' },
+      { title: 'Ozempic Medicare Cost: What Taxpayers Pay for GLP-1 Drugs', slug: 'ozempic-medicare-cost', desc: 'How much does Ozempic cost Medicare? Taxpayer spending on GLP-1 drugs, international price comparisons, and the coverage debate.' },
+      { title: 'Generic vs Brand Name Drugs: 2026 Price Comparison', slug: 'generic-vs-brand-drugs-2026', desc: 'How much can you save with generics? Side-by-side price comparisons and the specialties that still prescribe expensive brands.' },
     ],
   },
   {

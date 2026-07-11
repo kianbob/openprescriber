@@ -5,6 +5,7 @@ import ArticleSchema from '@/components/ArticleSchema'
 import ShareButtons from '@/components/ShareButtons'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import RelatedAnalysis from '@/components/RelatedAnalysis'
+import FAQSchema from '@/components/FAQSchema'
 
 const title = 'Medicare Drug Costs in 2026: What Seniors Need to Know'
 const description = 'A comprehensive guide to Medicare drug costs in 2026 — from the new $2,000 out-of-pocket cap to IRA drug price negotiations, rising premiums, and how Part D spending is reshaping American healthcare.'
@@ -22,6 +23,11 @@ export default function MedicareDrugCosts2026Page() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <ArticleSchema title={title} description={description} slug={slug} date="2026-06-03" />
+      <FAQSchema faqs={[
+        { question: 'What is the Medicare Part D out-of-pocket cap in 2026?', answer: 'The Inflation Reduction Act caps Medicare Part D out-of-pocket costs at $2,000 per year starting in 2025. This protects beneficiaries from catastrophic drug costs.' },
+        { question: 'Which drugs are subject to Medicare price negotiation?', answer: 'The first 10 drugs selected for IRA price negotiation include Eliquis, Jardiance, Xarelto, Januvia, Farxiga, Entresto, Enbrel, Imbruvica, Stelara, and NovoLog. Ozempic is expected in the next round.' },
+        { question: 'How much does Medicare spend on drugs per year?', answer: 'Medicare Part D spending exceeds $275 billion annually, covering prescriptions for over 67 million beneficiaries.' },
+      ]} />
       <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Medicare Drug Costs 2026' }]} />
       <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] mb-4">{title}</h1>
       <ShareButtons title={title} />
