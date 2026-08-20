@@ -81,6 +81,7 @@ export default function AboutPage() {
           <li><a href="https://www.warcosts.org" className="text-primary">WarCosts</a> — Military spending and war costs</li>
           <li><a href="https://www.openfeds.org" className="text-primary">OpenFeds</a> — Federal workforce data</li>
           <li><a href="https://www.openspending.us" className="text-primary">OpenSpending</a> — Government spending</li>
+          <li><a href="https://permitcore.io" className="text-primary">PermitCore</a> — Construction permit intelligence</li>
         </ul>
 
         <h2>How We Compare</h2>
